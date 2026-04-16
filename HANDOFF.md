@@ -57,12 +57,15 @@ Issue #3 — seed `data/catalogue.json` with redundancy entries sourced from (1)
 
 Reject stretches. Add entries from your own repo/forum experience (candidates: patterns you have seen in the SheetPortal / ContextKey / CashlessNow CLAUDE.mds, or recurring forum posts). Agent aimed for 50 and shipped 45 — the gap is the user-authored slice.
 
+**Slash-command extension — scoped but not written.** User flagged native slash commands (/compact, /btw, /plan, /context, /agents, /advisor, /hooks, /init, /rewind) as a high-confidence redundancy vector. Existing catalogue already covers /clear (`clear-between-tasks`), Plan Mode (`use-plan-mode`, `explore-first-then-code`), /agents (`use-subagents-for-research`). Gaps still open: /compact, /btw, /hooks, /context, /init, /rewind, and /advisor if verifiable. Session ended before these were authored — conversation compacted mid-research, user called it and asked for a fresh session. Resume in fresh session starting from `code.claude.com/docs/en/commands` as the canonical source.
+
 After PR #3 merges: Issue #4. Before starting #4, set `GH_TOKEN` as a GitHub Actions repo secret manually (classic PAT, public-repo read scope is enough; the refresh script stays unauthenticated for code search but authenticated for raw file fetches to avoid 5-req/min limits).
 
 ### Open questions / decisions deferred
 - Does `scorecard.skipped` surface in the UI (Issue #5/#6)? — still open.
 - Domain (Issue #7) — still deferred.
 - Should the catalogue carry a `claude_code_version_verified_against` field so stale entries are flagged automatically? Decide before Issue #4 if yes; it would be a lightweight schema bump.
+- v0.2 territory: custom skills (/mom, /session-start, /research-first) are project-local, not native — they are not catalogue candidates. Flagged by user for future evaluation of native-vs-custom skill redundancy.
 
 ### Git state
 - Branch: `feature/catalogue` at `d9444c7`, pushed after this commit, PR #3 opens.
