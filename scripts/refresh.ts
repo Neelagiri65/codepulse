@@ -138,6 +138,9 @@ export const runRefresh = async (
 
 // ---------- Real-dep CLI wiring (only runs when invoked directly) ----------
 
+const sleep = (ms: number): Promise<void> =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 const makeDiscover =
   (octokit: Octokit) =>
   async (limit: number): Promise<RepoMeta[]> => {
@@ -146,8 +149,13 @@ const makeDiscover =
     const seen = new Map<string, { owner: string; name: string }>();
     const PER_PAGE = 100;
     const MAX_PAGES = 10; // GitHub caps search pagination at 1000 results
+    // Code search is rate-limited to 10 req/min (observed: x-ratelimit-limit: 10
+    // on code_search bucket even with auth). 7s between pages keeps a full
+    // 10-page sweep safely inside the window.
+    const DELAY_BETWEEN_PAGES_MS = 7000;
 
     for (let page = 1; page <= MAX_PAGES; page++) {
+      if (page > 1) await sleep(DELAY_BETWEEN_PAGES_MS);
       const res = await octokit.search.code({
         q: 'filename:CLAUDE.md path:/',
         per_page: PER_PAGE,
