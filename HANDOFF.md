@@ -1,5 +1,74 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-16 (session 5, PR #3 review — over-match audit)
+
+### State at session start
+- `feature/catalogue` at `89c2508`, PR #3 open with 45 sourced entries awaiting review.
+- Next action from session 4: entry-by-entry review using the checklist in `docs/catalogue-authoring.md`.
+
+### Single deliverable for this session
+Audit the 45 catalogue entries for over-matching risk. Drop or tighten any entry that would fire on legitimate, non-redundant CLAUDE.md content. Ship a credible catalogue before Issue #4's crawl.
+
+### What happened
+Over-match audit flagged 7 false-positive risks. User triaged:
+- **Dropped 5 (hardening / project-specific ≠ redundancy):** `no-force-push`, `no-reset-hard` (stricter-than-default is hardening), `be-direct` (fires on narrative prose), `no-sql-injection`, `no-xss` (fire on project-specific security contracts).
+- **Tightened 4 regexes** to match generic restatement only, not project-scoped variations:
+  - `no-comments` — require explicit verb + plural `comments` + lookahead blocking prepositions (`in|to|on|for|out|when|without|unless|except|inside|across|that|but`).
+  - `parallel-tool-calls` — negative lookbehind on `not|don't|never|avoid|disable|skip`; affirming verb list; trailing `except|unless|but` lookahead.
+  - `no-unnecessary-error-handling` — qualifier required (`unnecessary|excessive|over-engineered|premature`).
+  - `verify-your-work` — must terminate on sentence boundary or generic completion verb.
+- **Ground rule added** to `docs/catalogue-authoring.md`: "Hardening is not redundancy." Future entries targeting destructive ops or security must require evidence the instruction is no stricter than the default.
+- **`scripts/smoke-test.mts` committed** as a permanent validation tool. Runs catalogue against a directory of real CLAUDE.mds and prints excerpts for human review.
+
+### Smoke-test finding (important for launch narrative)
+Proposed 40-entry catalogue run against 10 random public CLAUDE.mds (3–11 KB each). **9 of 10 scored 0.** Only `robo-poet.md` hit (`no-emojis` on "No emojis in commit messages," w=6, score 3).
+
+**Reading:** the sample was biased toward small/personal repos. Redundancy bloat likely concentrates in popular/copied repos and power-user accumulations — which is exactly what Issue #4's top-200-by-stars crawl will measure. Launch narrative sharpens: "redundancy concentrates in the most-copied repos, the ones that influence the rest of the ecosystem." More credible than "everything is broken."
+
+### What's done this session
+- [x] Over-match audit — 7 risks identified, 5 dropped + 4 tightened per user triage.
+- [x] Regex test harness at `/tmp/codepulse-regex-test.mjs` — all positive/negative cases pass.
+- [x] 10 real CLAUDE.mds fetched via `gh api` to `/tmp/codepulse-samples/`.
+- [x] Proposed catalogue validated (40 entries, validator clean).
+- [x] Full test suite green (34/34). Typecheck clean.
+- [x] 3 commits pushed on `feature/catalogue`:
+  - `2fb7da8 fix(catalogue): drop 5 overmatching entries, tighten 4 regexes — PR #3 review`
+  - `c40f235 docs: add "Hardening is not redundancy" rule to catalogue-authoring`
+  - `5a11bc0 tool: scripts/smoke-test.mts — score catalogue against real CLAUDE.md samples`
+
+### What's not done
+- [ ] **Entry-by-entry review of the remaining 40.** Over-match was the first credibility risk addressed; still open: `source_url` reachability, whether linked text actually supports the claim, weight proportionality, and "would a developer agree they've been wasting tokens?"
+- [ ] Issue #4 (GH Actions cron refresh pipeline) and Issues #5–7.
+- [ ] `robo-poet.md` hit — `no-emojis` fires on "No emojis in commit messages"; debatable (scoped to commit messages, not blanket). Flag for future pass, not blocking.
+
+### NEXT action (for the next session)
+**Option A — finish PR #3 review:** continue entry-by-entry against the remaining 40 on the other three checklist items (URL reachability, claim support, weight). Merge PR #3 when done.
+
+**Option B — ship PR #3 as-is and move to Issue #4:** the over-match pass was the highest-credibility risk. If the remaining review can wait until after the top-200 crawl surfaces real data (which will also flag weak entries empirically), merge now and start Issue #4.
+
+User's call. Before starting #4, set `GH_TOKEN` as a GitHub Actions repo secret (classic PAT, public-repo read scope).
+
+### Open questions / decisions deferred
+- `scorecard.skipped` UI surface (Issue #5/#6) — still open.
+- Domain (Issue #7) — still deferred.
+- `claude_code_version_verified_against` schema field for stale-entry flagging — decide before Issue #4.
+- Slash-command extension (`/compact`, `/btw`, `/hooks`, `/context`, `/init`, `/rewind`) — still deferred from session 4's mid-research compaction. Canonical source: `code.claude.com/docs/en/commands`.
+- v0.2 territory: custom-skills redundancy (`/mom`, `/session-start`, `/research-first`) — project-local, not native, out of scope.
+
+### File operations this session
+- Created: `scripts/smoke-test.mts`.
+- Modified: `data/catalogue.json` (45 → 40 entries, 4 regexes tightened), `docs/catalogue-authoring.md` (ground rule added), `HANDOFF.md`.
+- Deleted: 0.
+- Touched outside project dir: 0 (all /tmp work was temporary artefacts; gh api fetches were read-only).
+
+### Git state
+- Branch: `feature/catalogue` at `5a11bc0`, pushed.
+- `main` at `4fa8156` (unchanged).
+- Remote: https://github.com/Neelagiri65/codepulse
+- PR #3: https://github.com/Neelagiri65/codepulse/pull/3 (auto-updated with 3 new commits).
+
+---
+
 ## Session: 2026-04-16 (session 4, Issue #3 catalogue seed — hybrid authoring)
 
 ### State at session start
