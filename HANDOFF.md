@@ -25,7 +25,6 @@
 
 ### What's not done
 - [ ] User approval of the PRD (read it, push back or confirm)
-- [ ] `git remote add origin` + push to GitHub (repo doesn't exist on GitHub yet)
 - [ ] Issue #1: repo scaffold (Vite + TS + data layout)
 - [ ] The remaining six issues
 
@@ -37,14 +36,13 @@ If the user wants changes to the PRD (e.g. different v0.1 scope), amend the PRD 
 ### Open questions / decisions deferred
 - Domain: does `codepulse.dev` need registering now, or launch on a `*.vercel.app` subdomain first? (PRD treats domain as deferrable.)
 - Catalogue authoring (Issue #3) is the critical path and benefits from the user's own judgement. Decide whether the user writes it, the agent drafts it for review, or a hybrid.
-- Whether to push the repo to GitHub before Issue #1 starts (useful so the GH Action in Issue #4 has somewhere to run).
 
 ### Git state
-- Branch: `main`
-- Commits:
+- Branch: `main`, tracking `origin/main`
+- Remote: https://github.com/Neelagiri65/codepulse (public, created end of session 1)
+- Commits pushed:
   - `f58a334 chore: initial commit with V2 vision spec`
-  - (pending commit at end of this session: PRD + issues + CLAUDE.md + HANDOFF.md)
-- Remote: none yet.
+  - `7778486 docs: v0.1 PRD, 7-issue decomposition, project CLAUDE.md, HANDOFF`
 
 ### File operations this session
 - Created: 4 files (`docs/prd-v0.1-leaderboard-and-audit.md`, `docs/issues-v0.1-leaderboard-and-audit.md`, `CLAUDE.md`, `HANDOFF.md`).
