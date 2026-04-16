@@ -1,5 +1,32 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 (session 5 tail — PR #3 merged + Issue #4 pre-flight)
+
+### What happened after the session-5 over-match audit
+- PR #3 merged into `main` at `72de464` (merge commit, not squash).
+- PRs #1 and #2 were already merged; `gh pr merge 1/2` would have errored.
+- `feature/catalogue` deleted locally and on remote.
+- Pre-push secret scan: no `ghp_|github_pat_|gho_|ghs_|ghu_|ghr_|bearer` patterns in any commit on this branch. Clean.
+- **`GH_TOKEN` Actions secret set on `Neelagiri65/codepulse`** (timestamp `2026-04-16T23:10:40Z`). Sourced from Keychain entry `github-pat` via the extended `~/.secrets/populate-env.sh codepulse`. Value never entered chat, argv, disk, or shell history — Keychain → pipe → `gh secret set` stdin → GitHub sealed-box.
+- `~/.secrets/populate-env.sh` extended with a `codepulse` case that runs the pipe above. `~/.secrets/MANIFEST.md` updated to document the new command. Both are outside the project dir.
+
+### Issue #4 pre-flight — now fully unblocked
+- `main` is clean and at `72de464`.
+- `GH_TOKEN` is set on the repo (verify with `gh secret list --repo Neelagiri65/codepulse`).
+- No feature branches outstanding.
+- Catalogue stands at 40 validated entries; smoke test harness at `scripts/smoke-test.mts`.
+
+### NEXT action (fresh session for Issue #4)
+Start from `main`, branch as `feature/refresh-pipeline` (or similar). Build the GitHub Actions cron that refreshes the leaderboard JSON. Architectural constraint: the refresh runs *only* in CI on schedule — no local/dev writes to the leaderboard. The Action uses `secrets.GH_TOKEN` for raw-file fetches (to dodge unauth 5-req/min limit); code-search stays unauthenticated.
+
+### File operations this session tail
+- Modified inside project: `HANDOFF.md` (this block).
+- Modified outside project: `~/.secrets/populate-env.sh`, `~/.secrets/MANIFEST.md` — both explicitly authorised, part of the sanctioned secrets-management standard, not the project directory.
+- Deleted: `feature/catalogue` (local + remote branch).
+- Committed secret values anywhere: **none**.
+
+---
+
 ## Session: 2026-04-16 (session 5, PR #3 review — over-match audit)
 
 ### State at session start
