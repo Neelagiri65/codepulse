@@ -6,6 +6,7 @@ export interface Pattern {
   source_url: string;
   reason: string;
   added_at: string;
+  claude_code_version_verified_against: string;
 }
 
 export interface Match {

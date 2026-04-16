@@ -58,7 +58,9 @@ Seven issues, ordered by dependency. Each is one session of work, ≤5 files cha
 - `.github/workflows/refresh.yml` — cron `0 * * * *`, runs `pnpm refresh`, commits `data/repos.json` + `data/meta.json` to main if changed
 - GitHub Actions secret `GH_TOKEN` configured manually (user action)
 
-**Test:** Workflow runs manually via `workflow_dispatch`; `data/repos.json` populates with 200 entries; rate-limit headroom verified (<500 calls per run). Second run is idempotent unless source repos changed.
+**Test:** Workflow runs manually via `workflow_dispatch`; `data/repos.json` populates with 200 entries; rate-limit headroom verified (≤~1500 calls per run, well under the 5,000/hr authenticated limit). Second run is idempotent unless source repos changed.
+
+**Note on revised call budget (2026-04-17):** the original `<500` target assumed GitHub code search had a `sort:stars-desc` option. It doesn't, and code-search results don't carry `stargazers_count` inline. A faithful "top 200 by stars" therefore requires: (a) paginated code search to surface CLAUDE.md-bearing repos (~10 calls), (b) a `repos.get` enrichment per unique repo for stars (~500–1000 calls), (c) content + last-commit per winner (200 × 2 = 400). Total ~1000–1400 calls per run. Honest-data rule from the PRD applies: we ship the real API cost rather than shrink the dataset to hit an arbitrary budget.
 
 **Depends on:** #2, #3
 

@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated_at": "2026-04-16",
+  "version": 2,
+  "updated_at": "2026-04-17",
   "patterns": [
     {
       "id": "be-concise",
@@ -9,7 +9,8 @@
       "weight": 7,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-tone-and-style-concise-output-short.md",
       "reason": "Claude Code's system prompt already contains: 'Your responses should be short and concise.' Restating in CLAUDE.md adds no behaviour.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "keep-it-short",
@@ -18,7 +19,8 @@
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-tone-and-style-concise-output-short.md",
       "reason": "Variant of 'be concise'. Claude Code's system prompt already instructs short, concise output.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-emojis",
@@ -27,7 +29,8 @@
       "weight": 6,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-write.md",
       "reason": "Claude Code's Write tool description states: 'Only use emojis if the user explicitly requests it. Avoid writing emojis to files unless asked.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "avoid-emojis",
@@ -36,7 +39,8 @@
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-write.md",
       "reason": "Variant of 'no emojis'. Claude Code's default is already no emojis unless the user asks for them.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-comments",
@@ -45,7 +49,8 @@
       "weight": 7,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Claude Code's communication-style prompt states: 'In code: default to writing no comments.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-docstrings",
@@ -54,7 +59,8 @@
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Claude Code's system prompt already says: 'Never write multi-paragraph docstrings or multi-line comment blocks — one short line max.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "prefer-editing",
@@ -63,7 +69,8 @@
       "weight": 8,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-edit.md",
       "reason": "Claude Code's Edit tool description states: 'ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "dont-create-docs",
@@ -72,7 +79,8 @@
       "weight": 7,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-write.md",
       "reason": "Claude Code's Write tool description states: 'NEVER create documentation files (*.md) or README files unless explicitly requested by the User.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "file-path-line-number",
@@ -81,7 +89,8 @@
       "weight": 8,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-tone-and-style-code-references.md",
       "reason": "Direct copy of Claude Code's system-prompt wording: 'include the pattern file_path:line_number to allow the user to easily navigate to the source code location.' The behaviour is already built in.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "parallel-tool-calls",
@@ -90,7 +99,8 @@
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-parallel-tool-call-note-part-of-tool-usage-policy.md",
       "reason": "Claude Code's tool-usage policy already states: 'If you intend to call multiple tools and there are no dependencies between them, make all independent tool calls in parallel. Maximize use of parallel tool calls where possible to increase efficiency.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "use-rg-not-grep",
@@ -99,7 +109,8 @@
       "weight": 6,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-bash-prefer-dedicated-tools.md",
       "reason": "Claude Code's Bash tool description already instructs users to prefer dedicated tools (Grep, Read, Glob) over shell search commands. Grep is built on ripgrep.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "prefer-dedicated-tools",
@@ -108,7 +119,8 @@
       "weight": 6,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-bash-prefer-dedicated-tools.md",
       "reason": "Claude Code's Bash tool description already instructs: prefer the dedicated Grep/Read/Glob tools over shell equivalents.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-skip-hooks",
@@ -117,7 +129,8 @@
       "weight": 6,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-bash-git-never-skip-hooks.md",
       "reason": "Claude Code's git tool description states: 'Never skip hooks (--no-verify) or bypass signing... unless the user has explicitly asked for it.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "prefer-new-commits",
@@ -126,7 +139,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-bash-git-prefer-new-commits.md",
       "reason": "Claude Code's git description already states: 'Prefer to create a new commit rather than amending an existing commit.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-unnecessary-error-handling",
@@ -135,7 +149,8 @@
       "weight": 6,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-no-unnecessary-error-handling.md",
       "reason": "Claude Code's task-focus prompt states: 'Don't add error handling, fallbacks, or validation for scenarios that can't happen. Trust internal code and framework guarantees. Only validate at system boundaries.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-backwards-compat-hacks",
@@ -144,7 +159,8 @@
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-no-compatibility-hacks.md",
       "reason": "Claude Code's system prompt already states: 'Avoid backwards-compatibility hacks... If you are certain that something is unused, you can delete it completely.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "mark-task-complete",
@@ -153,7 +169,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-tool-usage-task-management.md",
       "reason": "Claude Code's task-management prompt already states: 'Mark each task as completed as soon as you are done with the task. Do not batch up multiple tasks before marking them as completed.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "dont-batch-tasks",
@@ -162,7 +179,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-tool-usage-task-management.md",
       "reason": "Variant of the task-completion rule. Same source.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "owasp-top-10",
@@ -171,7 +189,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-security.md",
       "reason": "Claude Code's system prompt already states: 'Be careful not to introduce security vulnerabilities such as command injection, XSS, SQL injection, and other OWASP top 10 vulnerabilities.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "dont-narrate-thinking",
@@ -180,7 +199,8 @@
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Claude Code's communication-style prompt already states: 'Don't narrate your internal deliberation.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-planning-docs",
@@ -189,7 +209,8 @@
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Claude Code's communication-style prompt already states: 'Don't create planning, decision, or analysis documents unless the user asks for them.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "one-sentence-updates",
@@ -198,7 +219,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Near-verbatim quote of Claude Code's own system prompt: 'One sentence per update is almost always enough.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "write-clean-code",
@@ -207,7 +229,8 @@
       "weight": 3,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc explicitly calls this out as something NOT to include: 'Self-evident practices like ‘write clean code’.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "follow-language-conventions",
@@ -216,7 +239,8 @@
       "weight": 3,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc lists 'Standard language conventions Claude already knows' as something to exclude from CLAUDE.md.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "use-camelcase-js",
@@ -225,7 +249,8 @@
       "weight": 3,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc gives this kind of rule as an example of what Claude already knows: 'Standard language conventions Claude already knows.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "use-snake-case-python",
@@ -234,7 +259,8 @@
       "weight": 3,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc flags standard language conventions as redundant. Python snake_case is PEP8, which Claude already knows.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "read-before-edit",
@@ -243,7 +269,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-edit.md",
       "reason": "Claude Code's Edit tool description already enforces reading before editing at the tool level: 'You must use your Read tool at least once in the conversation before editing. This tool will error if you attempt an edit without reading the file.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "verify-your-work",
@@ -252,7 +279,8 @@
       "weight": 4,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc headlines this as a behaviour the user provides via verification criteria, not a directive the user should restate: 'Give Claude a way to verify its work... This is the single highest-leverage thing you can do.' The value is in providing tests/commands, not in the instruction.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "explore-first-then-code",
@@ -261,7 +289,8 @@
       "weight": 4,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc already describes Plan Mode as the product-level way to separate exploration from execution. Restating the workflow in CLAUDE.md does nothing that `/plan` and Plan Mode do not already do.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "use-plan-mode",
@@ -270,7 +299,8 @@
       "weight": 3,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Plan Mode is a built-in mode the user toggles; instructing Claude to 'use Plan Mode' from CLAUDE.md does not toggle it. See best-practices doc, 'Explore first, then plan, then code.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "clear-between-tasks",
@@ -279,7 +309,8 @@
       "weight": 4,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc describes /clear as a user-invoked command. CLAUDE.md cannot invoke /clear on behalf of the user.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "use-subagents-for-research",
@@ -288,7 +319,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-tool-usage-subagent-guidance.md",
       "reason": "Claude Code's subagent-usage prompt already says: 'Subagents are valuable for parallelizing independent queries or for protecting the main context window from excessive results.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "address-root-causes",
@@ -297,7 +329,8 @@
       "weight": 4,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc already gives this as a verification strategy in the prompt to Claude, not a CLAUDE.md rule: 'Address root causes, not symptoms.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "use-gh-cli",
@@ -306,7 +339,8 @@
       "weight": 3,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc recommends gh CLI as a pattern, and Claude Code already uses gh when available. Restating in every CLAUDE.md is redundant — install gh and let Claude reach for it.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-hedging",
@@ -315,7 +349,8 @@
       "weight": 3,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Communication style built into Claude Code already emphasises direct, non-hedging output.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "short-end-summary",
@@ -324,7 +359,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Claude Code's system prompt already states: 'End-of-turn summary: one or two sentences. What changed and what's next. Nothing else.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "dont-suppress-errors",
@@ -333,7 +369,8 @@
       "weight": 4,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc already frames this as part of verification/root-cause: 'Address the root cause, don't suppress the error.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "no-premature-abstractions",
@@ -342,7 +379,8 @@
       "weight": 3,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Claude Code's system prompt already discourages unnecessary additions beyond task scope; 'no premature abstractions' is redundant.",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "trust-framework",
@@ -351,7 +389,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-no-unnecessary-error-handling.md",
       "reason": "Near-verbatim quote from Claude Code's system prompt: 'Trust internal code and framework guarantees.'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     },
     {
       "id": "validate-at-boundaries",
@@ -360,7 +399,8 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-no-unnecessary-error-handling.md",
       "reason": "Near-verbatim quote from Claude Code's system prompt: 'Only validate at system boundaries (user input, external APIs).'",
-      "added_at": "2026-04-16"
+      "added_at": "2026-04-16",
+      "claude_code_version_verified_against": "2026-04-16"
     }
   ]
 }

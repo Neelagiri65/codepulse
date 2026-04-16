@@ -1,5 +1,102 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 (session 6 — Issue #4 + schema prereq, PR #4 open)
+
+### State at session start
+- `main` at `0f2d1fd`, clean working tree.
+- No open branches. `GH_TOKEN` already set as repo secret.
+- Previous session's deferred decision: add `claude_code_version_verified_against` schema field before Issue #4. Confirmed at start of this session.
+
+### Single deliverable for this session
+Ship Issue #4 (GitHub Actions cron refresh pipeline) plus the flagged schema prereq. One PR, clearly-labelled commits, no stacked PRs.
+
+### Design decisions locked with user
+- **One PR for prereq + issue.** Schema bump isn't an issue, it's a prereq; ships in the same PR as Issue #4 with distinct labelled commits.
+- **`repos.json` on `main`.** Skip the `data` branch dance per PRD. UI will fetch from `dist/data/`.
+- **Idempotency option (a).** `runRefresh` only writes `repos.json` + `meta.json` when the repos array has changed; no-op hours leave git history untouched. Add `last_checked_at` later if UX needs fresher "checked at" signal.
+- **`updated_at` bumped to today** (schema change, not content edit).
+- **One authenticated Octokit client throughout.** Code search requires auth (`/search/code` returns 401 unauthenticated); HANDOFF's previous "code search stays unauthenticated" note was factually wrong and is corrected in-PR.
+
+### What happened
+1. Schema prereq shipped TDD:
+   - `4cbb70b test: require claude_code_version_verified_against in catalogue schema` (RED — 2 of 3 new validator tests failing).
+   - `8321470 feat(schema): add claude_code_version_verified_against to catalogue` — Pattern type updated, validator enforces ISO date, all 40 entries backfilled with `2026-04-16` (the date they were sourced against Piebald/Anthropic), catalogue `version` 1 → 2, `updated_at` → `2026-04-17`. GREEN.
+2. Issue #4 shipped TDD:
+   - `dc57122 test: failing tests for refresh pipeline` — 13 tests for `scoreRepo`/`shouldWrite`/`runRefresh` with injected Octokit + fs mocks. RED (module doesn't exist).
+   - `d30ad7b feat: refresh pipeline (scoreRepo, shouldWrite, runRefresh)` — three pure/testable seams + CLI wiring with authenticated Octokit. GREEN.
+   - `4455cad chore: pnpm refresh script wires scripts/refresh.ts` — npm script fix-up (missed from previous commit because Edit tool required a fresh Read of package.json).
+3. Workflow YAML:
+   - `4ab084b ci: hourly refresh workflow — Issue #4` — `.github/workflows/refresh.yml` runs on cron `0 * * * *` + `workflow_dispatch`. `concurrency` group prevents overlap, 15-min timeout, `contents: write` permission for the data commit. Uses `GH_TOKEN` PAT for refresh's API calls; `GITHUB_TOKEN` (default) for the commit push.
+4. AC doc update:
+   - `88dd17d docs: revise Issue #4 rate-limit AC — honest-data rule`.
+
+### Revised rate-limit AC (honest-data rule)
+Original AC target `<500 calls per run` was set under a false assumption that GitHub code search supports `sort:stars-desc`. It doesn't, and code-search results don't carry `stargazers_count` inline. A faithful top-200-by-stars therefore costs:
+- Code search discovery (paginate up to 1000 hits): ~10 calls
+- `repos.get` star enrichment per unique repo: ~500–1000 calls
+- Content + last-commit per winner: 200 × 2 = 400 calls
+- **Total: ~1000–1400 calls per run** — well under the 5000/hr authenticated hard limit.
+
+Per PRD's honest-data rule: ship the real cost rather than shrink the dataset to hit an arbitrary number. Issues doc + PR description both updated.
+
+### What's done this session
+- [x] Schema prereq shipped (2 commits, TDD).
+- [x] Issue #4 shipped (3 commits, TDD).
+- [x] Workflow YAML shipped (1 commit).
+- [x] AC doc revised (1 commit).
+- [x] 50/50 tests pass. Typecheck clean. Validator green. Build clean (29ms).
+- [x] Pre-push secret scan: no `ghp_|github_pat_|bearer|api_key` patterns in diff.
+- [x] PR #4 opened: https://github.com/Neelagiri65/codepulse/pull/4
+
+### What's not done
+- [ ] **Manual `workflow_dispatch` smoke test of the refresh Action.** Must be done AFTER PR #4 merges to `main` (workflow file needs to exist on the default branch). Verify `data/repos.json` populates with 200 entries; run a second manual refresh and confirm zero diff (idempotency).
+- [ ] Issue #5 (leaderboard UI) and issues #6–7.
+
+### Design-system pre-work for Issue #5 (user direction, captured for next session)
+Before writing any Issue #5 UI, establish design language rather than drift into AI-default styling. User's brief:
+- Dark theme mandatory (monitoring dashboard used by developers).
+- Information-density + precision (reference points: World Monitor, Linear).
+- Accent colour: signals "health/diagnostic," not generic AI blue.
+- Typography: monospace for data, clean sans-serif for labels.
+- Visual language: health scores as red→amber→green gradients, sparklines for trends, compact data cards.
+- No decorative elements. Every pixel communicates data.
+
+**Environment substitutes (flagged during the session):** the brief referenced `/mnt/skills/public/frontend-design/SKILL.md`, which is a Linux sandbox path not present on this darwin environment. Available in-environment design skills are `stitch-design`, `design-md`, `react-components`, `enhance-prompt`. Issue #5 session should:
+1. Start with `/stitch-design` to generate 2-3 radically different dashboard directions.
+2. Use `/design-md` to lock the chosen direction into `DESIGN.md` at project root.
+3. Use `/react-components` to translate designs into Vite + TS components against `DESIGN.md`.
+
+User also flagged: if Stitch is available in the CC environment, use it for any chart/viz rendering while CC handles data + logic. (Stitch MCP tools ARE available in this environment — confirmed.)
+
+### "Eat own dog food" self-audit gate for Issue #7 (launch)
+Pre-launch MOM check, added by user: run CodePulse's own catalogue against CodePulse's own CLAUDE.md (the project file, not the global rules). If CodePulse scores high on its own metric, that's the launch narrative: *"we built the tool that measures AI config health, our own config scored N/100 on the first audit, here's what we learned."* Add as an explicit item in `docs/mom-v0.1.md` when Issue #7 lands.
+
+### NEXT action (for the next session)
+1. **Review PR #4** on GitHub. If the commit-by-commit TDD flow is clean and the schema/refresh/YAML all look right, merge. One-issue-per-PR rule: merge before branching #5.
+2. **Post-merge: manual `workflow_dispatch` smoke test** of the refresh Action. Visit Actions tab → refresh → Run workflow. Expect ~5-min run; data commit appears on `main` if 200 repos scored successfully. Run it again immediately; second run should produce zero diff (idempotency).
+3. **Then Issue #5** — UI + design system. First step per global rules Phase 3: run `/stitch-design` or `/design-md` to establish `DESIGN.md` before any component code. See design-pre-work section above for the user's brief.
+
+### Open questions / decisions deferred
+- `scorecard.skipped` UI surface (Issue #5/#6) — still open.
+- Domain (Issue #7) — still deferred.
+- `last_checked_at` field in `meta.json` — revisit if UX wants fresher signal on no-op hours.
+- Slash-command extension research (`/compact`, `/btw`, `/hooks`, `/context`, `/init`, `/rewind`) — still deferred from session 4.
+- `robo-poet.md` smoke-test hit on `no-emojis` — still flagged for future review pass.
+
+### File operations this session
+- Created: `scripts/refresh.ts`, `scripts/refresh.test.ts`, `.github/workflows/refresh.yml`.
+- Modified inside project: `data/catalogue.json` (schema field on all 40 entries, version 1→2, updated_at → 2026-04-17), `scripts/validate-catalogue.ts`, `scripts/validate-catalogue.test.ts`, `src/score.ts`, `src/score.test.ts`, `package.json`, `pnpm-lock.yaml`, `docs/issues-v0.1-leaderboard-and-audit.md`, `HANDOFF.md`.
+- Modified outside project: 0.
+- Deleted: 0.
+- Committed secret values: 0.
+
+### Git state
+- Branch: `feature/refresh-pipeline` at 7 commits ahead of `main`, pushed.
+- `main` at `0f2d1fd` (unchanged — merge pending PR review).
+- PR #4: https://github.com/Neelagiri65/codepulse/pull/4
+
+---
+
 ## Session: 2026-04-17 (session 5 tail — PR #3 merged + Issue #4 pre-flight)
 
 ### What happened after the session-5 over-match audit

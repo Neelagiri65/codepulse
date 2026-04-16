@@ -1,0 +1,48 @@
+name: refresh
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Run refresh
+        run: pnpm refresh
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Commit if data/ changed
+        run: |
+          if [[ -z "$(git status --porcelain data/)" ]]; then
+            echo "no changes — skipping commit"
+            exit 0
+          fi
+          git config user.name 'codepulse-bot'
+          git config user.email 'bot@codepulse.dev'
+          git add data/
+          git commit -m "data: refresh $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push origin HEAD:main
