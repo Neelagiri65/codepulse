@@ -41,7 +41,7 @@
     {
       "id": "no-comments",
       "match_type": "regex",
-      "match_value": "([Dd]on'?t|[Dd]o not|[Nn]ever|[Aa]void) (add(ing)? |writ(e|ing) )?comments?\\b",
+      "match_value": "(([Dd]on'?t|[Dd]o not|[Nn]ever)\\s+(add(ing)?|writ(e|ing)|includ(e|ing)|leav(e|ing))|[Aa]void(\\s+(adding|writing|including|leaving))?)\\s+(code\\s+|any\\s+|extensive\\s+)?comments\\b(?!\\s+(in|to|on|for|out|when|without|unless|except|inside|across|that|but))",
       "weight": 7,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
       "reason": "Claude Code's communication-style prompt states: 'In code: default to writing no comments.'",
@@ -86,7 +86,7 @@
     {
       "id": "parallel-tool-calls",
       "match_type": "regex",
-      "match_value": "parallel tool calls?",
+      "match_value": "(?<!\\b(not|don'?t|never|avoid|disable|skip)\\s)([Uu]se|[Mm]ake|[Pp]refer|[Mm]aximi[sz]e|[Ee]ncourage)\\s+(maximum\\s+|max\\s+)?(parallel tool calls?|tool calls?\\s+in\\s+parallel)\\b(?!\\s+(except|unless|but))",
       "weight": 5,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-parallel-tool-call-note-part-of-tool-usage-policy.md",
       "reason": "Claude Code's tool-usage policy already states: 'If you intend to call multiple tools and there are no dependencies between them, make all independent tool calls in parallel. Maximize use of parallel tool calls where possible to increase efficiency.'",
@@ -111,24 +111,6 @@
       "added_at": "2026-04-16"
     },
     {
-      "id": "no-force-push",
-      "match_type": "regex",
-      "match_value": "([Dd]on'?t|[Nn]ever|[Aa]void) (force[- ]push|git push --force)",
-      "weight": 5,
-      "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-bash-git-avoid-destructive-ops.md",
-      "reason": "Claude Code's git guidance already warns: 'Before running destructive operations (e.g., git reset --hard, git push --force, git checkout --), consider whether there is a safer alternative... Only use destructive operations when they are truly the best approach.'",
-      "added_at": "2026-04-16"
-    },
-    {
-      "id": "no-reset-hard",
-      "match_type": "regex",
-      "match_value": "([Dd]on'?t|[Nn]ever|[Aa]void) (run )?git reset --hard",
-      "weight": 5,
-      "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/tool-description-bash-git-avoid-destructive-ops.md",
-      "reason": "Same destructive-ops guidance in the Claude Code git tool description already names git reset --hard as a destructive op requiring consideration.",
-      "added_at": "2026-04-16"
-    },
-    {
       "id": "no-skip-hooks",
       "match_type": "regex",
       "match_value": "([Nn]ever|[Dd]on'?t|[Aa]void) (use |pass )?--no-verify",
@@ -149,7 +131,7 @@
     {
       "id": "no-unnecessary-error-handling",
       "match_type": "regex",
-      "match_value": "([Dd]on'?t|[Aa]void) (add(ing)? )?(unnecessary )?(error handling|try[/ ]?catch|fallbacks?|defensive (code|programming))",
+      "match_value": "([Dd]on'?t|[Aa]void)\\s+((add(ing)?\\s+)?(unnecessary|excessive|over-?engineered|premature)\\s+(error handling|try[/ ]?catch|fallbacks?|validation)|defensive (code|programming))",
       "weight": 6,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-no-unnecessary-error-handling.md",
       "reason": "Claude Code's task-focus prompt states: 'Don't add error handling, fallbacks, or validation for scenarios that can't happen. Trust internal code and framework guarantees. Only validate at system boundaries.'",
@@ -189,24 +171,6 @@
       "weight": 4,
       "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-security.md",
       "reason": "Claude Code's system prompt already states: 'Be careful not to introduce security vulnerabilities such as command injection, XSS, SQL injection, and other OWASP top 10 vulnerabilities.'",
-      "added_at": "2026-04-16"
-    },
-    {
-      "id": "no-sql-injection",
-      "match_type": "regex",
-      "match_value": "([Aa]void|[Nn]o|[Pp]revent) SQL injection",
-      "weight": 3,
-      "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-security.md",
-      "reason": "Claude Code's security prompt already names SQL injection as something to avoid. Restating is redundant.",
-      "added_at": "2026-04-16"
-    },
-    {
-      "id": "no-xss",
-      "match_type": "regex",
-      "match_value": "([Aa]void|[Nn]o|[Pp]revent) XSS",
-      "weight": 3,
-      "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-doing-tasks-security.md",
-      "reason": "Claude Code's security prompt already names XSS among OWASP top 10 concerns.",
       "added_at": "2026-04-16"
     },
     {
@@ -284,7 +248,7 @@
     {
       "id": "verify-your-work",
       "match_type": "regex",
-      "match_value": "([Vv]erify|[Tt]est|[Cc]heck) your (work|output|implementation) (before|after)",
+      "match_value": "([Vv]erify|[Tt]est|[Cc]heck)\\s+your\\s+(work|output|implementation)(\\s*[.;]|\\s+(before|after)\\s+(complet(e|ing)|finish(e|ing)?|claim(ing)?|sayin(g)?|reporting|the\\s+task|each\\s+task|finalis(e|ing)|finaliz(e|ing)))",
       "weight": 4,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc headlines this as a behaviour the user provides via verification criteria, not a directive the user should restate: 'Give Claude a way to verify its work... This is the single highest-leverage thing you can do.' The value is in providing tests/commands, not in the instruction.",
@@ -342,15 +306,6 @@
       "weight": 3,
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "reason": "Anthropic's best-practices doc recommends gh CLI as a pattern, and Claude Code already uses gh when available. Restating in every CLAUDE.md is redundant — install gh and let Claude reach for it.",
-      "added_at": "2026-04-16"
-    },
-    {
-      "id": "be-direct",
-      "match_type": "regex",
-      "match_value": "[Bb]e direct\\b",
-      "weight": 3,
-      "source_url": "https://github.com/Piebald-AI/claude-code-system-prompts/blob/main/system-prompts/system-prompt-communication-style.md",
-      "reason": "Directness is already encoded in Claude Code's communication-style prompt: 'State results and decisions directly.'",
       "added_at": "2026-04-16"
     },
     {
