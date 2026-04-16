@@ -1,0 +1,25 @@
+{
+  "name": "codepulse",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Public leaderboard and paste-audit for CLAUDE.md configs across GitHub.",
+  "license": "AGPL-3.0-or-later",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp -r data dist/",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5"
+  }
+}
