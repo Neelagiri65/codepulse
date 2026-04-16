@@ -22,29 +22,46 @@ Issue #2 — pure `score(content, catalogue)` function with unit tests. No I/O. 
 - Standing rule: merge each issue's PR to `main` before branching the next. No stacked PRs.
 - PR #1 squash-merged at session open.
 
-### What's done (this session, updated live)
+### What's done this session
 - [x] PR #1 squash-merged into `main`, remote branch deleted.
 - [x] `feature/score` branched off clean `main`.
-- [x] HANDOFF.md rewritten as first commit (failure-mode #4 guard — stale HANDOFFs after compaction are exactly the failure we are avoiding).
-- [ ] Failing tests for `score()` committed red
-- [ ] `score()` implemented, all tests green
-- [ ] Coverage check ≥90% on `src/score.ts`
-- [ ] PR #2 opened against `main`
+- [x] HANDOFF.md rewritten as first commit (failure-mode #4 guard).
+- [x] Failing tests for `score()` committed red (`42482b7`) — 13 cases including the 4 required fixtures.
+- [x] `score()` implemented green (`fef32ee`) — all 18 tests pass, typecheck clean.
+- [x] Coverage gate wired (`7b15d58`): `pnpm test:coverage` fails below 90% lines/branches/funcs/stmts on `src/score.ts`. Currently 100%.
+- [x] PR #2 opened: https://github.com/Neelagiri65/codepulse/pull/2
+
+### What's not done
+- [ ] PR #2 review + merge (user decision).
+- [ ] Issues #3–7 (catalogue seed, refresh pipeline, leaderboard UI, paste-audit UI, deploy + MOM).
 
 ### NEXT action (for the next session)
-If Issue #2 ships: merge PR #2, then Issue #3 — seed the 50-entry redundancy catalogue with verifiable source URLs. Issue #3 is the critical-path content work and benefits from the user's own domain judgement, not agent drafting alone. Decide the authoring split (user / agent / hybrid) before writing any entries.
+**Review and merge PR #2** (https://github.com/Neelagiri65/codepulse/pull/2). Then start Issue #3 — seed the 50-entry redundancy catalogue with verifiable source URLs.
 
-If Issue #2 does not ship this session: resume `feature/score`, finish the remaining test-or-implementation step, open PR #2.
+Before writing any entry for #3, decide the authoring split:
+- **User-authored (recommended):** Neelagiri drafts each entry; the agent only fact-checks against source URLs and validates schema. Highest quality, slowest.
+- **Agent-drafted for review:** Agent proposes entries from Anthropic docs / Piebald public catalogue / spot-checks of top-starred `CLAUDE.md` files; user rejects or accepts each. Fastest, risks fuzzy entries sneaking in.
+- **Hybrid (likely best):** Agent drafts 10 unambiguous entries (direct Anthropic doc contradictions) as a seed + format reference; user hand-writes the remaining 40 where judgement matters.
+
+Issue #3 also needs `scripts/validate-catalogue.ts` (schema + non-empty `source_url`) and `docs/catalogue-authoring.md` (sourcing rules). `score()` already consumes the locked schema, so #3 is pure content work.
 
 ### Open questions / decisions deferred
-- Domain (`codepulse.dev` vs `*.vercel.app`) — still deferred to Issue #7.
 - Catalogue authoring split for Issue #3 — decide at session start.
+- Domain (`codepulse.dev` vs `*.vercel.app`) — still deferred to Issue #7.
 - Whether the UI exposes `scorecard.skipped` to end users vs just logging — decide in Issue #5/#6.
 
 ### Git state
-- Branch: `feature/score` off `main` (`813241f`)
+- Branch: `feature/score` at `7b15d58`, pushed, PR #2 open.
+- `main` at `813241f`.
 - Remote: https://github.com/Neelagiri65/codepulse
-- PR #1 merged as of this session
+- Commits on `feature/score` ahead of main:
+  - `0ebeadd docs: handoff — session 3 open, Issue #2 in flight`
+  - `42482b7 test: failing tests for score() — Issue #2 red`
+  - `fef32ee feat: score() pure function — Issue #2 green`
+  - `7b15d58 chore: add test:coverage script with 90% gate on src/score.ts`
 
 ### File operations this session
-(updated at session end)
+- Created: `src/score.ts`, `src/score.test.ts`.
+- Modified: `HANDOFF.md`, `package.json`, `pnpm-lock.yaml`, `.gitignore` (deduped `coverage/`).
+- Deleted: 0.
+- Touched outside project dir: 0.
