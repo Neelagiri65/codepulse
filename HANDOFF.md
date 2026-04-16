@@ -42,7 +42,7 @@ Issue #3 — seed `data/catalogue.json` with redundancy entries sourced from (1)
 - [x] Validator implemented green (`8e1734c`). `pnpm validate:catalogue` works (tsx). 34/34 tests pass, typecheck clean.
 - [x] Catalogue drafted (`93dee79`) — **45 sourced entries**, each citing a Piebald system-prompt file or the Anthropic best-practices doc. Smoke test against a synthetic redundant fragment produces score 21/100 with 7 matched IDs — end-to-end works.
 - [x] `docs/catalogue-authoring.md` written (`d9444c7`) — three admissible source classes, weight scale, regex safety rules, review checklist, honest-data rule.
-- [x] PR #3 opened (URL added below).
+- [x] PR #3 opened: https://github.com/Neelagiri65/codepulse/pull/3
 
 ### What's not done
 - [ ] **User review of every catalogue entry.** Agent's draft is never final per the architectural constraint.
