@@ -72,6 +72,15 @@ const validateEntry = (raw: unknown, index: number, seen: Set<string>): string[]
     errs.push(`${where}: added_at must be an ISO date (YYYY-MM-DD)`);
   }
 
+  if (
+    typeof raw.claude_code_version_verified_against !== 'string' ||
+    !ISO_DATE.test(raw.claude_code_version_verified_against)
+  ) {
+    errs.push(
+      `${where}: claude_code_version_verified_against must be an ISO date (YYYY-MM-DD)`,
+    );
+  }
+
   return errs;
 };
 

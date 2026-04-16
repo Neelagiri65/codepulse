@@ -14,6 +14,7 @@ const pat = (
   source_url: 'https://example.test/pattern',
   reason: 'test fixture',
   added_at: '2026-04-16',
+  claude_code_version_verified_against: '2026-04-16',
 });
 
 describe('score() — fixture: empty input', () => {
