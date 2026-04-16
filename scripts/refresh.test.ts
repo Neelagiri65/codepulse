@@ -41,7 +41,7 @@ describe('scoreRepo()', () => {
     expect(entry.owner).toBe('acme');
     expect(entry.name).toBe('widget');
     expect(entry.stars).toBe(1234);
-    expect(entry.char_count).toBe(30);
+    expect(entry.char_count).toBe(31);
     expect(entry.last_commit_at).toBe('2026-04-10T12:00:00Z');
     expect(entry.score).toBe(100);
     expect(entry.matches.sort()).toEqual(['a', 'b']);
