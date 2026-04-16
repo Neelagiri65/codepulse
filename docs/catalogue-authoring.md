@@ -40,6 +40,16 @@ Three, no others:
 - **Vague aspirational lines.** "Write good code." "Be helpful." "Think carefully." These are too broad to be redundant of any specific instruction and will over-match.
 - **Things Claude Code *used to* do.** Piebald version-tracks the prompt; if a behaviour was removed from the system prompt in v2.1.x, the redundancy claim no longer holds.
 
+### Hardening is not redundancy
+
+Any pattern targeting destructive operations (`force-push`, `reset --hard`, drops, deletes) or security controls (injection, XSS, auth, crypto) must require evidence that the CLAUDE.md instruction is *no stricter* than the tool's default. Hardening instructions are not redundancy.
+
+**Why:** Claude Code's defaults for destructive operations are conditional — e.g., "consider whether there is a safer alternative." A CLAUDE.md saying `"Never force push to main"` is stricter than the default, not redundant with it. Scoring hardening as redundancy punishes users for correctly removing Claude's wiggle room, and that will destroy credibility faster than anything else in the product.
+
+**Applied to security:** `"Prevent SQL injection"` as a bare phrase is arguably redundant with the default OWASP guidance. But `"Prevent SQL injection via the db.query() helper at the repository boundary"` is a project-specific contract, not redundancy. Patterns that only check for the topic word (`SQL injection`, `XSS`) cannot distinguish the two and must be dropped or narrowed with a context requirement.
+
+**Rule of thumb:** If removing the CLAUDE.md line would make the tool's behaviour *less safe* than the user wants, the line is hardening, not redundancy. Keep it out of the catalogue.
+
 ## Schema (enforced by `pnpm validate:catalogue`)
 
 ```json
