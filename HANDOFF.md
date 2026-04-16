@@ -1,51 +1,45 @@
 # HANDOFF — CodePulse
 
-## Session: 2026-04-16 (session 1, scoping)
+## Session: 2026-04-16 (session 2, Issue #1 scaffold)
 
 ### State at end of session
-- Repo initialised with `git init`. Not pushed to GitHub yet.
-- `CODEPULSE_V2_FULL_SPEC.md` committed (pasted vision doc, 996 lines, ~57KB).
-- Grill completed against the V2 spec. Key calls made:
-  - **Scoring:** hand-curated catalogue only for v0.1. No LLM calls per audit.
-  - **Redundancy definition:** strict — only patterns that duplicate documented Claude Code defaults.
-  - **Piebald:** skipped for v0.1. Revisit when adding version-decay tracking later.
-  - **Thesis risk:** ship honest data; adjust narrative if numbers disagree.
-  - **Deliverable boundary:** PRD + decomposition only this session. No code yet.
-- `docs/prd-v0.1-leaderboard-and-audit.md` written.
-- `docs/issues-v0.1-leaderboard-and-audit.md` written — 7 issues, dependency-ordered.
-- `CLAUDE.md` seeded with project instructions and architectural constraints.
+- Issue #1 complete on branch `feature/scaffold`. PR #1 open, awaiting review.
+- Strict TDD cycle executed: failing tests committed red, then implementation committed green.
+- `pnpm test` → 5/5 pass. `pnpm build` → clean (dist/ has index.html, assets/*.js, data/*.json). `pnpm typecheck` → clean.
+- `.claude/` added to `.gitignore` (local settings dir was the source of the `gh pr create` "1 uncommitted change" warning — benign).
 
-### What's done
-- [x] Repo init + WIP commit of spec
-- [x] Vault prior-work check (nothing directly applicable; user's CLAUDE.md governance pattern noted)
-- [x] Grill against the V2 spec
-- [x] PRD for v0.1 scope
-- [x] Decomposition into 7 issues
-- [x] Project CLAUDE.md
+### What's done this session
+- [x] Created feature branch `feature/scaffold`
+- [x] Wired vitest + typescript + vite toolchain via pnpm (Node >=20, pnpm 10.29.3)
+- [x] Wrote failing scaffold tests first (5 assertions across data/*.json shape + index.html + src/main.ts)
+- [x] Committed red: `da22d10 test: add failing scaffold tests + vitest wiring`
+- [x] Implemented: index.html, src/main.ts, data/{catalogue,repos,meta}.json skeletons, vite.config.ts, tsconfig.json, LICENSE (AGPL-3.0 canonical), README.md
+- [x] Committed green: `b391667 feat: scaffold Vite + TS entrypoints, empty data skeletons, AGPL-3.0`
+- [x] Pushed `feature/scaffold` to origin
+- [x] Opened PR #1: https://github.com/Neelagiri65/codepulse/pull/1
 
 ### What's not done
-- [ ] User approval of the PRD (read it, push back or confirm)
-- [ ] Issue #1: repo scaffold (Vite + TS + data layout)
-- [ ] The remaining six issues
+- [ ] PR #1 review + merge (user decision)
+- [ ] Issue #2: `score(text, catalogue)` function + unit tests (blocked on Issue #1 merge)
+- [ ] Issues #3–7 (catalogue seed, refresh pipeline, leaderboard UI, paste-audit UI, deploy + MOM)
 
 ### NEXT action (for the next session)
-**Read `docs/prd-v0.1-leaderboard-and-audit.md`. If the user approves the scope, start Issue #1 from `docs/issues-v0.1-leaderboard-and-audit.md`.** Don't start code until the PRD is explicitly approved — the global CLAUDE.md rule is to wait for approval before decomposition-execution.
-
-If the user wants changes to the PRD (e.g. different v0.1 scope), amend the PRD first and re-decompose before touching code.
+**Review and merge PR #1** (https://github.com/Neelagiri65/codepulse/pull/1). Once merged to `main`, start Issue #2 from `docs/issues-v0.1-leaderboard-and-audit.md`: write the `score(text, catalogue)` pure function with a full Vitest suite covering empty input, no-match case, multi-pattern overlap, and severity-weighted totals. Catalogue shape is already locked in `data/catalogue.json` (empty `patterns` array).
 
 ### Open questions / decisions deferred
-- Domain: does `codepulse.dev` need registering now, or launch on a `*.vercel.app` subdomain first? (PRD treats domain as deferrable.)
-- Catalogue authoring (Issue #3) is the critical path and benefits from the user's own judgement. Decide whether the user writes it, the agent drafts it for review, or a hybrid.
+- Domain registration (`codepulse.dev`) — still deferrable. PR #1 doesn't touch deploy config yet.
+- Catalogue authoring approach (Issue #3) — still open: user writes / agent drafts / hybrid.
 
 ### Git state
-- Branch: `main`, tracking `origin/main`
-- Remote: https://github.com/Neelagiri65/codepulse (public, created end of session 1)
-- Commits pushed:
-  - `f58a334 chore: initial commit with V2 vision spec`
-  - `7778486 docs: v0.1 PRD, 7-issue decomposition, project CLAUDE.md, HANDOFF`
+- Default branch: `main` at `0e24be2` (last commit: "chore: note remote exists in HANDOFF after gh repo create")
+- Feature branch: `feature/scaffold` at `b391667`, pushed, PR #1 open
+- Remote: https://github.com/Neelagiri65/codepulse (public)
+- Commits on feature branch ahead of main:
+  - `da22d10 test: add failing scaffold tests + vitest wiring`
+  - `b391667 feat: scaffold Vite + TS entrypoints, empty data skeletons, AGPL-3.0`
 
 ### File operations this session
-- Created: 4 files (`docs/prd-v0.1-leaderboard-and-audit.md`, `docs/issues-v0.1-leaderboard-and-audit.md`, `CLAUDE.md`, `HANDOFF.md`).
-- Modified: 0.
+- Created: `package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `vite.config.ts`, `index.html`, `src/main.ts`, `tests/scaffold.test.ts`, `data/catalogue.json`, `data/repos.json`, `data/meta.json`, `LICENSE`, `README.md`.
+- Modified: `.gitignore` (added `.claude/`), `HANDOFF.md` (this file).
 - Deleted: 0.
-- Touched outside project dir: 0 (vault reads only, no writes).
+- Touched outside project dir: 0.
