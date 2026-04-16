@@ -15,6 +15,7 @@ const entry = (over: Partial<Record<string, unknown>> = {}): Record<string, unkn
   source_url: 'https://example.test/doc',
   reason: 'test entry',
   added_at: '2026-04-16',
+  claude_code_version_verified_against: '2026-04-16',
   ...over,
 });
 
@@ -92,6 +93,29 @@ describe('validateCatalogue()', () => {
     const result = validateCatalogue(cat([entry({ added_at: 'yesterday' })]));
     expect(result.ok).toBe(false);
     expect(result.errors.join(' ')).toMatch(/added_at/);
+  });
+
+  it('fails when claude_code_version_verified_against is missing', () => {
+    const result = validateCatalogue(
+      cat([entry({ claude_code_version_verified_against: undefined })]),
+    );
+    expect(result.ok).toBe(false);
+    expect(result.errors.join(' ')).toMatch(/claude_code_version_verified_against/);
+  });
+
+  it('fails when claude_code_version_verified_against is not ISO-ish', () => {
+    const result = validateCatalogue(
+      cat([entry({ claude_code_version_verified_against: 'last week' })]),
+    );
+    expect(result.ok).toBe(false);
+    expect(result.errors.join(' ')).toMatch(/claude_code_version_verified_against/);
+  });
+
+  it('accepts a valid ISO claude_code_version_verified_against', () => {
+    const result = validateCatalogue(
+      cat([entry({ claude_code_version_verified_against: '2026-04-17' })]),
+    );
+    expect(result.ok).toBe(true);
   });
 
   it('fails when a regex match_value is not compilable', () => {
