@@ -1,5 +1,79 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 (session 6 tail — PR #4 merged, hotfix, live data, thesis-check)
+
+### What happened after PR #4 opened
+1. **PR #4 merged** (`gh pr merge 4 --merge --delete-branch`) → merge commit `9dc4c21`.
+2. **First `workflow_dispatch` FAILED.** Run `24539748665` died on code-search page 10 with 403 rate-limit-exceeded. Response header showed `x-ratelimit-limit: 10` on the `code_search` bucket (authenticated) — contradicts GitHub's doc claim of 30/min for authenticated code search. All 10 pages fired in ~8 seconds blew the 10/min budget.
+3. **Hotfix shipped directly to main** (Phase 4 debug — authorised by just-merged context): `3e03b94 fix(refresh): throttle code-search pagination to 7s per page`. Adds a 7s sleep between pages 2–10 in `makeDiscover()`. Unit tests unchanged (rate-limit logic lives in CLI wiring, not `runRefresh`).
+4. **Second `workflow_dispatch` SUCCESS.** Run `24539818762` completed in 5m35s. Data commit `94551ba data: refresh 2026-04-16T23:48:17Z` landed on main — 186 repos scored, `data/repos.json` + `data/meta.json` populated.
+5. **Third `workflow_dispatch` SUCCESS (idempotency check).** Run `24540012331` completed in ~5min. Produced commit `722aac3` because the dataset genuinely drifted in 5 minutes: `alirezarezvani/claude-skills` went 11430→11431 stars, one new repo entered the 1000-hit code-search window, three low-star repos dropped out. `shouldWrite` contract holds (unit test for byte-exact equality still passes); real-world hourly runs will often commit because the source data is alive. Not a bug.
+
+### Live data findings — BIG FINDING, honest-data rule in play
+First full population of `data/repos.json` (186 repos, stars 3–43,573):
+
+| Score bucket | Repo count | % |
+|---|---|---|
+| 0 | 179 | 96% |
+| 1–25 | 7 | 4% |
+| 26–50 | 0 | 0% |
+| 51–75 | 0 | 0% |
+| 76–100 | 0 | 0% |
+
+- **Max score: 8/100** (`stillya/wg-relay`, 61 stars).
+- **Foam (17,031 stars) scored 6.** If the cargo-cult thesis held, a repo at that popularity would expect visible redundancy. It didn't.
+- The session-5 smoke test predicted this exact shape (9 of 10 scored 0). Data now confirms it at 186-repo scale.
+
+**Implications for the v0.1 launch narrative (per the PRD's honest-data architectural constraint):** the thesis "redundancy concentrates in popular repos" is not supported. The top of the GitHub CLAUDE.md ecosystem is substantially cleaner than theorised. Either (a) the catalogue is too narrow / too strict and misses real redundancy, or (b) the popular corner of the ecosystem has self-selected for cleanliness, or (c) the cargo-cult framing was wrong.
+
+The PRD's stance is explicit: *"If average redundancy across the top 200 is low (thesis wrong), ship the data as-is and adjust the launch narrative."* Launch narrative now shifts to: *"The top of the ecosystem is cleaner than expected — here's the distribution, and here's what remains redundant when it appears."* Data is the product regardless of which way it fell.
+
+Worth considering before Issue #5/#6/#7:
+- **Catalogue breadth audit.** Before launching a "surprisingly clean" narrative, sanity-check that the 40 entries aren't systematically missing common redundancy patterns (especially since session-5 dropped 5 over-matching entries). The 4% hit rate may be partially the catalogue's strictness.
+- **Smoke-sample vs. top-stars divergence.** The `robo-poet` hit in session 5's smoke test (on a small/personal repo) is consistent with the finding: redundancy may concentrate in long-tail personal repos, not starred public ones. Interesting data point for the launch post.
+- **Don't recalibrate the catalogue to manufacture scores.** PRD rule.
+
+### Site / workflow state
+- Workflow is on hourly cron (`0 * * * *`) and will fire automatically at each top-of-hour until disabled. Expect a new data commit ~every hour due to natural drift.
+- Three data commits currently on main: `94551ba` (first populate), `722aac3` (idempotency run, drift).
+- `main` at `722aac3`.
+- No open branches.
+
+### NEXT action (for the next session)
+**Issue #5 — leaderboard UI** with explicit design-system pre-work first. Per user's brief (captured below):
+
+1. **Establish `DESIGN.md`** before any component code. Available in-environment skills: `stitch-design`, `design-md`, `react-components`, `enhance-prompt`. Run `/stitch-design` first for 2–3 dashboard direction options, then `/design-md` to lock the chosen direction.
+2. **Design brief (dark dashboard, data-forward):**
+   - Dark theme mandatory. Developer monitoring dashboard.
+   - Inspired by World Monitor (information density) + Linear (precision).
+   - Accent colour signals health/diagnostic — not generic AI blue.
+   - Typography: monospace for data, sans-serif for labels.
+   - Visual language: health scores as red→amber→green gradients, sparklines for trends, compact data cards.
+   - No decorative elements. Every pixel communicates data.
+3. **Implement** with Vite + TS + vanilla DOM per PRD stack. (Stack confirmed by user: TypeScript first; Rust/Tauri is a future desktop-shell option, not v0.1.)
+4. **Render the honest data story.** The UI must make it obvious that most repos score 0 — e.g., a distribution histogram alongside the ranked leaderboard, so "most CLAUDE.md files are clean" is a visible headline, not buried.
+
+### "Eat own dog food" self-audit gate (Issue #7 MOM item)
+Pre-launch: score CodePulse's own `CLAUDE.md` against the deployed catalogue. Whatever it scores, that's in the launch post. Authentic narrative.
+
+### Open questions / decisions deferred
+- **`/search/code` deprecation (2026-09-27).** Not a v0.1 blocker but requires a migration plan before it removes fields. Candidate migrations: GraphQL code search, Sourcegraph PublicAPI, or self-hosted indexer. Book for post-launch.
+- **Catalogue breadth audit** before launch — consider whether another authoring pass is warranted given the 96%-scored-0 finding, or whether the data is honest as it stands.
+- **Drift-driven commits** (every hour due to star ticks) — may want a small-diff threshold later if git history gets noisy. Not urgent.
+- Slash-command extension research — still deferred from session 4.
+- `robo-poet` smoke-test `no-emojis` hit — still flagged for future review pass.
+- `last_checked_at` in `meta.json` — revisit only if UX wants fresher signal on no-op hours.
+
+### File operations this session (full session including tail)
+- Created: `scripts/refresh.ts`, `scripts/refresh.test.ts`, `.github/workflows/refresh.yml`.
+- Modified inside project: `data/catalogue.json`, `scripts/validate-catalogue.ts`, `scripts/validate-catalogue.test.ts`, `src/score.ts`, `src/score.test.ts`, `package.json`, `pnpm-lock.yaml`, `docs/issues-v0.1-leaderboard-and-audit.md`, `HANDOFF.md`.
+- Auto-created by Actions on main: `data/repos.json`, `data/meta.json` (via the scheduled-workflow commits `94551ba` and `722aac3` — authored by `codepulse-bot`, not by this session's local work).
+- Modified outside project: 0.
+- Deleted: 0 (local `feature/refresh-pipeline` branch was auto-cleaned by `gh pr merge --delete-branch`).
+- Committed secret values: 0.
+
+---
+
 ## Session: 2026-04-17 (session 6 — Issue #4 + schema prereq, PR #4 open)
 
 ### State at session start
