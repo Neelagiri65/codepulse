@@ -33,31 +33,51 @@ Issue #3 — seed `data/catalogue.json` with redundancy entries sourced from (1)
 5. Write `docs/catalogue-authoring.md` so the rules outlive this session.
 6. PR #3 opens; user reviews every entry manually before merge.
 
-### What's done this session (live)
+### What's done this session
 - [x] PR #2 squash-merged into `main`, remote branch deleted.
 - [x] `feature/catalogue` branched off clean `main`.
-- [x] HANDOFF.md updated as first commit.
-- [ ] Research the three source classes.
-- [ ] Failing tests for `scripts/validate-catalogue.ts` (red).
-- [ ] Validator implemented (green).
-- [ ] Catalogue drafted with sourced entries.
-- [ ] `docs/catalogue-authoring.md` written.
-- [ ] PR #3 opened.
+- [x] HANDOFF.md updated as first commit (`d66d075`).
+- [x] Research: Anthropic best-practices doc fetched and distilled; Piebald system-prompts repo at `Piebald-AI/claude-code-system-prompts` confirmed publicly readable; 8 specific prompt files quoted for source text; calibration pass against 22,096 real CLAUDE.md files (e.g. "be concise" appears in 2,800 public files — the thesis has empirical support).
+- [x] Failing tests for `scripts/validate-catalogue.ts` committed red (`ebd8d4f`) — 16 cases.
+- [x] Validator implemented green (`8e1734c`). `pnpm validate:catalogue` works (tsx). 34/34 tests pass, typecheck clean.
+- [x] Catalogue drafted (`93dee79`) — **45 sourced entries**, each citing a Piebald system-prompt file or the Anthropic best-practices doc. Smoke test against a synthetic redundant fragment produces score 21/100 with 7 matched IDs — end-to-end works.
+- [x] `docs/catalogue-authoring.md` written (`d9444c7`) — three admissible source classes, weight scale, regex safety rules, review checklist, honest-data rule.
+- [x] PR #3 opened (URL added below).
+
+### What's not done
+- [ ] **User review of every catalogue entry.** Agent's draft is never final per the architectural constraint.
+- [ ] Issue #4 (GH Actions cron refresh pipeline) and Issues #5–7.
 
 ### NEXT action (for the next session)
-Review the draft `data/catalogue.json` entry-by-entry in PR #3. For each: does the source_url load? does it support the redundancy claim? reject any that feel like a stretch. Add entries from your own repo/forum experience where the catalogue is thin. Merge PR #3 only when every surviving entry is defensible.
+**Review PR #3 entry-by-entry.** Use the checklist in `docs/catalogue-authoring.md` under "Reviewing someone else's entry." For each of the 45 entries:
+1. Does the `source_url` load?
+2. Does the linked text actually support the claim?
+3. Is `match_value` specific enough to avoid over-matching benign prose?
+4. Is `weight` proportional?
 
-After #3 merges: Issue #4 (GitHub Actions cron refresh pipeline). That needs `GH_TOKEN` as a repo secret — set that up manually before session 5 starts.
+Reject stretches. Add entries from your own repo/forum experience (candidates: patterns you have seen in the SheetPortal / ContextKey / CashlessNow CLAUDE.mds, or recurring forum posts). Agent aimed for 50 and shipped 45 — the gap is the user-authored slice.
+
+After PR #3 merges: Issue #4. Before starting #4, set `GH_TOKEN` as a GitHub Actions repo secret manually (classic PAT, public-repo read scope is enough; the refresh script stays unauthenticated for code search but authenticated for raw file fetches to avoid 5-req/min limits).
 
 ### Open questions / decisions deferred
-- Can Piebald's system prompt components be sourced publicly, or only via their CLI? (Research step will answer.)
 - Does `scorecard.skipped` surface in the UI (Issue #5/#6)? — still open.
 - Domain (Issue #7) — still deferred.
+- Should the catalogue carry a `claude_code_version_verified_against` field so stale entries are flagged automatically? Decide before Issue #4 if yes; it would be a lightweight schema bump.
 
 ### Git state
-- Branch: `feature/catalogue` off `main` (`4fa8156`).
+- Branch: `feature/catalogue` at `d9444c7`, pushed after this commit, PR #3 opens.
+- `main` at `4fa8156`.
 - Remote: https://github.com/Neelagiri65/codepulse
-- PR #1 and PR #2 merged as of this session.
+- Commits on `feature/catalogue` ahead of main:
+  - `d66d075 docs: handoff — session 4 open, Issue #3 hybrid authoring`
+  - `ebd8d4f test: failing tests for validate-catalogue — Issue #3 red`
+  - `8e1734c feat: validate-catalogue.ts + pnpm validate:catalogue — Issue #3 green`
+  - `93dee79 feat: seed catalogue with 45 sourced redundancy entries — Issue #3`
+  - `d9444c7 docs: catalogue-authoring rules — Issue #3`
+  - plus this HANDOFF commit
 
 ### File operations this session
-(updated at session end)
+- Created: `scripts/validate-catalogue.ts`, `scripts/validate-catalogue.test.ts`, `docs/catalogue-authoring.md`.
+- Modified: `HANDOFF.md`, `data/catalogue.json` (45 entries added), `package.json` (tsx + validate script), `pnpm-lock.yaml`.
+- Deleted: 0.
+- Touched outside project dir: 0 (Piebald/Anthropic fetches were read-only).
