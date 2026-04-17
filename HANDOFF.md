@@ -1,5 +1,85 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 (session 7 — Issues #5 + #6, DESIGN.md + UI)
+
+### State at session start
+- `main` at `ddfd30c`, clean working tree.
+- 186 repos scored live on main (hourly cron firing since session 6).
+- Distribution: 178 at 0, 8 in 1–25, 0 in higher buckets. Max 8/100. Thesis-contradicting data; framing pivot already agreed.
+- NEXT from session 6 tail: Issue #5 UI, pre-work first: write `DESIGN.md` before any component code. Dark monitoring dashboard, World Monitor + Linear, health-gradient accents, mono data / sans labels.
+
+### Single deliverable for this session
+`DESIGN.md` locked, then Issues #5 (leaderboard UI) + #6 (paste-audit UI) implemented against it. User explicitly asked for both UIs in one session; one-PR-per-issue rule relaxed by direct user direction.
+
+### Design decisions locked
+- **Skipped Stitch option-generation.** User already had a locked direction (dark monitoring, WM + Linear). Writing DESIGN.md directly saved a round of token-heavy Stitch calls for options the user had pre-ruled-out. Confirmed "direct" at session start.
+- **Dark theme only**, no light-mode toggle in v0.1. Monitoring dashboards live dark.
+- **Single accent system = health gradient** (`--health-0..4` red→teal ramp). No "brand blue," no purple. If the code needs a CTA colour, it uses `--fg-0` on `--border-strong` outline and lets typography carry hierarchy.
+- **Mono for data, sans for labels.** Tabular-nums mandatory on all numeric cells. Uppercase + `0.04em` tracking reserved for column headers.
+- **Flat.** No `box-shadow`, no gradients, no rounded-xl. Hierarchy via `--bg-0..3` + 1px `--border`.
+- **Data inlining over runtime fetch.** `data/repos.json` + `data/catalogue.json` imported at build time via Vite JSON import. Bundle is ~55KB JS gzip 15KB — fewer hops, better LCP, still compliant with the PRD "zero network calls after loading own static assets" rule (inlined data = own static assets). Hourly Vercel rebuild handles freshness.
+- **Histogram sits beside the leaderboard**, not below. The honest-data story ("96% score 0, median 0, max 8") is the headline, not a footnote.
+- **Score pill is the reusable primitive.** Used in the leaderboard score column and as the lg variant in the paste-audit scorecard. Same bucket→health-token mapping, one source of truth (`src/format.ts`).
+
+### What happened
+1. `feature/leaderboard-ui` branched off clean `main`.
+2. `33f694b design: DESIGN.md` — 250 lines locking tokens (colour, typography scale, spacing, radius, motion, a11y), components (hero, histogram, table, score pill, paste-audit card, footer), and explicit anti-patterns (no light mode, no logo, no icons beyond external-link glyph, no gradients).
+3. TDD for format utilities:
+   - `aa36b6d test: failing tests for format utilities` — 11 cases covering `formatStars`, `formatRelativeTime`, `bucketForScore`, `healthToken`, `distribution`. Red.
+   - `b8d5dea feat: format utilities` — pure helpers, no I/O. Distribution returns per-bucket counts + cleanPct/median/max so the hero renders without view-layer math. Green; 61/61 tests now pass.
+4. `cf8a15b feat(ui): leaderboard` — `src/styles.css` (tokens → CSS vars), `src/scorecard.ts` (shared score pill + paste scorecard builder), `src/leaderboard.ts` (hero + histogram + sortable table, score-desc default with stars tiebreak, row click opens repo on GitHub), updated `index.html` (dark color-scheme, descriptive meta).
+5. `8291e00 feat(ui): paste-audit` — `src/audit.ts` (dual-pane card with live char/token counters; reuses `renderPasteScorecard`), `src/main.ts` (inlines data, mounts both sections + footer).
+
+### Live-data sanity check (pre-commit)
+`distribution(repos.repos.map(r => r.score))` against current `data/repos.json`:
+- total: 186, clean: 178, cleanPct: 96
+- buckets: `[{0,0,178}, {1–25,8}, {26–50,0}, {51–75,0}, {76–100,0}]`
+- max: 8, median: 0
+
+Hero will render: **"186 CLAUDE.md files measured · 96% clean"** with sub "median redundancy 0 · max 8 · catalogue v2." Matches session-6 HANDOFF exactly.
+
+### What's done this session
+- [x] `DESIGN.md` locked (dark monitoring dashboard system).
+- [x] Format utilities shipped TDD (11 new tests).
+- [x] Issue #5 leaderboard UI (hero + histogram + sortable table).
+- [x] Issue #6 paste-audit UI (textarea + client-side scorecard).
+- [x] 61/61 tests pass. Typecheck clean. Build clean (`dist/assets/index-*.js 55.02KB gzip 15.04KB`, `index-*.css 8.99KB gzip 2.24KB`, built in 65ms). Catalogue validator green (40 entries).
+- [x] Pre-push secret scan: no `ghp_|github_pat_|gho_|ghs_|ghu_|ghr_|bearer|api_key` patterns in diff.
+
+### What's not done / caveats
+- [ ] **Visual browser verification not performed by this session.** This environment has no browser automation (no Playwright, no MCP screenshot for web). Dev server was started and HTTP responses confirmed all-200 for `/`, `/src/main.ts`, `/data/*.json?import`; JS transform succeeded. The layout/colour/spacing correctness against DESIGN.md has NOT been eyeballed. Next session or user should run `pnpm dev`, open `http://localhost:5173`, and verify: dark bg, mono data, hero "96% clean" in teal, histogram shows the 5-bucket shape with 0-bucket dominant, ranked table 186 rows, paste-audit renders a real scorecard when CodePulse's own CLAUDE.md is pasted.
+- [ ] LCP measurement (PRD AC: <2s) not measured. Lighthouse needed; user action.
+- [ ] Issue #7 (deploy + domain + MOM) not started.
+- [ ] "Eat own dog food" self-audit (paste CodePulse's own CLAUDE.md into the audit tool, capture score for launch narrative) — belongs in #7 MOM but is worth doing in next session as soon as visual verification confirms audit works.
+
+### Decisions deferred (carried from session 6 tail)
+- `/search/code` deprecation (2026-09-27) migration plan — post-launch.
+- Catalogue breadth audit given 96%-scored-0 — decide before #7 launch.
+- Drift-driven hourly commits — smallness threshold, not urgent.
+- Slash-command extension research — still deferred from session 4.
+- `robo-poet` smoke-test `no-emojis` hit — still flagged.
+- `last_checked_at` in `meta.json` — revisit if UX needs it.
+
+### NEXT action (for the next session)
+1. **Open + review PR** for `feature/leaderboard-ui` → main. Inspect `DESIGN.md` for any house-style changes, scan the 5 new TS files for quality issues.
+2. **Browser verification.** `pnpm dev`, load localhost, check the full page against DESIGN.md. Fix anything that drifts from the system (file as new commits on the same branch before merge).
+3. **Once merged: Issue #7.** `docs/mom-v0.1.md` with the validation checklist (LCP <2s, zero runtime network calls, leaderboard populated, paste-audit works, architectural constraint tests pass, honest data not recalibrated). Deploy to Vercel. Point domain.
+4. **Self-audit gate for #7.** Paste CodePulse's own `CLAUDE.md` into the deployed audit tool. Whatever it scores is in the launch post.
+
+### File operations this session
+- Created: `DESIGN.md`, `src/format.ts`, `src/format.test.ts`, `src/scorecard.ts`, `src/styles.css`, `src/leaderboard.ts`, `src/audit.ts`.
+- Modified inside project: `src/main.ts`, `index.html`, `HANDOFF.md`.
+- Modified outside project: 0.
+- Deleted: 0.
+- Committed secret values: 0.
+
+### Git state
+- Branch: `feature/leaderboard-ui` at 6 commits ahead of `main`, not yet pushed.
+- `main` at `ddfd30c` (unchanged — merge pending review).
+- No PR opened yet (will push + open PR after this HANDOFF commit).
+
+---
+
 ## Session: 2026-04-17 (session 6 tail — PR #4 merged, hotfix, live data, thesis-check)
 
 ### What happened after PR #4 opened
