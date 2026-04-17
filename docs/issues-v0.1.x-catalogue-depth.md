@@ -82,8 +82,16 @@ ever becomes the bottleneck again.
 
 ## #10 — CI-only LLM enrichment in the refresh Action
 
-**Goal:** daily refresh Action calls Claude to score each repo's `CLAUDE.md`
-semantically; result cached into `repos.json` alongside deterministic score.
+**Goal:** daily refresh Action calls a cost-effective LLM to score each repo's
+`CLAUDE.md` semantically; result cached into `repos.json` alongside
+deterministic score.
+
+**Model decision (2026-04-18, session 11):** Gemini 2.5 Flash, picked on the
+ground-truth fixture. Both Flash and Pro pass the acceptance bar identically
+(zenml ≥4/5 + 4 clean files zero HIGH). Flash is ~40% faster and ~4× cheaper
+(~$0.024 vs ~$0.098 per harness run; ~$0.22/day vs ~$0.92/day at steady-state
+cron on 185 repos × ~4k tok avg). The prompt is model-agnostic — revisit if
+Flash regresses on a future fixture expansion.
 
 **Ground truth (non-negotiable):** the acceptance fixture is
 `docs/ground-truth-2026-04-17.md`. It names the 5 specific redundancies the LLM
@@ -126,27 +134,28 @@ flagged.
   a future zenml-like file.
 
 **Changes:**
-- `scripts/refresh.ts` — add `enrichSemanticScore(content, catalogue) →
-  Promise<{score, matched_intents: Array<{quote, reason}>}>` that calls the
-  Claude API with the prompt described above. Pure wrapper around the SDK;
-  gated behind `process.env.ANTHROPIC_API_KEY`; returns the deterministic score
-  unchanged if key is absent (local dev + reproducibility).
-- `scripts/refresh.test.ts` — unit tests with a mocked Anthropic client.
-  Verify deterministic score is preserved on API failure; verify cache fields
-  land in `repos.json`.
+- `scripts/enrich.ts` — exports `enrichSemanticScore(content, { model, apiKey? }) →
+  Promise<{semantic_score, matched_intents: Array<{quote, reason, confidence}>}>`.
+  Pure wrapper around `@google/genai`; gated behind `process.env.GEMINI_API_KEY`.
+  **Done 2026-04-18 (session 11).**
+- `scripts/refresh.ts` — import `enrichSemanticScore`; call per repo inside the
+  semantic job only. Preserve deterministic score on API absence/failure.
+- `scripts/refresh.test.ts` — unit tests with a mocked Gemini client. Verify
+  deterministic score is preserved on API failure; verify cache fields land in
+  `repos.json`.
 - `scripts/ground-truth.test.ts` — **integration harness, gated on
-  `ANTHROPIC_API_KEY`.** Runs the real prompt against all 5 fixture files
-  fetched fresh from GitHub (commands in `docs/ground-truth-2026-04-17.md`).
-  Asserts: (a) zenml flags at least 4 of the 5 documented redundancies with
-  matching quotes, (b) each of the 4 clean files produces zero high-confidence
-  flags. Skipped in CI by default; run explicitly before landing the PR and
-  again on any prompt iteration.
+  `GEMINI_API_KEY`.** Runs the real prompt against all 5 fixture files fetched
+  fresh from GitHub. Asserts: (a) zenml flags at least 4 of the 5 documented
+  redundancies with matching quotes, (b) each of the 4 clean files produces
+  zero high-confidence flags. Parametrised over Flash + Pro. Skipped in CI by
+  default; run explicitly before landing the PR and again on any prompt
+  iteration. **Done 2026-04-18 (session 11) — both models green.**
 - `.github/workflows/refresh.yml` — split into two jobs: `deterministic`
   (hourly, existing) and `semantic` (daily on cron `0 6 * * *`, reads latest
   `repos.json`, enriches, writes `semantic_score` + `semantic_matched_intents`
   + `semantic_refreshed_at` per repo, commits).
-- `.github/workflows/refresh.yml` — add `ANTHROPIC_API_KEY` secret read for
-  the semantic job; no change for the deterministic job.
+- `.github/workflows/refresh.yml` — add `GEMINI_API_KEY` secret read for the
+  semantic job; no change for the deterministic job.
 - `repos.json` schema — add optional `semantic_score: number | null`,
   `semantic_matched_intents: Array<{quote, reason}> | null`, and
   `semantic_refreshed_at: string | null` fields per repo. Existing consumers

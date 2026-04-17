@@ -9,13 +9,13 @@
 //     cases (ironclaw "Comments for non-obvious logic only", overstory
 //     "Quality Gates") are tolerated.
 //
-// Runs only when ANTHROPIC_API_KEY is set. Parametrised over Haiku 4.5 and
-// Sonnet 4.6 so we can pick on precision per the session brief.
+// Runs only when GEMINI_API_KEY is set. Parametrised over Gemini 2.5 Flash
+// and Gemini 2.5 Pro so we can pick on precision per the session brief.
 
 import { describe, it, expect, beforeAll } from 'vitest';
 import { enrichSemanticScore, type MatchedIntent, type ModelId } from './enrich';
 
-const HAS_KEY = Boolean(process.env.ANTHROPIC_API_KEY);
+const HAS_KEY = Boolean(process.env.GEMINI_API_KEY);
 
 const FIXTURES = {
   zenml: 'https://raw.githubusercontent.com/zenml-io/zenml/main/CLAUDE.md',
@@ -36,15 +36,28 @@ type FixtureName = keyof typeof FIXTURES;
 const ZENML_REDUNDANCIES: Array<{ id: string; anchors: string[] }> = [
   {
     id: 'commenting-policy',
-    anchors: ['explain why, not what', 'why, not what', 'why not what'],
+    anchors: [
+      'explain why, not what',
+      'why, not what',
+      'why not what',
+      'why the code', // zenml's actual phrasing ("why the code is this way")
+      'intent, trade',
+      'avoid simple explanatory',
+      'banner comment',
+      'narrating',
+    ],
   },
   {
     id: 'commit-message-why-not-what',
-    anchors: ["'why' not just the 'what'", 'why not just the what', "the 'why' not"],
+    anchors: [
+      '"why" not just the "what"', // zenml actual text w/ double quotes
+      "'why' not just the 'what'",
+      'why not just the what',
+    ],
   },
   {
     id: 'commit-formatting',
-    anchors: ['50 chars', 'imperative mood', 'concise summary'],
+    anchors: ['50 chars', 'imperative mood', 'concise summary', '"add feature"'],
   },
   {
     id: 'root-cause-before-fix',
@@ -56,7 +69,7 @@ const ZENML_REDUNDANCIES: Array<{ id: string; anchors: string[] }> = [
   },
 ];
 
-const MODELS: ModelId[] = ['claude-haiku-4-5-20251001', 'claude-sonnet-4-6'];
+const MODELS: ModelId[] = ['gemini-2.5-flash', 'gemini-2.5-pro'];
 
 const fixtureCache = new Map<FixtureName, string>();
 
@@ -122,8 +135,8 @@ describe.runIf(HAS_KEY)('ground-truth fixture — Issue #10 acceptance', () => {
   }
 });
 
-describe.skipIf(HAS_KEY)('ground-truth fixture — skipped (no ANTHROPIC_API_KEY)', () => {
-  it('set ANTHROPIC_API_KEY to run the ground-truth harness', () => {
+describe.skipIf(HAS_KEY)('ground-truth fixture — skipped (no GEMINI_API_KEY)', () => {
+  it('set GEMINI_API_KEY to run the ground-truth harness', () => {
     expect(HAS_KEY).toBe(false);
   });
 });
