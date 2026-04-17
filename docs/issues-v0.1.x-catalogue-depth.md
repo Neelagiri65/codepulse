@@ -6,7 +6,7 @@ paused behind this work.
 
 **North star (revised 2026-04-17 after catalogue v3 re-crawl + manual check):**
 the catalogue *has* saturated at 82 entries. Distribution of the top 185 public
-repos at v3 is `[185, 0, 0, 0, 0]` with max score 7. A manual read of 5
+repos at v3 is `[175, 10, 0, 0, 0]` with max score 7. A manual read of 5
 zero-scoring large files showed that redundancy is real (zenml contains 5
 invisible semantic duplicates of Claude defaults) but cannot be caught by
 regex. Three of five sampled large files were genuinely clean. **The intelligence
@@ -55,7 +55,7 @@ depend on it.
 ## #9 — [DEFERRED] Catalogue expansion, batch B (60 new entries) + LLM enrichment scope-lock
 
 **Status:** Deferred post-2026-04-17. The catalogue-v3 re-crawl (82 entries)
-already saturated the regex layer at `[185, 0, 0, 0, 0]`. More regex entries
+already saturated the regex layer at `[175, 10, 0, 0, 0]`. More regex entries
 will not move the distribution. The LLM enrichment scope-lock that originally
 lived here is folded into Issue #10 itself (see the prompt framing there).
 Revisit this issue post-launch as a continuous-authoring task if regex recall

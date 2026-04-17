@@ -1,7 +1,7 @@
 # Ground-truth manual check — 2026-04-17
 
 Purpose: pin the single most important empirical finding in CodePulse's product arc.
-After catalogue v3 (82 regex patterns) produced distribution `[185, 0, 0, 0, 0]` with
+After catalogue v3 (82 regex patterns) produced distribution `[175, 10, 0, 0, 0]` with
 max score 7, a manual read of 5 zero-scoring large `CLAUDE.md` files established
 whether the thesis ("redundancy exists but regex can't catch it") is real or not.
 
@@ -143,7 +143,7 @@ stable; re-anchor to the quoted sentences if line numbers no longer match.
 ## The revised thesis this check locked in
 
 - **Old thesis:** *"Most CLAUDE.md files are bloated with redundancy."*
-  Disproved by catalogue v3 distribution `[185, 0, 0, 0, 0]` — max score 7
+  Disproved by catalogue v3 distribution `[175, 10, 0, 0, 0]` — max score 7
   across 185 repos even after doubling the regex catalogue.
 
 - **New thesis:** *"Some CLAUDE.md files contain invisible semantic redundancy

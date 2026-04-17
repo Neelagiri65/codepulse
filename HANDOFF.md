@@ -14,10 +14,11 @@ Merge PR #7, re-crawl against v3, **read the data honestly**, and set up Issue #
 
 1. **Merged PR #7** via `gh pr merge --merge --delete-branch`. `main` fast-forwarded to `b7f9e3c`. 42 entries + v2→v3 bump shipped.
 2. **Triggered `refresh.yml` via `workflow_dispatch`.** Run `24590277407` succeeded in 4m41s. Note: the scheduled run 26 min earlier (`24589512681`) failed in 12s — not investigated, but not blocking since the manual trigger succeeded. Commit `186e1dc data: refresh 2026-04-17T23:01:43Z` auto-pushed by the Action.
-3. **Computed new distribution.** Shocking:
-   - v2 (40 entries, 186 repos): `[178, 8, 0, 0, 0]`, max 8.
-   - v3 (82 entries, 185 repos): `[185, 0, 0, 0, 0]`, max 7.
-   - **The distribution moved backward.** Doubling the catalogue did not shift a single repo up a bucket; the 8 repos that previously cleared 10 all slid back under it. Top score: 7 (`protella/chatgpt-bots`, 4 matches).
+3. **Computed new distribution.**
+   - v2 (40 entries, 186 repos): `[178, 8, 0, 0, 0]`, max 8, clean 96%.
+   - v3 (82 entries, 185 repos): `[175, 10, 0, 0, 0]`, max 7, clean 95%.
+   - Doubling the catalogue nudged 2 more repos into the 1–25 bucket and dropped the max by 1, but left the 26–50 / 51–75 / 76–100 buckets empty. No repo crossed out of the bottom two buckets. The regex layer has effectively saturated. Top score: 7 (`protella/chatgpt-bots`, 4 matches).
+   - (Correction, committed in `cf550ba`: my real-time report in this session used wrong bucket boundaries and called the distribution `[185, 0, 0, 0, 0]`. The leaderboard's actual buckets are `[0, 1–25, 26–50, 51–75, 76–100]` and the real numbers are above. Narrative conclusion — regex saturated, LLM needed — is unchanged.)
 4. **Called the honest-data moment.** Per PRD non-negotiable, did not recalibrate the catalogue. Reported the collapse; user called option 1 (LLM enrichment is the product) and asked for a manual sanity-check before burning a session on Issue #10.
 5. **Manual check of 5 zero-score large CLAUDE.md files** (10k–44k chars). Fetched raw from GitHub HEAD. Read line-by-line, classified against the one question: *"Is this sentence instructing Claude to do something Claude already does by default?"*
    - `zenml-io/zenml` (24k): **heavy redundancy** — 5 specific semantic duplicates of Claude defaults (commenting policy, commit messages, root-cause-before-fix, task planning). All paraphrased past regex reach. The product's ground-truth example.
@@ -33,7 +34,7 @@ Merge PR #7, re-crawl against v3, **read the data honestly**, and set up Issue #
    - `CLAUDE.md` — first-read list updated to surface the ground-truth doc.
 
 ### Numbers
-- Catalogue v3 distribution: `[185, 0, 0, 0, 0]`, max 7 — regex layer has saturated.
+- Catalogue v3 distribution: `[175, 10, 0, 0, 0]`, max 7 — regex layer has saturated.
 - Manual check redundancy hit rate: 1 of 5 large clean-bucket files contains catchable redundancy. That's the rate the LLM layer is grading itself against.
 - Docs changed this session: 4 files (1 new, 3 modified). 360 insertions, 31 deletions.
 - Code changed: 0.

@@ -12,7 +12,7 @@ configs rot silently; most of the ecosystem is bloated.
 
 **Revised thesis (locked 2026-04-17 after two empirical checks):** the bloat
 claim is too strong. After a v3 catalogue of 82 regex patterns re-scored the top
-185 public `CLAUDE.md` files, the distribution was `[185, 0, 0, 0, 0]` with max
+185 public `CLAUDE.md` files, the distribution was `[175, 10, 0, 0, 0]` with max
 score 7 — effectively nobody scored as redundant. A manual read of 5 zero-scoring
 large files (10k–44k chars) then established the true shape of the problem:
 
@@ -131,7 +131,7 @@ All of these are real and valuable — they belong in the V2 spec phases. They d
 **What the catalogue-v3 re-crawl + manual check already proved (2026-04-17):**
 
 1. The deterministic catalogue alone is insufficient. At 82 regex patterns the
-   distribution collapsed to `[185, 0, 0, 0, 0]`; doubling the catalogue size
+   distribution collapsed to `[175, 10, 0, 0, 0]`; doubling the catalogue size
    again would not meaningfully change that. Regex cannot see semantic paraphrase.
 2. Redundancy is real but rare, and it is invisible without semantic analysis.
    The zenml file is the ground-truth example: five Claude-default duplicates
