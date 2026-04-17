@@ -44,7 +44,7 @@ describe('leaderboard mount — live data', () => {
 
   it('renders the hero sub with median + max + catalogue version', () => {
     const sub = host.querySelector('.hero-sub');
-    expect(sub?.textContent).toBe('median redundancy 0 · max 8 · catalogue v2');
+    expect(sub?.textContent).toBe('median redundancy 0 · max 8 · catalogue v3');
   });
 
   it('renders the confidence caption with live pattern count + methodology link', () => {
