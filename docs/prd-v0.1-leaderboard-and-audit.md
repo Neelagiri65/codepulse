@@ -55,13 +55,24 @@ Identical function runs server-side (GitHub Action) and client-side (paste-audit
 
 Non-negotiables for v0.1 — any design choice that violates these gets rejected:
 
-- **No per-audit LLM calls.** Both leaderboard scoring and paste-audit must run with zero network calls to Claude/OpenAI/etc. Only the catalogue file is fetched; scoring is local.
+- **No per-audit LLM calls from the browser.** Paste-audit must run with zero network calls to Claude/OpenAI/etc. The browser reads only the static catalogue + cached scores; scoring is local.
 - **No private data stored.** No auth, no cookies, no server-side database. If a user pastes a config, it stays in their browser.
 - **Leaderboard is not writable from the frontend.** `repos.json` is only produced by the scheduled GitHub Action. No API endpoint accepts writes.
-- **Reproducibility.** Third party runs `scripts/refresh.ts` with the same catalogue → gets the same `repos.json` (modulo new commits). The scoring is deterministic.
+- **Reproducibility for the deterministic layer.** Third party runs `scripts/refresh.ts` with the same catalogue against GitHub at rest → gets the same deterministic score in `repos.json` (modulo new commits).
 - **Honest data.** If average redundancy across the top 200 is low (thesis wrong), ship the data as-is and adjust the launch narrative. No recalibrating the catalogue to manufacture a bigger number.
 
-These are verified in the MOM check before launch. Any violation blocks the deploy.
+### v0.1.x amendment — CI-only LLM enrichment (locked 2026-04-17, session 7 tail)
+
+The original constraint "no per-audit LLM calls" is tightened to "no per-audit LLM calls **from the browser**." The GitHub Action is allowed a semantic-enrichment call to the Claude API, subject to these rules (any violation blocks the deploy):
+
+- **CI only.** LLM calls happen inside the refresh Action. API keys live in `secrets.ANTHROPIC_API_KEY`. They never ship to the client; no proxy endpoint is added.
+- **Daily cadence, not hourly.** The hourly deterministic refresh continues unchanged; the LLM enrichment pass runs once per day (cost discipline — ~200 repos × one enrichment call × 30 days is a sane bill; hourly is not).
+- **Cache-in-repo.** The Action writes each repo's semantic score into `repos.json` alongside the deterministic score. The browser and paste-audit read this cache; they never initiate the call themselves.
+- **Paste-audit is honest about being narrower.** Because the browser can't call Claude, a pasted CLAUDE.md is scored by the catalogue only. The UI must label this: "pasted audits use the deterministic catalogue; leaderboard scores also include daily semantic enrichment." Without that label, the paste-audit score is misleading.
+- **Scoring field separation.** `repos.json` keeps `score` (deterministic, pasted-audit parity) and adds `semantic_score` + `semantic_refreshed_at` (LLM-enriched, Action-only). The leaderboard may display a blended score, but both raw fields remain inspectable.
+- **Honest data still applies.** The LLM layer is for detecting paraphrased redundancy, not for manufacturing higher scores. If semantic enrichment doesn't meaningfully shift the distribution, that's shippable data too.
+
+Why: regex/phrase matching misses paraphrased redundancy ("make sure to read files before editing" vs "always check file contents first"). Semantic understanding catches them. CI-only scoping keeps the privacy/reproducibility contract with users intact while closing the accuracy gap. Session 7 dashboard review named the accuracy gap as the real launch blocker.
 
 ## Out of Scope (explicitly, for v0.1)
 

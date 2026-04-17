@@ -1,8 +1,11 @@
 import './styles.css';
 import reposData from '../data/repos.json';
 import catalogueData from '../data/catalogue.json';
-import { mountLeaderboard, type ReposFile } from './leaderboard';
+import { mountLeaderboard, type CatalogueCoverage, type ReposFile } from './leaderboard';
 import { mountAudit, type CatalogueFile } from './audit';
+
+const METHODOLOGY_URL =
+  'https://github.com/Neelagiri65/codepulse/blob/main/docs/catalogue-authoring.md';
 
 const renderFooter = (catalogue: CatalogueFile): HTMLElement => {
   const footer = document.createElement('footer');
@@ -17,6 +20,11 @@ const boot = (): void => {
 
   const repos = reposData as ReposFile;
   const catalogue = catalogueData as CatalogueFile;
+  const coverage: CatalogueCoverage = {
+    version: catalogue.version,
+    patternCount: catalogue.patterns.length,
+    methodologyUrl: METHODOLOGY_URL,
+  };
 
   const page = document.createElement('div');
   page.className = 'page';
@@ -24,7 +32,7 @@ const boot = (): void => {
   const leaderboardMount = document.createElement('div');
   leaderboardMount.id = 'leaderboard';
   page.appendChild(leaderboardMount);
-  mountLeaderboard(leaderboardMount, repos);
+  mountLeaderboard(leaderboardMount, repos, coverage);
 
   const auditMount = document.createElement('div');
   auditMount.id = 'audit';

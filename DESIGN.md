@@ -138,16 +138,20 @@ Flat. No drop shadows. Hierarchy is expressed via `--bg-0 → --bg-3` surface to
 The single most prominent element on the page. Displays the honest-data headline.
 
 ```
-┌────────────────────────────────────────────────────┐
-│  CODEPULSE                       refreshed 04:48Z  │
-│                                                    │
-│  186 CLAUDE.md files measured · 96% clean          │   ← --text-2xl, mono
-│  Median redundancy score: 0. Max: 8.                │   ← --text-base, --fg-1
-└────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│  CODEPULSE                             refreshed 04:48Z      │
+│                                                              │
+│  186 CLAUDE.md files measured · 96% clean                    │   ← --text-2xl, mono
+│  median redundancy 0 · max 8 · catalogue v2                  │   ← --text-base, --fg-1
+│                                                              │
+│  Scored against 40 catalogue patterns —                      │   ← --text-sm, --fg-2
+│  narrow scan, not a comprehensive audit. Methodology →       │     sans, link to
+└──────────────────────────────────────────────────────────────┘     catalogue-authoring.md
 ```
 
 - Background: `--bg-1`, border `--border`, radius `--radius-md`, padding `--space-5`.
 - The headline number (`96%`) uses the health gradient token matching the *bucket* (`--health-0`).
+- **Confidence caption** (the last line) is mandatory. It anchors the reader's interpretation of every score on the page: the distribution is bounded by catalogue coverage, not by the ecosystem. The catalogue count is injected at build time; the text after the em-dash is static prose. "Methodology" links to `docs/catalogue-authoring.md` on GitHub (external link, opens in new tab).
 
 ### 5.2 Distribution histogram
 

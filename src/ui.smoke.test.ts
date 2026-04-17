@@ -9,11 +9,16 @@
 import { describe, expect, it } from 'vitest';
 import reposData from '../data/repos.json' with { type: 'json' };
 import catalogueData from '../data/catalogue.json' with { type: 'json' };
-import { mountLeaderboard, type ReposFile } from './leaderboard';
+import { mountLeaderboard, type CatalogueCoverage, type ReposFile } from './leaderboard';
 import { mountAudit, type CatalogueFile } from './audit';
 
 const repos = reposData as ReposFile;
 const catalogue = catalogueData as CatalogueFile;
+const coverage: CatalogueCoverage = {
+  version: catalogue.version,
+  patternCount: catalogue.patterns.length,
+  methodologyUrl: 'https://example.test/methodology',
+};
 
 const mountNode = (): HTMLElement => {
   const div = document.createElement('div');
@@ -23,7 +28,7 @@ const mountNode = (): HTMLElement => {
 
 describe('leaderboard mount — live data', () => {
   const host = mountNode();
-  mountLeaderboard(host, repos);
+  mountLeaderboard(host, repos, coverage);
 
   it('renders the CODEPULSE wordmark and refreshed-at', () => {
     expect(host.querySelector('.wordmark')?.textContent).toBe('CODEPULSE');
@@ -40,6 +45,17 @@ describe('leaderboard mount — live data', () => {
   it('renders the hero sub with median + max + catalogue version', () => {
     const sub = host.querySelector('.hero-sub');
     expect(sub?.textContent).toBe('median redundancy 0 · max 8 · catalogue v2');
+  });
+
+  it('renders the confidence caption with live pattern count + methodology link', () => {
+    const confidence = host.querySelector('.hero-confidence');
+    expect(confidence?.textContent).toContain(`Scored against ${coverage.patternCount} catalogue patterns`);
+    expect(confidence?.textContent).toContain('narrow scan, not a comprehensive audit');
+    const link = confidence?.querySelector('.hero-methodology-link') as HTMLAnchorElement;
+    expect(link?.textContent).toBe('Methodology →');
+    expect(link?.href).toBe(coverage.methodologyUrl);
+    expect(link?.target).toBe('_blank');
+    expect(link?.rel).toContain('noopener');
   });
 
   it('renders 5 histogram bars with correct bucket counts', () => {

@@ -18,7 +18,12 @@ const { mountAudit } = await import('../src/audit.ts');
 const root = window.document.createElement('div');
 window.document.body.appendChild(root as unknown as Node);
 
-mountLeaderboard(root as unknown as HTMLElement, reposData as never);
+mountLeaderboard(root as unknown as HTMLElement, reposData as never, {
+  version: catalogueData.version,
+  patternCount: catalogueData.patterns.length,
+  methodologyUrl:
+    'https://github.com/Neelagiri65/codepulse/blob/main/docs/catalogue-authoring.md',
+});
 
 const auditMount = window.document.createElement('div');
 window.document.body.appendChild(auditMount as unknown as Node);
@@ -34,6 +39,7 @@ console.log('wordmark:', text('.wordmark'));
 console.log('refreshed:', text('.refreshed'));
 console.log('headline:', text('.hero-headline'));
 console.log('sub:', text('.hero-sub'));
+console.log('confidence:', text('.hero-confidence'));
 
 console.log('\n=== Histogram ===');
 const cols = window.document.querySelectorAll('.histogram-col');
