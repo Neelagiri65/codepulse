@@ -39,16 +39,19 @@ Issue #8 extraction pass — draft candidate patterns from the 10-sample corpus,
 - [x] `pnpm validate:catalogue` green (82 entries). `pnpm typecheck` clean. 81/81 vitest tests pass.
 - [x] Secret scan pre-push: no secret values — only a regex pattern containing the word "secret" as part of `dont-upload-sensitive-to-third-party`. Clean.
 - [x] Commit `05dd1e3` on `feature/catalogue-batch-a`.
+- [x] HANDOFF commit `3f887e6`.
+- [x] Branch pushed to remote; **PR #7 open**: https://github.com/Neelagiri65/codepulse/pull/7
 
 ### What's not done
-- [ ] **Push `feature/catalogue-batch-a` and open PR #7.** Next step — commit is local only.
+- [ ] **Merge PR #7** (awaiting human review).
+- [ ] Post-merge: trigger `refresh.yml` once and diff bucket counts against `[178, 8, 0, 0, 0]`.
 - [ ] Issue #9 catalogue batch B (60 more entries target, cumulative ~142).
 - [ ] Issue #10 CI semantic enrichment (LLM layer).
 - [ ] Issue #11 scoring-asymmetry doc + self-audit.
 - [ ] Issue #12 unpause launch.
 
 ### Git state
-- Branch: `feature/catalogue-batch-a` at `05dd1e3`, 1 commit ahead of main, **NOT yet pushed**.
+- Branch: `feature/catalogue-batch-a` at `3f887e6` (2 commits ahead of main), pushed. PR #7 open.
 - `main` at `b1a6c81`.
 - `data/catalogue.json` now shows `version: 3, updated_at: 2026-04-17, patterns.length: 82`.
 - `src/ui.smoke.test.ts:47` updated to assert `catalogue v3` in hero sub.
@@ -61,7 +64,7 @@ Issue #8 extraction pass — draft candidate patterns from the 10-sample corpus,
 - Committed secret values: 0.
 
 ### NEXT action (for the next session)
-1. **Push `feature/catalogue-batch-a` and open PR #7** (push was not done at session end for safety; one human-approved action remains). After merge, re-run hourly refresh once (`gh workflow run refresh.yml`) to re-score 186 repos against v3 catalogue. Diff the bucket counts against `[178, 8, 0, 0, 0]` — per the PRD honest-data rule, if distribution shifts toward higher buckets, the catalogue was the bottleneck; if it stays flat, the thesis still needs rewriting (not the catalogue).
+1. **Review + merge PR #7** (https://github.com/Neelagiri65/codepulse/pull/7). After merge, re-run hourly refresh once (`gh workflow run refresh.yml`) to re-score 186 repos against v3 catalogue. Diff the bucket counts against `[178, 8, 0, 0, 0]` — per the PRD honest-data rule, if distribution shifts toward higher buckets, the catalogue was the bottleneck; if it stays flat, the thesis still needs rewriting (not the catalogue).
 2. **Issue #9 — catalogue batch B, 60 more entries.** Expand the sample corpus (next pass of `pnpm sample:claude-mds --seed 1` to get different picks) and repeat the extraction loop. Cumulative target ~142. Keep applying the same two gates.
 3. **Before session 10**: confirm the LLM hybrid scope (v0.1.x CI-only vs v0.2 full) per the PRD amendment.
 
