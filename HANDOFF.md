@@ -1,5 +1,101 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 → 2026-04-18 (session 10 — PR #7 merge, v3 re-crawl, manual check, thesis revision)
+
+### State at session start
+- `main` at `b1a6c81` (pre-merge). `feature/catalogue-batch-a` pushed with PR #7 open (82 entries, v3 catalogue).
+- Working tree clean.
+- NEXT from session 9: merge PR #7, trigger `refresh.yml`, diff new distribution against `[178, 8, 0, 0, 0]`.
+
+### Single deliverable
+Merge PR #7, re-crawl against v3, **read the data honestly**, and set up Issue #10 on solid empirical ground. Not implement #10 — decide what #10 should be.
+
+### What happened
+
+1. **Merged PR #7** via `gh pr merge --merge --delete-branch`. `main` fast-forwarded to `b7f9e3c`. 42 entries + v2→v3 bump shipped.
+2. **Triggered `refresh.yml` via `workflow_dispatch`.** Run `24590277407` succeeded in 4m41s. Note: the scheduled run 26 min earlier (`24589512681`) failed in 12s — not investigated, but not blocking since the manual trigger succeeded. Commit `186e1dc data: refresh 2026-04-17T23:01:43Z` auto-pushed by the Action.
+3. **Computed new distribution.** Shocking:
+   - v2 (40 entries, 186 repos): `[178, 8, 0, 0, 0]`, max 8.
+   - v3 (82 entries, 185 repos): `[185, 0, 0, 0, 0]`, max 7.
+   - **The distribution moved backward.** Doubling the catalogue did not shift a single repo up a bucket; the 8 repos that previously cleared 10 all slid back under it. Top score: 7 (`protella/chatgpt-bots`, 4 matches).
+4. **Called the honest-data moment.** Per PRD non-negotiable, did not recalibrate the catalogue. Reported the collapse; user called option 1 (LLM enrichment is the product) and asked for a manual sanity-check before burning a session on Issue #10.
+5. **Manual check of 5 zero-score large CLAUDE.md files** (10k–44k chars). Fetched raw from GitHub HEAD. Read line-by-line, classified against the one question: *"Is this sentence instructing Claude to do something Claude already does by default?"*
+   - `zenml-io/zenml` (24k): **heavy redundancy** — 5 specific semantic duplicates of Claude defaults (commenting policy, commit messages, root-cause-before-fix, task planning). All paraphrased past regex reach. The product's ground-truth example.
+   - `nearai/ironclaw` (17k): clean. One borderline line on comments.
+   - `SuperCmdLabs/SuperCmd` (28k): clean. Mostly Raycast API tables.
+   - `javascript-obfuscator/javascript-obfuscator` (44k): clean. Project architecture + test command reference.
+   - `jayminwest/overstory` (37k): mild. One "Quality Gates" section lightly overlaps with Claude's commit-discipline default.
+6. **Thesis revised.** Old: *"most configs are bloated."* New: *"some configs contain invisible semantic redundancy; file size doesn't predict which; developers have no heuristic; LLM enrichment is the only way to answer 'is mine one of them?'"*
+7. **Docs updated, committed, pushed (`35f4708` on main):**
+   - `docs/ground-truth-2026-04-17.md` — new, the acceptance fixture for Issue #10.
+   - `docs/prd-v0.1-leaderboard-and-audit.md` — Problem Statement + "What v0.1 Proves" rewritten.
+   - `docs/issues-v0.1.x-catalogue-depth.md` — Issue #10 rewritten with the exact prompt framing and ground-truth-backed acceptance criteria. Issue #9 (batch B regex) deferred, no longer blocks #10.
+   - `CLAUDE.md` — first-read list updated to surface the ground-truth doc.
+
+### Numbers
+- Catalogue v3 distribution: `[185, 0, 0, 0, 0]`, max 7 — regex layer has saturated.
+- Manual check redundancy hit rate: 1 of 5 large clean-bucket files contains catchable redundancy. That's the rate the LLM layer is grading itself against.
+- Docs changed this session: 4 files (1 new, 3 modified). 360 insertions, 31 deletions.
+- Code changed: 0.
+
+### Key decision locked
+**Issue #10's LLM prompt must implement exactly this question, verbatim, per the PRD:**
+> "Is this sentence instructing Claude to do something Claude Code already does by default?"
+
+Not "does this sound like generic advice." Not "is this verbose." The prompt is graded against `docs/ground-truth-2026-04-17.md` — must flag ≥4 of the 5 documented zenml redundancies, must not high-confidence-flag the 4 clean files. Over-flagging ships no product; a false positive on `javascript-obfuscator`-style architecture docs would be worse than the current null-result state.
+
+### What's done this session
+- [x] Merged PR #7; branch deleted.
+- [x] Triggered `refresh.yml`; data committed by Action.
+- [x] Pulled fresh `repos.json`, computed v3 distribution.
+- [x] Reported empirical finding honestly (no catalogue recalibration).
+- [x] Fetched 5 CLAUDE.md fixtures, read each manually.
+- [x] Wrote `docs/ground-truth-2026-04-17.md`.
+- [x] Rewrote PRD Problem Statement + "What v0.1 Proves".
+- [x] Rewrote Issue #10 against ground-truth fixture.
+- [x] Deferred Issue #9 from the critical path.
+- [x] Updated CLAUDE.md first-read list.
+- [x] Committed + pushed `35f4708`.
+
+### What's not done
+- [ ] **Issue #10 implementation** — next session's single deliverable.
+- [ ] `refresh.yml` scheduled-run failure mode (12s crash at 2026-04-17T22:31:03Z, run `24589512681`) — not investigated. Action succeeded on manual dispatch so it's not blocking, but worth a look during #10 work.
+- [ ] Issues #11, #12 remain gated on #10.
+
+### Git state
+- Branch: `main` at `35f4708`, pushed.
+- `data/repos.json` current as of `186e1dc` (2026-04-17T23:01:43Z refresh) with 185 repos scored against v3.
+- No open PRs.
+- `/tmp/codepulse-manual-check/` holds the 5 fetched fixture files (session-local, not committed — fetch commands are in `docs/ground-truth-2026-04-17.md` for reproducibility).
+
+### File operations this session
+- Modified inside project: `CLAUDE.md`, `docs/prd-v0.1-leaderboard-and-audit.md`, `docs/issues-v0.1.x-catalogue-depth.md`, `HANDOFF.md` (this block).
+- Created: `docs/ground-truth-2026-04-17.md`, `/tmp/codepulse-manual-check/*.md` (5 fixture files, session-local).
+- Modified outside project: 0.
+- Deleted: 0.
+- Committed secret values: 0.
+
+### NEXT action (for session 11)
+1. **Start a fresh session on `feature/llm-enrichment`** (branch off current `main` at `35f4708`).
+2. **Implement Issue #10 per `docs/issues-v0.1.x-catalogue-depth.md` #10.** Specifically:
+   - Write the LLM prompt exactly as framed — single question, anti-over-flagging rules, project-specific vs default distinction.
+   - Build `scripts/ground-truth.test.ts` harness gated on `ANTHROPIC_API_KEY`. Must fetch the 5 fixture files from the URLs in `docs/ground-truth-2026-04-17.md`, run the prompt, assert ≥4 of 5 zenml redundancies flagged + 4 clean files not high-confidence-flagged.
+   - Wire `scripts/refresh.ts` → `enrichSemanticScore()`. Gate behind env var. Preserve deterministic score on API absence/failure.
+   - Split `refresh.yml` into hourly deterministic + daily semantic jobs. Add `ANTHROPIC_API_KEY` secret read to the semantic job only.
+   - Extend `repos.json` schema with `semantic_score`, `semantic_matched_intents`, `semantic_refreshed_at` (all optional).
+   - Update `src/leaderboard.ts` to display blended score with both fields inspectable.
+   - Add mandatory paste-audit UI label per DESIGN.md §5.6.
+3. **Before merging the PR**: run the ground-truth harness against real API. Capture the flag rate and quotes in the session's handoff. If zenml hit rate < 4/5 or any clean file produces a high-confidence flag, iterate on the prompt before shipping — do not tune around the fixture to pass it.
+4. **Cost discipline**: first smoke test is one manual `workflow_dispatch` of the semantic job. Capture real API billing. If >$5/day projected, escalate scope (model choice, batch API, cadence) before enabling the daily cron.
+
+### Open questions / decisions carried
+- `refresh.yml` 12s crash on 2026-04-17T22:31:03Z — not investigated.
+- LLM model choice for #10 — not locked. Claude Haiku 4.5 is the default assumption per cost-first framing, but the prompt may need Sonnet 4.6's judgement to avoid over-flagging. Test both on the ground-truth fixture before committing.
+- Blended score formula (displayed pill value) — not locked. Simplest: `max(deterministic, semantic)`. Needs a decision in #10 or #11.
+- Paste-audit deterministic-only scoring remains the policy per PRD amendment. Revisit only if user strongly objects to the asymmetry after launch.
+
+---
+
 ## Session: 2026-04-17 (session 9 — Issue #8 catalogue batch A, 42 new entries, v2→v3)
 
 ### State at session start
