@@ -32,19 +32,19 @@ describe('leaderboard mount — live data', () => {
 
   it('renders the CODEPULSE wordmark and refreshed-at', () => {
     expect(host.querySelector('.wordmark')?.textContent).toBe('CODEPULSE');
-    expect(host.querySelector('.refreshed')?.textContent).toContain('2026-04-16');
+    expect(host.querySelector('.refreshed')?.textContent).toContain('2026-04-17');
   });
 
   it('renders the honest-data hero headline against real data', () => {
     const headline = host.querySelector('.hero-headline');
-    expect(headline?.textContent).toContain('186 CLAUDE.md files measured');
-    expect(headline?.textContent).toContain('96% clean');
-    expect(headline?.querySelector('.accent')?.textContent).toBe('96% clean');
+    expect(headline?.textContent).toContain('185 CLAUDE.md files measured');
+    expect(headline?.textContent).toContain('95% clean');
+    expect(headline?.querySelector('.accent')?.textContent).toBe('95% clean');
   });
 
   it('renders the hero sub with median + max + catalogue version', () => {
     const sub = host.querySelector('.hero-sub');
-    expect(sub?.textContent).toBe('median redundancy 0 · max 8 · catalogue v3');
+    expect(sub?.textContent).toBe('median redundancy 0 · max 7 · catalogue v3');
   });
 
   it('renders the confidence caption with live pattern count + methodology link', () => {
@@ -64,7 +64,7 @@ describe('leaderboard mount — live data', () => {
     const counts = Array.from(cols).map(
       (c) => c.querySelector('.histogram-count')?.textContent,
     );
-    expect(counts).toEqual(['178', '8', '0', '0', '0']);
+    expect(counts).toEqual(['175', '10', '0', '0', '0']);
     const labels = Array.from(cols).map(
       (c) => c.querySelector('.histogram-label')?.textContent,
     );
@@ -81,11 +81,11 @@ describe('leaderboard mount — live data', () => {
 
   it('renders a row per repo, score-desc default sort', () => {
     const rows = host.querySelectorAll('.leaderboard-table tbody tr');
-    expect(rows.length).toBe(186);
+    expect(rows.length).toBe(185);
     const firstScore = rows[0].querySelector('.col-score .pill')?.textContent;
     const lastScore = rows[rows.length - 1].querySelector('.col-score .pill')?.textContent;
     expect(Number(firstScore)).toBeGreaterThanOrEqual(Number(lastScore));
-    expect(Number(firstScore)).toBe(8);
+    expect(Number(firstScore)).toBe(7);
   });
 
   it('each row links to the repo on GitHub', () => {
