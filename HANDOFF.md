@@ -1,5 +1,81 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 (session 7 tail — PR #5 merged, strategic pivot: catalogue is the critical path, NOT the launch)
+
+### What happened after PR #5 opened
+1. **PR #5 merged** (`gh pr merge 5 --merge --delete-branch`) → merge commit `64c5c60`. `feature/leaderboard-ui` deleted locally and on remote. Main now includes DESIGN.md, leaderboard, paste-audit, shared score pill, format utilities, happy-dom DOM smoke tests, and the dump-dom dev aid.
+2. **User inspected the UI and named the real problem.** The UI is fine. The score distribution (96% at 0, max 8/100) is not evidence about the ecosystem — it is the honest output of a narrow instrument. The catalogue at 40 patterns is a prototype, not a product. Quote preserved below so the next session reads the reasoning cold.
+
+### User's strategic assessment (verbatim so context survives)
+> The accuracy problem is real. 96% scoring zero doesn't mean the data is wrong — it means the catalogue is too narrow. 40 patterns against the full diversity of what people write in CLAUDE.md files is like checking for 40 specific sentences in a 10,000-word essay. Most files contain instructions that are genuinely redundant but phrased differently from what the catalogue expects. The scoring engine is technically accurate against its catalogue — it's the catalogue that's insufficient.
+>
+> What World Monitor does differently: World Monitor aggregates data from 65+ verified public sources (USGS, GDELT, Reuters, ACLED) where the data is inherently trustworthy because the sources are authoritative. CodePulse is generating its own scores from a hand-built catalogue of 40 patterns. That's not the same confidence level.
+>
+> What needs to happen before this is trustworthy:
+> 1. **Catalogue 10x larger.** 40 patterns is a prototype. Need 300–400 patterns covering actual diversity of redundant instructions. That's the core product work.
+> 2. **Scoring needs an LLM layer.** Regex/phrase matching was right for v0.1 to prove pipeline. Real redundancy detection requires semantic understanding — "make sure to read files before editing them" and "always check file contents first" are the same instruction but no regex catches both. Hybrid scoring (catalogue for obvious 80%, Claude API for the rest) needs to come in sooner than planned.
+> 3. **Dashboard needs to show confidence level.** "Scored against 40 known patterns" should be prominent. Users need to understand this is a narrow scan, not a comprehensive audit. World Monitor shows source freshness + data gaps — CodePulse should show catalogue coverage limitations.
+>
+> Recommendation: Don't deploy this publicly yet. Merge the PR so the code is on main, but don't launch. Spend the next two sessions expanding the catalogue significantly — manually review 50 real CLAUDE.md files from the scored repos, extract every instruction that's genuinely redundant, add patterns. Get the catalogue to 150+ entries. Then re-run the crawl and see if the distribution shifts. If it does, the product is getting more accurate. If it doesn't, the thesis genuinely needs rethinking.
+>
+> Pipeline and UI are solid. The intelligence layer (the catalogue) is what needs depth before this is credible enough to publish.
+
+### What this changes (roadmap-level)
+- **Issue #7 (deploy + domain + launch) is PAUSED.** Not cancelled, not reordered — paused until the catalogue has credibility depth.
+- **New issues required.** The backlog now needs: **#8 catalogue expansion to 150+ entries** (two sessions, hand-authored, methodology locked below) and **#9 hybrid LLM scoring layer** (v0.1.x scope question still open — see below). Draft as a new issues doc before either starts.
+- **Confidence surface on the dashboard.** User called this out explicitly. Pre-launch must-have; **not added to PR #5 because the user said "merge the PR" without attaching this as a precondition.** Belongs in the first commit of session 8.
+
+### Catalogue-expansion methodology (pins the work so session 8 doesn't drift into gut-feel)
+Inherit all existing rules from `docs/catalogue-authoring.md` (three admissible source classes, "hardening ≠ redundancy," review checklist, weight scale) and add the operational loop:
+1. **Sample selection.** Pull 50 CLAUDE.md files from the scored leaderboard. Stratify: 20 from bucket 1–25 (where signal already exists), 30 from bucket 0 (where patterns likely lurk un-caught). Use `scripts/smoke-test.mts` output as the lookup.
+2. **Extraction pass.** For each file, read line-by-line. Flag any instruction that restates a documented Claude Code default or Piebald system-prompt directive. Record: line text verbatim, proposed `match_value` (phrase OR regex), candidate source_url.
+3. **Dedup + generalise.** Collapse near-duplicates into one regex where possible. Avoid over-specific literal phrases that will only match this file.
+4. **Over-match gate.** For each proposed pattern, smoke-test against at least 3 files from the clean bucket (0) to verify it doesn't fire on non-redundant prose. Drop or tighten anything that over-matches.
+5. **Validator.** `pnpm validate:catalogue` after every batch. Never leave an invalid state on disk.
+6. **Target:** 150+ entries after two sessions. Stretch: 200. (User's 300–400 is the eventual state, not a two-session goal.)
+7. **Re-run the crawl.** After the expansion, `workflow_dispatch` the refresh Action. Diff the bucket counts vs current `[178, 8, 0, 0, 0]`. Two outcomes:
+   - Distribution shifts meaningfully toward higher buckets → catalogue was the bottleneck. Expansion was right call.
+   - Distribution stays flat → the top-of-ecosystem genuinely is cleaner than theorised. Thesis needs rewrite, not the instrument.
+   Either outcome is shippable data per PRD honest-data rule.
+
+### Open question — LLM hybrid layer scope
+PRD v0.1 architectural constraint: **"No per-audit LLM calls. Scoring is deterministic, catalogue-based, runs identically in the browser and in the GitHub Action."** User's note says the LLM layer "needs to come in sooner than planned." That is a scope change:
+- **v0.1.x (sooner path):** Claude API call inside the CI refresh *only* (not in the browser), results cached into `repos.json`. Browser paste-audit stays deterministic/catalogue-only — no API keys ship to client. Preserves the "no per-audit LLM calls from browser" spirit, relaxes the "identical in browser and Action" letter.
+- **v0.2 (planned path):** stays planned, no change.
+Before session 9 starts: clarify which bucket this lands in. Cost question too — hourly refresh × 200 repos × LLM call = non-trivial bill.
+
+### Catalogue expansion is not a blocker for some other work
+Session 8 can ALSO include, if time permits:
+- Add the **confidence surface** to the UI (see §"What this changes"). ~30 minutes: one prominent banner + the catalogue count wired in at build time, with a link to `docs/catalogue-authoring.md`. Small commit, low risk.
+- Fix any drift from DESIGN.md identified when the user finally eyeballs the dev server (still pending from this session).
+
+### Git state
+- `main` at `64c5c60` (PR #5 merge commit).
+- No open branches.
+- Data on main: `data/repos.json` `[178 @ 0, 8 @ 1–25, 0 elsewhere]`, max 8. Will continue to drift at the hourly cron until the next catalogue change triggers a real re-score.
+
+### File operations this session tail
+- Modified inside project: `HANDOFF.md` (this block).
+- Modified outside project: 0.
+- Deleted: `feature/leaderboard-ui` (local + remote) — part of `gh pr merge --delete-branch`.
+- Committed secret values: 0.
+
+### NEXT action (for the next session — Issue #8, catalogue expansion kickoff)
+1. **Read this handoff block + `docs/catalogue-authoring.md` + the methodology above.** Do NOT skip the "over-match gate" step — that's where credibility lives.
+2. **Create `docs/issues-v0.1.x-catalogue-depth.md`** decomposing the 150-entry expansion into two sessions (session 8: 50 more entries, session 9: 60 more entries, plus the re-crawl and thesis check). Include the LLM-scope decision as an explicit blocker before session 9 starts.
+3. **Commit a small confidence-surface update** to the dashboard as a warmup — user explicitly flagged this as needed. Render something like "scored against N catalogue patterns · narrow scan, not a comprehensive audit" under the hero sub, with a link to `docs/catalogue-authoring.md`. Use the same DESIGN.md tokens.
+4. **Begin the first extraction pass.** Fetch 10 real CLAUDE.md samples stratified per methodology step 1. Read them, draft candidate patterns, run over-match gate, validate, commit.
+
+### Decisions still deferred (carried — none closed this tail)
+- `/search/code` deprecation (2026-09-27) — post-launch, which is further away now.
+- Drift-driven hourly commits threshold — not urgent.
+- Slash-command extension research — still deferred.
+- `robo-poet` smoke-test `no-emojis` hit — re-evaluate inside the session-8 over-match gate.
+- `last_checked_at` in `meta.json` — revisit if needed.
+- **NEW:** LLM hybrid layer scope (v0.1.x vs v0.2) — must decide before session 9.
+
+---
+
 ## Session: 2026-04-17 (session 7 — Issues #5 + #6, DESIGN.md + UI)
 
 ### State at session start
