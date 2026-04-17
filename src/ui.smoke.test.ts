@@ -11,6 +11,7 @@ import reposData from '../data/repos.json' with { type: 'json' };
 import catalogueData from '../data/catalogue.json' with { type: 'json' };
 import { mountLeaderboard, type CatalogueCoverage, type ReposFile } from './leaderboard';
 import { mountAudit, type CatalogueFile } from './audit';
+import { distribution } from './format';
 
 const repos = reposData as ReposFile;
 const catalogue = catalogueData as CatalogueFile;
@@ -19,6 +20,25 @@ const coverage: CatalogueCoverage = {
   patternCount: catalogue.patterns.length,
   methodologyUrl: 'https://example.test/methodology',
 };
+
+// Derive expected values from the live data files rather than hard-coding,
+// so the suite stays green across hourly cron refreshes. The production
+// renderer uses the same `distribution()` helper and the same ISO->date
+// slicing, so the test checks "UI reflects the data" not "UI matches a
+// number baked in when this test was written."
+const expected = (() => {
+  const scores = repos.repos.map((r) => r.score);
+  const dist = distribution(scores);
+  return {
+    refreshedDate: repos.refreshed_at.slice(0, 10),
+    total: repos.repos.length,
+    cleanPct: dist.cleanPct,
+    median: dist.median,
+    max: dist.max,
+    bucketCounts: dist.buckets.map((b) => String(b.count)),
+    bucketLabels: dist.buckets.map((b) => b.label),
+  };
+})();
 
 const mountNode = (): HTMLElement => {
   const div = document.createElement('div');
@@ -32,19 +52,21 @@ describe('leaderboard mount — live data', () => {
 
   it('renders the CODEPULSE wordmark and refreshed-at', () => {
     expect(host.querySelector('.wordmark')?.textContent).toBe('CODEPULSE');
-    expect(host.querySelector('.refreshed')?.textContent).toContain('2026-04-17');
+    expect(host.querySelector('.refreshed')?.textContent).toContain(expected.refreshedDate);
   });
 
   it('renders the honest-data hero headline against real data', () => {
     const headline = host.querySelector('.hero-headline');
-    expect(headline?.textContent).toContain('185 CLAUDE.md files measured');
-    expect(headline?.textContent).toContain('95% clean');
-    expect(headline?.querySelector('.accent')?.textContent).toBe('95% clean');
+    expect(headline?.textContent).toContain(`${expected.total} CLAUDE.md files measured`);
+    expect(headline?.textContent).toContain(`${expected.cleanPct}% clean`);
+    expect(headline?.querySelector('.accent')?.textContent).toBe(`${expected.cleanPct}% clean`);
   });
 
   it('renders the hero sub with median + max + catalogue version', () => {
     const sub = host.querySelector('.hero-sub');
-    expect(sub?.textContent).toBe('median redundancy 0 · max 7 · catalogue v3');
+    expect(sub?.textContent).toBe(
+      `median redundancy ${expected.median} · max ${expected.max} · catalogue v${catalogue.version}`,
+    );
   });
 
   it('renders the confidence caption with live pattern count + methodology link', () => {
@@ -64,11 +86,11 @@ describe('leaderboard mount — live data', () => {
     const counts = Array.from(cols).map(
       (c) => c.querySelector('.histogram-count')?.textContent,
     );
-    expect(counts).toEqual(['175', '10', '0', '0', '0']);
+    expect(counts).toEqual(expected.bucketCounts);
     const labels = Array.from(cols).map(
       (c) => c.querySelector('.histogram-label')?.textContent,
     );
-    expect(labels).toEqual(['0', '1–25', '26–50', '51–75', '76–100']);
+    expect(labels).toEqual(expected.bucketLabels);
   });
 
   it('zero-count buckets have no bar colour variable set (no fake data)', () => {
@@ -81,11 +103,11 @@ describe('leaderboard mount — live data', () => {
 
   it('renders a row per repo, score-desc default sort', () => {
     const rows = host.querySelectorAll('.leaderboard-table tbody tr');
-    expect(rows.length).toBe(185);
+    expect(rows.length).toBe(expected.total);
     const firstScore = rows[0].querySelector('.col-score .pill')?.textContent;
     const lastScore = rows[rows.length - 1].querySelector('.col-score .pill')?.textContent;
     expect(Number(firstScore)).toBeGreaterThanOrEqual(Number(lastScore));
-    expect(Number(firstScore)).toBe(7);
+    expect(Number(firstScore)).toBe(expected.max);
   });
 
   it('each row links to the repo on GitHub', () => {
