@@ -1,10 +1,12 @@
 # CodePulse — Project Instructions
 
 ## First read, in order
-1. `docs/prd-v0.1-leaderboard-and-audit.md` — the single approved scope for now
-2. `docs/issues-v0.1-leaderboard-and-audit.md` — ordered work breakdown
-3. `HANDOFF.md` — where the last session ended
-4. `CODEPULSE_V2_FULL_SPEC.md` — north-star vision, not a build plan. Do not build phases from this file.
+1. `docs/prd-v0.1-leaderboard-and-audit.md` — the single approved scope for now (problem statement revised 2026-04-17)
+2. `docs/ground-truth-2026-04-17.md` — the 5-file manual check that sets the acceptance bar for Issue #10
+3. `docs/issues-v0.1.x-catalogue-depth.md` — current work breakdown (Issue #9 deferred; #10 is next)
+4. `docs/issues-v0.1-leaderboard-and-audit.md` — earlier work breakdown, still the source for Issues #1–#7
+5. `HANDOFF.md` — where the last session ended
+6. `CODEPULSE_V2_FULL_SPEC.md` — north-star vision, not a build plan. Do not build phases from this file.
 
 ## Non-negotiables (architectural constraint tests)
 - No per-audit LLM calls. Scoring is deterministic, catalogue-based, runs identically in the browser and in the GitHub Action.

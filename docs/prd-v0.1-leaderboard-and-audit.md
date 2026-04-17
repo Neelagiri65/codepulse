@@ -6,7 +6,39 @@
 
 ## Problem Statement
 
-Developers copy popular `CLAUDE.md` files from starred GitHub repos without measuring whether those configs help or hurt. Claude Code ships updates multiple times per week; configs rot silently. Nobody audits this at ecosystem scale. Today a developer has no way to ask *"is my CLAUDE.md actually helping?"* and get a grounded answer.
+**Original thesis (pre-2026-04-17):** developers copy popular `CLAUDE.md` files
+from starred GitHub repos without measuring whether those configs help or hurt;
+configs rot silently; most of the ecosystem is bloated.
+
+**Revised thesis (locked 2026-04-17 after two empirical checks):** the bloat
+claim is too strong. After a v3 catalogue of 82 regex patterns re-scored the top
+185 public `CLAUDE.md` files, the distribution was `[185, 0, 0, 0, 0]` with max
+score 7 — effectively nobody scored as redundant. A manual read of 5 zero-scoring
+large files (10k–44k chars) then established the true shape of the problem:
+
+- 1 of 5 (`zenml-io/zenml`) contained **heavy invisible redundancy**:
+  paraphrased semantic duplicates of Claude Code defaults (commenting policy,
+  commit message guidelines, bug-fix approach, task-planning steps). All five
+  redundancies are phrased differently enough that no regex catches them.
+- 3 of 5 were **legitimately clean**: their size came from project-specific API
+  tables, architecture docs, and build/test command references — not redundancy.
+- 1 of 5 was mostly clean with one borderline section.
+
+See `docs/ground-truth-2026-04-17.md` for the file-by-file findings and the
+specific redundancies the LLM layer must catch.
+
+This reshapes the product. The question a developer actually needs answered is
+not *"is CLAUDE.md bloat a widespread problem?"* (it isn't, at the ecosystem
+level) but *"is **my** CLAUDE.md in the quiet 80% that's fine, or the noisy 20%
+that's silently bloated with paraphrased defaults?"* That's a different
+question, and it can only be answered by semantic analysis — regex can't tell
+the two categories apart.
+
+CodePulse becomes the instrument that answers that question honestly: a
+leaderboard of public configs scored both deterministically (regex catalogue)
+and semantically (LLM enrichment in CI), plus a paste-audit that scores the
+developer's own file on the same deterministic catalogue (with a visible label
+that the semantic layer is leaderboard-only).
 
 ## User Story
 
@@ -96,5 +128,29 @@ All of these are real and valuable — they belong in the V2 spec phases. They d
 
 ## What v0.1 Proves
 
-If redundancy scores cluster high across top repos → thesis holds, launch narrative is *"cargo cult confirmed."*
-If scores cluster low → thesis is wrong, launch narrative is *"the top of the ecosystem is cleaner than expected; here's the distribution."* Either way the data is the product.
+**What the catalogue-v3 re-crawl + manual check already proved (2026-04-17):**
+
+1. The deterministic catalogue alone is insufficient. At 82 regex patterns the
+   distribution collapsed to `[185, 0, 0, 0, 0]`; doubling the catalogue size
+   again would not meaningfully change that. Regex cannot see semantic paraphrase.
+2. Redundancy is real but rare, and it is invisible without semantic analysis.
+   The zenml file is the ground-truth example: five Claude-default duplicates
+   across 24k chars, all paraphrased past regex reach.
+3. File size does not predict redundancy. The cleanest of the five sampled
+   files was the largest (44k chars, `javascript-obfuscator`). The dirtiest was
+   middling (24k, `zenml`). Developers have no heuristic available today to
+   self-diagnose.
+
+**What v0.1.x still has to prove (Issue #10 onward):**
+
+- That an LLM-enrichment layer can correctly flag the 5 zenml redundancies
+  *and* leave the 4 other sampled files untouched (or nearly so). The
+  acceptance fixture is `docs/ground-truth-2026-04-17.md`.
+- That the leaderboard, once the semantic layer lands, produces a distribution
+  whose shape matches the manual check — i.e., a modest fraction of repos
+  scoring as semantically redundant, not all 185 suddenly lighting up.
+- That the narrative survives either outcome. If semantic enrichment shows
+  ~15% of top repos are redundant, the product is *"tell me which 15% I'm
+  in."* If it shows ~1%, the product is *"rare but real; here's the audit."*
+  Both are shippable per the honest-data rule. What is not shippable is a
+  prompt tuned to produce a pre-decided number.
