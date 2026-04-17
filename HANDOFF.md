@@ -1,5 +1,96 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 (session 8 — catalogue-depth kickoff, PR #6 open)
+
+### State at session start
+- `main` at `64c5c60` (PR #5 merge).
+- `feature/catalogue-depth-kickoff` already had two commits from the session-7 tail warmup: `9cf4c88` (PRD v0.1.x amendment locking CI-only LLM enrichment) and `a9aaa96` (confidence caption on hero).
+- Untracked: `docs/issues-v0.1.x-catalogue-depth.md` partially drafted before the session-7 compaction.
+- Live data on `main`: 186 repos, distribution `[178, 8, 0, 0, 0]`, max 8 — still the honest-data finding driving this branch.
+
+### Single deliverable for this session
+Close the kickoff: commit the issues doc, ship the sample-selection script, close the "cannot visually verify" gap with a real browser e2e suite. One PR, scoped as enabling infrastructure for Issues #8–#12 — no catalogue-content changes yet.
+
+### Design decisions locked
+- **Sampler PRNG = mulberry32 (seeded).** Deterministic, tiny, inline. Lets the methodology step "stratified sampling with seed=N" produce the same ten repos every time — reproducibility is part of the credibility bar.
+- **Sampler ignores score >25.** Higher buckets currently empty (confirmed in `data/repos.json`). Keeping the filter narrow now prevents future score-inflation from silently changing what "dirty bucket" means; revisit if/when semantic enrichment lands and fills higher buckets.
+- **File extension normalised to `.ts`** (not `.mts`) to match `refresh.ts` / `validate-catalogue.ts`. `.mts` breaks `moduleResolution: bundler` when sibling tests import it.
+- **E2E lives at `tests/e2e/`, runner = Playwright + Chromium.** Vitest excludes `tests/e2e/**` via `vite.config.ts test.exclude` — the two runners stay fully separated. `pnpm test:e2e` spins up `pnpm dev --port 5173 --strictPort` via Playwright's `webServer`.
+- **Tests read `data/*.json` from disk at test load.** Same file the dev server serves via Vite JSON import — bucket counts, repo counts, matched-pattern IDs all derive from live data, so the suite survives the hourly drift without assertion churn.
+- **Playwright artefacts gitignored** (`test-results/`, `playwright-report/`).
+
+### What happened (commits on `feature/catalogue-depth-kickoff` ahead of main)
+1. `9cf4c88 docs(prd): lock CI-only LLM enrichment as v0.1.x amendment` — session-7-tail warmup.
+2. `a9aaa96 feat(ui): confidence surface on hero — catalogue coverage caption` — session-7-tail warmup.
+3. `87255fa docs: issues-v0.1.x — catalogue depth decomposition` — #8 batch A (50 entries), #9 batch B (60 entries) + LLM spec lock, #10 CI semantic enrichment, #11 scoring-asymmetry doc + self-audit, #12 unpause launch. Methodology locked.
+4. `3ffae35 test: failing tests for sample-claude-mds — issue #8 prep` — 6 cases covering `stratify()` determinism, bucket filtering, cap handling, and `runSampling()` orchestration with injected deps.
+5. `e8a61a1 feat: sample-claude-mds — stratified CLAUDE.md fetcher for catalogue extraction` — implementation + `pnpm sample:claude-mds` script.
+6. `8d9d0e7 test(e2e): Playwright suite against live dev server — 15 scenarios` — hero, histogram, table sort (3 keys), row click → popup URL, paste-audit (redundant/clean/empty), responsive 375/768/1440px, LCP <2s, footer, confidence caption.
+
+### Sampler smoke test (end-to-end proof)
+Ran `GH_TOKEN=$(gh auth token) pnpm sample:claude-mds` — 10 files written to `/tmp/codepulse-samples-v0.1.x/` with realistic diversity: 43B (`KernelFreeze/CelestialWhitelister`) to 72KB (`mrbestnaija/portofolio_maximizer`). 4 dirty-bucket repos in the sample (`nunomaduro/whyphp.dev`, `nwiizo/cctx`, `PoC-Consortium/pocx`, `vibeforge1111/vibeship-scanner` — all score 1–25) + 6 clean-bucket repos. **These are the inputs for the session-9 Issue #8 extraction pass.** Don't re-run unless you want different picks; bump `--seed` if you do.
+
+### E2E results (15/15 green, 6.3s total)
+- Hero renders `186 CLAUDE.md files measured · 96% clean` and `CODEPULSE` wordmark.
+- Confidence caption present, reads `Scored against 40 catalogue patterns — narrow scan, not a comprehensive audit.`, links to `catalogue-authoring.md` with `target=_blank`.
+- Histogram renders 5 bars with counts `[178, 8, 0, 0, 0]` matching `data/repos.json`.
+- Table 186 rows; default sort = score-desc with stars tiebreak; clicking Stars/Chars/Updated headers re-orders correctly; second click flips direction; clicking `.col-repo` opens a popup at `https://github.com/<owner>/<name>`.
+- Paste-audit: empty state visible; pasting `"Be concise. Prefer editing existing files. No emojis."` hits `be-concise` + `prefer-editing` at minimum (score > 0); pasting a project-specific clean snippet shows score `0` + "No catalogued redundancy patterns matched".
+- Responsive: `document.documentElement.scrollWidth ≤ clientWidth` at 375/768/1440px; `.leaderboard-scroll` is scrollable (`scrollWidth >= clientWidth`) at all three widths.
+- LCP measured via buffered `PerformanceObserver` — well under 2000ms in dev mode (would be lower against `pnpm preview`).
+- Footer shows `catalogue v2 · 40 patterns · scoring deterministic · source github.com/Neelagiri65/codepulse`.
+
+### What's done this session
+- [x] Issues doc committed (`docs/issues-v0.1.x-catalogue-depth.md`, 125 lines, 5 issues + dependency graph).
+- [x] Sampler shipped TDD (6 new unit tests red → green, full vitest suite 81/81).
+- [x] Sampler smoke-tested against live GitHub (10 files fetched, spread 43B–72KB).
+- [x] Playwright 1.59.1 installed + Chromium. `tests/e2e/codepulse.spec.ts` shipped, 15/15 green.
+- [x] `vite.config.ts` excludes `tests/e2e/**` from vitest. `.gitignore` excludes `test-results/` and `playwright-report/`.
+- [x] `pnpm typecheck` clean. `pnpm validate:catalogue` green (40 entries unchanged).
+- [x] Secret scan pre-push: only `ANTHROPIC_API_KEY` as a *secret name* in doc text — no values. Clean.
+- [x] PR #6 opened: https://github.com/Neelagiri65/codepulse/pull/6
+
+### What's not done
+- [ ] Merge PR #6 (awaiting human review).
+- [ ] Issue #8 extraction pass — use `/tmp/codepulse-samples-v0.1.x/` (already populated) as input, extract candidate patterns, run the over-match gate against the clean-bucket files, validate. Target: 50 new entries.
+
+### Git state
+- Branch: `feature/catalogue-depth-kickoff` at `8d9d0e7`, pushed, PR #6 open.
+- `main` at `64c5c60` (unchanged since PR #5 merge).
+- No other feature branches.
+- Hourly refresh still writing to `data/repos.json` on main via cron; the e2e suite reads from disk at test load, so drift doesn't break the assertions.
+
+### File operations this session
+- Created: `docs/issues-v0.1.x-catalogue-depth.md`, `scripts/sample-claude-mds.ts`, `scripts/sample-claude-mds.test.ts`, `playwright.config.ts`, `tests/e2e/codepulse.spec.ts`.
+- Modified inside project: `package.json` (+ `sample:claude-mds`, `test:e2e`, `@playwright/test` dep), `pnpm-lock.yaml`, `vite.config.ts` (vitest exclude), `.gitignore` (playwright artefacts), `HANDOFF.md` (this block).
+- Modified outside project: 0.
+- Created outside project: `/tmp/codepulse-samples-v0.1.x/` (10 CLAUDE.md files — expected, session-local sample inputs; not the project dir).
+- Deleted: 0.
+- Committed secret values: 0.
+
+### NEXT action (for the next session — Issue #8 extraction)
+1. **Merge PR #6** into `main` (review the 6-commit sequence first; should be readable commit-by-commit).
+2. **Branch `feature/catalogue-batch-a`** off fresh `main`.
+3. **Read `/tmp/codepulse-samples-v0.1.x/`** — 10 files already fetched this session. If they're gone from `/tmp` (reboot etc.), re-run `pnpm sample:claude-mds` with `--seed 0` to get the same picks.
+4. **Extraction pass** per methodology in the issues doc:
+   - 4 dirty-bucket files = signal-heavy, easy wins. Read line-by-line, flag instructions that restate a documented default.
+   - 6 clean-bucket files = double duty — catalogue-miss candidates AND the over-match gate's clean-prose corpus.
+   - Record proposed patterns in a scratch file with: verbatim line, proposed `match_value`, candidate `source_url`, `reason`, proposed `weight`.
+5. **Over-match gate.** For each candidate regex, test it against the 6 clean-bucket files. If it fires on non-redundant prose, tighten or drop.
+6. **Hardening-≠-redundancy gate.** Reject anything that targets destructive-op guards or security asserts that are stricter than Claude Code's default.
+7. **Validator.** `pnpm validate:catalogue` after every batch commit. `version: 2 → 3`, `updated_at` bump.
+8. **Target: 50 new entries** this session (cumulative ~90). If credibility work only yields 30, ship 30 honestly rather than pad. Per PRD rule.
+
+### Open questions / decisions deferred (carried forward)
+- `/search/code` deprecation (2026-09-27) — post-launch.
+- Drift-driven hourly commits threshold — not urgent.
+- Slash-command extension research — still deferred.
+- `robo-poet` smoke-test `no-emojis` hit — re-evaluate inside the session-9 over-match gate.
+- `last_checked_at` in `meta.json` — revisit if needed.
+- LLM hybrid layer scope — decision pinned in PRD amendment (`9cf4c88`): v0.1.x CI-only. Close this one.
+
+---
+
 ## Session: 2026-04-17 (session 7 tail — PR #5 merged, strategic pivot: catalogue is the critical path, NOT the launch)
 
 ### What happened after PR #5 opened
