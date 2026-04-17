@@ -14,6 +14,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "test:coverage": "vitest run --coverage --coverage.include='src/score.ts' --coverage.reporter=text --coverage.thresholds.lines=90 --coverage.thresholds.branches=90 --coverage.thresholds.functions=90 --coverage.thresholds.statements=90",
     "typecheck": "tsc --noEmit",
     "validate:catalogue": "tsx scripts/validate-catalogue.ts",
@@ -21,6 +22,7 @@
     "sample:claude-mds": "tsx scripts/sample-claude-mds.ts"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@types/node": "^22.9.0",
     "@vitest/coverage-v8": "^2.1.9",
     "happy-dom": "^20.9.0",
