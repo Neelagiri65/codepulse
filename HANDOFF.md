@@ -1,5 +1,78 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-17 (session 9 — Issue #8 catalogue batch A, 42 new entries, v2→v3)
+
+### State at session start
+- `main` at `b1a6c81` (PR #6 merge).
+- `feature/catalogue-batch-a` already existed off fresh main (branched in prior session).
+- 10 sample CLAUDE.md files in `/tmp/codepulse-samples-v0.1.x/` (4 dirty-bucket + 6 clean-bucket) from session 8's sampler run.
+
+### Single deliverable
+Issue #8 extraction pass — draft candidate patterns from the 10-sample corpus, run the over-match gate against the 6 clean-bucket files, apply the hardening-≠-redundancy gate, add surviving entries to `data/catalogue.json`, bump version 2→3.
+
+### What happened
+1. **Drafted 70 numbered candidates** in `/tmp/codepulse-draft/candidates.md` from: (a) the 10-sample corpus primary extraction, (b) uncited Piebald system-prompt files in source class B (executing-actions, software-engineering-focus, ambitious-tasks, todowrite, communication-style, grep, readfile, websearch, enterplanmode, agent-usage-notes, bash-sleep variants). Of 70, ~42 were retained as genuine restatement-of-default candidates; the rest were skipped as duplicates of existing entries, too generic/tool-specific, or hardening-risk.
+2. **Over-match gate passed cleanly.** `/tmp/codepulse-draft/overmatch-gate.mjs` ran all 42 regexes against the 10 samples and the 6 clean-bucket files: **zero hits on clean-bucket prose**. Three dirty-bucket hits confirmed extraction (preserve-existing-behavior, test-your-changes, dont-assume-code-works all fired on `nwiizo/cctx`).
+3. **Hardening gate passed.** All 42 restate CC defaults without being stricter. The one borderline — `confirm-before-hard-to-reverse` — explicitly uses confirmation phrasing (matches the default) rather than banning (which would be stricter, and was the reason session 5 dropped `no-force-push` and `no-reset-hard`).
+4. **Applied batch.** `/tmp/codepulse-draft/apply-batch-a.mjs` appended 42 entries (all `regex` match_type, weights 2–4), bumped `version` 2→3, `updated_at` → 2026-04-17. Validator clean (82 entries). Typecheck clean. One pre-existing unit test (`ui.smoke.test.ts`) asserted `catalogue v2` in the hero sub — updated to v3. 81/81 vitest green.
+5. **Commit shipped:** `05dd1e3 feat(catalogue): batch A — 42 new entries, v2→v3` on `feature/catalogue-batch-a`.
+
+### Batch A coverage (42 new entries by topic)
+- **Executing-actions defaults (7):** scope-match-request, investigate-before-deleting, identify-root-cause-not-bypass, confirm-before-hard-to-reverse, dont-upload-sensitive-to-third-party, investigate-lock-files, resolve-merge-conflicts-not-discard.
+- **TodoWrite restatements (5):** only-one-task-in-progress, dont-mark-complete-if-failing, blocked-task-create-followup, proactive-task-management, capture-user-requirements-as-todos.
+- **Agent tool restatements (4):** trust-but-verify-subagent, agent-prompt-self-contained, agent-for-code-vs-research, dont-poll-background-tasks.
+- **Bash/tool defaults (5):** dont-sleep-between-commands, keep-sleep-short, verify-parent-dir-before-create, dont-use-rg-directly, use-absolute-paths-in-read.
+- **Communication-style defaults (7):** no-preamble-greeting, match-response-length-to-task, state-action-before-tool, brief-in-progress-updates, no-trailing-summary, no-running-commentary, dont-create-intermediate-files.
+- **Task-focus defaults (10):** preserve-existing-behavior, doc-only-when-requested, test-your-changes, dont-assume-code-works, no-feature-flags-for-changes, no-half-finished, no-validation-for-impossible-cases, no-why-whatsoever-comments, no-pr-description-in-comments, dev-server-test-before-complete.
+- **WebSearch + Plan defaults (4):** use-websearch-for-recent-info, use-current-year-in-searches, use-plan-mode-nontrivial, defer-to-user-on-scope.
+
+### Numbers
+- Cumulative: **40 → 82 entries** (+42, 84% of 50-entry target).
+- Shipped honest count per PRD rule rather than padding to 50. The 42 that passed both gates are the defensible set; another 28 candidates were skipped (duplicates, too generic/tool-specific, hardening-risk).
+- All 42 regexes compile. Zero over-match on 6 clean-bucket files.
+
+### What's done this session
+- [x] Candidate drafting (70 numbered candidates in `/tmp/codepulse-draft/candidates.md`).
+- [x] Over-match gate against 6 clean-bucket files (zero hits).
+- [x] Hardening-≠-redundancy gate applied (42/42 pass).
+- [x] Catalogue bumped to v3 with 42 new entries.
+- [x] `pnpm validate:catalogue` green (82 entries). `pnpm typecheck` clean. 81/81 vitest tests pass.
+- [x] Secret scan pre-push: no secret values — only a regex pattern containing the word "secret" as part of `dont-upload-sensitive-to-third-party`. Clean.
+- [x] Commit `05dd1e3` on `feature/catalogue-batch-a`.
+
+### What's not done
+- [ ] **Push `feature/catalogue-batch-a` and open PR #7.** Next step — commit is local only.
+- [ ] Issue #9 catalogue batch B (60 more entries target, cumulative ~142).
+- [ ] Issue #10 CI semantic enrichment (LLM layer).
+- [ ] Issue #11 scoring-asymmetry doc + self-audit.
+- [ ] Issue #12 unpause launch.
+
+### Git state
+- Branch: `feature/catalogue-batch-a` at `05dd1e3`, 1 commit ahead of main, **NOT yet pushed**.
+- `main` at `b1a6c81`.
+- `data/catalogue.json` now shows `version: 3, updated_at: 2026-04-17, patterns.length: 82`.
+- `src/ui.smoke.test.ts:47` updated to assert `catalogue v3` in hero sub.
+
+### File operations this session
+- Modified inside project: `data/catalogue.json` (+42 entries, version bump, updated_at bump), `src/ui.smoke.test.ts` (v2→v3 assertion), `HANDOFF.md` (this block).
+- Modified outside project: 0.
+- Created: `/tmp/codepulse-draft/candidates.md`, `/tmp/codepulse-draft/overmatch-gate.mjs`, `/tmp/codepulse-draft/apply-batch-a.mjs` (session-local scratch, not project dir).
+- Deleted: 0.
+- Committed secret values: 0.
+
+### NEXT action (for the next session)
+1. **Push `feature/catalogue-batch-a` and open PR #7** (push was not done at session end for safety; one human-approved action remains). After merge, re-run hourly refresh once (`gh workflow run refresh.yml`) to re-score 186 repos against v3 catalogue. Diff the bucket counts against `[178, 8, 0, 0, 0]` — per the PRD honest-data rule, if distribution shifts toward higher buckets, the catalogue was the bottleneck; if it stays flat, the thesis still needs rewriting (not the catalogue).
+2. **Issue #9 — catalogue batch B, 60 more entries.** Expand the sample corpus (next pass of `pnpm sample:claude-mds --seed 1` to get different picks) and repeat the extraction loop. Cumulative target ~142. Keep applying the same two gates.
+3. **Before session 10**: confirm the LLM hybrid scope (v0.1.x CI-only vs v0.2 full) per the PRD amendment.
+
+### Open questions / decisions carried
+- `/search/code` deprecation (2026-09-27) — post-launch.
+- `robo-poet` `no-emojis` hit — survives v3 unchanged; re-evaluate when batch B lands.
+- `last_checked_at` in `meta.json` — still deferred.
+- LLM hybrid layer scope — still v0.1.x CI-only per PRD amendment `9cf4c88`.
+
+---
+
 ## Session: 2026-04-17 (session 8 — catalogue-depth kickoff, PR #6 open)
 
 ### State at session start
