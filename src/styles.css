@@ -191,6 +191,25 @@ textarea:focus-visible,
   font-variant-numeric: tabular-nums;
 }
 
+.hero-confidence {
+  margin: 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+  color: var(--fg-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: 20px;
+}
+
+.hero-methodology-link {
+  color: var(--fg-1);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.hero-methodology-link:hover {
+  color: var(--fg-0);
+}
+
 /* distribution + leaderboard grid */
 .data-grid {
   display: grid;

@@ -22,6 +22,12 @@ export interface ReposFile {
   repos: RepoRow[];
 }
 
+export interface CatalogueCoverage {
+  version: number;
+  patternCount: number;
+  methodologyUrl: string;
+}
+
 type SortKey = 'rank' | 'stars' | 'chars' | 'score' | 'last_commit';
 type SortDir = 'asc' | 'desc';
 
@@ -31,7 +37,11 @@ const formatIsoZulu = (iso: string): string => {
   return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}Z`;
 };
 
-export const renderHero = (data: ReposFile, dist: Distribution): HTMLElement => {
+export const renderHero = (
+  data: ReposFile,
+  dist: Distribution,
+  coverage: CatalogueCoverage,
+): HTMLElement => {
   const hero = document.createElement('section');
   hero.className = 'hero';
 
@@ -60,9 +70,21 @@ export const renderHero = (data: ReposFile, dist: Distribution): HTMLElement => 
 
   const sub = document.createElement('p');
   sub.className = 'hero-sub';
-  sub.textContent = `median redundancy ${dist.median} · max ${dist.max} · catalogue v2`;
+  sub.textContent = `median redundancy ${dist.median} · max ${dist.max} · catalogue v${coverage.version}`;
 
-  hero.append(top, headline, sub);
+  const confidence = document.createElement('p');
+  confidence.className = 'hero-confidence';
+  const lead = document.createElement('span');
+  lead.textContent = `Scored against ${coverage.patternCount} catalogue patterns — narrow scan, not a comprehensive audit. `;
+  const link = document.createElement('a');
+  link.className = 'hero-methodology-link';
+  link.href = coverage.methodologyUrl;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = 'Methodology →';
+  confidence.append(lead, link);
+
+  hero.append(top, headline, sub, confidence);
   return hero;
 };
 
@@ -250,12 +272,16 @@ const renderTable = (state: State): HTMLElement => {
   return table;
 };
 
-export const mountLeaderboard = (mount: HTMLElement, data: ReposFile): void => {
+export const mountLeaderboard = (
+  mount: HTMLElement,
+  data: ReposFile,
+  coverage: CatalogueCoverage,
+): void => {
   mount.innerHTML = '';
 
   const dist = distribution(data.repos.map((r) => r.score));
 
-  mount.appendChild(renderHero(data, dist));
+  mount.appendChild(renderHero(data, dist, coverage));
 
   const grid = document.createElement('div');
   grid.className = 'data-grid section';
