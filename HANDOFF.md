@@ -1,5 +1,209 @@
 # HANDOFF — CodePulse
 
+## Session: 2026-04-18 (session 12 — refresh-pipeline wiring, workflow split, local smoke on real APIs)
+
+### State at session start
+- `feature/llm-enrichment` at `eb5e95e`, 3 commits ahead of `main` (`a1bfcf3`). Working tree clean.
+- `GEMINI_API_KEY` pushed to repo secrets by user before session start.
+- NEXT from session 11: TDD the refresh wiring, implement `runSemanticPass`, split `refresh.yml`, `workflow_dispatch` smoke test, then UI.
+
+### Single deliverable
+Wire `enrichSemanticScore()` into the refresh pipeline, split the workflow into hourly deterministic + daily semantic, and smoke-test the semantic pass against real APIs. Explicitly deferred: UI (`src/leaderboard.ts`, `src/audit.ts`) and the PR merge — both belong to session 13.
+
+### What happened
+
+1. **Wrote 9 failing tests first** (`993f794`): 2 for `runRefresh` semantic-field carry-over (new `RepoEntry` fields survive deterministic rebuild), 7 for a new `runSemanticPass` covering fresh enrichment, content-hash cache hit/miss, per-repo API-failure isolation (with and without prior semantic fields), CLAUDE.md fetch-null skip, and empty-payload no-op.
+2. **Implemented (`d8ecb45`):**
+   - `RepoEntry` gains optional `semantic_score`, `semantic_matched_intents`, `semantic_refreshed_at`, `semantic_content_hash`.
+   - `runRefresh` indexes prev by `owner/name`, merges semantic fields onto freshly-scored rows via `carryOverSemantic`. `shouldWrite` unchanged — semantic fields carry forward identically, so no deterministic-side write trigger.
+   - `runSemanticPass(SemanticPassDeps)` — reads `ReposPayload`, fetches each CLAUDE.md, skips cached entries when `sha256(content) === stored hash`, enriches otherwise. Per-repo `try/catch` preserves prior semantic fields on failure. Returns `{ wrote, enriched, cached, failed, skipped }`.
+   - `scripts/refresh-semantic.ts` — CLI gated on both `GH_TOKEN` and `GEMINI_API_KEY`, reuses `makeFetcher` (newly exported from `refresh.ts`). Calls `enrichSemanticScore` with `gemini-2.5-flash`.
+   - `.github/workflows/refresh-semantic.yml` — daily cron `0 6 * * *`, shares `concurrency.group: refresh` with the hourly so they never race on a push. Uses `${GITHUB_REF_NAME}` for pull/push so a `workflow_dispatch` from a feature branch doesn't accidentally mass-merge to main.
+3. **Attempted remote `workflow_dispatch` smoke test.** GitHub returns 404 — workflows must be registered on the default branch to be dispatchable. Expected constraint, not a bug. Remote smoke test moved to NEXT, post-merge.
+4. **Pivoted to local smoke test** on a 3-repo subset carved from live `data/repos.json`: `zenml-io/zenml` (known heavy redundancy), `nearai/ironclaw` (known clean), `protella/chatgpt-bots` (v3 top deterministic scorer). Backed up real `repos.json` to `/tmp/codepulse-smoke/`, ran `GEMINI_API_KEY=... GH_TOKEN=... pnpm refresh:semantic` against the subset, inspected output, restored real file.
+5. **Bumped workflow timeout to 75 min (`cc3369e`)** after observing ~19s/repo end-to-end (GitHub fetch + Gemini enrichment). 185 × 19s ≈ 58 min sequential; 75 min leaves headroom without inviting a runaway if Gemini has a bad latency day.
+
+### Numbers
+
+- Tests: **91 pass / 10 skipped / 0 fail** (refresh suite up from 13 → 22 tests).
+- Typecheck + build: clean.
+- Local smoke (3 repos, real APIs): **56.7s wall time, ~$0.003 Gemini spend**.
+- Smoke outputs matched ground-truth expectations verbatim:
+  - `zenml-io/zenml` (det=0): sem=**28** from 13 matched intents (1 high, 12 medium). The 5 redundancies `docs/ground-truth-2026-04-17.md` predicted all showed up, plus 8 more legitimate paraphrases (commenting at length, commit conventions, task decomposition).
+  - `nearai/ironclaw` (det=0): sem=**1** from exactly the one borderline "Comments for non-obvious logic only" line the manual check flagged. LOW-confidence — calibrated correctly per the rubric.
+  - `protella/chatgpt-bots` (det=7): sem=**4** from 4 LOW-confidence matches. All short standalone phrases — rubric holds.
+- Projected full run: **~58 min, ~$0.22 Gemini cost, ~370 GitHub API calls** (2 per repo). Inside PRD $5/day cap.
+
+### Key decisions locked
+- **Schema locked**: four optional semantic fields, `null` meaning "not enriched yet". Cache keyed on `sha256(content)` — 90%+ cost savings once files stabilise. No migration needed for existing `repos.json` — fields are additive.
+- **Shared concurrency group `refresh`** across both workflows. Daily semantic never races the hourly deterministic on a git push.
+- **Push target = branch of origin** (`HEAD:${GITHUB_REF_NAME}`). Prevents a feature-branch dispatch from auto-merging to main.
+- **Sequential enrichment is good enough** at 19s/repo. Parallelisation deferred until there's a real reason (cost cap breach, latency regression, or catalogue blow-up to 1000+ repos).
+- **Remote `workflow_dispatch` smoke test gates merge, not ship.** Do it immediately after the PR lands — the first real daily cron on main IS the smoke test.
+
+### What's done this session
+- [x] 9 new failing tests committed (`993f794`).
+- [x] `RepoEntry` schema extension + `runRefresh` semantic carry-over.
+- [x] `runSemanticPass` + `refresh-semantic.ts` CLI.
+- [x] `refresh-semantic.yml` workflow (daily, 75 min timeout, shared concurrency).
+- [x] `package.json` — added `refresh:semantic` script.
+- [x] Green implementation committed (`d8ecb45`), timeout bump committed (`cc3369e`).
+- [x] Local smoke test against real Gemini + GitHub — 3/3 match ground-truth predictions.
+- [x] Everything pushed to `origin/feature/llm-enrichment`.
+
+### What's not done (moved to session 13)
+- [ ] **Remote `workflow_dispatch` smoke** — blocked until the branch merges to main. Run immediately post-merge to capture first real billing + 185-repo distribution.
+- [ ] `src/leaderboard.ts` — blended score display. Formula still not locked; decide from the first full real distribution.
+- [ ] `src/audit.ts` — paste-audit UI label per PRD §5.6 (deterministic-only, no semantic pill on audit view).
+- [ ] Post-enrichment distribution sanity check. Expected: 5–25% of 185 scoring semantically redundant. If the distribution collapses to `[185, 0, …]` or explodes to everything-flagged, iterate on the prompt — don't patch around the fixture.
+- [ ] PR from `feature/llm-enrichment` → `main`. Include the distribution numbers from the first cron in the PR body.
+
+### Git state
+- Branch: `feature/llm-enrichment` at `cc3369e`, **6 commits ahead of `main`**, pushed to `origin`.
+- `main` at `a1bfcf3`.
+- No open PRs — deliberately deferred until UI work lands in session 13.
+
+```
+cc3369e ci(enrich): bump semantic workflow timeout to 75 min
+d8ecb45 feat(enrich): wire semantic pass into refresh pipeline
+993f794 test: failing tests for semantic pass + carry-over
+eb5e95e docs: handoff — session 11, #10 ground truth green, Gemini Flash picked
+6ccb7d8 feat(enrich): Gemini-backed semantic scoring passes ground truth
+3ab8ec7 test: failing ground-truth harness for semantic enrichment (Issue #10)
+```
+
+### File operations this session
+- Modified inside project: `scripts/refresh.ts`, `scripts/refresh.test.ts`, `package.json`, `.github/workflows/refresh-semantic.yml`, `HANDOFF.md` (this block).
+- Created inside project: `scripts/refresh-semantic.ts`, `.github/workflows/refresh-semantic.yml`.
+- Created outside project: `/tmp/codepulse-smoke/repos.json.bak`, `/tmp/codepulse-smoke/repos-subset.json` (session-local, not committed).
+- Modified outside project: 0.
+- Deleted: 0.
+- Committed secret values: 0. `GEMINI_API_KEY` and `GH_TOKEN` read from Keychain at call-time, exported into a single subshell, never written to disk or echoed.
+
+### NEXT action (for session 13)
+1. **Continue on `feature/llm-enrichment`.** Do not rebranch.
+2. **UI, TDD-first:**
+   - Update `src/ui.smoke.test.ts` to expect blended-score display when `semantic_score` exists (mock data only — real data still `null` at this point on `main`).
+   - Pick formula. Recommend starting with `max(deterministic, semantic_score)` capped at 100 — simplest, no calibration hyperparameter. Revisit if the distribution fights the UX.
+   - `src/audit.ts` — wire deterministic-only label per PRD §5.6. Paste audit never shows semantic (it's the public-facing privacy contract).
+3. **Open PR** from `feature/llm-enrichment` → `main`. PR body must include: this session's local smoke numbers, the 19s/repo observation, and a pointer to `docs/ground-truth-2026-04-17.md` as the acceptance fixture.
+4. **Merge the PR.** This registers `refresh-semantic.yml` on the default branch.
+5. **Immediately run `gh workflow run refresh-semantic.yml`** on main. Monitor the run. Capture:
+   - Wall time (expected 50–65 min for 185 repos).
+   - Gemini spend (expected ~$0.22).
+   - Output distribution: how many repos score ≥5 semantically? How many zero-to-zero? Spot-check 3 high-scorers and 3 unchanged-zero against a manual read.
+6. **If the distribution is wrong** (collapse or explosion), the fix is the prompt or the Claude-defaults anchor list in `scripts/enrich.ts`. Do NOT tune around the fixture — update the ground-truth doc + rubric, re-run `ground-truth.test.ts`, only then re-ship.
+7. **Once distribution sane**, close out Issue #10. Move to #11 or #12 per `docs/issues-v0.1.x-catalogue-depth.md`.
+
+### Open questions / decisions carried
+- **Blended-score formula for the pill display** — still not locked. Decide from the first real 185-repo distribution.
+- **`/search/code` deprecation (2026-09-27)** — carried. Replace with `/search/repositories` + direct `CLAUDE.md` fetch before September. Separate issue, doesn't block #10 close-out.
+- **Parallelisation of `runSemanticPass`** — not needed at current cost + cadence. Revisit only if (a) catalogue expands past 500 repos, (b) Gemini latency regresses, or (c) cost cap triggers.
+- **Cache invalidation on catalogue-version bump** — currently we rely on content hash only, which means a future catalogue-version change won't re-trigger enrichment. Probably fine (the enrichment prompt is catalogue-agnostic) but worth revisiting if we extend the anchor set in `scripts/enrich.ts`.
+
+---
+
+## Session: 2026-04-18 (session 11 — Issue #10 ground-truth harness, Gemini pivot, Flash picked)
+
+### State at session start
+- `main` at `a1bfcf3`. Working tree clean. No open PRs.
+- NEXT from session 10: build `scripts/ground-truth.test.ts` red, implement `enrichSemanticScore()`, test Haiku 4.5 vs Sonnet 4.6 on precision, also investigate `refresh.yml` 22:31Z scheduled-run failure.
+
+### Single deliverable
+Get the ground-truth harness green against a real LLM and pick the production model on precision. Rest of Issue #10 integration (refresh.ts wiring, workflow split, schema/UI changes) explicitly out of scope for this session.
+
+### What happened
+
+1. **Diagnosed `refresh.yml` 22:31Z failure.** `scripts/refresh.ts:159` `discoverTopRepos` hit `GET /search/code?q=filename:CLAUDE.md` → GitHub returned 404 (request id `9F41:12561:996173:26B15C4:69E2B4B0`). Manual dispatch 26 min later succeeded with identical code. **Transient `/search/code` flake, not a code bug.** Endpoint is already slated for deprecation 2026-09-27 (carried open question). Worth wrapping in retry/backoff when `/search/code` retires — not blocking #10.
+2. **Branched `feature/llm-enrichment`** off `a1bfcf3`.
+3. **Committed red harness (`3ab8ec7`):** `scripts/enrich.ts` stub + `scripts/ground-truth.test.ts` gated on `ANTHROPIC_API_KEY`, parametrised over Haiku 4.5 + Sonnet 4.6. Skipped without key; throws on real call by construction.
+4. **Pivoted Anthropic → Gemini at user request.** User has `gemini-api-key` in Keychain, no separate Anthropic API key set up. Test and stub adapted to `gemini-2.5-flash` / `gemini-2.5-pro` and `GEMINI_API_KEY` env var.
+5. **Installed `@google/genai@1.50.1`; implemented `enrichSemanticScore()`** with structured JSON output (responseSchema), temperature 0, full Issue #10 prompt baked into systemInstruction. Score derivation: `high=4, medium=2, low=1` summed.
+6. **First harness run — 4 failures on BOTH models:**
+   - zenml reported 3/5 redundancies hit (should have been ≥4).
+   - ironclaw reported 1 HIGH flag on "Comments for non-obvious logic only" (should be 0 HIGH).
+7. **Ran a direct raw-output dump via `/tmp/codepulse-debug/dump-zenml.mts`.** Discovered:
+   - **Both models correctly identified all 5 redundancies.** My anchor substrings were too narrow — missed commenting-policy and commit-message-why-not-what because models quoted with double-quotes (`"why" not just the "what"`) and zenml's actual phrasing (`why the code is this way`, `banner comment`, `narrating`).
+   - The ironclaw HIGH flag was a real calibration failure — the 6-word phrase does paraphrase a default, but the ground-truth doc says it must be LOW.
+8. **Two-part fix in one iteration:**
+   - Expanded zenml anchor substrings to cover the models' actual quoted phrasings.
+   - Tightened the prompt with an explicit confidence calibration rubric: "a short standalone phrase (roughly ≤12 words) must be LOW regardless of how closely it paraphrases the default. Reserve HIGH for thorough, explicit, multi-clause duplication."
+9. **Second harness run — all 10 tests green on both models.** zenml 5/5 redundancies flagged; ironclaw/supercmd/jsobf/overstory zero HIGH flags. Skipped/no-key behaviour preserved.
+10. **Committed green (`6ccb7d8`):** implementation + prompt + expanded test anchors + Issue #10 doc update reflecting Gemini/Flash decision.
+
+### Numbers
+- Ground-truth harness: **91 passed / 1 skipped / 0 failed** across both models.
+- zenml redundancies hit: **5/5** on both Flash and Pro (test bar: ≥4).
+- Clean-file HIGH flags: **0** on all 4 clean files, both models.
+- Wall time: Flash ~65s total for 5 fixtures; Pro ~102s.
+- Cost per full harness run: **Flash ~$0.024, Pro ~$0.098** (estimated from Gemini 2.5 public pricing — Flash $0.30/MTok in / $2.50/MTok out; Pro $1.25 in / $10 out).
+- Projected daily cron cost (185 repos × ~4k tok avg): **Flash ~$0.22/day, Pro ~$0.92/day** — both well inside PRD $5/day cap.
+- Harness iterations used: 2 full runs (1 red, 1 red-with-bugs, 1 green) + 1 debug dump. Total real-API spend this session: ~$0.30.
+
+### Key decision locked
+- **Production model: `gemini-2.5-flash`.** Both Flash and Pro pass the ground-truth acceptance bar identically; Flash wins on cost + latency. The prompt is model-agnostic; revisit Flash-vs-Pro if a future fixture expansion shows Flash regressing.
+- **LLM layer: Gemini, not Anthropic.** Pivoted mid-session per user. Issue #10 doc updated to reflect this.
+- **Env var: `GEMINI_API_KEY`** (Keychain: `gemini-api-key`). To run harness: `GEMINI_API_KEY=$(security find-generic-password -s gemini-api-key -w) pnpm test -- scripts/ground-truth.test.ts`.
+- **Confidence rubric is part of the spec.** Short standalone phrases → LOW. Multi-clause thorough duplication → HIGH. Don't tune this rubric to fit future fixtures — adjust fixtures or the list of Claude defaults instead.
+
+### What's done this session
+- [x] Branched `feature/llm-enrichment` off `a1bfcf3`.
+- [x] Wrote red `scripts/ground-truth.test.ts` + `scripts/enrich.ts` stub (`3ab8ec7`).
+- [x] Pivoted Anthropic → Gemini stack (SDK, env var, model IDs).
+- [x] Implemented `enrichSemanticScore()` with full prompt + structured output.
+- [x] Debugged anchor mismatch + confidence calibration via raw output dump.
+- [x] Harness green on both Gemini 2.5 Flash and Pro.
+- [x] Picked Flash as production model on precision parity + cost.
+- [x] Updated `docs/issues-v0.1.x-catalogue-depth.md` #10 to reflect Gemini/Flash choice and session-11 completion status.
+- [x] Diagnosed and reported the 22:31Z `refresh.yml` flake (transient GitHub `/search/code` 404).
+- [x] Committed green (`6ccb7d8`).
+
+### What's not done (Issue #10 remaining scope — carry to session 12)
+- [ ] `scripts/refresh.test.ts` — unit tests with a mocked Gemini client. Verify deterministic score is preserved on API failure; verify cache fields land in `repos.json`.
+- [ ] `scripts/refresh.ts` — import `enrichSemanticScore`; wire into a new semantic pass that runs only when `GEMINI_API_KEY` is set.
+- [ ] `.github/workflows/refresh.yml` — split into `deterministic` (hourly, existing) + `semantic` (daily at `0 6 * * *`, reads latest `repos.json`, enriches, writes semantic fields, commits). Add `GEMINI_API_KEY` secret read to semantic job only.
+- [ ] Push `GEMINI_API_KEY` to `Neelagiri65/codepulse` repo secrets (`gh secret set GEMINI_API_KEY`).
+- [ ] `repos.json` schema — add optional `semantic_score: number | null`, `semantic_matched_intents: Array<{quote, reason, confidence}> | null`, `semantic_refreshed_at: string | null`.
+- [ ] `src/leaderboard.ts` — display blended score; both raw fields inspectable in tooltip/detail.
+- [ ] `src/audit.ts` — paste-audit UI label per PRD v0.1.x amendment.
+- [ ] `workflow_dispatch` smoke run on semantic job; capture real Gemini billing; verify daily projected cost ≤$5.
+- [ ] Post-enrichment distribution check — must not collapse to `[185, 0, 0, 0, 0]` nor explode to everything-high. Expected shape: 5–25% of repos scoring semantically redundant.
+
+### Git state
+- Branch: `feature/llm-enrichment` at `6ccb7d8` (2 commits ahead of main), **not yet pushed**.
+- `main` at `a1bfcf3`.
+- No open PRs. Session-12 single deliverable will be the refresh integration + workflow split; PR opens at the end of that session.
+- `@google/genai@1.50.1` added to dependencies (first non-dev dependency besides `@octokit/rest`).
+
+### File operations this session
+- Modified inside project: `scripts/enrich.ts` (new-then-implemented), `scripts/ground-truth.test.ts` (new), `docs/issues-v0.1.x-catalogue-depth.md`, `package.json`, `pnpm-lock.yaml`, `HANDOFF.md` (this block).
+- Created: `/tmp/codepulse-debug/dump-zenml.mts` (session-local debug; not committed).
+- Modified outside project: 0.
+- Deleted: 0.
+- Committed secret values: 0. `GEMINI_API_KEY` was only read from Keychain at call-time via inline env export; never echoed or written to disk.
+
+### NEXT action (for session 12)
+1. **Start on existing `feature/llm-enrichment` branch** (at `6ccb7d8`, 2 commits ahead). Do NOT branch off main again.
+2. **TDD the refresh wiring.** Write failing `scripts/refresh.test.ts` cases covering:
+   - `runRefresh()` with semantic pass enabled: calls `enrichSemanticScore()` per repo, merges `semantic_score`/`matched_intents`/`refreshed_at` into `RepoEntry`.
+   - API failure path: one repo's enrichment throws → its semantic fields stay `null`, deterministic score unchanged, rest of the refresh continues.
+   - `semantic_score` + `matched_intents` round-trip through `repos.json` without mutation.
+   - Idempotency: second run with same content produces identical semantic fields (relies on temperature-0 + structured schema; cache previously-enriched entries by content hash to avoid re-cost).
+3. **Implement `scripts/refresh.ts` changes** to make those tests pass. Extend `RefreshDeps` with an `enrich?: EnrichFn` injection point so the test can swap in a stub.
+4. **Split `.github/workflows/refresh.yml`** into two jobs. Keep hourly deterministic green if `GEMINI_API_KEY` is absent.
+5. **Push `GEMINI_API_KEY` to repo secrets** before the first `workflow_dispatch`: `gh secret set GEMINI_API_KEY --body "$(security find-generic-password -s gemini-api-key -w)"`.
+6. **Smoke-test the semantic job once via `workflow_dispatch`.** Capture real billing. If > $5/day projected, escalate (batch requests, cache by content hash, or drop to a single daily full-refresh).
+7. **Only then touch UI** (`src/leaderboard.ts`, `src/audit.ts`). UI changes must not ship until the data pipeline is producing real `semantic_score` values end-to-end in CI.
+
+### Open questions / decisions carried
+- **Blended-score formula for the pill display** — still not locked. Options: `max(det, sem)`, `det + sem`, or a weighted blend. Decide in session 12 once real distribution data is on the leaderboard.
+- **Idempotency strategy** — should semantic enrichment re-run only when `content` hash changes since last `semantic_refreshed_at`? Recommendation: yes, cache by `sha256(content)` in a new `semantic_content_hash` field. Saves 90%+ of daily cost once most files stabilise.
+- **`/search/code` deprecation (2026-09-27)** — still carried. Should be replaced with `/search/repositories` + direct `CLAUDE.md` fetch before September.
+- **Paste-audit deterministic-only policy** — still correct. Semantic layer is CI-only per PRD.
+- **Gemini free-tier vs paid** — at ~$0.22/day projected, paid is trivially cheap; free tier (15 RPM + 1,500 RPD) may actually bottleneck a 185-repo batch. Use billed tier. No need to optimise for free tier.
+
+---
+
 ## Session: 2026-04-17 → 2026-04-18 (session 10 — PR #7 merge, v3 re-crawl, manual check, thesis revision)
 
 ### State at session start

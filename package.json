@@ -19,6 +19,7 @@
     "typecheck": "tsc --noEmit",
     "validate:catalogue": "tsx scripts/validate-catalogue.ts",
     "refresh": "tsx scripts/refresh.ts",
+    "refresh:semantic": "tsx scripts/refresh-semantic.ts",
     "sample:claude-mds": "tsx scripts/sample-claude-mds.ts"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "vitest": "^2.1.5"
   },
   "dependencies": {
+    "@google/genai": "^1.50.1",
     "@octokit/rest": "^22.0.1"
   }
 }

@@ -1,7 +1,9 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { Octokit } from '@octokit/rest';
 import { score, type Pattern } from '../src/score';
+import type { MatchedIntent, SemanticResult } from './enrich';
 
 export interface RepoMeta {
   owner: string;
@@ -23,6 +25,12 @@ export interface RepoEntry {
   score: number;
   last_commit_at: string;
   matches: string[];
+  // v0.1.x semantic fields — populated by the daily semantic pass only.
+  // Deterministic refresh carries them forward untouched.
+  semantic_score?: number;
+  semantic_matched_intents?: MatchedIntent[];
+  semantic_refreshed_at?: string;
+  semantic_content_hash?: string;
 }
 
 export interface ReposPayload {
@@ -53,6 +61,45 @@ export interface RefreshResult {
   count: number;
   skipped: number;
 }
+
+export type EnrichFn = (content: string) => Promise<SemanticResult>;
+
+export interface SemanticPassDeps {
+  readExistingPayload: () => ReposPayload | null;
+  fetchClaudeMd: (owner: string, name: string) => Promise<ClaudeMdFile | null>;
+  enrich: EnrichFn;
+  writeRepos: (payload: ReposPayload) => void;
+  now: () => Date;
+  hashContent?: (content: string) => string;
+}
+
+export interface SemanticPassResult {
+  wrote: boolean;
+  enriched: number;
+  cached: number;
+  failed: number;
+  skipped: number;
+}
+
+const carryOverSemantic = (prev: RepoEntry | undefined, fresh: RepoEntry): RepoEntry => {
+  if (!prev) return fresh;
+  return {
+    ...fresh,
+    ...(prev.semantic_score !== undefined && { semantic_score: prev.semantic_score }),
+    ...(prev.semantic_matched_intents !== undefined && {
+      semantic_matched_intents: prev.semantic_matched_intents,
+    }),
+    ...(prev.semantic_refreshed_at !== undefined && {
+      semantic_refreshed_at: prev.semantic_refreshed_at,
+    }),
+    ...(prev.semantic_content_hash !== undefined && {
+      semantic_content_hash: prev.semantic_content_hash,
+    }),
+  };
+};
+
+const defaultHashContent = (content: string): string =>
+  createHash('sha256').update(content).digest('hex');
 
 export const scoreRepo = (
   meta: RepoMeta,
@@ -106,6 +153,10 @@ export const runRefresh = async (
 ): Promise<RefreshResult> => {
   const repoMetas = await deps.discoverTopRepos(limit);
   const catalogue = deps.readCatalogue();
+  const prev = deps.readExistingRepos();
+  const prevByKey = new Map<string, RepoEntry>(
+    (prev ?? []).map((r) => [`${r.owner}/${r.name}`, r]),
+  );
   const rows: RepoEntry[] = [];
   let skipped = 0;
 
@@ -115,11 +166,11 @@ export const runRefresh = async (
       skipped++;
       continue;
     }
-    rows.push(scoreRepo(meta, file, catalogue));
+    const fresh = scoreRepo(meta, file, catalogue);
+    rows.push(carryOverSemantic(prevByKey.get(`${meta.owner}/${meta.name}`), fresh));
   }
 
   const sorted = sortRepos(rows);
-  const prev = deps.readExistingRepos();
 
   if (!shouldWrite(prev, sorted)) {
     return { wrote: false, count: sorted.length, skipped };
@@ -134,6 +185,57 @@ export const runRefresh = async (
   });
 
   return { wrote: true, count: sorted.length, skipped };
+};
+
+export const runSemanticPass = async (
+  deps: SemanticPassDeps,
+): Promise<SemanticPassResult> => {
+  const payload = deps.readExistingPayload();
+  if (!payload) {
+    return { wrote: false, enriched: 0, cached: 0, failed: 0, skipped: 0 };
+  }
+  const hash = deps.hashContent ?? defaultHashContent;
+
+  const updated: RepoEntry[] = [];
+  let enriched = 0;
+  let cached = 0;
+  let failed = 0;
+  let skipped = 0;
+
+  for (const entry of payload.repos) {
+    const file = await deps.fetchClaudeMd(entry.owner, entry.name);
+    if (file === null) {
+      updated.push(entry);
+      skipped++;
+      continue;
+    }
+    const contentHash = hash(file.content);
+    if (
+      entry.semantic_content_hash === contentHash &&
+      entry.semantic_score !== undefined
+    ) {
+      updated.push(entry);
+      cached++;
+      continue;
+    }
+    try {
+      const result = await deps.enrich(file.content);
+      updated.push({
+        ...entry,
+        semantic_score: result.semantic_score,
+        semantic_matched_intents: result.matched_intents,
+        semantic_refreshed_at: deps.now().toISOString(),
+        semantic_content_hash: contentHash,
+      });
+      enriched++;
+    } catch {
+      updated.push(entry);
+      failed++;
+    }
+  }
+
+  deps.writeRepos({ ...payload, repos: updated });
+  return { wrote: true, enriched, cached, failed, skipped };
 };
 
 // ---------- Real-dep CLI wiring (only runs when invoked directly) ----------
@@ -187,7 +289,7 @@ const makeDiscover =
     return enriched.slice(0, limit);
   };
 
-const makeFetcher =
+export const makeFetcher =
   (octokit: Octokit) =>
   async (owner: string, name: string): Promise<ClaudeMdFile | null> => {
     let content: string;

@@ -1,0 +1,55 @@
+name: refresh-semantic
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # share the 'refresh' lock with the hourly deterministic workflow so the
+  # two never race on a git push to main.
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  semantic:
+    runs-on: ubuntu-latest
+    # Sequential enrichment ≈19s/repo observed on 3-repo local smoke test;
+    # 185 repos extrapolates to ~60 min worst case. Parallelise if we need
+    # faster cycles or cheaper cost — but 60 min daily is well inside budget.
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Run semantic enrichment
+        run: pnpm refresh:semantic
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Commit if data/ changed
+        run: |
+          if [[ -z "$(git status --porcelain data/)" ]]; then
+            echo "no changes — skipping commit"
+            exit 0
+          fi
+          git config user.name 'codepulse-bot'
+          git config user.email 'bot@codepulse.dev'
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git add data/
+          git commit -m "data: semantic enrichment $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
