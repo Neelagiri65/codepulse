@@ -228,9 +228,16 @@ export const runSemanticPass = async (
         semantic_content_hash: contentHash,
       });
       enriched++;
-    } catch {
+    } catch (e) {
       updated.push(entry);
       failed++;
+      // Log every failure — silent catches here cost hours on 2026-04-18
+      // when a stale GEMINI_API_KEY made the run report 0 enriched / 184
+      // failed with no per-repo signal in the workflow log.
+      console.warn(
+        `[semantic] fail ${entry.owner}/${entry.name}:`,
+        e instanceof Error ? e.message : e,
+      );
     }
   }
 
