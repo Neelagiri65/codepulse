@@ -1,4 +1,5 @@
 import {
+  blendedScore,
   distribution,
   formatRelativeTime,
   formatStars,
@@ -6,6 +7,12 @@ import {
   type Distribution,
 } from './format';
 import { renderScorePill } from './scorecard';
+
+export interface SemanticIntent {
+  quote: string;
+  reason: string;
+  confidence: 'high' | 'medium' | 'low';
+}
 
 export interface RepoRow {
   owner: string;
@@ -15,6 +22,12 @@ export interface RepoRow {
   score: number;
   last_commit_at: string;
   matches: string[];
+  // v0.1.x semantic fields — written by the daily GitHub Action only,
+  // undefined on rows the enrichment pass hasn't reached yet.
+  semantic_score?: number | null;
+  semantic_matched_intents?: SemanticIntent[] | null;
+  semantic_refreshed_at?: string | null;
+  semantic_content_hash?: string | null;
 }
 
 export interface ReposFile {
@@ -28,7 +41,7 @@ export interface CatalogueCoverage {
   methodologyUrl: string;
 }
 
-type SortKey = 'rank' | 'stars' | 'chars' | 'score' | 'last_commit';
+type SortKey = 'rank' | 'stars' | 'chars' | 'score' | 'semantic' | 'last_commit';
 type SortDir = 'asc' | 'desc';
 
 const formatIsoZulu = (iso: string): string => {
@@ -175,7 +188,9 @@ const compareRows = (a: RepoRow, b: RepoRow, key: SortKey, dir: SortDir): number
     case 'chars':
       return sign * (a.char_count - b.char_count);
     case 'score':
-      return sign * (a.score - b.score);
+      return sign * (blendedScore(a) - blendedScore(b));
+    case 'semantic':
+      return sign * ((a.semantic_score ?? -1) - (b.semantic_score ?? -1));
     case 'last_commit':
       return sign * (new Date(a.last_commit_at).getTime() - new Date(b.last_commit_at).getTime());
     case 'rank':
@@ -189,21 +204,32 @@ interface State {
   sortDir: SortDir;
   rows: RepoRow[];
   rankByRepo: Map<string, number>;
+  showSemantic: boolean;
 }
 
 const DEFAULT_SORT: { key: SortKey; dir: SortDir } = { key: 'score', dir: 'desc' };
 
-const SORT_HEADERS: Array<{ key: SortKey | null; label: string; className: string }> = [
+type Header = { key: SortKey | null; label: string; className: string };
+
+const BASE_HEADERS: Header[] = [
   { key: null, label: '#', className: 'col-rank' },
   { key: null, label: 'Repository', className: 'col-repo' },
   { key: 'stars', label: 'Stars', className: 'col-stars' },
   { key: 'chars', label: 'Chars', className: 'col-chars' },
   { key: 'score', label: 'Score', className: 'col-score' },
+];
+
+const SEMANTIC_HEADER: Header = { key: 'semantic', label: 'Sem', className: 'col-semantic' };
+
+const TAIL_HEADERS: Header[] = [
   { key: null, label: 'Matches', className: 'col-matches' },
   { key: 'last_commit', label: 'Updated', className: 'col-last-commit' },
 ];
 
 const renderTable = (state: State): HTMLElement => {
+  const SORT_HEADERS: Header[] = state.showSemantic
+    ? [...BASE_HEADERS, SEMANTIC_HEADER, ...TAIL_HEADERS]
+    : [...BASE_HEADERS, ...TAIL_HEADERS];
   const table = document.createElement('table');
   table.className = 'leaderboard-table';
 
@@ -254,7 +280,7 @@ const renderTable = (state: State): HTMLElement => {
 
     const score = document.createElement('td');
     score.className = 'col-score';
-    score.appendChild(renderScorePill(r.score));
+    score.appendChild(renderScorePill(blendedScore(r)));
 
     const matches = document.createElement('td');
     matches.className = 'col-matches';
@@ -264,7 +290,20 @@ const renderTable = (state: State): HTMLElement => {
     last.className = 'col-last-commit';
     last.textContent = formatRelativeTime(r.last_commit_at);
 
-    tr.append(rank, repo, stars, chars, score, matches, last);
+    if (state.showSemantic) {
+      const sem = document.createElement('td');
+      sem.className = 'col-semantic';
+      const s = r.semantic_score;
+      if (s === undefined || s === null) {
+        sem.textContent = '—';
+        sem.style.color = 'var(--fg-3)';
+      } else {
+        sem.textContent = String(s);
+      }
+      tr.append(rank, repo, stars, chars, score, sem, matches, last);
+    } else {
+      tr.append(rank, repo, stars, chars, score, matches, last);
+    }
     tbody.appendChild(tr);
   });
 
@@ -279,7 +318,10 @@ export const mountLeaderboard = (
 ): void => {
   mount.innerHTML = '';
 
-  const dist = distribution(data.repos.map((r) => r.score));
+  const showSemantic = data.repos.some(
+    (r) => r.semantic_score !== undefined && r.semantic_score !== null,
+  );
+  const dist = distribution(data.repos.map((r) => blendedScore(r)));
 
   mount.appendChild(renderHero(data, dist, coverage));
 
@@ -304,7 +346,7 @@ export const mountLeaderboard = (
 
   const rankByRepo = new Map<string, number>();
   [...data.repos]
-    .sort((a, b) => b.score - a.score || b.stars - a.stars)
+    .sort((a, b) => blendedScore(b) - blendedScore(a) || b.stars - a.stars)
     .forEach((r, i) => rankByRepo.set(`${r.owner}/${r.name}`, i + 1));
 
   const state: State = {
@@ -312,6 +354,7 @@ export const mountLeaderboard = (
     sortDir: DEFAULT_SORT.dir,
     rows: [...data.repos],
     rankByRepo,
+    showSemantic,
   };
   const applySort = () => {
     state.rows = [...data.repos].sort((a, b) => {

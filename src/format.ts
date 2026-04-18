@@ -15,6 +15,16 @@ export const formatRelativeTime = (iso: string, now: Date = new Date()): string 
   return `${Math.floor(days / 365)}y ago`;
 };
 
+// Blended score: max(deterministic, semantic) capped at 100. Chosen in
+// session 12 as the simplest formula with no calibration hyperparameter —
+// a row's headline pill reflects the worse of the two scoring layers, and
+// both raw fields remain inspectable in the row itself (Score pill reads
+// the blend; Sem column shows the raw LLM value).
+export const blendedScore = (r: { score: number; semantic_score?: number | null }): number => {
+  const sem = r.semantic_score ?? 0;
+  return Math.min(100, Math.max(r.score, sem));
+};
+
 export type Bucket = 0 | 1 | 2 | 3 | 4;
 
 export const bucketForScore = (score: number): Bucket => {

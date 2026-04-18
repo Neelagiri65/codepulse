@@ -9,9 +9,9 @@
 import { describe, expect, it } from 'vitest';
 import reposData from '../data/repos.json' with { type: 'json' };
 import catalogueData from '../data/catalogue.json' with { type: 'json' };
-import { mountLeaderboard, type CatalogueCoverage, type ReposFile } from './leaderboard';
+import { mountLeaderboard, type CatalogueCoverage, type ReposFile, type RepoRow } from './leaderboard';
 import { mountAudit, type CatalogueFile } from './audit';
-import { distribution } from './format';
+import { bucketForScore, distribution, blendedScore } from './format';
 
 const repos = reposData as ReposFile;
 const catalogue = catalogueData as CatalogueFile;
@@ -23,12 +23,12 @@ const coverage: CatalogueCoverage = {
 
 // Derive expected values from the live data files rather than hard-coding,
 // so the suite stays green across hourly cron refreshes. The production
-// renderer uses the same `distribution()` helper and the same ISO->date
-// slicing, so the test checks "UI reflects the data" not "UI matches a
+// renderer uses the same `distribution()` helper and blended() formula as
+// the UI, so the test checks "UI reflects the data" not "UI matches a
 // number baked in when this test was written."
 const expected = (() => {
-  const scores = repos.repos.map((r) => r.score);
-  const dist = distribution(scores);
+  const blendedScores = repos.repos.map(blendedScore);
+  const dist = distribution(blendedScores);
   return {
     refreshedDate: repos.refreshed_at.slice(0, 10),
     total: repos.repos.length,
@@ -37,6 +37,7 @@ const expected = (() => {
     max: dist.max,
     bucketCounts: dist.buckets.map((b) => String(b.count)),
     bucketLabels: dist.buckets.map((b) => b.label),
+    anySemantic: repos.repos.some((r) => r.semantic_score !== undefined && r.semantic_score !== null),
   };
 })();
 
@@ -119,12 +120,17 @@ describe('leaderboard mount — live data', () => {
   it('score pill colour tracks the health bucket', () => {
     const rows = host.querySelectorAll('.leaderboard-table tbody tr');
     const topPill = rows[0].querySelector('.col-score .pill') as HTMLElement;
-    expect(topPill.style.getPropertyValue('--pill-colour')).toBe('var(--health-1)');
+    const topScore = Number(topPill.textContent);
+    expect(topPill.style.getPropertyValue('--pill-colour')).toBe(
+      `var(--health-${bucketForScore(topScore)})`,
+    );
     const cleanRow = Array.from(rows).find(
       (r) => r.querySelector('.col-score .pill')?.textContent === '0',
     );
-    const cleanPill = cleanRow?.querySelector('.col-score .pill') as HTMLElement;
-    expect(cleanPill.style.getPropertyValue('--pill-colour')).toBe('var(--health-0)');
+    if (cleanRow) {
+      const cleanPill = cleanRow.querySelector('.col-score .pill') as HTMLElement;
+      expect(cleanPill.style.getPropertyValue('--pill-colour')).toBe('var(--health-0)');
+    }
   });
 
   it('score pill has accessible label', () => {
@@ -132,6 +138,141 @@ describe('leaderboard mount — live data', () => {
     expect(pill?.getAttribute('aria-label')).toMatch(
       /^redundancy score \d+ of 100, (clean|mostly clean|some redundancy|notable redundancy|severe)$/,
     );
+  });
+});
+
+describe('leaderboard mount — semantic-enriched fixture', () => {
+  const fixture: ReposFile = {
+    refreshed_at: '2026-04-18T06:00:00Z',
+    repos: [
+      {
+        owner: 'alpha',
+        name: 'one',
+        stars: 500,
+        char_count: 10000,
+        score: 10,
+        last_commit_at: '2026-04-10T12:00:00Z',
+        matches: ['be-concise'],
+        semantic_score: 28,
+        semantic_matched_intents: [
+          { quote: 'x', reason: 'y', confidence: 'high' },
+        ],
+        semantic_refreshed_at: '2026-04-18T06:00:00Z',
+      },
+      {
+        owner: 'beta',
+        name: 'two',
+        stars: 200,
+        char_count: 5000,
+        score: 40,
+        last_commit_at: '2026-04-12T12:00:00Z',
+        matches: [],
+      },
+      {
+        owner: 'gamma',
+        name: 'three',
+        stars: 100,
+        char_count: 2000,
+        score: 95,
+        last_commit_at: '2026-04-14T12:00:00Z',
+        matches: ['foo'],
+        semantic_score: 20,
+        semantic_matched_intents: [],
+        semantic_refreshed_at: '2026-04-18T06:00:00Z',
+      },
+      {
+        owner: 'delta',
+        name: 'four',
+        stars: 50,
+        char_count: 1500,
+        score: 60,
+        last_commit_at: '2026-04-15T12:00:00Z',
+        matches: ['bar'],
+        semantic_score: 55,
+        semantic_matched_intents: [],
+        semantic_refreshed_at: '2026-04-18T06:00:00Z',
+      },
+    ] as RepoRow[],
+  };
+  const host = mountNode();
+  mountLeaderboard(host, fixture, coverage);
+
+  const rowsByRepo = () => {
+    const rows = host.querySelectorAll('.leaderboard-table tbody tr');
+    return new Map(
+      Array.from(rows).map((r) => [
+        (r.querySelector('.col-repo') as HTMLElement).textContent || '',
+        r,
+      ]),
+    );
+  };
+
+  it('adds a Semantic column header when any row has semantic_score', () => {
+    const headers = Array.from(host.querySelectorAll('.leaderboard-table thead th')).map((th) =>
+      th.textContent?.replace(/[▲▼]/g, '').trim(),
+    );
+    expect(headers).toContain('Sem');
+  });
+
+  it('renders blended score pill as max(deterministic, semantic) capped at 100', () => {
+    const rows = rowsByRepo();
+    expect(rows.get('alpha/one')?.querySelector('.col-score .pill')?.textContent).toBe('28');
+    expect(rows.get('beta/two')?.querySelector('.col-score .pill')?.textContent).toBe('40');
+    expect(rows.get('gamma/three')?.querySelector('.col-score .pill')?.textContent).toBe('95');
+    expect(rows.get('delta/four')?.querySelector('.col-score .pill')?.textContent).toBe('60');
+  });
+
+  it('shows raw semantic score in the Sem column; em-dash when missing', () => {
+    const rows = rowsByRepo();
+    expect(rows.get('alpha/one')?.querySelector('.col-semantic')?.textContent?.trim()).toBe('28');
+    expect(rows.get('beta/two')?.querySelector('.col-semantic')?.textContent?.trim()).toBe('—');
+    expect(rows.get('gamma/three')?.querySelector('.col-semantic')?.textContent?.trim()).toBe('20');
+    expect(rows.get('delta/four')?.querySelector('.col-semantic')?.textContent?.trim()).toBe('55');
+  });
+
+  it('histogram uses blended scores (bucket reflects max of det/sem)', () => {
+    const cols = host.querySelectorAll('.histogram-col');
+    const counts = Array.from(cols).map((c) => c.querySelector('.histogram-count')?.textContent);
+    // Blended: alpha=28, beta=40, gamma=95, delta=60
+    // Buckets: 0, 1–25, 26–50, 51–75, 76–100
+    expect(counts).toEqual(['0', '0', '2', '1', '1']);
+  });
+
+  it('default sort ranks by blended score descending', () => {
+    const rows = host.querySelectorAll('.leaderboard-table tbody tr');
+    const repos = Array.from(rows).map(
+      (r) => (r.querySelector('.col-repo') as HTMLElement).textContent,
+    );
+    expect(repos).toEqual(['gamma/three', 'delta/four', 'beta/two', 'alpha/one']);
+    const firstRank = (rows[0].querySelector('.col-rank') as HTMLElement).textContent;
+    expect(firstRank).toBe('1');
+  });
+});
+
+describe('leaderboard mount — no semantic data', () => {
+  const fixture: ReposFile = {
+    refreshed_at: '2026-04-18T06:00:00Z',
+    repos: [
+      {
+        owner: 'a',
+        name: 'b',
+        stars: 1,
+        char_count: 1000,
+        score: 5,
+        last_commit_at: '2026-04-01T00:00:00Z',
+        matches: [],
+      },
+    ],
+  };
+  const host = mountNode();
+  mountLeaderboard(host, fixture, coverage);
+
+  it('omits the Sem column when no rows have semantic_score', () => {
+    const headers = Array.from(host.querySelectorAll('.leaderboard-table thead th')).map((th) =>
+      th.textContent?.replace(/[▲▼]/g, '').trim(),
+    );
+    expect(headers).not.toContain('Sem');
+    expect(host.querySelector('.col-semantic')).toBeNull();
   });
 });
 
@@ -145,6 +286,14 @@ describe('paste-audit mount', () => {
     expect(ta.placeholder).toBe('Paste your CLAUDE.md here…');
     expect(host.querySelector('.scorecard-empty')?.textContent).toContain(
       'Paste a CLAUDE.md',
+    );
+  });
+
+  it('shows the deterministic-only label (PRD §5.3 privacy contract)', () => {
+    const note = host.querySelector('.audit-semantic-note');
+    expect(note?.textContent).toContain('pasted audits use the deterministic catalogue');
+    expect(note?.textContent).toContain(
+      'leaderboard scores also include daily semantic enrichment',
     );
   });
 
