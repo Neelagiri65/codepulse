@@ -387,6 +387,13 @@ textarea:focus-visible,
   text-align: right;
 }
 
+.col-semantic {
+  width: 64px;
+  text-align: right;
+  color: var(--fg-1);
+  font-variant-numeric: tabular-nums;
+}
+
 .col-matches {
   color: var(--fg-1);
   font-size: var(--text-xs);
@@ -480,6 +487,15 @@ textarea:focus-visible,
 
 .audit-textarea::placeholder {
   color: var(--fg-3);
+}
+
+.audit-semantic-note {
+  color: var(--fg-2);
+  font-size: var(--text-xs);
+  margin: 0 0 var(--space-4) 0;
+  padding: var(--space-2) var(--space-3);
+  border-left: 2px solid var(--border);
+  background: var(--bg-1);
 }
 
 .audit-meta {

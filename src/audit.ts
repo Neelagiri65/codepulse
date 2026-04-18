@@ -18,6 +18,13 @@ export const mountAudit = (mount: HTMLElement, catalogue: CatalogueFile): void =
   sub.className = 'section-sub';
   sub.textContent = `Paste a CLAUDE.md file. It's scored client-side against catalogue v${catalogue.version} (${catalogue.patterns.length} patterns). Nothing leaves the browser.`;
 
+  // PRD §5.3 privacy contract: the paste audit never calls an LLM, so it
+  // is narrower than the leaderboard. The label must make this obvious.
+  const semanticNote = document.createElement('p');
+  semanticNote.className = 'audit-semantic-note';
+  semanticNote.textContent =
+    'Note: pasted audits use the deterministic catalogue only; leaderboard scores also include daily semantic enrichment.';
+
   const grid = document.createElement('div');
   grid.className = 'audit';
 
@@ -48,7 +55,7 @@ export const mountAudit = (mount: HTMLElement, catalogue: CatalogueFile): void =
 
   grid.append(left, right);
 
-  mount.append(title, sub, grid);
+  mount.append(title, sub, semanticNote, grid);
 
   const update = () => {
     const content = textarea.value;
