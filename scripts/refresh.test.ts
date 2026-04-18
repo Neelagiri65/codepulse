@@ -4,11 +4,15 @@ import {
   scoreRepo,
   shouldWrite,
   runRefresh,
+  runSemanticPass,
   type ClaudeMdFile,
   type RefreshDeps,
   type RepoEntry,
   type RepoMeta,
+  type ReposPayload,
+  type SemanticPassDeps,
 } from './refresh';
+import type { SemanticResult } from './enrich';
 
 const pat = (id: string, value: string, weight = 5): Pattern => ({
   id,
@@ -196,5 +200,246 @@ describe('runRefresh()', () => {
     const deps = buildDeps({ discoverTopRepos: spy });
     await runRefresh(deps, 200);
     expect(spy).toHaveBeenCalledWith(200);
+  });
+
+  it('carries over semantic fields from prev on a repo whose deterministic fields change', async () => {
+    // prev: char_count=5 triggers a write; semantic fields from a prior
+    // semantic pass must survive the deterministic rebuild.
+    const prevEntry: RepoEntry = {
+      owner: 'one',
+      name: 'widget',
+      stars: 1000,
+      char_count: 5,
+      score: 0,
+      last_commit_at: '2026-04-10T12:00:00Z',
+      matches: [],
+      semantic_score: 8,
+      semantic_matched_intents: [
+        { quote: 'q', reason: 'duplicates default', confidence: 'high' },
+      ],
+      semantic_refreshed_at: '2026-04-18T06:00:00.000Z',
+      semantic_content_hash: 'abc123',
+    };
+    const deps = buildDeps({
+      readExistingRepos: () => [prevEntry],
+      discoverTopRepos: vi.fn().mockResolvedValue([
+        meta({ owner: 'one', stars: 1000 }),
+      ]),
+      fetchClaudeMd: vi.fn(async () => file('one: be concise and no emojis')),
+    });
+    await runRefresh(deps, 200);
+    const payload = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    const entry = payload.repos[0];
+    expect(entry.semantic_score).toBe(8);
+    expect(entry.semantic_matched_intents).toEqual([
+      { quote: 'q', reason: 'duplicates default', confidence: 'high' },
+    ]);
+    expect(entry.semantic_refreshed_at).toBe('2026-04-18T06:00:00.000Z');
+    expect(entry.semantic_content_hash).toBe('abc123');
+    // deterministic score updated by the rebuild
+    expect(entry.score).toBe(100);
+  });
+
+  it('does not fabricate semantic fields on repos that have no prev', async () => {
+    const deps = buildDeps();
+    await runRefresh(deps, 200);
+    const payload = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    expect(payload.repos[0].semantic_score).toBeUndefined();
+    expect(payload.repos[0].semantic_matched_intents).toBeUndefined();
+    expect(payload.repos[0].semantic_content_hash).toBeUndefined();
+  });
+});
+
+describe('runSemanticPass()', () => {
+  const basePayload = (): ReposPayload => ({
+    refreshed_at: '2026-04-17T00:00:00.000Z',
+    repos: [
+      {
+        owner: 'one',
+        name: 'widget',
+        stars: 1000,
+        char_count: 100,
+        score: 50,
+        last_commit_at: '2026-04-10T12:00:00Z',
+        matches: ['a'],
+      },
+      {
+        owner: 'two',
+        name: 'widget',
+        stars: 900,
+        char_count: 50,
+        score: 0,
+        last_commit_at: '2026-04-10T12:00:00Z',
+        matches: [],
+      },
+    ],
+  });
+
+  const semResult = (over: Partial<SemanticResult> = {}): SemanticResult => ({
+    semantic_score: 4,
+    matched_intents: [{ quote: 'q', reason: 'r', confidence: 'high' }],
+    ...over,
+  });
+
+  const buildSemDeps = (over: Partial<SemanticPassDeps> = {}): SemanticPassDeps => ({
+    readExistingPayload: () => basePayload(),
+    fetchClaudeMd: vi.fn(async () => file('some file content')),
+    enrich: vi.fn(async () => semResult()),
+    writeRepos: vi.fn(),
+    now: () => new Date('2026-04-18T06:00:00Z'),
+    hashContent: (c: string) => `hash-${c.length}`,
+    ...over,
+  });
+
+  it('enriches every repo when no semantic fields exist yet', async () => {
+    const deps = buildSemDeps();
+    const result = await runSemanticPass(deps);
+
+    expect(result.wrote).toBe(true);
+    expect(result.enriched).toBe(2);
+    expect(result.cached).toBe(0);
+    expect(result.failed).toBe(0);
+    expect(result.skipped).toBe(0);
+    expect(deps.enrich).toHaveBeenCalledTimes(2);
+
+    const written = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    expect(written.refreshed_at).toBe('2026-04-17T00:00:00.000Z');
+    expect(written.repos[0].semantic_score).toBe(4);
+    expect(written.repos[0].semantic_matched_intents).toEqual([
+      { quote: 'q', reason: 'r', confidence: 'high' },
+    ]);
+    expect(written.repos[0].semantic_refreshed_at).toBe('2026-04-18T06:00:00.000Z');
+    expect(written.repos[0].semantic_content_hash).toBe('hash-17');
+    // deterministic fields untouched
+    expect(written.repos[0].score).toBe(50);
+    expect(written.repos[0].matches).toEqual(['a']);
+  });
+
+  it('caches by content hash — skips enrichment when hash unchanged', async () => {
+    const cached = basePayload();
+    cached.repos = cached.repos.map((r) => ({
+      ...r,
+      semantic_score: 2,
+      semantic_matched_intents: [],
+      semantic_refreshed_at: '2026-04-17T06:00:00.000Z',
+      semantic_content_hash: 'hash-17',
+    }));
+    const enrichSpy = vi.fn();
+    const deps = buildSemDeps({
+      readExistingPayload: () => cached,
+      enrich: enrichSpy,
+    });
+    const result = await runSemanticPass(deps);
+
+    expect(enrichSpy).not.toHaveBeenCalled();
+    expect(result.cached).toBe(2);
+    expect(result.enriched).toBe(0);
+
+    const written = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    expect(written.repos[0].semantic_score).toBe(2);
+    expect(written.repos[0].semantic_refreshed_at).toBe('2026-04-17T06:00:00.000Z');
+  });
+
+  it('re-enriches when content hash differs from stored hash', async () => {
+    const stale = basePayload();
+    stale.repos = stale.repos.map((r) => ({
+      ...r,
+      semantic_score: 2,
+      semantic_matched_intents: [],
+      semantic_refreshed_at: '2026-04-17T06:00:00.000Z',
+      semantic_content_hash: 'OLD-HASH',
+    }));
+    const enrichSpy = vi.fn(async () => semResult());
+    const deps = buildSemDeps({
+      readExistingPayload: () => stale,
+      enrich: enrichSpy,
+    });
+    const result = await runSemanticPass(deps);
+
+    expect(enrichSpy).toHaveBeenCalledTimes(2);
+    expect(result.enriched).toBe(2);
+    expect(result.cached).toBe(0);
+
+    const written = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    expect(written.repos[0].semantic_content_hash).toBe('hash-17');
+    expect(written.repos[0].semantic_refreshed_at).toBe('2026-04-18T06:00:00.000Z');
+  });
+
+  it('isolates a single-repo API failure — others still enriched, deterministic fields untouched', async () => {
+    let call = 0;
+    const enrichSpy = vi.fn(async () => {
+      call++;
+      if (call === 1) throw new Error('API 500');
+      return semResult();
+    });
+    const deps = buildSemDeps({ enrich: enrichSpy });
+    const result = await runSemanticPass(deps);
+
+    expect(result.enriched).toBe(1);
+    expect(result.failed).toBe(1);
+    expect(result.wrote).toBe(true);
+
+    const written = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    // Repo 1 failed — no prior semantic fields, so they stay undefined
+    expect(written.repos[0].semantic_score).toBeUndefined();
+    // Repo 2 succeeded
+    expect(written.repos[1].semantic_score).toBe(4);
+    // Deterministic fields unchanged on both
+    expect(written.repos[0].score).toBe(50);
+    expect(written.repos[1].score).toBe(0);
+    expect(written.repos[0].matches).toEqual(['a']);
+  });
+
+  it('preserves prior semantic fields when re-enrichment fails', async () => {
+    const stale = basePayload();
+    stale.repos = [
+      {
+        ...stale.repos[0],
+        semantic_score: 2,
+        semantic_matched_intents: [{ quote: 'old', reason: 'old', confidence: 'low' }],
+        semantic_refreshed_at: '2026-04-17T06:00:00.000Z',
+        semantic_content_hash: 'OLD-HASH',
+      },
+    ];
+    const deps = buildSemDeps({
+      readExistingPayload: () => stale,
+      enrich: vi.fn(async () => {
+        throw new Error('API 500');
+      }),
+    });
+    await runSemanticPass(deps);
+
+    const written = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    expect(written.repos[0].semantic_score).toBe(2);
+    expect(written.repos[0].semantic_matched_intents).toEqual([
+      { quote: 'old', reason: 'old', confidence: 'low' },
+    ]);
+    expect(written.repos[0].semantic_refreshed_at).toBe('2026-04-17T06:00:00.000Z');
+    expect(written.repos[0].semantic_content_hash).toBe('OLD-HASH');
+  });
+
+  it('skips repos whose CLAUDE.md fetch returns null', async () => {
+    const deps = buildSemDeps({
+      fetchClaudeMd: vi.fn(async (owner: string) =>
+        owner === 'two' ? null : file('content here'),
+      ),
+    });
+    const result = await runSemanticPass(deps);
+
+    expect(result.enriched).toBe(1);
+    expect(result.skipped).toBe(1);
+
+    const written = (deps.writeRepos as ReturnType<typeof vi.fn>).mock.calls[0][0];
+    const two = written.repos.find((r: RepoEntry) => r.owner === 'two');
+    expect(two.semantic_score).toBeUndefined();
+  });
+
+  it('returns wrote:false when repos.json is absent', async () => {
+    const deps = buildSemDeps({ readExistingPayload: () => null });
+    const result = await runSemanticPass(deps);
+
+    expect(result.wrote).toBe(false);
+    expect(result.enriched).toBe(0);
+    expect(deps.writeRepos).not.toHaveBeenCalled();
   });
 });
