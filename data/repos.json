@@ -11,7 +11,32 @@
       "matches": [
         "be-concise",
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 7,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never fix a test by adjusting the expectation if the expectation is correct, test must be fixed by addressing the issue with the code.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Start every feature with: \"Let me research the codebase and create a plan before implementing.\"",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Whenever working on a feature or issue, let's always come up with a plan first, then save it to a file called `/.agent/current-plan.md`, before getting started with code changes.",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Define a step by step plan for addressing the issue",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:15:53.451Z",
+      "semantic_content_hash": "e92a725836093518f09642ba76cd702d45f28cd002f710c6ba7c302fb472bf44"
     },
     {
       "owner": "mhattingpete",
@@ -22,7 +47,27 @@
       "last_commit_at": "2025-10-22T18:41:15Z",
       "matches": [
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Potentially destructive operations",
+          "reason": "Claude Code already asks before destructive operations by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Commit with descriptive message",
+          "reason": "Claude Code already focuses commit messages on WHY not WHAT, with a 1-2 sentence imperative-mood summary by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "NEVER create markdown files unless explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:16:11.653Z",
+      "semantic_content_hash": "05c2345f69fc3c168d0d4f9d0006f2e7ed2eee20c1276915419ac1a55811acd8"
     },
     {
       "owner": "nunomaduro",
@@ -33,7 +78,22 @@
       "last_commit_at": "2025-12-20T14:16:51Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers and avoids explaining obvious details by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:16:24.164Z",
+      "semantic_content_hash": "1e14f213e09640ff0986ba9e4196d13b002884aabe69750910ee16603a677377"
     },
     {
       "owner": "sonichi",
@@ -44,7 +104,42 @@
       "last_commit_at": "2026-04-15T20:21:17Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 12,
+      "semantic_matched_intents": [
+        {
+          "quote": "Be concise and direct.",
+          "reason": "Claude Code already gives short, direct answers by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prefer action over explanation.",
+          "reason": "Claude Code already prefers action over explanation by stating action briefly before tool calls and not narrating internal deliberation.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Always confirm message content with user before sending.",
+          "reason": "Claude Code already asks before destructive operations by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Always confirm post content with user before publishing.",
+          "reason": "Claude Code already asks before destructive operations by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Confirm briefly what was learned: \"Got it — I'll [do X] from now on.\"",
+          "reason": "Claude Code already gives short, direct answers and avoids trailing end-of-turn summaries by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prefer existing skills over writing new code from scratch.",
+          "reason": "Claude Code already prefers dedicated tools over Bash and editing existing files over creating new ones, which implies preferring existing capabilities.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:16:41.854Z",
+      "semantic_content_hash": "c04b06017cd95b128dc244dad225d2d2a74174dc23a2b0a3fb90fcc21cc99358"
     },
     {
       "owner": "foundrydata",
@@ -55,7 +150,32 @@
       "last_commit_at": "2025-11-29T19:03:42Z",
       "matches": [
         "scope-match-request"
-      ]
+      ],
+      "semantic_score": 7,
+      "semantic_matched_intents": [
+        {
+          "quote": "Grep Section Bounds (parallel tool calls)",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Don't delete failing code/tests to \"green\" the suite; fix root causes.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "SPEC is truth — Do not enlarge scope beyond what SPEC mandates",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No scope creep — Do not add features, edge cases, or behaviors not specified in SPEC",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:17:20.975Z",
+      "semantic_content_hash": "9f795c5d73ab5a53003679dbc9f8cf07c7f69431c712cbb96981c33eaa35dbe5"
     },
     {
       "owner": "hyperpolymath",
@@ -66,7 +186,17 @@
       "last_commit_at": "2025-11-21T23:26:39Z",
       "matches": [
         "test-your-changes"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Test your changes - Build and test on appropriate platforms",
+          "reason": "Claude Code already tests incrementally by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:17:37.262Z",
+      "semantic_content_hash": "bb02a6f91feb0c3572f161ba4f0defd31f20cf908e3596b03636fa9b4cc3f433"
     },
     {
       "owner": "kelvinOfoli",
@@ -77,7 +207,32 @@
       "last_commit_at": "2026-01-09T22:21:41Z",
       "matches": [
         "read-before-edit"
-      ]
+      ],
+      "semantic_score": 8,
+      "semantic_matched_intents": [
+        {
+          "quote": "Always read files before modifying - Never propose changes to code you haven't read",
+          "reason": "Claude Code's default tool use implies reading files before modifying (e.g., using Read/Edit/Write tools).",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Avoid over-engineering",
+          "reason": "Claude Code already 'Does not add features, refactors, or abstractions beyond what the task requires' by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Create generic utilities for one-time use",
+          "reason": "Claude Code already 'Does not add features, refactors, or abstractions beyond what the task requires' by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Add unnecessary abstractions",
+          "reason": "Claude Code already 'Does not add features, refactors, or abstractions beyond what the task requires' by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:17:49.268Z",
+      "semantic_content_hash": "67727432a97c71568000a1575610a8d7e3d1187e04bc9152db97958fec68b6ac"
     },
     {
       "owner": "niklabh",
@@ -88,7 +243,32 @@
       "last_commit_at": "2026-04-13T21:21:40Z",
       "matches": [
         "verify-your-work"
-      ]
+      ],
+      "semantic_score": 8,
+      "semantic_matched_intents": [
+        {
+          "quote": "No abstractions for single-use code.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No \"flexibility\" that wasn't asked for.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No error handling for impossible scenarios.",
+          "reason": "Claude Code already does not add error handling or validation for scenarios that can't happen by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't improve adjacent code, comments, or formatting.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:18:01.355Z",
+      "semantic_content_hash": "b94dd4442d15dd559fde6cfebba92b71ea821d8ab2b74f971beae02636fe5b65"
     },
     {
       "owner": "TyOverby",
@@ -99,7 +279,11 @@
       "last_commit_at": "2026-01-21T21:03:16Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:18:15.600Z",
+      "semantic_content_hash": "97fe4257da03a3b8c5745b20922db5ff74944228e6ae798e327f60f15bbb92be"
     },
     {
       "owner": "8cH9azbsFifZ",
@@ -108,7 +292,11 @@
       "char_count": 5990,
       "score": 0,
       "last_commit_at": "2026-02-08T11:12:43Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:18:24.855Z",
+      "semantic_content_hash": "ca3706a2376fe12a26c052374c0285447cd00d6254bad711eb53f1e637155fe7"
     },
     {
       "owner": "aayusharyan",
@@ -117,7 +305,11 @@
       "char_count": 2250,
       "score": 0,
       "last_commit_at": "2026-04-17T03:04:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:18:31.268Z",
+      "semantic_content_hash": "753844e9db6aea0e16be346a933715885f95f68280e81340f0017142a653dab9"
     },
     {
       "owner": "adityasugandhi",
@@ -126,7 +318,11 @@
       "char_count": 5409,
       "score": 0,
       "last_commit_at": "2026-02-22T02:02:37Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:18:38.879Z",
+      "semantic_content_hash": "fd3c93f541abce9663c927ae5878894499c8a5c0bfd5c32361e293701f365604"
     },
     {
       "owner": "AgoraIO-Community",
@@ -135,7 +331,11 @@
       "char_count": 5766,
       "score": 0,
       "last_commit_at": "2026-03-24T18:18:36Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:18:49.335Z",
+      "semantic_content_hash": "8a914f26575d5b8424a3cc9fd4cb120b40b444298e1e8f23ce86c3e3cea3fd1f"
     },
     {
       "owner": "ai-shifu",
@@ -144,7 +344,11 @@
       "char_count": 7354,
       "score": 0,
       "last_commit_at": "2025-09-24T01:35:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:19:00.480Z",
+      "semantic_content_hash": "aefbfff4ff5beb72232034e124da377c7018a52aeb86544d4651d007c64268dc"
     },
     {
       "owner": "alchaincyf",
@@ -153,7 +357,11 @@
       "char_count": 9523,
       "score": 0,
       "last_commit_at": "2025-10-14T16:33:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:19:10.753Z",
+      "semantic_content_hash": "ba08edaa6abc3f3a53d9f5c5cf07a1dfde14e2e87c9d3b7f612facce094e9f40"
     },
     {
       "owner": "alirezarezvani",
@@ -162,7 +370,11 @@
       "char_count": 12633,
       "score": 0,
       "last_commit_at": "2026-04-13T06:19:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:19:21.260Z",
+      "semantic_content_hash": "72371283c1056a9d2467dc7121dde95ea0fcd57657b0ffb28bf3f9dc311d99bb"
     },
     {
       "owner": "all-source-os",
@@ -171,7 +383,17 @@
       "char_count": 9149,
       "score": 0,
       "last_commit_at": "2026-04-17T11:09:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "If a hook fails, fix the underlying issue.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:19:30.599Z",
+      "semantic_content_hash": "9fa67bbabfec636b115fc1498e54dd446477620262ad9b65850cf59cb28561c1"
     },
     {
       "owner": "AndrewDongminYoo",
@@ -180,7 +402,11 @@
       "char_count": 4387,
       "score": 0,
       "last_commit_at": "2026-02-17T11:37:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:19:34.830Z",
+      "semantic_content_hash": "85a4c8ec81e2108162eef9e510d47a666d6c396bd352df9ab482a6f7ee562b0f"
     },
     {
       "owner": "artefom",
@@ -189,7 +415,11 @@
       "char_count": 2358,
       "score": 0,
       "last_commit_at": "2026-02-04T09:32:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:19:40.600Z",
+      "semantic_content_hash": "978da6e41652668b0001740598313f4ac361851b484137179c5f92757ed38db8"
     },
     {
       "owner": "ashwch",
@@ -198,7 +428,11 @@
       "char_count": 345,
       "score": 0,
       "last_commit_at": "2026-02-16T05:38:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:19:43.649Z",
+      "semantic_content_hash": "7f485565eea25e2c1a45b2532ae59e9e381c5c4b10c400d0989466875612d0b1"
     },
     {
       "owner": "ashwch",
@@ -207,7 +441,11 @@
       "char_count": 345,
       "score": 0,
       "last_commit_at": "2026-03-02T17:14:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:19:46.614Z",
+      "semantic_content_hash": "7f485565eea25e2c1a45b2532ae59e9e381c5c4b10c400d0989466875612d0b1"
     },
     {
       "owner": "astrolabsoftware",
@@ -216,7 +454,27 @@
       "char_count": 1524,
       "score": 0,
       "last_commit_at": "2026-01-12T08:35:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do what has been asked; nothing more, nothing less",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "ALWAYS prefer editing an existing file to creating a new one",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) or README files unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:19:52.993Z",
+      "semantic_content_hash": "654875aa6ed63a5ea00386763841ed51cd2b6b70bd4962266a09438eeca38619"
     },
     {
       "owner": "AudiusProject",
@@ -225,7 +483,11 @@
       "char_count": 4271,
       "score": 0,
       "last_commit_at": "2026-02-25T01:55:17Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:05.461Z",
+      "semantic_content_hash": "92334f512976d2f418063c371d963c2c4492a54354584d9bc9b62722b761905c"
     },
     {
       "owner": "awps",
@@ -234,7 +496,11 @@
       "char_count": 2772,
       "score": 0,
       "last_commit_at": "2026-01-31T22:04:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:12.295Z",
+      "semantic_content_hash": "a8c390c7be0049f4cb8da9217089f4dfd06740619ba7a577dbaeb482bf8d2268"
     },
     {
       "owner": "awps",
@@ -243,7 +509,11 @@
       "char_count": 2171,
       "score": 0,
       "last_commit_at": "2026-02-17T10:44:05Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:21.197Z",
+      "semantic_content_hash": "38177753df5c9435250e6420c9b4b1d53d972b1a94b74e0948cdee7c2d9fe694"
     },
     {
       "owner": "bacoords",
@@ -252,7 +522,11 @@
       "char_count": 457,
       "score": 0,
       "last_commit_at": "2026-03-06T20:49:35Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:23.795Z",
+      "semantic_content_hash": "be74148a5b1b8a56ca85271c6fb86c7d911ea7ce8bdbe9008176e520b7ac30e7"
     },
     {
       "owner": "BartlomiejSadza",
@@ -261,7 +535,11 @@
       "char_count": 2939,
       "score": 0,
       "last_commit_at": "2026-01-11T22:20:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:27.855Z",
+      "semantic_content_hash": "fd6eb8ef6a29c919d1565aaad4c99587839bf476197253bc5a7e1a312848659f"
     },
     {
       "owner": "basher83",
@@ -270,7 +548,11 @@
       "char_count": 4915,
       "score": 0,
       "last_commit_at": "2025-07-22T23:37:04Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:35.447Z",
+      "semantic_content_hash": "dca0271070fe6867a35a8102215f9a26e0d8eb5f7c2fa5dd8cd334d982ce7a17"
     },
     {
       "owner": "BayramAnnakov",
@@ -279,7 +561,11 @@
       "char_count": 7741,
       "score": 0,
       "last_commit_at": "2026-02-13T04:50:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:49.362Z",
+      "semantic_content_hash": "9504b497181b24079c9d817e35dc606c3b061bbd8ea14479337f4e05aefe4580"
     },
     {
       "owner": "Bbalduzz",
@@ -288,7 +574,11 @@
       "char_count": 8657,
       "score": 0,
       "last_commit_at": "2026-02-08T17:09:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:20:57.188Z",
+      "semantic_content_hash": "1164fb447aeb470d6f17ace0fc8ac2dc6be4729cc4abf37babc1fc98bde5dd58"
     },
     {
       "owner": "beyond5959",
@@ -297,7 +587,11 @@
       "char_count": 2524,
       "score": 0,
       "last_commit_at": "2026-03-05T07:04:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:21:06.691Z",
+      "semantic_content_hash": "da1de9f71e2c22dba26605fdfb02d05b16dc68b12eb0e458422ee36038e87b93"
     },
     {
       "owner": "bhi5hmaraj",
@@ -306,7 +600,22 @@
       "char_count": 14663,
       "score": 0,
       "last_commit_at": "2025-11-01T09:28:13Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Create issues when discovering new tasks: `bd create \"Task description\" -p 1`",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate) by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Close issues when complete: `bd close <id>`",
+          "reason": "Claude Code already marks tasks complete as soon as done by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:21:20.235Z",
+      "semantic_content_hash": "8fae97a61097991892b49cdb55a1e9dc054f745192998eaa5314ca6e4314e1d4"
     },
     {
       "owner": "Bikatr7",
@@ -315,7 +624,11 @@
       "char_count": 55,
       "score": 0,
       "last_commit_at": "2025-09-12T20:38:17Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:21:22.224Z",
+      "semantic_content_hash": "248a9158a170424bee6a8069a0000a79651ce8befbb601dfd18978c05f621920"
     },
     {
       "owner": "bitsandbytes-foundation",
@@ -324,7 +637,11 @@
       "char_count": 3401,
       "score": 0,
       "last_commit_at": "2026-02-21T18:25:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:21:27.345Z",
+      "semantic_content_hash": "bb47f9c2fb89cf6c797d81a795fd3f71b87bbf08a30671469845499e4269a22b"
     },
     {
       "owner": "bjarneo",
@@ -333,7 +650,11 @@
       "char_count": 3807,
       "score": 0,
       "last_commit_at": "2026-01-05T09:41:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:21:31.719Z",
+      "semantic_content_hash": "5ed02d63ea1a03404ad9bdfe81410ce1484388791bbf001ab5fa528cf25daf8f"
     },
     {
       "owner": "builders-of-stuff",
@@ -342,7 +663,11 @@
       "char_count": 3174,
       "score": 0,
       "last_commit_at": "2025-09-14T13:45:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:21:35.387Z",
+      "semantic_content_hash": "201c1d733795b70f23b55c353f1313dd4e0f6ff7df3f0f18affe8a6645ac3860"
     },
     {
       "owner": "bytebase",
@@ -351,7 +676,17 @@
       "char_count": 5133,
       "score": 0,
       "last_commit_at": "2026-01-20T09:08:58Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Only include comments that are essential to understanding functionality",
+          "reason": "Claude Code already writes comments only when the why is non-obvious by default",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:21:43.176Z",
+      "semantic_content_hash": "2b3d0f8929439e66cbe89c23de1615a757b990b942fa9ddc3a7dd5e09fef9adc"
     },
     {
       "owner": "carlos-sarmiento",
@@ -360,7 +695,17 @@
       "char_count": 8877,
       "score": 0,
       "last_commit_at": "2026-01-08T05:09:28Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Documentation rules (D100-D107) - docstrings not required",
+          "reason": "Claude Code already avoids multi-paragraph docstrings and multi-line comment blocks by default, and generally does not write docs unless explicitly asked. This instruction reinforces that docstrings are not required.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:22:04.786Z",
+      "semantic_content_hash": "ee5316e821a7a5d9130abefcf61f7e0a3d15d7b571fd4d9649c92978dbf162e9"
     },
     {
       "owner": "ChanMeng666",
@@ -369,7 +714,11 @@
       "char_count": 8865,
       "score": 0,
       "last_commit_at": "2025-10-13T07:42:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:22:11.912Z",
+      "semantic_content_hash": "df8f683a4721fee701247f27ef137c30e441033d41ab68b95fb3b18892c9c424"
     },
     {
       "owner": "cheesejaguar",
@@ -378,7 +727,11 @@
       "char_count": 4081,
       "score": 0,
       "last_commit_at": "2025-08-23T06:26:55Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:22:22.828Z",
+      "semantic_content_hash": "edb327631c76d32623859f838ea59bb92849c88bb9d07d9a67b644b53cc25986"
     },
     {
       "owner": "Citadel-Protocol",
@@ -387,7 +740,27 @@
       "char_count": 4407,
       "score": 0,
       "last_commit_at": "2025-07-21T23:41:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use `Read` tool for examining contracts",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use `Glob` tool for finding files by pattern",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use `Grep` tool for searching code content",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:22:29.451Z",
+      "semantic_content_hash": "d622b2ddc4bba215417c6697a33cf743e34e30d2dbf4c2575de14368f9207a49"
     },
     {
       "owner": "clapdb",
@@ -396,7 +769,11 @@
       "char_count": 4900,
       "score": 0,
       "last_commit_at": "2026-01-12T19:18:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:22:38.715Z",
+      "semantic_content_hash": "82239c577debebf23f97456a685f01ef47dc4cf595bd60097c7ed534c1849ece"
     },
     {
       "owner": "coollabsio",
@@ -405,7 +782,11 @@
       "char_count": 8751,
       "score": 0,
       "last_commit_at": "2025-12-27T23:05:03Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:22:49.479Z",
+      "semantic_content_hash": "2d60528e553a8cf82a33932e7d4b0791e1b6eb0081d11692f16096a40ca21960"
     },
     {
       "owner": "CPLX",
@@ -414,7 +795,11 @@
       "char_count": 2050,
       "score": 0,
       "last_commit_at": "2026-04-06T16:26:33Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:22:54.199Z",
+      "semantic_content_hash": "3c8e78288381906d637bf8a7ba870b2ff1d5cb411043dc276a709ae664340338"
     },
     {
       "owner": "csarcrr",
@@ -423,7 +808,11 @@
       "char_count": 3385,
       "score": 0,
       "last_commit_at": "2026-03-08T22:28:13Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:23:02.516Z",
+      "semantic_content_hash": "3534da9139710fcced89c23fe973c4069c38db5faf246ce75433106832e853c3"
     },
     {
       "owner": "CULPRITCHAOS",
@@ -432,7 +821,17 @@
       "char_count": 2156,
       "score": 0,
       "last_commit_at": "2026-01-10T22:11:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "No secrets: API keys, tokens, .env files must never be committed.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:23:10.224Z",
+      "semantic_content_hash": "525ef46e5c49bada1626503bf38c4ba80086823c9db281df1fd13940c85f72d2"
     },
     {
       "owner": "danlil240",
@@ -441,7 +840,11 @@
       "char_count": 5590,
       "score": 0,
       "last_commit_at": "2026-04-17T17:43:49Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:23:19.384Z",
+      "semantic_content_hash": "c2aac3a19211c701d750e453fd2c271810a6f183ae163aeba81bb06d27a68829"
     },
     {
       "owner": "defenseunicorns",
@@ -450,7 +853,11 @@
       "char_count": 5138,
       "score": 0,
       "last_commit_at": "2025-09-09T05:46:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:23:32.727Z",
+      "semantic_content_hash": "acbc2032755c18da9328bac9730330dd00aae349fe54b626b7c7eae11dab0b12"
     },
     {
       "owner": "devoncallan",
@@ -459,7 +866,11 @@
       "char_count": 3318,
       "score": 0,
       "last_commit_at": "2025-10-01T00:34:04Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:23:40.664Z",
+      "semantic_content_hash": "a847d882eff3c89d386f6841473e86636a880ec758681b369e3c0bd33a05305c"
     },
     {
       "owner": "dgrauet",
@@ -468,7 +879,11 @@
       "char_count": 29504,
       "score": 0,
       "last_commit_at": "2026-03-28T22:40:42Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:23:51.813Z",
+      "semantic_content_hash": "4449cf9fd770e78c44789ef003975804e89062bc308a13e7d9c468e622c9ed39"
     },
     {
       "owner": "doublegate",
@@ -477,7 +892,11 @@
       "char_count": 11015,
       "score": 0,
       "last_commit_at": "2026-03-10T23:51:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:23:58.178Z",
+      "semantic_content_hash": "d0fd8f6a704b7e7620458394be4e06ad0f0269ed66fdf02e2b33710d1a05d2dd"
     },
     {
       "owner": "dvselas",
@@ -486,7 +905,11 @@
       "char_count": 8090,
       "score": 0,
       "last_commit_at": "2026-02-24T21:19:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:24:14.102Z",
+      "semantic_content_hash": "9ed63e4d96f075697b40148d67a87b82c0df362802f1330a84e98b6fad26e041"
     },
     {
       "owner": "dxe",
@@ -495,7 +918,11 @@
       "char_count": 54,
       "score": 0,
       "last_commit_at": "2026-03-11T18:21:56Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:24:16.457Z",
+      "semantic_content_hash": "e1526458bc6ef7221e1f5aca4aa07e3869e95dfefd16f523dc584d76861c283e"
     },
     {
       "owner": "engseclabs",
@@ -504,7 +931,17 @@
       "char_count": 26621,
       "score": 0,
       "last_commit_at": "2026-01-13T21:35:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Over-engineer simple functionality",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default. Over-engineering falls under this.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:24:28.317Z",
+      "semantic_content_hash": "e791977a6c0ab60ab3e0a9660aa25b867460ce9afc22ecf8b4109330efb099b7"
     },
     {
       "owner": "eser",
@@ -513,7 +950,17 @@
       "char_count": 9869,
       "score": 0,
       "last_commit_at": "2026-03-17T05:45:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "When the user reports something broken, investigate the actual cause instead of assuming deployment state",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:24:42.825Z",
+      "semantic_content_hash": "ce13b5780932aff0814689d1c8d02d0d79f5cec0c1605f2ea72c0d5b7047ebda"
     },
     {
       "owner": "fatichar",
@@ -522,7 +969,11 @@
       "char_count": 658,
       "score": 0,
       "last_commit_at": "2026-03-07T19:41:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:24:47.350Z",
+      "semantic_content_hash": "4fc2ff4f4da16453c02f666f0e2b5fc3b701d14b06ceffd6ac743c582aca4641"
     },
     {
       "owner": "FlorianRiquelme",
@@ -531,7 +982,11 @@
       "char_count": 3373,
       "score": 0,
       "last_commit_at": "2026-02-10T08:29:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:24:55.323Z",
+      "semantic_content_hash": "6455cdd0e77cf1592b9fe78b00cdb4bb393f80fef1d5a1601e97cbeaff896559"
     },
     {
       "owner": "flynncao",
@@ -540,7 +995,11 @@
       "char_count": 6384,
       "score": 0,
       "last_commit_at": "2026-04-01T15:16:04Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:25:01.049Z",
+      "semantic_content_hash": "e424b13da496e66d7273c854de15b1fd53d186ac34834a07a813211608de1cfe"
     },
     {
       "owner": "foresthpark",
@@ -549,7 +1008,11 @@
       "char_count": 2593,
       "score": 0,
       "last_commit_at": "2025-08-23T18:36:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:25:07.461Z",
+      "semantic_content_hash": "87f09267c87ce54edf7a884a8598e35d4dd18df9af6cb52adc0ce3eac90c9a6b"
     },
     {
       "owner": "forkspacer",
@@ -558,7 +1021,11 @@
       "char_count": 9140,
       "score": 0,
       "last_commit_at": "2025-10-17T15:47:05Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:25:26.394Z",
+      "semantic_content_hash": "ac26a9e761cf4de0a147a34ed992740c48b69ff0780173b378572c946a0c5960"
     },
     {
       "owner": "gevorggalstyan",
@@ -567,7 +1034,17 @@
       "char_count": 8413,
       "score": 0,
       "last_commit_at": "2025-10-06T17:32:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use imperative mood: \"Add feature\" not \"Added feature\"",
+          "reason": "Claude Code already uses imperative-mood summaries for commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:25:33.139Z",
+      "semantic_content_hash": "de0844d2039a04ce00f2fc046e0517be0c63f070f24a2d88a6f052a2f2ef9549"
     },
     {
       "owner": "gfazioli",
@@ -576,7 +1053,11 @@
       "char_count": 9196,
       "score": 0,
       "last_commit_at": "2026-04-07T13:33:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:25:44.105Z",
+      "semantic_content_hash": "a72e11225ba20c84fb663afb0c32610554415c08302f4f7ff9b3fa67bb76727b"
     },
     {
       "owner": "gui-cs",
@@ -604,7 +1085,11 @@
       "char_count": 2607,
       "score": 0,
       "last_commit_at": "2025-07-12T14:49:42Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:25:49.546Z",
+      "semantic_content_hash": "14146cda37034eade2c114f06ad9953cbd714c07dc93958e69b264f28b936ba0"
     },
     {
       "owner": "HaschekSolutions",
@@ -626,7 +1111,11 @@
       "char_count": 4776,
       "score": 0,
       "last_commit_at": "2025-08-05T03:15:44Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:26:01.714Z",
+      "semantic_content_hash": "a2bc2e2841d5260a77a4dfde2268e9c9a6507efb9ef51af62962948b05c18db7"
     },
     {
       "owner": "hexsprite",
@@ -635,7 +1124,17 @@
       "char_count": 5271,
       "score": 0,
       "last_commit_at": "2026-04-14T06:42:17Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "NEVER say \"ready to push when you are\" - YOU must push",
+          "reason": "Claude Code already avoids trailing end-of-turn summaries and aims for short, direct answers by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:26:14.196Z",
+      "semantic_content_hash": "224b881b79121942e4abab80d48bf15ea7729b264155b22e687dbe83a3f2a452"
     },
     {
       "owner": "imagewize",
@@ -644,7 +1143,11 @@
       "char_count": 14516,
       "score": 0,
       "last_commit_at": "2026-04-08T11:38:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:26:24.852Z",
+      "semantic_content_hash": "148a7f900b32abe503e630f150eeca0cebd2795a6ec17cbfa485d9a63e3b7283"
     },
     {
       "owner": "Infopibe",
@@ -653,7 +1156,11 @@
       "char_count": 2384,
       "score": 0,
       "last_commit_at": "2026-02-19T08:50:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:26:30.617Z",
+      "semantic_content_hash": "30106929c6ad2fe9729fbc0fbe4c4e4c62a33cae12e02cda5fd98a76ca6c793d"
     },
     {
       "owner": "ish-cs",
@@ -662,7 +1169,17 @@
       "char_count": 589,
       "score": 0,
       "last_commit_at": "2026-04-15T21:45:35Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Always use minimal tokens possible. Keep responses succinct.",
+          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:26:35.748Z",
+      "semantic_content_hash": "033c92bfb35a7cfccc9d23257a92b4b9d43f7da8a200ce8ad603e9ba7a20cd68"
     },
     {
       "owner": "iteks",
@@ -671,7 +1188,11 @@
       "char_count": 6854,
       "score": 0,
       "last_commit_at": "2026-02-23T00:05:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:26:46.992Z",
+      "semantic_content_hash": "302d0dca483001e3c003f8cba4ce7a6bf8d9ef67eb300e72911dc451184fd3c1"
     },
     {
       "owner": "javascript-obfuscator",
@@ -693,7 +1214,11 @@
       "char_count": 37893,
       "score": 0,
       "last_commit_at": "2026-03-23T20:47:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:27:06.783Z",
+      "semantic_content_hash": "e4fd6d4d8d399e1b212e7376967fe158d4cd0930519fe78efb76a4f420f3ebcd"
     },
     {
       "owner": "jcalado",
@@ -702,7 +1227,11 @@
       "char_count": 2064,
       "score": 0,
       "last_commit_at": "2026-03-18T07:40:49Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:27:11.457Z",
+      "semantic_content_hash": "16217256d49cf0a8884503e4f0babc7e1d3d95279b1cfdac9c45b4828fd4dde5"
     },
     {
       "owner": "jedisct1",
@@ -737,7 +1266,11 @@
       "char_count": 4151,
       "score": 0,
       "last_commit_at": "2025-07-10T17:32:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:27:22.203Z",
+      "semantic_content_hash": "94171dbb3cb95743c5a19305848c31e02af5c60e314efc0cd96a045c1486eff5"
     },
     {
       "owner": "jimmyislive",
@@ -746,7 +1279,11 @@
       "char_count": 2620,
       "score": 0,
       "last_commit_at": "2026-03-13T05:01:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:27:32.585Z",
+      "semantic_content_hash": "3e5d6eff58a0872dd4b80e7e233b1ef065837880d7d1703b3017c4cd7c1d9bda"
     },
     {
       "owner": "jmcjm",
@@ -755,7 +1292,11 @@
       "char_count": 8767,
       "score": 0,
       "last_commit_at": "2026-03-24T00:30:21Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:27:45.467Z",
+      "semantic_content_hash": "316a139fbd7a5c87f7aae0a6de29937832c73e10ee67c6022a4820297322c8c6"
     },
     {
       "owner": "jo-m",
@@ -764,7 +1305,11 @@
       "char_count": 1052,
       "score": 0,
       "last_commit_at": "2026-02-19T21:26:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:27:50.882Z",
+      "semantic_content_hash": "c158eaf8b161eaaaa09c575cf5fe1cfa2f6f5cf056896bf9f97cb615c0f90538"
     },
     {
       "owner": "joesaby",
@@ -773,7 +1318,11 @@
       "char_count": 2380,
       "score": 0,
       "last_commit_at": "2025-05-26T18:32:40Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:27:56.877Z",
+      "semantic_content_hash": "d1b82b3dee738fce507f3d92cdb147308265cc64de942dbf57442748e666d542"
     },
     {
       "owner": "jparkerweb",
@@ -782,7 +1331,17 @@
       "char_count": 9386,
       "score": 0,
       "last_commit_at": "2025-09-24T17:40:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Keys are stored in plugin settings, never in code",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:28:11.776Z",
+      "semantic_content_hash": "a1c838330479cf14ab515117a95db797ae1a5cdddc8932c9fa5a3fd7ec842762"
     },
     {
       "owner": "juanqui",
@@ -791,7 +1350,17 @@
       "char_count": 4544,
       "score": 0,
       "last_commit_at": "2025-08-17T19:53:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Let's also keep it in a concise format using the convention of prefixing \"chore: \", \"bugfix: \", \"feat: \", etc, as appropriate.",
+          "reason": "Claude Code already writes concise commit messages (1-2 sentences) by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:28:23.993Z",
+      "semantic_content_hash": "ef1b4bd9e275ad6322cb66eb22bcb3f30010f85cdfb6f06dcad52dcfc98ffefc"
     },
     {
       "owner": "karellen",
@@ -800,7 +1369,11 @@
       "char_count": 4069,
       "score": 0,
       "last_commit_at": "2026-04-17T17:01:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:28:31.149Z",
+      "semantic_content_hash": "7c303feed00726b115f0ec3798147f4a26f987210dd188b3174434c2d1692dec"
     },
     {
       "owner": "kesslerio",
@@ -822,7 +1395,11 @@
       "char_count": 18221,
       "score": 0,
       "last_commit_at": "2025-12-17T12:03:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:28:43.236Z",
+      "semantic_content_hash": "fe370ddfd32cd17444095b7cbaa59aed8e115b4ee31aefbcc46409b7df8ee2ca"
     },
     {
       "owner": "kimlimjustin",
@@ -831,7 +1408,17 @@
       "char_count": 5267,
       "score": 0,
       "last_commit_at": "2026-03-26T03:32:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Concise commit messages focused on the \"why\", not the \"what\".",
+          "reason": "Claude Code already writes why-not-what commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-04-19T07:28:49.819Z",
+      "semantic_content_hash": "a1e89b328347085a3b405f5cf56f0e9a18ef5da92c3751b46d0927ded782d3a2"
     },
     {
       "owner": "kohkimakimoto",
@@ -840,7 +1427,11 @@
       "char_count": 4744,
       "score": 0,
       "last_commit_at": "2026-03-05T12:07:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:28:54.107Z",
+      "semantic_content_hash": "7473d9bc2c845588a89a25882ee79c0f334991cbd82aa7ea08d79a3d054c1716"
     },
     {
       "owner": "konflux-ci",
@@ -849,7 +1440,11 @@
       "char_count": 2709,
       "score": 0,
       "last_commit_at": "2026-03-18T17:02:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:28:59.782Z",
+      "semantic_content_hash": "df752a21061889d76882072934824f73961b0e3fedf772a7865066e38796f692"
     },
     {
       "owner": "kossakovsky",
@@ -858,7 +1453,11 @@
       "char_count": 21457,
       "score": 0,
       "last_commit_at": "2026-02-28T02:13:36Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:29:11.513Z",
+      "semantic_content_hash": "f004c5e6817bda432f6d52c329ba59feae6ca8f93ec350e141d9c910e440bcd4"
     },
     {
       "owner": "kossakovsky",
@@ -867,7 +1466,11 @@
       "char_count": 6865,
       "score": 0,
       "last_commit_at": "2025-10-30T18:29:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:29:16.842Z",
+      "semantic_content_hash": "22d33aad47c9535285d2124d656359f82071e1cf8bb3d27cf14190ec1872490a"
     },
     {
       "owner": "kostub",
@@ -876,7 +1479,11 @@
       "char_count": 4218,
       "score": 0,
       "last_commit_at": "2026-04-19T00:15:48Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:29:24.975Z",
+      "semantic_content_hash": "c946c6a73eb3b3719ddf5979c51cc4522d3924d86139b09747172ca0f3e780b0"
     },
     {
       "owner": "lavaeater",
@@ -885,7 +1492,11 @@
       "char_count": 3344,
       "score": 0,
       "last_commit_at": "2026-04-18T06:31:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:29:29.588Z",
+      "semantic_content_hash": "8f9931ad528bb3f9af540ea6ba99d559fe66a1e94321ab4e1c1ad2c37f752753"
     },
     {
       "owner": "lerna",
@@ -907,7 +1518,11 @@
       "char_count": 8403,
       "score": 0,
       "last_commit_at": "2026-01-16T04:04:45Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-04-19T07:29:40.986Z",
+      "semantic_content_hash": "b9f3599df90ac65bda578a6d474040ab8296a69fee5e6ceca337c51eb43ca27f"
     },
     {
       "owner": "LMCache",
