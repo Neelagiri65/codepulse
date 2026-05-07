@@ -13,7 +13,11 @@
         "preserve-existing-behavior",
         "test-your-changes",
         "dont-assume-code-works"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:30:08.274Z",
+      "semantic_content_hash": "20720ce591c5a850043921df73de85936fb9ea2ec97481806fdf02ab410895e5"
     },
     {
       "owner": "ianchesal",
@@ -174,7 +178,11 @@
       "char_count": 6789,
       "score": 0,
       "last_commit_at": "2026-04-24T03:33:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:30:49.813Z",
+      "semantic_content_hash": "42dde7825c845d987ea624ff78dcebaa388a4bf0e29a0a21b6f3adee1fc0538e"
     },
     {
       "owner": "bbuchsbaum",
@@ -183,7 +191,11 @@
       "char_count": 2787,
       "score": 0,
       "last_commit_at": "2025-06-12T16:58:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:30:57.183Z",
+      "semantic_content_hash": "87cafb29bb705a606acbaec2c1ffb2b4a84aba455e79c4537b1bad188b07060f"
     },
     {
       "owner": "bedriyan",
@@ -300,7 +312,11 @@
       "char_count": 297,
       "score": 0,
       "last_commit_at": "2026-03-23T12:05:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:31:41.239Z",
+      "semantic_content_hash": "3f5b703ac1319063e31d7123a875046c029b3bbb7d50378658f6dcc2708ba7d1"
     },
     {
       "owner": "cbeaulieu-gt",
@@ -318,7 +334,11 @@
       "char_count": 256,
       "score": 0,
       "last_commit_at": "2026-04-07T19:06:37Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:31:46.888Z",
+      "semantic_content_hash": "9f8f6d4529de2f55d5ed31acb7e27cc364d2232a4c5451689bc0fbf8008a4c48"
     },
     {
       "owner": "celestiaorg",
@@ -345,7 +365,11 @@
       "char_count": 256,
       "score": 0,
       "last_commit_at": "2026-04-10T08:15:44Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:31:55.066Z",
+      "semantic_content_hash": "9f8f6d4529de2f55d5ed31acb7e27cc364d2232a4c5451689bc0fbf8008a4c48"
     },
     {
       "owner": "celestiaorg",
@@ -489,7 +513,11 @@
       "char_count": 7448,
       "score": 0,
       "last_commit_at": "2026-03-25T19:46:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:32:53.812Z",
+      "semantic_content_hash": "e36fca9df9866beb0ab85a4357b8b1ac40012210dabffb6038003b5481589cfd"
     },
     {
       "owner": "doublewordai",
@@ -579,7 +607,11 @@
       "char_count": 1184,
       "score": 0,
       "last_commit_at": "2026-03-06T12:00:00Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:34:10.747Z",
+      "semantic_content_hash": "08dc82c6c3b58479bf8d1bcff0d055a51edc138bf139a55dc8bb3992c977c906"
     },
     {
       "owner": "git-jr",
@@ -677,7 +709,11 @@
       "char_count": 4657,
       "score": 0,
       "last_commit_at": "2026-03-14T02:53:44Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:34:42.358Z",
+      "semantic_content_hash": "b07afb318964f366eb119304ae07afe279cdbee8574791d19648f05ad9a885cc"
     },
     {
       "owner": "hungson175",
@@ -686,7 +722,17 @@
       "char_count": 960,
       "score": 0,
       "last_commit_at": "2026-04-01T02:00:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "No comments in code unless absolutely necessary.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-07T08:34:46.913Z",
+      "semantic_content_hash": "463749884acfb639d49702b5585ba453efb4a740430f17b78b2bb03511350eae"
     },
     {
       "owner": "i2-open",
@@ -847,7 +893,11 @@
       "char_count": 10758,
       "score": 0,
       "last_commit_at": "2025-10-01T19:56:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:35:41.281Z",
+      "semantic_content_hash": "666997509c0d5d43e1f54971a60b569255ad2595dddd77470d5f49379644b8f9"
     },
     {
       "owner": "KevinBonnoron",
@@ -856,7 +906,11 @@
       "char_count": 2847,
       "score": 0,
       "last_commit_at": "2025-12-07T17:12:56Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:35:51.047Z",
+      "semantic_content_hash": "99429481ca88197537968dc485dd03684fbddcee6c027e8dcfa85541bb70326a"
     },
     {
       "owner": "KitStream",
@@ -995,7 +1049,11 @@
       "char_count": 4919,
       "score": 0,
       "last_commit_at": "2026-05-03T08:22:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:36:48.892Z",
+      "semantic_content_hash": "b847cbf2a6e02523941dd75a8ace4f8fb2c1c214f17eda09e7dacb4f5afd4b83"
     },
     {
       "owner": "mikeprasad",
@@ -1004,7 +1062,11 @@
       "char_count": 4600,
       "score": 0,
       "last_commit_at": "2026-05-06T13:16:30Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:36:54.540Z",
+      "semantic_content_hash": "562bfce41809bb10edaf51a580b20c61dace5ef75106e5b9b3a3476e83d5fc60"
     },
     {
       "owner": "ModelEngine-Group",
@@ -1013,7 +1075,11 @@
       "char_count": 6473,
       "score": 0,
       "last_commit_at": "2025-09-08T10:17:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:37:03.509Z",
+      "semantic_content_hash": "88715eee646d9fbec519a5e396e691ae3f61adc269e85fe481c8523c31ba9c84"
     },
     {
       "owner": "morissette",
@@ -1166,7 +1232,11 @@
       "char_count": 200,
       "score": 0,
       "last_commit_at": "2026-04-28T12:52:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:37:46.479Z",
+      "semantic_content_hash": "dcc51ecfbe3d86783f3568c9e801af7a5a1f0ffaf60ddb8cbd77073e8f8cd310"
     },
     {
       "owner": "orion-lib",
@@ -1175,7 +1245,27 @@
       "char_count": 7250,
       "score": 0,
       "last_commit_at": "2025-08-14T07:29:52Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing an existing file to creating a new one.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) or README files.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Only create documentation files if explicitly requested by the User.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-07T08:37:54.196Z",
+      "semantic_content_hash": "5cbac857a89991195a88d14c68b5408966463f28a6ed6890c65ccc5a7c6f2e2e"
     },
     {
       "owner": "OWND-Project",
@@ -1184,7 +1274,11 @@
       "char_count": 1455,
       "score": 0,
       "last_commit_at": "2025-11-05T03:09:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:37:56.396Z",
+      "semantic_content_hash": "f4e6877ff9490c998c62aabb06a71dfb7cec05601d3fd4b5d271c1b9b0f81b90"
     },
     {
       "owner": "p-wegner",
@@ -1372,7 +1466,11 @@
       "char_count": 15,
       "score": 0,
       "last_commit_at": "2026-01-28T06:56:11Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:38:43.095Z",
+      "semantic_content_hash": "204178eb616fd52de72150e6e2526c2d509c7fbc9b03affd9519238ce5b112b1"
     },
     {
       "owner": "sandwichfarm",
@@ -1381,7 +1479,11 @@
       "char_count": 78,
       "score": 0,
       "last_commit_at": "2025-07-07T06:02:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:38:48.760Z",
+      "semantic_content_hash": "9d8f36a17069ac873f497bd1caa48cad329b2aad7940f3b6d4cbe6d8834616aa"
     },
     {
       "owner": "ScaleBrick",
@@ -1390,7 +1492,11 @@
       "char_count": 1513,
       "score": 0,
       "last_commit_at": "2026-04-22T20:01:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:38:54.963Z",
+      "semantic_content_hash": "db81e438b56310f7cdc3f14875f6e6a3977abd8e21df80ecdc107f4f2adf2d83"
     },
     {
       "owner": "seantomburke",
@@ -1543,7 +1649,11 @@
       "char_count": 4808,
       "score": 0,
       "last_commit_at": "2026-02-22T22:02:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:39:36.133Z",
+      "semantic_content_hash": "027772fc1142caa455e4d89f6ad2104eb63cbca860c7a7095f072ad09191c2ba"
     },
     {
       "owner": "Tracer-Cloud",
@@ -1592,7 +1702,11 @@
       "char_count": 140,
       "score": 0,
       "last_commit_at": "2025-11-30T07:38:42Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:39:43.678Z",
+      "semantic_content_hash": "b51d26e983f46f07ffbab0614bb0cb6fff4c84b7ae7c5e95374602ee7fe7cfde"
     },
     {
       "owner": "walnut-admin",
@@ -1601,7 +1715,11 @@
       "char_count": 4487,
       "score": 0,
       "last_commit_at": "2026-03-31T04:06:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-07T08:39:55.045Z",
+      "semantic_content_hash": "2a14647a7f19c784054dd6d828531c36657f11d6f9be6cd6c9cd6064407cd7e3"
     },
     {
       "owner": "WangNingkai",
