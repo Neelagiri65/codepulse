@@ -912,7 +912,27 @@
       "char_count": 14897,
       "score": 0,
       "last_commit_at": "2026-04-20T07:30:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "`.gitignore` に追加済み、コミットしない",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "`.env` ファイルはコミットしない（.gitignore に追加済み）",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "音声の長さは 1〜3文程度に抑えてテンポよく返す",
+          "reason": "Claude Code already provides short, direct answers whose length matches the task by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-11T09:36:25.707Z",
+      "semantic_content_hash": "d8c55002487f5a1d630b0c0ccd69fa34d841154943b337e833a3c0cd1407a1b5"
     },
     {
       "owner": "lijigang",
