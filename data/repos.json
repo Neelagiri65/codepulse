@@ -10,7 +10,11 @@
       "last_commit_at": "2026-05-01T05:47:49Z",
       "matches": [
         "no-comments"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:36:07.091Z",
+      "semantic_content_hash": "5b557387561a6c4aef0608943761dec45fd7de0d867f385ce5d81fb8d446dc8e"
     },
     {
       "owner": "jerichosequitin",
@@ -21,7 +25,11 @@
       "last_commit_at": "2025-12-14T17:03:59Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:36:14.863Z",
+      "semantic_content_hash": "19a0473264c72fc1f7d02f5839757f6e06919a495bb1c3ddff4aa30dd58fc20b"
     },
     {
       "owner": "nordstromlabs",
@@ -32,7 +40,17 @@
       "last_commit_at": "2025-06-07T00:44:30Z",
       "matches": [
         "no-comments"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't add comments unless it's not obvious why something is being done. If in doubt, don't comment.",
+          "reason": "Claude Code already writes a comment only when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:36:19.948Z",
+      "semantic_content_hash": "dd5833103b6b6b14f491cf4a25aaef838ac5847858e48840dbf5b7542de38aae"
     },
     {
       "owner": "rlacombe",
@@ -43,7 +61,27 @@
       "last_commit_at": "2026-04-12T18:11:41Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 5,
+      "semantic_matched_intents": [
+        {
+          "quote": "Make parallel MCP calls in the main conversation for speed.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Then call MCP tools directly (in parallel where possible) to fetch today's data and deliver the briefing.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "When modifying workouts via /adjust, always show proposed changes and wait for user confirmation before writing to the calendar",
+          "reason": "Claude Code already asks before destructive operations by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:36:38.962Z",
+      "semantic_content_hash": "22478ac146bc63ce7aaa2e22d41fe08939bba40e8e28b4e70937d51e6647c586"
     },
     {
       "owner": "alex-spataru",
@@ -65,7 +103,37 @@
       "last_commit_at": "2026-03-08T14:41:31Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 9,
+      "semantic_matched_intents": [
+        {
+          "quote": "When editing CLAUDE.md, use the minimum words and sentences needed to convey 100% of the meaning.",
+          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "After completing each planned task, run tests and commit before moving to the next task.",
+          "reason": "Claude Code already marks tasks complete as soon as done and tests incrementally by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Optimize test execution speed. Run independent tests in parallel (multi-process/multi-thread, async, or parallel runner).",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Explain why, not what. Code already shows what it does — comments should capture intent, constraints, and non-obvious decisions.",
+          "reason": "Claude Code already does not explain what the code does and only writes comments when the why is non-obvious by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Comment business rules, workarounds, and \"why this approach over the obvious one\" — context that can't be inferred from code alone.",
+          "reason": "Claude Code already only writes a comment when the why is non-obvious by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:36:58.397Z",
+      "semantic_content_hash": "3c7d963fdcb89fce64ec7d1d0873a303e3ee22abce1b6d718e13528d5f173747"
     },
     {
       "owner": "FastLED",
@@ -76,7 +144,77 @@
       "last_commit_at": "2026-04-25T14:55:47Z",
       "matches": [
         "use-plan-mode"
-      ]
+      ],
+      "semantic_score": 19,
+      "semantic_matched_intents": [
+        {
+          "quote": "Default mindset: finish the job.",
+          "reason": "Claude Code already marks tasks complete as soon as done and does not batch, implying a finished state.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Agents should not leave uncommitted changes dangling on `master`/`main`.",
+          "reason": "Claude Code already marks tasks complete as soon as done and does not batch, implying a clean working tree.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do this proactively when work is complete.",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "ALWAYS stop and fix Write/Edit hook errors immediately before writing the next file",
+          "reason": "Claude Code already marks tasks complete as soon as done, tests incrementally, and identifies root causes for debugging.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do NOT attempt to fix the code based only on quick-mode output — always get debug output first",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks and investigates unfamiliar state before deleting or overwriting.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Fix ALL encountered errors immediately, even pre-existing ones unrelated to your current task",
+          "reason": "Claude Code already marks tasks complete as soon as done, tests incrementally, and identifies root causes for debugging.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Plan first for non-trivial tasks (3+ steps) — use plan mode",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Verify before done — prove it works with tests, logs, demonstrations",
+          "reason": "Claude Code already tests incrementally and marks tasks complete as soon as done.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Make every change as simple as possible.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Minimal code impact.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Find root causes.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "low"
+        },
+        {
+          "quote": "No temporary fixes.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Changes should only touch what's necessary.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:37:18.493Z",
+      "semantic_content_hash": "0e99305817252973e335b24b655c8761aee0664a539bea7a80392783c7d63df9"
     },
     {
       "owner": "MiaoDX",
@@ -87,7 +225,37 @@
       "last_commit_at": "2026-05-09T10:14:15Z",
       "matches": [
         "no-premature-abstractions"
-      ]
+      ],
+      "semantic_score": 9,
+      "semantic_matched_intents": [
+        {
+          "quote": "Maximize parallelism. Run independent tasks as concurrent subagents.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "After each significant change, verify related tests still pass before moving on.",
+          "reason": "Claude Code already tests incrementally by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Minimal changes; no premature abstractions; three similar lines > one bad abstraction",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Fix causes, not symptoms; no workarounds; be thorough",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Understand why code exists before changing it",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:37:40.075Z",
+      "semantic_content_hash": "eb37664a441814861d0eea0ff351c4536ea4b8548ee1c65924f1ef32922c7ed3"
     },
     {
       "owner": "PoC-Consortium",
@@ -98,7 +266,32 @@
       "last_commit_at": "2026-04-04T07:13:13Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "split complex problems into subtasks, explore solutions in parallel",
+          "reason": "Claude Code already decomposes non-trivial tasks and runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Avoid excessive examples, emoji-heavy explanations, or tutorial-style comments.",
+          "reason": "Claude Code already does not use emojis by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Essential explanations only. Remove verbose inline comments and step-by-step walkthroughs.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious and avoids verbose multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Avoid multi-paragraph explanations unless absolutely necessary.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:37:55.448Z",
+      "semantic_content_hash": "e89e3a85c5222b9e02312405fca4a875269c2407063c9e5358cd5acec78f48bc"
     },
     {
       "owner": "secondsky",
@@ -109,7 +302,17 @@
       "last_commit_at": "2026-04-08T16:54:41Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Using standard tools: Read, Edit, Write, Grep, Glob, Bash",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:38:27.249Z",
+      "semantic_content_hash": "8158c8516091a788f16e7431c210329a3fa57f3241a85dfafe0013d0bbc428da"
     },
     {
       "owner": "techwavedev",
@@ -120,7 +323,27 @@
       "last_commit_at": "2026-04-12T22:03:55Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "2. Diagnose root cause",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No conversational filler",
+          "reason": "Claude Code already avoids preamble greetings and restating user words by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Self-anneal.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:38:43.485Z",
+      "semantic_content_hash": "9d5da45dca88fb286c9c356365834c63c6e9cd2ce2a84ddd29e33137d5b73697"
     },
     {
       "owner": "0xtrr",
@@ -129,7 +352,11 @@
       "char_count": 6009,
       "score": 0,
       "last_commit_at": "2025-06-24T13:55:11Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:38:47.617Z",
+      "semantic_content_hash": "3829882c55fc4a8b88576d74ad65f514ab43c6ebc4f641b9d119e88ecd177588"
     },
     {
       "owner": "23min",
@@ -138,7 +365,17 @@
       "char_count": 3850,
       "score": 0,
       "last_commit_at": "2026-03-01T10:20:58Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use imperative mood (\"add\", not \"added\").",
+          "reason": "Claude Code already uses imperative-mood commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-12T08:38:56.109Z",
+      "semantic_content_hash": "3e857ecc8a3f25c0c0960a1c938214a601891def373044fac0b39dcba0eefc13"
     },
     {
       "owner": "adamlyttleapps",
@@ -147,7 +384,11 @@
       "char_count": 3325,
       "score": 0,
       "last_commit_at": "2026-03-29T12:22:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:39:04.304Z",
+      "semantic_content_hash": "72c62879516b0c2a5a2dc1ad8aff0d2444e3464ba9edd4e5c7147cde5b682bc7"
     },
     {
       "owner": "Afee2019",
@@ -156,7 +397,11 @@
       "char_count": 3212,
       "score": 0,
       "last_commit_at": "2026-02-16T06:34:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:39:15.245Z",
+      "semantic_content_hash": "60211561588403dfb4114233a4417e76fbdc761d5e509f0b477c8b9f428b7628"
     },
     {
       "owner": "agnel18",
@@ -727,7 +972,11 @@
       "char_count": 164,
       "score": 0,
       "last_commit_at": "2026-01-31T01:40:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:39:49.308Z",
+      "semantic_content_hash": "ac1f8ba60c2dade3645f1b887015ff42d5338fe67a8fd6a2e2fb5da408d3e5a2"
     },
     {
       "owner": "jedisct1",
@@ -771,7 +1020,11 @@
       "char_count": 7877,
       "score": 0,
       "last_commit_at": "2025-11-08T17:15:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:39:59.023Z",
+      "semantic_content_hash": "118b9d73f75359fb2153a30dcde84273ec6a8735c46682df2ae9a8814b90b895"
     },
     {
       "owner": "joeflack4",
@@ -780,7 +1033,11 @@
       "char_count": 18901,
       "score": 0,
       "last_commit_at": "2025-11-14T18:54:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-12T08:40:16.263Z",
+      "semantic_content_hash": "ee75978bd6b23531481c4fab318be7f932a49fd9646136932f23d6f371a940ed"
     },
     {
       "owner": "joesaby",
