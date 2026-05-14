@@ -11,7 +11,22 @@
       "matches": [
         "no-emojis",
         "no-hedging"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis. Not in code, docs, commits, or responses — unless the user explicitly asks.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Minimal comments in code. Only when WHY is non-obvious.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:33:55.133Z",
+      "semantic_content_hash": "ea72c473f87d088acdc56db9a24e41d81bac6999bdb0fdf9145e951610c36802"
     },
     {
       "owner": "NativePHP",
@@ -22,7 +37,27 @@
       "last_commit_at": "2025-12-10T03:34:06Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never use comments within the code itself unless there is something _very_ complex going on.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:34:24.238Z",
+      "semantic_content_hash": "8471ae11ae6d932badd72e0733d22268da5fca29912819e54d0c678e3a77047b"
     },
     {
       "owner": "nouploads",
@@ -33,7 +68,57 @@
       "last_commit_at": "2026-04-09T23:04:01Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 20,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do not refactor unrelated code.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not \"improve\" files outside the requested scope.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "stop when the task is complete",
+          "reason": "Claude Code already \"Marks tasks complete as soon as done; does not batch.\" by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Only edit files necessary for the task.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "silently change public behavior outside task scope",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "For every task, first determine: exact goal, allowed/forbidden files, required tests, whether this is route/feature/processor/test work, whether heavy bundle boundaries are affected.",
+          "reason": "Claude Code already \"Plans approach before implementation on non-trivial work; tests incrementally.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Refactoring: Only when the task requires it, existing code blocks implementation, duplication causes errors, a module is unreasonably large, or tests protect the change. No speculative cleanup or architectural experiments.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Output: State what changed, which files, tests added/updated, checks passed, known caveats, bundle impacts. Be concise.",
+          "reason": "Claude Code already provides \"Short, direct answers; length matches the task.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Broad requests: Decompose into route, component, processor, tests, metadata, prerender. Implement smallest safe sequence.",
+          "reason": "Claude Code already \"Decomposes non-trivial tasks and tracks progress (TaskCreate).\" and \"Plans approach before implementation on non-trivial work; tests incrementally.\" by default.",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:35:03.943Z",
+      "semantic_content_hash": "0ca570b4093b94639c93ed8cf1ccee05f4f8956e897bf81eb845d95fc2ab09fd"
     },
     {
       "owner": "tom-010",
@@ -44,7 +129,17 @@
       "last_commit_at": "2026-03-02T06:41:33Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis, no \"cute\" messages.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:35:22.538Z",
+      "semantic_content_hash": "a05bdc7e419b5e9d2c3e047e1e701e9f894ef3ffb547da70d83d6a437d04cd17"
     },
     {
       "owner": "anhtuank7c",
@@ -55,7 +150,27 @@
       "last_commit_at": "2026-03-30T06:39:16Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 5,
+      "semantic_matched_intents": [
+        {
+          "quote": "short summary in imperative mood",
+          "reason": "Claude Code already writes imperative-mood summaries for commit messages by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Imperative mood (\"add\", \"fix\", \"update\" — not \"added\", \"fixes\", \"updated\")",
+          "reason": "Claude Code already writes imperative-mood summaries for commit messages by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Body (optional) explains why, not what",
+          "reason": "Claude Code already writes why-not-what commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:35:30.907Z",
+      "semantic_content_hash": "412f947865cbee1eac2df4c831574924d1bbb524a283533daf91e9295c307519"
     },
     {
       "owner": "BjoernSchotte",
@@ -66,7 +181,17 @@
       "last_commit_at": "2026-01-22T23:53:58Z",
       "matches": [
         "use-plan-mode"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use plan mode for non-trivial features before implementing",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:35:41.591Z",
+      "semantic_content_hash": "55782687b355b9d97a3ba5dd0f57614d09631357cd74e3e089da81c451837ff8"
     },
     {
       "owner": "CodeVigilant",
@@ -77,7 +202,11 @@
       "last_commit_at": "2026-03-11T11:36:14Z",
       "matches": [
         "owasp-top-10"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:35:51.447Z",
+      "semantic_content_hash": "1e5710907e20bbe06b64b291ba7fa87f058184954e609c254b0496614cccf0e3"
     },
     {
       "owner": "techwavedev",
@@ -88,7 +217,27 @@
       "last_commit_at": "2026-04-12T22:03:55Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "2. Diagnose root cause",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No conversational filler",
+          "reason": "Claude Code already avoids preamble greetings and restating user words by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Self-anneal.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:36:07.274Z",
+      "semantic_content_hash": "9d5da45dca88fb286c9c356365834c63c6e9cd2ce2a84ddd29e33137d5b73697"
     },
     {
       "owner": "ungden",
@@ -99,7 +248,27 @@
       "last_commit_at": "2026-02-25T06:00:13Z",
       "matches": [
         "read-before-edit"
-      ]
+      ],
+      "semantic_score": 8,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never rewrite from scratch — always read existing code first, identify gaps, fix precisely",
+          "reason": "Claude Code already prefers editing existing files over creating new ones, investigates unfamiliar state before deleting or overwriting, identifies root causes, and does not add features beyond the task.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Always read files before editing",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting, which implies reading files.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do NOT commit `.env.local`",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:36:19.363Z",
+      "semantic_content_hash": "05a54c622df44db4a6626ff602c8245b764cd65fa0e4994d90b6110a8e2bd882"
     },
     {
       "owner": "0x0000dead",
@@ -108,7 +277,11 @@
       "char_count": 20370,
       "score": 0,
       "last_commit_at": "2026-04-15T21:31:21Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:36:34.546Z",
+      "semantic_content_hash": "d3a3546d199690628c11e32401547c775e7c7b551b025993060d54ab1f1fbc1a"
     },
     {
       "owner": "4gray",
@@ -117,7 +290,11 @@
       "char_count": 30933,
       "score": 0,
       "last_commit_at": "2026-05-04T21:47:33Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:36:52.324Z",
+      "semantic_content_hash": "2cf0d2b60b285b1063d0547261ed120730f54871925fee3c056a1af251bdd625"
     },
     {
       "owner": "addyosmani",
@@ -126,7 +303,11 @@
       "char_count": 2050,
       "score": 0,
       "last_commit_at": "2026-05-10T20:23:48Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:36:56.511Z",
+      "semantic_content_hash": "dbd73325d87dbe206e8505dba6004a87bd13ccae1fd0852ba878782662cb87a1"
     },
     {
       "owner": "AgiFlow",
@@ -135,7 +316,11 @@
       "char_count": 735,
       "score": 0,
       "last_commit_at": "2025-10-20T06:43:58Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:36:59.238Z",
+      "semantic_content_hash": "f94f2cf339cb79db3f469fc35b21beca6d50c2603851b77b8c10eb953ca7f1e4"
     },
     {
       "owner": "agnel18",
@@ -144,7 +329,22 @@
       "char_count": 44336,
       "score": 0,
       "last_commit_at": "2026-05-04T02:20:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "For a single known file: prefer the Read tool — its display is better and reads aren't usually the hot path.",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never tail an unbounded log into context.",
+          "reason": "Claude Code already provides short, direct answers and avoids narrating internal deliberation, which implies not dumping excessive, unbounded log output.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:37:26.685Z",
+      "semantic_content_hash": "baf7913b4d1ef46d95f1f16a82831e885996ec194c9339c2dfb26a0a2954f04b"
     },
     {
       "owner": "ai-shifu",
@@ -153,7 +353,11 @@
       "char_count": 7354,
       "score": 0,
       "last_commit_at": "2025-09-24T01:35:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:37:37.412Z",
+      "semantic_content_hash": "aefbfff4ff5beb72232034e124da377c7018a52aeb86544d4651d007c64268dc"
     },
     {
       "owner": "aiandrox",
@@ -162,7 +366,17 @@
       "char_count": 8082,
       "score": 0,
       "last_commit_at": "2025-07-19T10:45:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "機能単位で小さくコミット",
+          "reason": "Claude Code already decomposes non-trivial tasks and tests incrementally by default, which leads to smaller, feature-unit commits.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:37:51.066Z",
+      "semantic_content_hash": "40ba21f93348741857fb69aa1d0c1157d7ca84546f6e1aff3a01df652ccaab16"
     },
     {
       "owner": "alchaincyf",
@@ -171,7 +385,11 @@
       "char_count": 9523,
       "score": 0,
       "last_commit_at": "2025-10-14T16:33:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:38:00.368Z",
+      "semantic_content_hash": "ba08edaa6abc3f3a53d9f5c5cf07a1dfde14e2e87c9d3b7f612facce094e9f40"
     },
     {
       "owner": "alibaba",
@@ -180,7 +398,57 @@
       "char_count": 9216,
       "score": 0,
       "last_commit_at": "2026-02-28T06:34:56Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 15,
+      "semantic_matched_intents": [
+        {
+          "quote": "对于多步骤任务，使用 plan 相关 skills 确保方案清晰后再执行：",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "有明确需求/spec 后，用此 skill 生成分步实施计划，输出 plan 文件",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "拿到 plan 文件后，用此 skill 按步骤执行，带 review checkpoint",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "每个 cycle 保持小步迭代",
+          "reason": "Claude Code already tests incrementally by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "先诊断再修复，避免盲猜",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "当有 2+ 个独立任务时，并行分发给多个 agent 执行",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "在当前 session 中并行执行 plan 中的独立步骤",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "/writing-plans — 生成分步实施计划",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "/executing-plans — 按计划逐步执行，带 checkpoint",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:38:17.285Z",
+      "semantic_content_hash": "c589ba669b4b37d6839289b5f606c9861d08432fca7f2e1773bc393347d65737"
     },
     {
       "owner": "alonronin",
@@ -189,7 +457,11 @@
       "char_count": 124,
       "score": 0,
       "last_commit_at": "2026-03-13T22:11:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:38:20.531Z",
+      "semantic_content_hash": "9af88cd430c940861d82b79f7552fa268dc74019ae2d5176c9cbbf6753ba4e72"
     },
     {
       "owner": "andrewlwn77",
@@ -198,7 +470,11 @@
       "char_count": 3778,
       "score": 0,
       "last_commit_at": "2025-07-13T23:29:05Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-14T08:38:27.567Z",
+      "semantic_content_hash": "a920c57046eb9a938e3bbc7bb8093987e541e4d6a5e2fad1466e61571762744e"
     },
     {
       "owner": "astrolabsoftware",
@@ -207,7 +483,27 @@
       "char_count": 1524,
       "score": 0,
       "last_commit_at": "2026-01-12T08:35:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do what has been asked; nothing more, nothing less",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "ALWAYS prefer editing an existing file to creating a new one",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) or README files unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-14T08:38:33.515Z",
+      "semantic_content_hash": "654875aa6ed63a5ea00386763841ed51cd2b6b70bd4962266a09438eeca38619"
     },
     {
       "owner": "auc0le",
