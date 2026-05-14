@@ -1,27 +1,16 @@
 {
-  "refreshed_at": "2026-05-14T10:15:22.276Z",
+  "refreshed_at": "2026-05-14T12:28:34.451Z",
   "repos": [
     {
-      "owner": "wilson0523",
-      "name": "Yuxi-Know",
-      "stars": 6,
-      "char_count": 2118,
+      "owner": "trillion-labs",
+      "name": "nemoslides",
+      "stars": 18,
+      "char_count": 5053,
       "score": 3,
-      "last_commit_at": "2025-12-02T08:47:21Z",
+      "last_commit_at": "2026-04-21T17:46:01Z",
       "matches": [
-        "trust-framework",
-        "validate-at-boundaries"
-      ]
-    },
-    {
-      "owner": "eastreams",
-      "name": "loong",
-      "stars": 635,
-      "char_count": 4609,
-      "score": 2,
-      "last_commit_at": "2026-04-18T15:06:55Z",
-      "matches": [
-        "keep-it-short"
+        "no-emojis",
+        "no-hedging"
       ]
     },
     {
@@ -36,46 +25,15 @@
       ]
     },
     {
-      "owner": "jxnl",
-      "name": "systematically-improving-rag",
-      "stars": 234,
-      "char_count": 1620,
+      "owner": "mhattingpete",
+      "name": "claude-skills-marketplace",
+      "stars": 574,
+      "char_count": 20291,
       "score": 2,
-      "last_commit_at": "2026-01-17T14:53:56Z",
+      "last_commit_at": "2025-10-22T18:41:15Z",
       "matches": [
-        "no-emojis"
+        "dont-create-docs"
       ]
-    },
-    {
-      "owner": "NativePHP",
-      "name": "mobile-api-starter-kit-vue",
-      "stars": 8,
-      "char_count": 35711,
-      "score": 2,
-      "last_commit_at": "2025-12-10T03:34:06Z",
-      "matches": [
-        "be-concise"
-      ],
-      "semantic_score": 6,
-      "semantic_matched_intents": [
-        {
-          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
-          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "You must only create documentation files if explicitly requested by the user.",
-          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Never use comments within the code itself unless there is something _very_ complex going on.",
-          "reason": "Claude Code already only writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant) by default.",
-          "confidence": "medium"
-        }
-      ],
-      "semantic_refreshed_at": "2026-05-14T08:34:24.238Z",
-      "semantic_content_hash": "8471ae11ae6d932badd72e0733d22268da5fca29912819e54d0c678e3a77047b"
     },
     {
       "owner": "nordstromlabs",
@@ -89,65 +47,15 @@
       ]
     },
     {
-      "owner": "nouploads",
-      "name": "nouploads",
-      "stars": 4,
-      "char_count": 24161,
+      "owner": "nunomaduro",
+      "name": "whyphp.dev",
+      "stars": 48,
+      "char_count": 14154,
       "score": 2,
-      "last_commit_at": "2026-04-09T23:04:01Z",
+      "last_commit_at": "2025-12-20T14:16:51Z",
       "matches": [
         "be-concise"
-      ],
-      "semantic_score": 20,
-      "semantic_matched_intents": [
-        {
-          "quote": "Do not refactor unrelated code.",
-          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Do not \"improve\" files outside the requested scope.",
-          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "stop when the task is complete",
-          "reason": "Claude Code already \"Marks tasks complete as soon as done; does not batch.\" by default.",
-          "confidence": "low"
-        },
-        {
-          "quote": "Only edit files necessary for the task.",
-          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "silently change public behavior outside task scope",
-          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
-          "confidence": "low"
-        },
-        {
-          "quote": "For every task, first determine: exact goal, allowed/forbidden files, required tests, whether this is route/feature/processor/test work, whether heavy bundle boundaries are affected.",
-          "reason": "Claude Code already \"Plans approach before implementation on non-trivial work; tests incrementally.\" by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Refactoring: Only when the task requires it, existing code blocks implementation, duplication causes errors, a module is unreasonably large, or tests protect the change. No speculative cleanup or architectural experiments.",
-          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" by default.",
-          "confidence": "high"
-        },
-        {
-          "quote": "Output: State what changed, which files, tests added/updated, checks passed, known caveats, bundle impacts. Be concise.",
-          "reason": "Claude Code already provides \"Short, direct answers; length matches the task.\" by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Broad requests: Decompose into route, component, processor, tests, metadata, prerender. Implement smallest safe sequence.",
-          "reason": "Claude Code already \"Decomposes non-trivial tasks and tracks progress (TaskCreate).\" and \"Plans approach before implementation on non-trivial work; tests incrementally.\" by default.",
-          "confidence": "high"
-        }
-      ],
-      "semantic_refreshed_at": "2026-05-14T08:35:03.943Z",
-      "semantic_content_hash": "0ca570b4093b94639c93ed8cf1ccee05f4f8956e897bf81eb845d95fc2ab09fd"
+      ]
     },
     {
       "owner": "tom-010",
@@ -171,25 +79,14 @@
       "semantic_content_hash": "a05bdc7e419b5e9d2c3e047e1e701e9f894ef3ffb547da70d83d6a437d04cd17"
     },
     {
-      "owner": "turnzero-ai",
-      "name": "turnzero",
-      "stars": 4,
-      "char_count": 8726,
-      "score": 2,
-      "last_commit_at": "2026-05-10T11:09:55Z",
+      "owner": "alex-spataru",
+      "name": "QSimpleUpdater",
+      "stars": 1097,
+      "char_count": 5144,
+      "score": 1,
+      "last_commit_at": "2026-04-08T11:30:01Z",
       "matches": [
-        "no-docstrings"
-      ]
-    },
-    {
-      "owner": "Uncover-it",
-      "name": "bot-client",
-      "stars": 7,
-      "char_count": 6703,
-      "score": 2,
-      "last_commit_at": "2026-05-07T12:29:24Z",
-      "matches": [
-        "no-emojis"
+        "no-preamble-greeting"
       ]
     },
     {
@@ -214,35 +111,26 @@
       "semantic_content_hash": "55782687b355b9d97a3ba5dd0f57614d09631357cd74e3e089da81c451837ff8"
     },
     {
-      "owner": "IgorGanapolsky",
-      "name": "openclaw-console",
-      "stars": 4,
-      "char_count": 9216,
+      "owner": "gonzaloserrano",
+      "name": "gopilot",
+      "stars": 16,
+      "char_count": 1898,
       "score": 1,
-      "last_commit_at": "2026-05-06T15:45:18Z",
+      "last_commit_at": "2026-05-07T15:31:13Z",
       "matches": [
-        "brief-in-progress-updates"
+        "short-end-summary"
       ]
     },
     {
-      "owner": "kelvinOfoli",
-      "name": "witty",
+      "owner": "ocx-sh",
+      "name": "ocx",
       "stars": 5,
-      "char_count": 23444,
+      "char_count": 12266,
       "score": 1,
-      "last_commit_at": "2026-01-09T22:21:41Z",
+      "last_commit_at": "2026-05-12T16:37:01Z",
       "matches": [
-        "read-before-edit"
+        "no-premature-abstractions"
       ]
-    },
-    {
-      "owner": "0xeb",
-      "name": "useful-scripts",
-      "stars": 10,
-      "char_count": 4951,
-      "score": 0,
-      "last_commit_at": "2026-01-27T02:23:00Z",
-      "matches": []
     },
     {
       "owner": "4gray",
@@ -258,12 +146,12 @@
       "semantic_content_hash": "2cf0d2b60b285b1063d0547261ed120730f54871925fee3c056a1af251bdd625"
     },
     {
-      "owner": "8cH9azbsFifZ",
-      "name": "hangboard",
-      "stars": 12,
-      "char_count": 5990,
+      "owner": "9oormthonUniv-SCH",
+      "name": "1000meal-be",
+      "stars": 4,
+      "char_count": 3380,
       "score": 0,
-      "last_commit_at": "2026-02-08T11:12:43Z",
+      "last_commit_at": "2026-01-22T13:46:17Z",
       "matches": []
     },
     {
@@ -278,7 +166,7 @@
     {
       "owner": "addyosmani",
       "name": "agent-skills",
-      "stars": 41329,
+      "stars": 41374,
       "char_count": 2050,
       "score": 0,
       "last_commit_at": "2026-05-10T20:23:48Z",
@@ -289,34 +177,66 @@
       "semantic_content_hash": "dbd73325d87dbe206e8505dba6004a87bd13ccae1fd0852ba878782662cb87a1"
     },
     {
-      "owner": "AgiFlow",
-      "name": "openskill",
-      "stars": 18,
-      "char_count": 735,
-      "score": 0,
-      "last_commit_at": "2025-10-20T06:43:58Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-05-14T08:36:59.238Z",
-      "semantic_content_hash": "f94f2cf339cb79db3f469fc35b21beca6d50c2603851b77b8c10eb953ca7f1e4"
-    },
-    {
-      "owner": "alicoding",
-      "name": "semantic-search-service",
+      "owner": "amolbudhiraja",
+      "name": "website",
       "stars": 4,
-      "char_count": 5837,
+      "char_count": 625,
       "score": 0,
-      "last_commit_at": "2025-09-07T04:38:11Z",
+      "last_commit_at": "2026-03-28T23:28:19Z",
       "matches": []
     },
     {
-      "owner": "alienlebarge",
-      "name": "tapestry-miniflux-connector",
-      "stars": 4,
-      "char_count": 17925,
+      "owner": "anbulang",
+      "name": "obsidian-wechat-skill",
+      "stars": 6,
+      "char_count": 1258,
       "score": 0,
-      "last_commit_at": "2026-02-10T21:24:02Z",
+      "last_commit_at": "2026-01-24T14:54:49Z",
+      "matches": []
+    },
+    {
+      "owner": "annenpolka",
+      "name": "roo-logger",
+      "stars": 24,
+      "char_count": 2313,
+      "score": 0,
+      "last_commit_at": "2025-06-13T06:38:31Z",
+      "matches": []
+    },
+    {
+      "owner": "Anshler",
+      "name": "planet-location-marker",
+      "stars": 4,
+      "char_count": 4676,
+      "score": 0,
+      "last_commit_at": "2026-04-07T14:29:53Z",
+      "matches": []
+    },
+    {
+      "owner": "auc0le",
+      "name": "Domain-Volume-Control",
+      "stars": 4,
+      "char_count": 3206,
+      "score": 0,
+      "last_commit_at": "2025-11-30T17:00:47Z",
+      "matches": []
+    },
+    {
+      "owner": "authorizerdev",
+      "name": "authorizer",
+      "stars": 1958,
+      "char_count": 3678,
+      "score": 0,
+      "last_commit_at": "2026-04-09T05:13:28Z",
+      "matches": []
+    },
+    {
+      "owner": "AWeber-Imbi",
+      "name": "imbi-automations",
+      "stars": 4,
+      "char_count": 12626,
+      "score": 0,
+      "last_commit_at": "2026-05-12T15:06:05Z",
       "matches": []
     },
     {
@@ -329,30 +249,21 @@
       "matches": []
     },
     {
-      "owner": "beany-vu",
-      "name": "michi-vz",
-      "stars": 4,
-      "char_count": 2409,
+      "owner": "bacoords",
+      "name": "example-php-block",
+      "stars": 10,
+      "char_count": 457,
       "score": 0,
-      "last_commit_at": "2025-06-10T07:19:47Z",
+      "last_commit_at": "2026-03-06T20:49:35Z",
       "matches": []
     },
     {
-      "owner": "benkaiser",
-      "name": "joey-mcp-client",
-      "stars": 7,
-      "char_count": 33,
+      "owner": "BayramAnnakov",
+      "name": "ideo-method-cards",
+      "stars": 19,
+      "char_count": 1549,
       "score": 0,
-      "last_commit_at": "2026-02-15T09:33:47Z",
-      "matches": []
-    },
-    {
-      "owner": "bernardladenthin",
-      "name": "streambuffer",
-      "stars": 9,
-      "char_count": 2734,
-      "score": 0,
-      "last_commit_at": "2026-05-08T07:06:36Z",
+      "last_commit_at": "2026-02-07T16:55:26Z",
       "matches": []
     },
     {
@@ -374,6 +285,24 @@
       "matches": []
     },
     {
+      "owner": "Bikatr7",
+      "name": "Kai",
+      "stars": 4,
+      "char_count": 55,
+      "score": 0,
+      "last_commit_at": "2025-09-12T20:38:17Z",
+      "matches": []
+    },
+    {
+      "owner": "binaryphile",
+      "name": "binaryphile.github.io",
+      "stars": 4,
+      "char_count": 679,
+      "score": 0,
+      "last_commit_at": "2026-03-27T04:05:31Z",
+      "matches": []
+    },
+    {
       "owner": "bitsandbytes-foundation",
       "name": "bitsandbytes",
       "stars": 8198,
@@ -383,39 +312,12 @@
       "matches": []
     },
     {
-      "owner": "BradLarson",
-      "name": "max-cv",
-      "stars": 22,
-      "char_count": 5449,
+      "owner": "caoccao",
+      "name": "swc4j",
+      "stars": 189,
+      "char_count": 6531,
       "score": 0,
-      "last_commit_at": "2026-01-24T22:43:46Z",
-      "matches": []
-    },
-    {
-      "owner": "BuckyMcYolo",
-      "name": "agent-cal",
-      "stars": 4,
-      "char_count": 12103,
-      "score": 0,
-      "last_commit_at": "2025-12-23T21:29:37Z",
-      "matches": []
-    },
-    {
-      "owner": "calderbuild",
-      "name": "JourneyBox",
-      "stars": 6,
-      "char_count": 6850,
-      "score": 0,
-      "last_commit_at": "2025-12-06T10:13:18Z",
-      "matches": []
-    },
-    {
-      "owner": "cbeaulieu-gt",
-      "name": "job-matcher",
-      "stars": 4,
-      "char_count": 10703,
-      "score": 0,
-      "last_commit_at": "2026-04-18T15:26:17Z",
+      "last_commit_at": "2026-02-07T15:00:55Z",
       "matches": []
     },
     {
@@ -437,6 +339,33 @@
       "matches": []
     },
     {
+      "owner": "christianhuth",
+      "name": "helm-charts",
+      "stars": 90,
+      "char_count": 3809,
+      "score": 0,
+      "last_commit_at": "2026-01-12T13:13:17Z",
+      "matches": []
+    },
+    {
+      "owner": "chronologos",
+      "name": "cc-sessions",
+      "stars": 23,
+      "char_count": 11434,
+      "score": 0,
+      "last_commit_at": "2026-03-20T17:36:28Z",
+      "matches": []
+    },
+    {
+      "owner": "CloudNativeDataPlane",
+      "name": "cndp",
+      "stars": 101,
+      "char_count": 5484,
+      "score": 0,
+      "last_commit_at": "2026-05-05T18:40:15Z",
+      "matches": []
+    },
+    {
       "owner": "compozy",
       "name": "gograph",
       "stars": 6,
@@ -446,12 +375,12 @@
       "matches": []
     },
     {
-      "owner": "connerohnesorge",
-      "name": "claude-agent-sdk-go",
-      "stars": 22,
-      "char_count": 23411,
+      "owner": "ConnorsApps",
+      "name": "unifi-os-helm",
+      "stars": 11,
+      "char_count": 4494,
       "score": 0,
-      "last_commit_at": "2025-11-30T23:52:40Z",
+      "last_commit_at": "2026-04-13T23:08:02Z",
       "matches": []
     },
     {
@@ -473,12 +402,30 @@
       "matches": []
     },
     {
-      "owner": "context-foundry",
-      "name": "context-foundry",
-      "stars": 18,
-      "char_count": 9823,
+      "owner": "coolerwu",
+      "name": "FireFire",
+      "stars": 15,
+      "char_count": 9597,
       "score": 0,
-      "last_commit_at": "2026-05-10T21:15:52Z",
+      "last_commit_at": "2025-11-29T05:48:44Z",
+      "matches": []
+    },
+    {
+      "owner": "CoreyCole",
+      "name": "datastarui",
+      "stars": 141,
+      "char_count": 23492,
+      "score": 0,
+      "last_commit_at": "2026-01-02T18:53:58Z",
+      "matches": []
+    },
+    {
+      "owner": "CosmoStat",
+      "name": "SHINE",
+      "stars": 11,
+      "char_count": 8634,
+      "score": 0,
+      "last_commit_at": "2026-02-11T11:01:48Z",
       "matches": []
     },
     {
@@ -491,21 +438,12 @@
       "matches": []
     },
     {
-      "owner": "crystalphantom",
-      "name": "pgit-cli",
-      "stars": 5,
-      "char_count": 4137,
+      "owner": "ctoth",
+      "name": "Qlatt",
+      "stars": 8,
+      "char_count": 14,
       "score": 0,
-      "last_commit_at": "2026-04-27T18:43:56Z",
-      "matches": []
-    },
-    {
-      "owner": "cyphersnake",
-      "name": "agents-in-a-chest.nvim",
-      "stars": 5,
-      "char_count": 3196,
-      "score": 0,
-      "last_commit_at": "2025-08-14T17:11:42Z",
+      "last_commit_at": "2026-02-10T21:32:44Z",
       "matches": []
     },
     {
@@ -518,6 +456,24 @@
       "matches": []
     },
     {
+      "owner": "DanielPolatajko",
+      "name": "inspect_wandb",
+      "stars": 22,
+      "char_count": 5288,
+      "score": 0,
+      "last_commit_at": "2026-03-15T18:15:58Z",
+      "matches": []
+    },
+    {
+      "owner": "daveebbelaar",
+      "name": "pydantic-crash-course",
+      "stars": 48,
+      "char_count": 2605,
+      "score": 0,
+      "last_commit_at": "2026-01-24T16:26:29Z",
+      "matches": []
+    },
+    {
       "owner": "davidliuk",
       "name": "graph-of-skills",
       "stars": 151,
@@ -527,30 +483,30 @@
       "matches": []
     },
     {
-      "owner": "dcminter",
-      "name": "kafkaesque",
+      "owner": "DazzleML",
+      "name": "claude-session-logger",
       "stars": 4,
-      "char_count": 6443,
+      "char_count": 6978,
       "score": 0,
-      "last_commit_at": "2026-05-04T17:25:24Z",
+      "last_commit_at": "2026-02-13T00:22:44Z",
       "matches": []
     },
     {
-      "owner": "decibri",
-      "name": "decibri",
-      "stars": 8,
-      "char_count": 3404,
+      "owner": "DevelopersGlobal",
+      "name": "ai-agent-skills",
+      "stars": 61,
+      "char_count": 1173,
       "score": 0,
-      "last_commit_at": "2026-04-24T15:31:36Z",
+      "last_commit_at": "2026-05-01T09:53:24Z",
       "matches": []
     },
     {
-      "owner": "doobidoo",
-      "name": "obsidian-shodh-sync",
-      "stars": 4,
-      "char_count": 4377,
+      "owner": "Dilaz",
+      "name": "feroxmute",
+      "stars": 5,
+      "char_count": 7714,
       "score": 0,
-      "last_commit_at": "2026-02-09T13:09:38Z",
+      "last_commit_at": "2026-02-06T16:58:35Z",
       "matches": []
     },
     {
@@ -572,6 +528,15 @@
       "matches": []
     },
     {
+      "owner": "Duducoco",
+      "name": "skillstash",
+      "stars": 5,
+      "char_count": 3876,
+      "score": 0,
+      "last_commit_at": "2026-05-06T11:57:01Z",
+      "matches": []
+    },
+    {
       "owner": "dvcrn",
       "name": "wework-cli",
       "stars": 4,
@@ -581,21 +546,21 @@
       "matches": []
     },
     {
-      "owner": "Emrullah007",
-      "name": "openclaw-azure",
-      "stars": 7,
-      "char_count": 4298,
+      "owner": "dymensionxyz",
+      "name": "dymension",
+      "stars": 392,
+      "char_count": 24587,
       "score": 0,
-      "last_commit_at": "2026-03-23T18:47:01Z",
+      "last_commit_at": "2025-09-23T08:21:13Z",
       "matches": []
     },
     {
-      "owner": "engseclabs",
-      "name": "graphgrc",
-      "stars": 29,
-      "char_count": 26621,
+      "owner": "ehc-io",
+      "name": "qmd",
+      "stars": 6,
+      "char_count": 5588,
       "score": 0,
-      "last_commit_at": "2026-01-13T21:35:15Z",
+      "last_commit_at": "2026-02-16T12:42:32Z",
       "matches": []
     },
     {
@@ -610,19 +575,28 @@
     {
       "owner": "entireio",
       "name": "cli",
-      "stars": 4299,
+      "stars": 4298,
       "char_count": 44027,
       "score": 0,
       "last_commit_at": "2026-05-13T21:00:15Z",
       "matches": []
     },
     {
-      "owner": "espebra",
-      "name": "stupid-simple-s3",
-      "stars": 27,
-      "char_count": 662,
+      "owner": "EnzeD",
+      "name": "dow-leaderboards",
+      "stars": 5,
+      "char_count": 8882,
       "score": 0,
-      "last_commit_at": "2026-01-24T12:41:15Z",
+      "last_commit_at": "2025-09-30T03:48:53Z",
+      "matches": []
+    },
+    {
+      "owner": "evan-choi",
+      "name": "breeze-wh",
+      "stars": 4,
+      "char_count": 3992,
+      "score": 0,
+      "last_commit_at": "2026-04-17T01:49:34Z",
       "matches": []
     },
     {
@@ -635,21 +609,12 @@
       "matches": []
     },
     {
-      "owner": "fauxvo",
-      "name": "shelflife",
-      "stars": 11,
-      "char_count": 9373,
-      "score": 0,
-      "last_commit_at": "2026-03-14T02:54:01Z",
-      "matches": []
-    },
-    {
-      "owner": "femitubosun",
-      "name": "rpc-monorepo-template",
+      "owner": "ferazfhansurie",
+      "name": "aios",
       "stars": 5,
-      "char_count": 5161,
+      "char_count": 4867,
       "score": 0,
-      "last_commit_at": "2026-01-06T21:46:51Z",
+      "last_commit_at": "2026-04-30T08:32:31Z",
       "matches": []
     },
     {
@@ -662,6 +627,24 @@
       "matches": []
     },
     {
+      "owner": "FlorianBruniaux",
+      "name": "claude-code-ultimate-guide-landing",
+      "stars": 8,
+      "char_count": 14635,
+      "score": 0,
+      "last_commit_at": "2026-04-21T08:40:51Z",
+      "matches": []
+    },
+    {
+      "owner": "fmidev",
+      "name": "RoadSurf",
+      "stars": 8,
+      "char_count": 4457,
+      "score": 0,
+      "last_commit_at": "2026-04-14T07:15:42Z",
+      "matches": []
+    },
+    {
       "owner": "foresthpark",
       "name": "resume",
       "stars": 4,
@@ -671,21 +654,12 @@
       "matches": []
     },
     {
-      "owner": "FortranGoingOnForty",
-      "name": "facsimile",
-      "stars": 4,
-      "char_count": 4581,
+      "owner": "francomascareloai",
+      "name": "EA_SCALPER_XAUUSD",
+      "stars": 111,
+      "char_count": 38290,
       "score": 0,
-      "last_commit_at": "2025-12-06T08:18:58Z",
-      "matches": []
-    },
-    {
-      "owner": "Galorhallen",
-      "name": "govee-local-api",
-      "stars": 55,
-      "char_count": 3046,
-      "score": 0,
-      "last_commit_at": "2026-03-12T12:24:55Z",
+      "last_commit_at": "2025-12-28T04:34:08Z",
       "matches": []
     },
     {
@@ -698,30 +672,12 @@
       "matches": []
     },
     {
-      "owner": "githru",
-      "name": "githru-vscode-ext",
-      "stars": 65,
-      "char_count": 3789,
+      "owner": "giuseppe99barchetta",
+      "name": "SuggestArr",
+      "stars": 1135,
+      "char_count": 1462,
       "score": 0,
-      "last_commit_at": "2025-09-30T01:04:06Z",
-      "matches": []
-    },
-    {
-      "owner": "GoPlasmatic",
-      "name": "Orion",
-      "stars": 7,
-      "char_count": 10569,
-      "score": 0,
-      "last_commit_at": "2026-04-08T07:58:47Z",
-      "matches": []
-    },
-    {
-      "owner": "hapifhir",
-      "name": "org.hl7.fhir.validator-wrapper",
-      "stars": 49,
-      "char_count": 17672,
-      "score": 0,
-      "last_commit_at": "2026-01-21T18:35:36Z",
+      "last_commit_at": "2026-02-21T10:40:36Z",
       "matches": []
     },
     {
@@ -734,39 +690,12 @@
       "matches": []
     },
     {
-      "owner": "HaschekSolutions",
-      "name": "pictshare",
-      "stars": 911,
-      "char_count": 3664,
-      "score": 0,
-      "last_commit_at": "2026-03-22T20:23:24Z",
-      "matches": []
-    },
-    {
       "owner": "henrique-simoes",
       "name": "Istara",
       "stars": 9,
       "char_count": 8921,
       "score": 0,
       "last_commit_at": "2026-05-08T22:29:05Z",
-      "matches": []
-    },
-    {
-      "owner": "hhhh124hhhh",
-      "name": "LangGraph-Partner",
-      "stars": 5,
-      "char_count": 4161,
-      "score": 0,
-      "last_commit_at": "2025-11-13T03:55:12Z",
-      "matches": []
-    },
-    {
-      "owner": "hoangsonww",
-      "name": "AI-RAG-Assistant-Chatbot",
-      "stars": 38,
-      "char_count": 3247,
-      "score": 0,
-      "last_commit_at": "2026-03-18T16:59:23Z",
       "matches": []
     },
     {
@@ -779,30 +708,57 @@
       "matches": []
     },
     {
-      "owner": "hugr-lab",
-      "name": "duckdb-kernel",
-      "stars": 24,
-      "char_count": 2475,
-      "score": 0,
-      "last_commit_at": "2026-04-19T18:41:48Z",
-      "matches": []
-    },
-    {
-      "owner": "hungson175",
-      "name": "mini-claw-code",
+      "owner": "iamfiro",
+      "name": "portfolio",
       "stars": 7,
-      "char_count": 960,
+      "char_count": 4205,
       "score": 0,
-      "last_commit_at": "2026-04-01T02:00:54Z",
+      "last_commit_at": "2026-05-11T02:20:00Z",
       "matches": []
     },
     {
-      "owner": "InsertKoinIO",
-      "name": "koin-compiler-plugin",
-      "stars": 49,
-      "char_count": 9341,
+      "owner": "IcelandicIcecream",
+      "name": "aphex",
+      "stars": 150,
+      "char_count": 10441,
       "score": 0,
-      "last_commit_at": "2026-03-31T09:05:14Z",
+      "last_commit_at": "2026-05-01T16:26:36Z",
+      "matches": []
+    },
+    {
+      "owner": "infamousjoeg",
+      "name": "cyberark-rag",
+      "stars": 4,
+      "char_count": 2896,
+      "score": 0,
+      "last_commit_at": "2026-02-25T10:27:53Z",
+      "matches": []
+    },
+    {
+      "owner": "Insajin",
+      "name": "autopus-adk",
+      "stars": 100,
+      "char_count": 1672,
+      "score": 0,
+      "last_commit_at": "2026-04-18T07:56:31Z",
+      "matches": []
+    },
+    {
+      "owner": "it-bens",
+      "name": "ai-tools",
+      "stars": 4,
+      "char_count": 2137,
+      "score": 0,
+      "last_commit_at": "2025-12-24T22:27:01Z",
+      "matches": []
+    },
+    {
+      "owner": "ItMeDiaTech",
+      "name": "rag-cli",
+      "stars": 44,
+      "char_count": 20770,
+      "score": 0,
+      "last_commit_at": "2025-11-11T10:14:25Z",
       "matches": []
     },
     {
@@ -812,15 +768,6 @@
       "char_count": 4201,
       "score": 0,
       "last_commit_at": "2025-07-30T15:23:45Z",
-      "matches": []
-    },
-    {
-      "owner": "jarrodwatts",
-      "name": "blaickrock",
-      "stars": 11,
-      "char_count": 2902,
-      "score": 0,
-      "last_commit_at": "2025-06-05T00:20:30Z",
       "matches": []
     },
     {
@@ -852,7 +799,7 @@
     {
       "owner": "Jeffallan",
       "name": "claude-skills",
-      "stars": 9038,
+      "stars": 9041,
       "char_count": 11117,
       "score": 0,
       "last_commit_at": "2026-05-01T14:10:30Z",
@@ -863,21 +810,57 @@
       "semantic_content_hash": "ff460cb299041cfa8502c942ad9c7179c46e350c6c9e4f1b7bbff0facdc73766"
     },
     {
-      "owner": "jeffblankenburg",
-      "name": "31-days-of-vibe-coding",
-      "stars": 6,
-      "char_count": 4338,
+      "owner": "jeremylongshore",
+      "name": "news-pipeline-n8n",
+      "stars": 13,
+      "char_count": 9437,
       "score": 0,
-      "last_commit_at": "2025-10-22T17:03:17Z",
+      "last_commit_at": "2025-09-28T16:57:56Z",
       "matches": []
     },
     {
-      "owner": "jimmyeao",
-      "name": "Mideej",
-      "stars": 4,
-      "char_count": 7877,
+      "owner": "jexchan",
+      "name": "dailyup-second-brain-starter",
+      "stars": 19,
+      "char_count": 2913,
       "score": 0,
-      "last_commit_at": "2025-11-08T17:15:41Z",
+      "last_commit_at": "2026-04-25T03:17:45Z",
+      "matches": []
+    },
+    {
+      "owner": "jhd3197",
+      "name": "AgentSite",
+      "stars": 10,
+      "char_count": 5257,
+      "score": 0,
+      "last_commit_at": "2026-02-01T00:14:56Z",
+      "matches": []
+    },
+    {
+      "owner": "jicaiinc",
+      "name": "golemancy",
+      "stars": 72,
+      "char_count": 12542,
+      "score": 0,
+      "last_commit_at": "2026-05-13T07:54:07Z",
+      "matches": []
+    },
+    {
+      "owner": "Jinori",
+      "name": "UnoraLaunchpad",
+      "stars": 4,
+      "char_count": 9351,
+      "score": 0,
+      "last_commit_at": "2026-05-01T13:13:03Z",
+      "matches": []
+    },
+    {
+      "owner": "jiristepan",
+      "name": "hass-fve-control",
+      "stars": 4,
+      "char_count": 4790,
+      "score": 0,
+      "last_commit_at": "2026-04-28T07:05:12Z",
       "matches": []
     },
     {
@@ -890,21 +873,21 @@
       "matches": []
     },
     {
-      "owner": "jondallasjr",
-      "name": "coda-doc-scraper",
-      "stars": 7,
-      "char_count": 1793,
+      "owner": "joesaby",
+      "name": "astro-plantuml",
+      "stars": 8,
+      "char_count": 2380,
       "score": 0,
-      "last_commit_at": "2025-03-24T08:14:32Z",
+      "last_commit_at": "2025-05-26T18:32:40Z",
       "matches": []
     },
     {
-      "owner": "juanqui",
-      "name": "pdfkb-mcp",
-      "stars": 12,
-      "char_count": 4544,
+      "owner": "Juris-M",
+      "name": "zotero-odf-scan-plugin",
+      "stars": 97,
+      "char_count": 9369,
       "score": 0,
-      "last_commit_at": "2025-08-17T19:53:24Z",
+      "last_commit_at": "2026-04-02T21:16:38Z",
       "matches": []
     },
     {
@@ -917,21 +900,12 @@
       "matches": []
     },
     {
-      "owner": "kahwaipd",
-      "name": "trendtrader",
+      "owner": "karaposu",
+      "name": "aligncraft",
       "stars": 5,
-      "char_count": 4054,
+      "char_count": 750,
       "score": 0,
-      "last_commit_at": "2026-02-14T00:31:18Z",
-      "matches": []
-    },
-    {
-      "owner": "kaihv",
-      "name": "open-banking-chile",
-      "stars": 168,
-      "char_count": 2252,
-      "score": 0,
-      "last_commit_at": "2026-03-21T21:30:29Z",
+      "last_commit_at": "2026-03-29T12:46:32Z",
       "matches": []
     },
     {
@@ -944,21 +918,12 @@
       "matches": []
     },
     {
-      "owner": "KevinBonnoron",
-      "name": "pocketbase-db-collection",
-      "stars": 4,
-      "char_count": 2847,
+      "owner": "kestra-io",
+      "name": "terraform-provider-kestra",
+      "stars": 23,
+      "char_count": 5384,
       "score": 0,
-      "last_commit_at": "2025-12-07T17:12:56Z",
-      "matches": []
-    },
-    {
-      "owner": "kim-company",
-      "name": "membrane_mpeg_ts_plugin",
-      "stars": 6,
-      "char_count": 2116,
-      "score": 0,
-      "last_commit_at": "2025-08-20T13:52:51Z",
+      "last_commit_at": "2026-03-31T19:11:46Z",
       "matches": []
     },
     {
@@ -971,15 +936,6 @@
       "matches": []
     },
     {
-      "owner": "kortix-ai",
-      "name": "agent-computer-use",
-      "stars": 16,
-      "char_count": 3698,
-      "score": 0,
-      "last_commit_at": "2026-04-11T08:13:44Z",
-      "matches": []
-    },
-    {
       "owner": "kossakovsky",
       "name": "article-to-epub",
       "stars": 3,
@@ -989,12 +945,21 @@
       "matches": []
     },
     {
-      "owner": "krelltunez",
-      "name": "dayGLANCE",
-      "stars": 61,
-      "char_count": 2990,
+      "owner": "Kranium2002",
+      "name": "leakwall",
+      "stars": 13,
+      "char_count": 16174,
       "score": 0,
-      "last_commit_at": "2026-05-07T04:03:19Z",
+      "last_commit_at": "2026-03-10T17:29:08Z",
+      "matches": []
+    },
+    {
+      "owner": "kyupid",
+      "name": "claude-sessions",
+      "stars": 4,
+      "char_count": 781,
+      "score": 0,
+      "last_commit_at": "2025-11-25T09:53:15Z",
       "matches": []
     },
     {
@@ -1004,15 +969,6 @@
       "char_count": 6857,
       "score": 0,
       "last_commit_at": "2026-05-05T14:23:16Z",
-      "matches": []
-    },
-    {
-      "owner": "LeanAndMean",
-      "name": "mach10",
-      "stars": 15,
-      "char_count": 25206,
-      "score": 0,
-      "last_commit_at": "2026-05-12T19:50:03Z",
       "matches": []
     },
     {
@@ -1029,39 +985,48 @@
       "semantic_content_hash": "33e6ad8972aa069c3229c0a292e3f5412e6761b4389e5551708336e27f2bef71"
     },
     {
-      "owner": "lifemate-ai",
-      "name": "embodied-claude",
-      "stars": 286,
-      "char_count": 14897,
+      "owner": "lich0821",
+      "name": "ccNexus",
+      "stars": 847,
+      "char_count": 3648,
       "score": 0,
-      "last_commit_at": "2026-04-20T07:30:54Z",
-      "matches": []
-    },
-    {
-      "owner": "lifinance",
-      "name": "bigmi",
-      "stars": 53,
-      "char_count": 3733,
-      "score": 0,
-      "last_commit_at": "2026-03-25T13:56:53Z",
+      "last_commit_at": "2026-04-21T05:34:36Z",
       "matches": []
     },
     {
       "owner": "LMCache",
       "name": "LMCache",
-      "stars": 8266,
+      "stars": 8267,
       "char_count": 3160,
       "score": 0,
       "last_commit_at": "2026-04-16T19:41:06Z",
       "matches": []
     },
     {
-      "owner": "LukaMrt",
-      "name": "Parraindex",
-      "stars": 4,
-      "char_count": 359,
+      "owner": "loethen",
+      "name": "freefocusgames",
+      "stars": 9,
+      "char_count": 2559,
       "score": 0,
-      "last_commit_at": "2026-05-06T19:50:36Z",
+      "last_commit_at": "2025-08-19T09:40:24Z",
+      "matches": []
+    },
+    {
+      "owner": "MadAppGang",
+      "name": "mnemex",
+      "stars": 38,
+      "char_count": 6719,
+      "score": 0,
+      "last_commit_at": "2026-04-14T14:17:26Z",
+      "matches": []
+    },
+    {
+      "owner": "mahm",
+      "name": "dspy-demo",
+      "stars": 12,
+      "char_count": 4789,
+      "score": 0,
+      "last_commit_at": "2025-10-27T06:24:31Z",
       "matches": []
     },
     {
@@ -1074,9 +1039,18 @@
       "matches": []
     },
     {
+      "owner": "ManageXR",
+      "name": "claude-unity-bridge",
+      "stars": 20,
+      "char_count": 1736,
+      "score": 0,
+      "last_commit_at": "2026-02-11T23:01:37Z",
+      "matches": []
+    },
+    {
       "owner": "mantinedev",
       "name": "mantine",
-      "stars": 31128,
+      "stars": 31129,
       "char_count": 2202,
       "score": 0,
       "last_commit_at": "2026-04-06T12:19:16Z",
@@ -1092,30 +1066,12 @@
       "matches": []
     },
     {
-      "owner": "MasatoMakino",
-      "name": "threejs-interactive-object",
-      "stars": 16,
-      "char_count": 16952,
+      "owner": "matiasvillaverde",
+      "name": "context-creator",
+      "stars": 53,
+      "char_count": 4571,
       "score": 0,
-      "last_commit_at": "2026-01-10T13:22:08Z",
-      "matches": []
-    },
-    {
-      "owner": "matiasbattocchia",
-      "name": "wakit-api",
-      "stars": 279,
-      "char_count": 2736,
-      "score": 0,
-      "last_commit_at": "2026-05-06T12:01:13Z",
-      "matches": []
-    },
-    {
-      "owner": "mattermost",
-      "name": "mattermost-test-management",
-      "stars": 16,
-      "char_count": 1220,
-      "score": 0,
-      "last_commit_at": "2025-04-08T12:35:55Z",
+      "last_commit_at": "2025-07-17T12:58:28Z",
       "matches": []
     },
     {
@@ -1137,12 +1093,12 @@
       "matches": []
     },
     {
-      "owner": "metaid-developers",
-      "name": "IDBots",
-      "stars": 9,
-      "char_count": 7284,
+      "owner": "memtrace-dev",
+      "name": "memtrace",
+      "stars": 4,
+      "char_count": 1098,
       "score": 0,
-      "last_commit_at": "2026-05-06T10:45:21Z",
+      "last_commit_at": "2026-03-25T03:04:31Z",
       "matches": []
     },
     {
@@ -1155,12 +1111,12 @@
       "matches": []
     },
     {
-      "owner": "mikopbx",
-      "name": "ModuleBitrix24Integration",
-      "stars": 10,
-      "char_count": 5270,
+      "owner": "michaelmagan",
+      "name": "cheatsheet",
+      "stars": 143,
+      "char_count": 17,
       "score": 0,
-      "last_commit_at": "2026-02-19T11:44:27Z",
+      "last_commit_at": "2025-11-05T21:21:14Z",
       "matches": []
     },
     {
@@ -1175,55 +1131,28 @@
     {
       "owner": "ModelEngine-Group",
       "name": "nexent",
-      "stars": 4465,
+      "stars": 4467,
       "char_count": 6473,
       "score": 0,
       "last_commit_at": "2025-09-08T10:17:51Z",
       "matches": []
     },
     {
-      "owner": "mzac",
-      "name": "apt-ui",
-      "stars": 4,
-      "char_count": 12367,
+      "owner": "motiondivision",
+      "name": "motion-vue",
+      "stars": 2174,
+      "char_count": 10325,
       "score": 0,
-      "last_commit_at": "2026-05-02T21:17:59Z",
+      "last_commit_at": "2026-03-20T16:08:42Z",
       "matches": []
     },
     {
-      "owner": "ndenev",
-      "name": "k8sql",
-      "stars": 41,
-      "char_count": 17189,
+      "owner": "ocftw",
+      "name": "open-star-ter-village",
+      "stars": 36,
+      "char_count": 5538,
       "score": 0,
-      "last_commit_at": "2026-01-17T16:34:15Z",
-      "matches": []
-    },
-    {
-      "owner": "NicolasGHS",
-      "name": "checklist",
-      "stars": 8,
-      "char_count": 3198,
-      "score": 0,
-      "last_commit_at": "2026-05-03T16:11:53Z",
-      "matches": []
-    },
-    {
-      "owner": "niivue",
-      "name": "niivue",
-      "stars": 449,
-      "char_count": 5636,
-      "score": 0,
-      "last_commit_at": "2026-02-05T16:22:01Z",
-      "matches": []
-    },
-    {
-      "owner": "noambrand",
-      "name": "kivun-terminal-wsl",
-      "stars": 7,
-      "char_count": 2699,
-      "score": 0,
-      "last_commit_at": "2026-05-05T21:35:06Z",
+      "last_commit_at": "2026-04-10T13:54:15Z",
       "matches": []
     },
     {
@@ -1233,33 +1162,6 @@
       "char_count": 4270,
       "score": 0,
       "last_commit_at": "2026-04-02T06:43:39Z",
-      "matches": []
-    },
-    {
-      "owner": "oguzcankaraman",
-      "name": "Watch_Youtube_Skill",
-      "stars": 33,
-      "char_count": 3031,
-      "score": 0,
-      "last_commit_at": "2026-05-11T06:46:58Z",
-      "matches": []
-    },
-    {
-      "owner": "okooo5km",
-      "name": "Prism",
-      "stars": 69,
-      "char_count": 12218,
-      "score": 0,
-      "last_commit_at": "2026-04-24T10:29:27Z",
-      "matches": []
-    },
-    {
-      "owner": "OLD-SIX-AI-TEAM",
-      "name": "WalletsTool",
-      "stars": 6,
-      "char_count": 9769,
-      "score": 0,
-      "last_commit_at": "2026-02-03T03:44:12Z",
       "matches": []
     },
     {
@@ -1281,15 +1183,6 @@
       "matches": []
     },
     {
-      "owner": "OnerInce",
-      "name": "telegram-crypto_bot",
-      "stars": 5,
-      "char_count": 2773,
-      "score": 0,
-      "last_commit_at": "2026-03-06T11:49:35Z",
-      "matches": []
-    },
-    {
       "owner": "ONLYOFFICE",
       "name": "docs-integration-sdk-java",
       "stars": 43,
@@ -1299,12 +1192,12 @@
       "matches": []
     },
     {
-      "owner": "OpenADMET",
-      "name": "Octant_CYP_blog_post",
-      "stars": 6,
-      "char_count": 6462,
+      "owner": "ooples",
+      "name": "mcp-console-automation",
+      "stars": 33,
+      "char_count": 1989,
       "score": 0,
-      "last_commit_at": "2026-02-25T03:00:10Z",
+      "last_commit_at": "2025-10-31T02:11:36Z",
       "matches": []
     },
     {
@@ -1317,12 +1210,30 @@
       "matches": []
     },
     {
+      "owner": "OpenMDAO",
+      "name": "OpenMDAO",
+      "stars": 720,
+      "char_count": 738,
+      "score": 0,
+      "last_commit_at": "2026-02-19T13:44:16Z",
+      "matches": []
+    },
+    {
       "owner": "opensearch-project",
       "name": "sql",
       "stars": 170,
       "char_count": 7094,
       "score": 0,
       "last_commit_at": "2026-04-10T02:58:01Z",
+      "matches": []
+    },
+    {
+      "owner": "openshift-kni",
+      "name": "eco-ci-cd",
+      "stars": 5,
+      "char_count": 10338,
+      "score": 0,
+      "last_commit_at": "2025-10-17T14:28:55Z",
       "matches": []
     },
     {
@@ -1335,12 +1246,12 @@
       "matches": []
     },
     {
-      "owner": "OSU-NLP-Group",
-      "name": "GUI-Agents-Paper-List",
-      "stars": 772,
-      "char_count": 10074,
+      "owner": "pactflow",
+      "name": "pact-protobuf-plugin",
+      "stars": 16,
+      "char_count": 10151,
       "score": 0,
-      "last_commit_at": "2026-05-12T20:31:02Z",
+      "last_commit_at": "2026-05-13T01:00:20Z",
       "matches": []
     },
     {
@@ -1353,48 +1264,39 @@
       "matches": []
     },
     {
-      "owner": "pcingola",
-      "name": "SnpEff",
-      "stars": 307,
-      "char_count": 8449,
+      "owner": "parf",
+      "name": "spartan-test",
+      "stars": 7,
+      "char_count": 6857,
       "score": 0,
-      "last_commit_at": "2026-02-23T11:29:15Z",
+      "last_commit_at": "2026-02-20T06:32:38Z",
       "matches": []
     },
     {
-      "owner": "penpot",
-      "name": "penpotqa",
-      "stars": 13,
-      "char_count": 4818,
+      "owner": "pdudotdev",
+      "name": "aiNOC",
+      "stars": 11,
+      "char_count": 19954,
       "score": 0,
-      "last_commit_at": "2026-04-28T07:41:30Z",
+      "last_commit_at": "2026-03-27T06:49:29Z",
       "matches": []
     },
     {
-      "owner": "Peuqui",
-      "name": "AIfred-Intelligence",
-      "stars": 32,
-      "char_count": 8091,
+      "owner": "peridio",
+      "name": "peridiod",
+      "stars": 5,
+      "char_count": 4416,
       "score": 0,
-      "last_commit_at": "2026-03-29T11:18:51Z",
+      "last_commit_at": "2026-04-10T16:13:20Z",
       "matches": []
     },
     {
-      "owner": "PHMbench",
-      "name": "Awesome-PHM-Paper-Agent",
-      "stars": 6,
-      "char_count": 9723,
-      "score": 0,
-      "last_commit_at": "2025-08-25T03:35:51Z",
-      "matches": []
-    },
-    {
-      "owner": "Provable-Games",
-      "name": "ticket-master",
+      "owner": "Principle-Labs",
+      "name": "Corivo",
       "stars": 4,
-      "char_count": 7259,
+      "char_count": 5585,
       "score": 0,
-      "last_commit_at": "2025-11-12T13:54:00Z",
+      "last_commit_at": "2026-04-03T10:08:51Z",
       "matches": []
     },
     {
@@ -1407,30 +1309,12 @@
       "matches": []
     },
     {
-      "owner": "PsychQuant",
-      "name": "che-ical-mcp",
-      "stars": 27,
-      "char_count": 5510,
+      "owner": "quailyquaily",
+      "name": "quail-js",
+      "stars": 7,
+      "char_count": 2526,
       "score": 0,
-      "last_commit_at": "2026-05-06T23:13:30Z",
-      "matches": []
-    },
-    {
-      "owner": "quarkiverse",
-      "name": "quarkus-flow",
-      "stars": 94,
-      "char_count": 10884,
-      "score": 0,
-      "last_commit_at": "2026-05-08T16:14:18Z",
-      "matches": []
-    },
-    {
-      "owner": "quarkiverse",
-      "name": "quarkus-solr",
-      "stars": 4,
-      "char_count": 4585,
-      "score": 0,
-      "last_commit_at": "2026-04-08T21:27:53Z",
+      "last_commit_at": "2025-09-02T16:26:16Z",
       "matches": []
     },
     {
@@ -1443,6 +1327,24 @@
       "matches": []
     },
     {
+      "owner": "rajnandan1",
+      "name": "kener",
+      "stars": 4932,
+      "char_count": 4575,
+      "score": 0,
+      "last_commit_at": "2026-03-18T06:50:42Z",
+      "matches": []
+    },
+    {
+      "owner": "rdwj",
+      "name": "mcp-test-mcp",
+      "stars": 4,
+      "char_count": 4924,
+      "score": 0,
+      "last_commit_at": "2025-10-14T02:41:21Z",
+      "matches": []
+    },
+    {
       "owner": "reizam",
       "name": "claude-md-templates",
       "stars": 11,
@@ -1452,21 +1354,30 @@
       "matches": []
     },
     {
-      "owner": "ringsaturn",
-      "name": "tzf-rs",
-      "stars": 104,
-      "char_count": 3176,
+      "owner": "reqstool",
+      "name": "reqstool-client",
+      "stars": 4,
+      "char_count": 11859,
       "score": 0,
-      "last_commit_at": "2025-07-15T00:46:04Z",
+      "last_commit_at": "2026-05-02T18:26:26Z",
       "matches": []
     },
     {
-      "owner": "RyanMorash",
-      "name": "ha_nationalgrid",
-      "stars": 16,
-      "char_count": 3361,
+      "owner": "Robertg761",
+      "name": "HA-Desktop-Widget",
+      "stars": 23,
+      "char_count": 25552,
       "score": 0,
-      "last_commit_at": "2026-01-28T07:36:38Z",
+      "last_commit_at": "2026-02-05T02:52:41Z",
+      "matches": []
+    },
+    {
+      "owner": "rodrigopg",
+      "name": "n8n-openapi-glpi",
+      "stars": 4,
+      "char_count": 7305,
+      "score": 0,
+      "last_commit_at": "2025-10-17T15:51:36Z",
       "matches": []
     },
     {
@@ -1479,39 +1390,21 @@
       "matches": []
     },
     {
-      "owner": "salesforce",
-      "name": "carbonj",
-      "stars": 28,
-      "char_count": 6546,
+      "owner": "sanohiro",
+      "name": "ze",
+      "stars": 4,
+      "char_count": 19972,
       "score": 0,
-      "last_commit_at": "2026-05-12T19:00:54Z",
+      "last_commit_at": "2026-01-04T11:27:24Z",
       "matches": []
     },
     {
-      "owner": "scality",
-      "name": "s3utils",
-      "stars": 7,
-      "char_count": 6710,
+      "owner": "sentania-labs",
+      "name": "scarguard",
+      "stars": 5,
+      "char_count": 5415,
       "score": 0,
-      "last_commit_at": "2026-01-07T18:49:25Z",
-      "matches": []
-    },
-    {
-      "owner": "seandavi",
-      "name": "amc-ai-governance",
-      "stars": 7,
-      "char_count": 5896,
-      "score": 0,
-      "last_commit_at": "2026-04-27T01:30:13Z",
-      "matches": []
-    },
-    {
-      "owner": "sequencer",
-      "name": "asl",
-      "stars": 7,
-      "char_count": 5523,
-      "score": 0,
-      "last_commit_at": "2025-12-10T03:13:24Z",
+      "last_commit_at": "2026-04-27T19:32:59Z",
       "matches": []
     },
     {
@@ -1524,15 +1417,6 @@
       "matches": []
     },
     {
-      "owner": "slzatz",
-      "name": "seeed_eink_board",
-      "stars": 8,
-      "char_count": 10022,
-      "score": 0,
-      "last_commit_at": "2026-02-07T17:06:51Z",
-      "matches": []
-    },
-    {
       "owner": "smi2",
       "name": "phpClickHouse",
       "stars": 842,
@@ -1542,21 +1426,21 @@
       "matches": []
     },
     {
-      "owner": "soma115",
-      "name": "Wikikracja",
-      "stars": 7,
-      "char_count": 2910,
+      "owner": "snowplow",
+      "name": "snowplow-dotnet-tracker",
+      "stars": 23,
+      "char_count": 11386,
       "score": 0,
-      "last_commit_at": "2026-05-05T17:12:43Z",
+      "last_commit_at": "2025-09-01T08:05:04Z",
       "matches": []
     },
     {
-      "owner": "SpatariuRares",
-      "name": "obsidian-workout-plugin",
-      "stars": 15,
-      "char_count": 22247,
+      "owner": "softspark",
+      "name": "ai-toolkit",
+      "stars": 147,
+      "char_count": 5682,
       "score": 0,
-      "last_commit_at": "2026-03-29T13:10:06Z",
+      "last_commit_at": "2026-05-12T10:15:49Z",
       "matches": []
     },
     {
@@ -1578,21 +1462,30 @@
       "matches": []
     },
     {
-      "owner": "stacksjs",
-      "name": "ts-collect",
-      "stars": 34,
-      "char_count": 1470,
-      "score": 0,
-      "last_commit_at": "2026-03-13T11:55:09Z",
-      "matches": []
-    },
-    {
       "owner": "StefanMaron",
       "name": "al-smart-compile",
       "stars": 6,
       "char_count": 6538,
       "score": 0,
       "last_commit_at": "2026-01-21T10:10:33Z",
+      "matches": []
+    },
+    {
+      "owner": "stellar-experimental",
+      "name": "henyey",
+      "stars": 4,
+      "char_count": 5239,
+      "score": 0,
+      "last_commit_at": "2026-05-09T13:02:04Z",
+      "matches": []
+    },
+    {
+      "owner": "STRRL",
+      "name": "claude-resume",
+      "stars": 8,
+      "char_count": 5628,
+      "score": 0,
+      "last_commit_at": "2025-08-06T05:29:08Z",
       "matches": []
     },
     {
@@ -1614,39 +1507,12 @@
       "matches": []
     },
     {
-      "owner": "systeminit",
-      "name": "tonys-chips",
-      "stars": 8,
-      "char_count": 17490,
+      "owner": "tinyhttp",
+      "name": "tinyhttp",
+      "stars": 2885,
+      "char_count": 5462,
       "score": 0,
-      "last_commit_at": "2025-10-22T02:37:21Z",
-      "matches": []
-    },
-    {
-      "owner": "szaghi",
-      "name": "FUNDAL",
-      "stars": 17,
-      "char_count": 3968,
-      "score": 0,
-      "last_commit_at": "2026-02-20T14:09:29Z",
-      "matches": []
-    },
-    {
-      "owner": "TheBrainLab",
-      "name": "npuslim",
-      "stars": 5,
-      "char_count": 10858,
-      "score": 0,
-      "last_commit_at": "2026-05-12T10:52:47Z",
-      "matches": []
-    },
-    {
-      "owner": "thomasgiroire",
-      "name": "sesam-ticket-manager",
-      "stars": 4,
-      "char_count": 2848,
-      "score": 0,
-      "last_commit_at": "2026-03-30T20:06:06Z",
+      "last_commit_at": "2026-02-08T19:48:55Z",
       "matches": []
     },
     {
@@ -1659,12 +1525,21 @@
       "matches": []
     },
     {
-      "owner": "Tooom123",
-      "name": "Voodoo_Anthropic_Hackathon",
-      "stars": 7,
-      "char_count": 2535,
+      "owner": "tombelieber",
+      "name": "claude-view",
+      "stars": 74,
+      "char_count": 3267,
       "score": 0,
-      "last_commit_at": "2026-04-25T12:54:04Z",
+      "last_commit_at": "2026-04-21T14:21:40Z",
+      "matches": []
+    },
+    {
+      "owner": "trudenboy",
+      "name": "ma-provider-yandex-music",
+      "stars": 9,
+      "char_count": 13717,
+      "score": 0,
+      "last_commit_at": "2026-05-12T14:30:11Z",
       "matches": []
     },
     {
@@ -1677,30 +1552,21 @@
       "matches": []
     },
     {
-      "owner": "twcclegg",
-      "name": "libphonenumber-csharp",
-      "stars": 907,
-      "char_count": 6724,
+      "owner": "VCnoC",
+      "name": "Claude-Code-Zen-mcp-Skill-Work",
+      "stars": 116,
+      "char_count": 28711,
       "score": 0,
-      "last_commit_at": "2026-05-03T21:56:37Z",
+      "last_commit_at": "2025-11-15T08:08:15Z",
       "matches": []
     },
     {
-      "owner": "Unity-Technologies",
-      "name": "unity-gaming-services-cli",
-      "stars": 45,
-      "char_count": 4499,
+      "owner": "vibeforge1111",
+      "name": "vibeship-scanner",
+      "stars": 120,
+      "char_count": 9250,
       "score": 0,
-      "last_commit_at": "2026-04-22T13:07:51Z",
-      "matches": []
-    },
-    {
-      "owner": "valory-xyz",
-      "name": "olas-operate-app",
-      "stars": 13,
-      "char_count": 17279,
-      "score": 0,
-      "last_commit_at": "2026-04-28T11:14:59Z",
+      "last_commit_at": "2026-01-04T12:57:37Z",
       "matches": []
     },
     {
@@ -1713,54 +1579,99 @@
       "matches": []
     },
     {
-      "owner": "VolanDeVovan",
-      "name": "claudegram",
+      "owner": "wenmengzhou",
+      "name": "openai-anthropic-converter",
+      "stars": 4,
+      "char_count": 4635,
+      "score": 0,
+      "last_commit_at": "2026-04-03T10:40:59Z",
+      "matches": []
+    },
+    {
+      "owner": "werelate",
+      "name": "wiki",
+      "stars": 11,
+      "char_count": 9655,
+      "score": 0,
+      "last_commit_at": "2025-12-01T03:20:19Z",
+      "matches": []
+    },
+    {
+      "owner": "wsameer",
+      "name": "adonisjs-react-starter-kit",
+      "stars": 5,
+      "char_count": 4135,
+      "score": 0,
+      "last_commit_at": "2025-08-03T19:56:46Z",
+      "matches": []
+    },
+    {
+      "owner": "wu529778790",
+      "name": "newshub.shenzjd.com",
+      "stars": 10,
+      "char_count": 8721,
+      "score": 0,
+      "last_commit_at": "2025-12-30T10:36:42Z",
+      "matches": []
+    },
+    {
+      "owner": "Xcdify",
+      "name": "xarchgen",
       "stars": 6,
-      "char_count": 7680,
+      "char_count": 12241,
       "score": 0,
-      "last_commit_at": "2026-04-30T23:18:33Z",
+      "last_commit_at": "2025-08-10T15:46:23Z",
       "matches": []
     },
     {
-      "owner": "vpontis",
-      "name": "mochify",
+      "owner": "YanceyOfficial",
+      "name": "talon",
       "stars": 4,
-      "char_count": 2987,
+      "char_count": 10077,
       "score": 0,
-      "last_commit_at": "2025-10-09T03:14:27Z",
+      "last_commit_at": "2026-03-11T11:19:42Z",
       "matches": []
     },
     {
-      "owner": "wolfoo2931",
-      "name": "linkedrecords",
-      "stars": 18,
-      "char_count": 14801,
+      "owner": "ykdojo",
+      "name": "safeclaw",
+      "stars": 151,
+      "char_count": 3614,
       "score": 0,
-      "last_commit_at": "2026-04-05T14:21:31Z",
+      "last_commit_at": "2026-02-19T07:30:25Z",
       "matches": []
     },
     {
-      "owner": "yakkun",
-      "name": "dotfiles",
-      "stars": 7,
-      "char_count": 3244,
+      "owner": "yuanchuan",
+      "name": "aivo",
+      "stars": 127,
+      "char_count": 3696,
       "score": 0,
-      "last_commit_at": "2026-03-24T00:23:17Z",
+      "last_commit_at": "2026-05-02T05:48:45Z",
       "matches": []
     },
     {
-      "owner": "Zendevve",
-      "name": "PocketHost",
+      "owner": "yusukebe",
+      "name": "meshi-mcp",
+      "stars": 8,
+      "char_count": 1217,
+      "score": 0,
+      "last_commit_at": "2026-03-20T08:26:38Z",
+      "matches": []
+    },
+    {
+      "owner": "zamiang",
+      "name": "zamiang-dot-com-v2",
       "stars": 4,
-      "char_count": 27973,
+      "char_count": 6306,
       "score": 0,
-      "last_commit_at": "2026-04-11T10:11:30Z",
+      "last_commit_at": "2026-05-12T23:25:24Z",
       "matches": []
     },
     {
       "owner": "Zippland",
       "name": "perler-beads",
-      "stars": 532,
+      "stars": 533,
       "char_count": 7632,
       "score": 0,
       "last_commit_at": "2026-04-20T04:24:25Z",
@@ -1785,12 +1696,12 @@
       "matches": []
     },
     {
-      "owner": "zotero",
-      "name": "zotero",
-      "stars": 14166,
-      "char_count": 6705,
+      "owner": "zoom",
+      "name": "videosdk-ui-toolkit-web",
+      "stars": 19,
+      "char_count": 9722,
       "score": 0,
-      "last_commit_at": "2026-04-22T19:50:02Z",
+      "last_commit_at": "2025-11-26T00:46:23Z",
       "matches": []
     }
   ]
