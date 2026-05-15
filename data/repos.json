@@ -1065,7 +1065,11 @@
       "char_count": 8086,
       "score": 0,
       "last_commit_at": "2026-01-04T09:51:03Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:46:36.821Z",
+      "semantic_content_hash": "6413a0b7d0558e3ee5cfcc4c3c136875b789c0dfbd32865b09714caaef17e837"
     },
     {
       "owner": "OLD-SIX-AI-TEAM",
@@ -1074,7 +1078,11 @@
       "char_count": 9769,
       "score": 0,
       "last_commit_at": "2026-02-03T03:44:12Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:46:44.559Z",
+      "semantic_content_hash": "15a0efcb29dd479531b53726068ed618323e45ffef9b28a18f1a90d1c3d2d9b5"
     },
     {
       "owner": "OnerInce",
@@ -1083,7 +1091,11 @@
       "char_count": 2773,
       "score": 0,
       "last_commit_at": "2026-03-06T11:49:35Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:46:54.399Z",
+      "semantic_content_hash": "eb929d5f30ce4a2a8e9d075f243067867dbcbbb3144acdc1cdc0253e8432f8f9"
     },
     {
       "owner": "OpenX123",
@@ -1092,7 +1104,11 @@
       "char_count": 2516,
       "score": 0,
       "last_commit_at": "2026-04-18T16:25:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:47:04.615Z",
+      "semantic_content_hash": "3e82d149decc9f1e495a4f2e1b047da7fe27eb240fe4549b96b545fe388d060f"
     },
     {
       "owner": "opsmill",
@@ -1101,7 +1117,11 @@
       "char_count": 200,
       "score": 0,
       "last_commit_at": "2026-04-28T08:52:49Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:47:06.536Z",
+      "semantic_content_hash": "dcc51ecfbe3d86783f3568c9e801af7a5a1f0ffaf60ddb8cbd77073e8f8cd310"
     },
     {
       "owner": "opsmill",
@@ -1110,7 +1130,11 @@
       "char_count": 200,
       "score": 0,
       "last_commit_at": "2026-04-28T12:52:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:47:08.401Z",
+      "semantic_content_hash": "dcc51ecfbe3d86783f3568c9e801af7a5a1f0ffaf60ddb8cbd77073e8f8cd310"
     },
     {
       "owner": "orion-lib",
@@ -1524,7 +1548,11 @@
       "char_count": 4487,
       "score": 0,
       "last_commit_at": "2026-03-31T04:06:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:47:39.290Z",
+      "semantic_content_hash": "2a14647a7f19c784054dd6d828531c36657f11d6f9be6cd6c9cd6064407cd7e3"
     },
     {
       "owner": "wandb",
@@ -1533,7 +1561,17 @@
       "char_count": 3946,
       "score": 0,
       "last_commit_at": "2026-05-12T12:57:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "When asked for a large piece of work that seems vague, consequential, or full of hidden tradeoffs, ask the user detailed clarifying questions about the real implementation choices: technical design, workflow, UX, risks, validation, operations, and tradeoffs.",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work, which inherently involves understanding the task and asking clarifying questions.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-15T08:47:48.978Z",
+      "semantic_content_hash": "a5707ee9ec91d1e925c99cc2c296610ddc32967c899c780d154512e6673a685a"
     },
     {
       "owner": "Web3NL",
@@ -1542,7 +1580,11 @@
       "char_count": 5814,
       "score": 0,
       "last_commit_at": "2026-03-23T22:44:28Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:47:58.703Z",
+      "semantic_content_hash": "4b7b85d33d49f4b6d9e490974c3ce2f79dd10ddc9f6c45aa894f5c60c31f6808"
     },
     {
       "owner": "wisbric",
@@ -1551,7 +1593,11 @@
       "char_count": 4827,
       "score": 0,
       "last_commit_at": "2026-03-30T01:58:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:48:07.452Z",
+      "semantic_content_hash": "ed331b377330780b249d8d5e7a925d4f82c12f81e9cf9788ef22571eb2ba5ebe"
     },
     {
       "owner": "wolfymaster",
@@ -1569,7 +1615,11 @@
       "char_count": 8577,
       "score": 0,
       "last_commit_at": "2026-04-25T18:38:17Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:48:26.046Z",
+      "semantic_content_hash": "3afa7c47c2667781d3dcac9bf8ae082d85587096ef726e69c4cda1f4c9f5d262"
     },
     {
       "owner": "workos",
@@ -1614,7 +1664,11 @@
       "char_count": 6406,
       "score": 0,
       "last_commit_at": "2025-10-15T20:13:33Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-15T08:48:36.723Z",
+      "semantic_content_hash": "85e6b3d3dcb5367325c5b2b86c82fd688347b80c17e8cc598a57f6b011f2d1aa"
     }
   ]
 }
