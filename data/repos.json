@@ -10,7 +10,17 @@
       "last_commit_at": "2026-04-18T15:06:55Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never commit credentials, tokens, or private endpoints.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-16T08:00:08.603Z",
+      "semantic_content_hash": "10f4f50d332ccd1975abbbd8ffbabc6a0ff4b9c49ed1fd21905243e7e389640a"
     },
     {
       "owner": "hed-standard",
@@ -21,7 +31,17 @@
       "last_commit_at": "2026-03-11T11:59:15Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "no emojis",
+          "reason": "Claude Code already does not use emojis by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-16T08:00:17.774Z",
+      "semantic_content_hash": "13d9079a647a5048d4ef13ab194474fc493f27e20c7e721fa5f9d3e48e887f04"
     },
     {
       "owner": "mhattingpete",
@@ -32,7 +52,27 @@
       "last_commit_at": "2025-10-22T18:41:15Z",
       "matches": [
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Potentially destructive operations",
+          "reason": "Claude Code already asks before destructive operations by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Commit with descriptive message",
+          "reason": "Claude Code already focuses commit messages on WHY not WHAT, with a 1-2 sentence imperative-mood summary by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "NEVER create markdown files unless explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-16T08:00:37.742Z",
+      "semantic_content_hash": "05c2345f69fc3c168d0d4f9d0006f2e7ed2eee20c1276915419ac1a55811acd8"
     },
     {
       "owner": "CategoricalData",
@@ -43,7 +83,17 @@
       "last_commit_at": "2026-05-15T15:14:20Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "When in doubt, ask first.",
+          "reason": "Claude Code already asks before destructive operations by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-16T08:01:04.060Z",
+      "semantic_content_hash": "f629d6d73c1e3f468b3028ea065162ef28f0948ce1300b3960a54fd461505327"
     },
     {
       "owner": "haenara-shin",
@@ -54,7 +104,11 @@
       "last_commit_at": "2026-04-11T13:39:31Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-16T08:01:05.658Z",
+      "semantic_content_hash": "ad4cdc658481af14d2e2149ed5e466428f8d5e0c51f42864393af26f36ef3810"
     },
     {
       "owner": "matthewp",
@@ -65,7 +119,17 @@
       "last_commit_at": "2026-03-01T17:39:36Z",
       "matches": [
         "no-premature-abstractions"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Minimal comments — only where the \"why\" isn't obvious from the code",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-16T08:01:10.816Z",
+      "semantic_content_hash": "dc933751d2956317df3a0f650cffb23033a17bd98c34bcd613fdffbbf229598d"
     },
     {
       "owner": "ocx-sh",
@@ -87,7 +151,27 @@
       "last_commit_at": "2026-02-25T06:00:13Z",
       "matches": [
         "read-before-edit"
-      ]
+      ],
+      "semantic_score": 7,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never rewrite from scratch — always read existing code first, identify gaps, fix precisely",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting, and identifies root causes rather than bypassing safety checks.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Always read files before editing",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting, which implies reading files before editing.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Do NOT commit `.env.local` — credentials go in Vercel dashboard env vars only",
+          "reason": "Claude Code already never commits secrets.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-16T08:01:20.658Z",
+      "semantic_content_hash": "05a54c622df44db4a6626ff602c8245b764cd65fa0e4994d90b6110a8e2bd882"
     },
     {
       "owner": "addyosmani",
@@ -109,7 +193,11 @@
       "char_count": 19832,
       "score": 0,
       "last_commit_at": "2026-03-26T01:08:17Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-16T08:01:26.475Z",
+      "semantic_content_hash": "aebeb98222695a8c6eca2e90380a2a2de898a85a9dc5547c054214e4d1574907"
     },
     {
       "owner": "akvise",
@@ -118,7 +206,11 @@
       "char_count": 4297,
       "score": 0,
       "last_commit_at": "2025-08-29T09:28:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-16T08:01:33.189Z",
+      "semantic_content_hash": "39405e08655a24f01b36d7f5337b1affa6ea06556c7bf9659c0f162567201a05"
     },
     {
       "owner": "alecjacobson",
@@ -935,7 +1027,11 @@
       "char_count": 278,
       "score": 0,
       "last_commit_at": "2026-04-01T11:15:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-16T08:02:02.870Z",
+      "semantic_content_hash": "aebef3e2837c022d0685e85c0eece86ba09f029b0bd8734589b49eb6e01e93ba"
     },
     {
       "owner": "maxprain12",
@@ -944,7 +1040,11 @@
       "char_count": 18350,
       "score": 0,
       "last_commit_at": "2026-05-15T23:28:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-16T08:02:12.897Z",
+      "semantic_content_hash": "03c85873b42d6b82c76de6474cb8c2101882c2a2ff53ea2db5682e335599f0ed"
     },
     {
       "owner": "memtrace-dev",
@@ -953,7 +1053,11 @@
       "char_count": 1098,
       "score": 0,
       "last_commit_at": "2026-03-25T03:04:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-16T08:02:17.681Z",
+      "semantic_content_hash": "861ecb688a47d6e464187b3da613c41e7e135334ff4df518848013f1252741ea"
     },
     {
       "owner": "Michaelliv",
@@ -962,7 +1066,11 @@
       "char_count": 1288,
       "score": 0,
       "last_commit_at": "2026-01-21T13:08:39Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-16T08:02:23.069Z",
+      "semantic_content_hash": "d5c53bb46e00100d47458b2ffc1b33cc9eeb1659ec6e1eeeee3b14cf5c8ef342"
     },
     {
       "owner": "mihai-dinculescu",
@@ -971,7 +1079,17 @@
       "char_count": 1845,
       "score": 0,
       "last_commit_at": "2026-03-16T20:30:43Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "When a first fix attempt fails, step back and investigate the root cause before trying another surface-level fix.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-16T08:02:28.062Z",
+      "semantic_content_hash": "8f11cd3c0350152089b6523c6dc03b883a72174a9eb1576806579e584cf44c67"
     },
     {
       "owner": "ModelEngine-Group",
