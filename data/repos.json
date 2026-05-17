@@ -11,7 +11,22 @@
       "matches": [
         "no-emojis",
         "no-hedging"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis. Not in code, docs, commits, or responses — unless the user explicitly asks.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Minimal comments in code. Only when WHY is non-obvious.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-17T08:17:44.054Z",
+      "semantic_content_hash": "ea72c473f87d088acdc56db9a24e41d81bac6999bdb0fdf9145e951610c36802"
     },
     {
       "owner": "agent-sh",
@@ -22,7 +37,22 @@
       "last_commit_at": "2026-03-16T11:22:07Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Don't create summary files",
+          "reason": "Claude Code already does not write summary files unless explicitly asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-17T08:17:52.403Z",
+      "semantic_content_hash": "951d76e3ae618de4f2e17d49db061b745d57b36630adf2064ea7448c055143de"
     },
     {
       "owner": "nouploads",
@@ -33,7 +63,57 @@
       "last_commit_at": "2026-04-09T23:04:01Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 20,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do not refactor unrelated code.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not \"improve\" files outside the requested scope.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "stop when the task is complete",
+          "reason": "Claude Code already \"Marks tasks complete as soon as done; does not batch.\" by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Only edit files necessary for the task.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "silently change public behavior outside task scope",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" and \"Does not modify files outside the project directory without explicit instruction.\" by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "For every task, first determine: exact goal, allowed/forbidden files, required tests, whether this is route/feature/processor/test work, whether heavy bundle boundaries are affected.",
+          "reason": "Claude Code already \"Plans approach before implementation on non-trivial work; tests incrementally.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Refactoring: Only when the task requires it, existing code blocks implementation, duplication causes errors, a module is unreasonably large, or tests protect the change. No speculative cleanup or architectural experiments.",
+          "reason": "Claude Code already \"Does not add features, refactors, or abstractions beyond what the task requires.\" by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Output: State what changed, which files, tests added/updated, checks passed, known caveats, bundle impacts. Be concise.",
+          "reason": "Claude Code already provides \"Short, direct answers; length matches the task.\" by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Broad requests: Decompose into route, component, processor, tests, metadata, prerender. Implement smallest safe sequence.",
+          "reason": "Claude Code already \"Decomposes non-trivial tasks and tracks progress (TaskCreate).\" and \"Plans approach before implementation on non-trivial work; tests incrementally.\" by default.",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-17T08:18:31.758Z",
+      "semantic_content_hash": "0ca570b4093b94639c93ed8cf1ccee05f4f8956e897bf81eb845d95fc2ab09fd"
     },
     {
       "owner": "russbeye",
@@ -44,7 +124,27 @@
       "last_commit_at": "2025-09-19T04:29:28Z",
       "matches": [
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Run tools in parallel when possible.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER create files unless explicitly asked; ALWAYS edit existing ones.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not create docs/READMEs unless explicitly requested.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-17T08:18:44.204Z",
+      "semantic_content_hash": "f2ac0256e8a889f46d2b87cd31b1a636b895a49162e63e4779d766809c9f03d9"
     },
     {
       "owner": "warren830",
@@ -66,7 +166,11 @@
       "last_commit_at": "2026-03-11T11:36:14Z",
       "matches": [
         "owasp-top-10"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:19:01.683Z",
+      "semantic_content_hash": "1e5710907e20bbe06b64b291ba7fa87f058184954e609c254b0496614cccf0e3"
     },
     {
       "owner": "hyperpolymath",
@@ -77,7 +181,11 @@
       "last_commit_at": "2025-11-21T23:26:39Z",
       "matches": [
         "test-your-changes"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:19:14.027Z",
+      "semantic_content_hash": "bb02a6f91feb0c3572f161ba4f0defd31f20cf908e3596b03636fa9b4cc3f433"
     },
     {
       "owner": "ocx-sh",
@@ -88,7 +196,17 @@
       "last_commit_at": "2026-05-12T16:37:01Z",
       "matches": [
         "no-premature-abstractions"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Comments explain *why*, never *what* — no comments that restate code.",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-17T08:19:25.550Z",
+      "semantic_content_hash": "7d66675878763d0c89fdc8f855897c5cb205afadf475b7a5cbf223298d5af6ac"
     },
     {
       "owner": "ungden",
@@ -99,7 +217,27 @@
       "last_commit_at": "2026-02-25T06:00:13Z",
       "matches": [
         "read-before-edit"
-      ]
+      ],
+      "semantic_score": 7,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never rewrite from scratch — always read existing code first, identify gaps, fix precisely",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting, and identifies root causes rather than bypassing safety checks.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Always read files before editing",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting, which implies reading files before editing.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Do NOT commit `.env.local` — credentials go in Vercel dashboard env vars only",
+          "reason": "Claude Code already never commits secrets.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-17T08:19:33.599Z",
+      "semantic_content_hash": "05a54c622df44db4a6626ff602c8245b764cd65fa0e4994d90b6110a8e2bd882"
     },
     {
       "owner": "2234839",
@@ -108,7 +246,11 @@
       "char_count": 1496,
       "score": 0,
       "last_commit_at": "2026-05-13T10:44:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:19:40.351Z",
+      "semantic_content_hash": "799bebeb63e82ff027c60131617d341b7546c47b122a449b53e6cbbbe2a53bbb"
     },
     {
       "owner": "8cH9azbsFifZ",
@@ -117,7 +259,11 @@
       "char_count": 5990,
       "score": 0,
       "last_commit_at": "2026-02-08T11:12:43Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:19:48.763Z",
+      "semantic_content_hash": "ca3706a2376fe12a26c052374c0285447cd00d6254bad711eb53f1e637155fe7"
     },
     {
       "owner": "abdielou",
@@ -126,7 +272,11 @@
       "char_count": 3112,
       "score": 0,
       "last_commit_at": "2026-01-26T21:21:52Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:19:52.486Z",
+      "semantic_content_hash": "998de894ec499745eef6d15969f42b31046d9d05a07fe825ed736bfd862cb953"
     },
     {
       "owner": "AbianS",
@@ -135,7 +285,11 @@
       "char_count": 3236,
       "score": 0,
       "last_commit_at": "2026-01-14T21:59:12Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:20:01.486Z",
+      "semantic_content_hash": "53e1e27c52afba51f36387da9d2a6a95091fa55bb44a3f36bf93b5f8e3b4075a"
     },
     {
       "owner": "addyosmani",
@@ -157,7 +311,11 @@
       "char_count": 6402,
       "score": 0,
       "last_commit_at": "2026-05-10T06:34:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:20:09.721Z",
+      "semantic_content_hash": "95b0efd48805ace7341504fcfd4ee71c78c3468c29376c3ab3be0500c4847a10"
     },
     {
       "owner": "alecjacobson",
@@ -166,7 +324,11 @@
       "char_count": 2955,
       "score": 0,
       "last_commit_at": "2026-05-15T20:07:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:20:17.902Z",
+      "semantic_content_hash": "c5d97ff26a161495cd4d60dc8a196d728c4c0ddf8ea0240a4d7de561ba85a4c4"
     },
     {
       "owner": "alexford",
@@ -175,7 +337,11 @@
       "char_count": 785,
       "score": 0,
       "last_commit_at": "2025-12-25T17:03:36Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:20:21.665Z",
+      "semantic_content_hash": "53ad04d9bae3e92de21e2c3854b136e97d700050c1973565dcae16a9f67da848"
     },
     {
       "owner": "allan-simon",
@@ -445,7 +611,11 @@
       "char_count": 4219,
       "score": 0,
       "last_commit_at": "2026-03-23T13:04:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:20:42.661Z",
+      "semantic_content_hash": "6e5e57d12beb6db1941a0fec3daf8d1ab820d3ae1e197bf80f3942de7474f1ca"
     },
     {
       "owner": "doguyilmaz",
@@ -454,7 +624,57 @@
       "char_count": 5408,
       "score": 0,
       "last_commit_at": "2025-09-01T23:13:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 19,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't add unnecessary layers of abstraction; avoid over-engineering.",
+          "reason": "Claude Code already avoids adding abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Provide detailed reasoning only if asked (\"explain\"), otherwise keep short/direct.",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "For large tasks, use checklists or scratchpads, always keep the code clean and readable and track/update processes.",
+          "reason": "Claude Code already decomposes non-trivial tasks, tracks progress, and plans approaches before implementation by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Commit frequently with clear, descriptive messages.",
+          "reason": "Claude Code already focuses commit messages on WHY, making them descriptive, by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Never log or expose sensitive information (passwords, tokens, API keys, PII).",
+          "reason": "Claude Code already avoids committing secrets and uploading sensitive content by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Add comments only for complex logic or non-obvious decisions.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NO unnecessary comments - code should be readable without them.",
+          "reason": "Claude Code already avoids unnecessary comments by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NO obvious comments like \"// increment counter\" for `counter++`.",
+          "reason": "Claude Code already avoids explaining WHAT the code does in comments by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Comments allowed ONLY for: complex algorithms, non-obvious business logic, important warnings.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-17T08:20:59.760Z",
+      "semantic_content_hash": "eba5b45196149ea55de73ab734168787d6520abbeb2ff3fd452097f8e76d0690"
     },
     {
       "owner": "doodledood",
@@ -463,7 +683,11 @@
       "char_count": 9909,
       "score": 0,
       "last_commit_at": "2026-05-13T13:54:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:21:14.684Z",
+      "semantic_content_hash": "bbbf8dc03c70777805db195f574efbc9e5c9d2abf70b1397373cdb1cb15af622"
     },
     {
       "owner": "DotNetAge",
@@ -472,7 +696,11 @@
       "char_count": 6553,
       "score": 0,
       "last_commit_at": "2026-02-22T06:33:03Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:21:19.755Z",
+      "semantic_content_hash": "9b22299acc624ce7cf6cee2e22ab1bc5edb17802cfe3e3f0c96365f1a1396447"
     },
     {
       "owner": "dvcrn",
@@ -481,7 +709,11 @@
       "char_count": 5196,
       "score": 0,
       "last_commit_at": "2026-03-15T10:41:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-17T08:21:29.367Z",
+      "semantic_content_hash": "9e953f3b826db0e2da6c27a0d18c2c1502456093fce5a814e86f443d21bd0af7"
     },
     {
       "owner": "dvselas",
