@@ -11,7 +11,22 @@
       "matches": [
         "prefer-editing",
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "No File Creation: Prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default",
+          "confidence": "low"
+        },
+        {
+          "quote": "No Documentation: Do not create README or documentation files unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:56:51.294Z",
+      "semantic_content_hash": "c1d3c67cedd192ef610c21a17c550e5e6dbf57ecb05f98178ece0ca0955642e5"
     },
     {
       "owner": "bleeding182",
@@ -22,7 +37,22 @@
       "last_commit_at": "2025-07-11T15:46:56Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do not comment on your own actions on every step, be concise",
+          "reason": "Claude Code already provides short, direct answers and brief updates at key moments.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Skip any praises, and comments on how everything became better, say \"Done!\" when the work is finished and keep the summary _short_",
+          "reason": "Claude Code already provides short, direct answers, no preamble greetings, and no trailing end-of-turn summary.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:57:00.296Z",
+      "semantic_content_hash": "5ba57b7f8f3b14f1daceb52fb4859fc53ac02d94600a89ad61be5b5819eb4317"
     },
     {
       "owner": "jxnl",
@@ -33,7 +63,11 @@
       "last_commit_at": "2026-01-17T14:53:56Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-18T09:57:05.965Z",
+      "semantic_content_hash": "4790514903980e522fa419001781fed084801bf90c040aa686b54287c30bc254"
     },
     {
       "owner": "Kyome22",
@@ -44,7 +78,17 @@
       "last_commit_at": "2026-01-25T17:08:24Z",
       "matches": [
         "no-comments"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use naming conventions that clearly indicate the purpose of the code, even without comments.",
+          "reason": "Claude Code already relies on well-named identifiers to explain WHAT the code does by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:57:12.268Z",
+      "semantic_content_hash": "2063f9344fb62b2fa98cdc5f6c0f1cf9d7f6f57607182e70a8b575d909d7c7a9"
     },
     {
       "owner": "NativePHP",
@@ -55,7 +99,27 @@
       "last_commit_at": "2025-12-10T03:34:06Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never use comments within the code itself unless there is something _very_ complex going on.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:57:40.441Z",
+      "semantic_content_hash": "8471ae11ae6d932badd72e0733d22268da5fca29912819e54d0c678e3a77047b"
     },
     {
       "owner": "Uncover-it",
@@ -66,7 +130,22 @@
       "last_commit_at": "2026-05-07T12:29:24Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis unless the user asks in this turn.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Plain English, short sentences.",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:57:49.402Z",
+      "semantic_content_hash": "36e7ab3669a7adceb1e3448916155a9b8ef6bfa5cf60c62380df05de76388cea"
     },
     {
       "owner": "dougborg",
@@ -77,7 +156,17 @@
       "last_commit_at": "2026-05-12T23:13:47Z",
       "matches": [
         "use-gh-cli"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't push code with pending pyright errors — CI will fail.",
+          "reason": "Claude Code already never commits broken code by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:58:08.118Z",
+      "semantic_content_hash": "7a755fd321ae411452ce48546a8295be222b28b30813c2ce56fd3d95e82ddd5c"
     },
     {
       "owner": "FastLED",
@@ -88,7 +177,77 @@
       "last_commit_at": "2026-04-25T14:55:47Z",
       "matches": [
         "use-plan-mode"
-      ]
+      ],
+      "semantic_score": 19,
+      "semantic_matched_intents": [
+        {
+          "quote": "Default mindset: finish the job.",
+          "reason": "Claude Code already marks tasks complete as soon as done and does not batch, implying a finished state.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Agents should not leave uncommitted changes dangling on `master`/`main`.",
+          "reason": "Claude Code already marks tasks complete as soon as done and does not batch, implying a clean working tree.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do this proactively when work is complete.",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "ALWAYS stop and fix Write/Edit hook errors immediately before writing the next file",
+          "reason": "Claude Code already marks tasks complete as soon as done, tests incrementally, and identifies root causes for debugging.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do NOT attempt to fix the code based only on quick-mode output — always get debug output first",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks and investigates unfamiliar state before deleting or overwriting.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Fix ALL encountered errors immediately, even pre-existing ones unrelated to your current task",
+          "reason": "Claude Code already marks tasks complete as soon as done, tests incrementally, and identifies root causes for debugging.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Plan first for non-trivial tasks (3+ steps) — use plan mode",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Verify before done — prove it works with tests, logs, demonstrations",
+          "reason": "Claude Code already tests incrementally and marks tasks complete as soon as done.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Make every change as simple as possible.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Minimal code impact.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Find root causes.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "low"
+        },
+        {
+          "quote": "No temporary fixes.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Changes should only touch what's necessary.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:58:32.079Z",
+      "semantic_content_hash": "0e99305817252973e335b24b655c8761aee0664a539bea7a80392783c7d63df9"
     },
     {
       "owner": "hyperpolymath",
@@ -99,7 +258,17 @@
       "last_commit_at": "2025-11-21T23:26:39Z",
       "matches": [
         "test-your-changes"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Test your changes - Build and test on appropriate platforms",
+          "reason": "Claude Code already tests incrementally by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:58:48.591Z",
+      "semantic_content_hash": "bb02a6f91feb0c3572f161ba4f0defd31f20cf908e3596b03636fa9b4cc3f433"
     },
     {
       "owner": "MauricioPerera",
@@ -110,7 +279,37 @@
       "last_commit_at": "2026-04-20T07:49:42Z",
       "matches": [
         "no-preamble-greeting"
-      ]
+      ],
+      "semantic_score": 8,
+      "semantic_matched_intents": [
+        {
+          "quote": "No preamble",
+          "reason": "Claude Code already avoids preamble greetings by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "no trailing prose.",
+          "reason": "Claude Code already avoids trailing end-of-turn summaries by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Return a concise answer in markdown.",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Answer length: match the question. Short questions get short answers.",
+          "reason": "Claude Code already provides short, direct answers; length matches the task by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not pad.",
+          "reason": "Claude Code already provides short, direct answers; length matches the task by default, which implies no padding.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:59:07.743Z",
+      "semantic_content_hash": "42ba36b18ad8b413624984b8fa93c66e5e77972cbb57ffd5a18156654e625b4f"
     },
     {
       "owner": "1amageek",
@@ -119,7 +318,17 @@
       "char_count": 91689,
       "score": 0,
       "last_commit_at": "2025-11-21T09:27:49Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "実装を中途半端に終えた場合は、中途半端な実装部分の設計を行い確実に実装するまで実装してください。",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work and tests incrementally by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:59:24.492Z",
+      "semantic_content_hash": "5851bea1c4a938102a0b7a511688278543ba0df7986ccc982e04fc90eb6d9d7d"
     },
     {
       "owner": "23min",
@@ -128,7 +337,17 @@
       "char_count": 3850,
       "score": 0,
       "last_commit_at": "2026-03-01T10:20:58Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use imperative mood (\"add\", not \"added\").",
+          "reason": "Claude Code already uses imperative-mood commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-18T09:59:36.599Z",
+      "semantic_content_hash": "3e857ecc8a3f25c0c0960a1c938214a601891def373044fac0b39dcba0eefc13"
     },
     {
       "owner": "addyosmani",
@@ -137,7 +356,11 @@
       "char_count": 2050,
       "score": 0,
       "last_commit_at": "2026-05-10T20:23:48Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-18T09:59:40.901Z",
+      "semantic_content_hash": "dbd73325d87dbe206e8505dba6004a87bd13ccae1fd0852ba878782662cb87a1"
     },
     {
       "owner": "agentic-dev-io",
@@ -146,7 +369,11 @@
       "char_count": 10906,
       "score": 0,
       "last_commit_at": "2026-03-07T06:21:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-18T09:59:49.215Z",
+      "semantic_content_hash": "ffc1055f15c79b5c4f6f0b606a5980258275d2f50e64eda7ea9b96957d2f0bea"
     },
     {
       "owner": "AgiFlow",
@@ -155,7 +382,11 @@
       "char_count": 735,
       "score": 0,
       "last_commit_at": "2025-10-20T06:43:58Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-18T09:59:52.254Z",
+      "semantic_content_hash": "f94f2cf339cb79db3f469fc35b21beca6d50c2603851b77b8c10eb953ca7f1e4"
     },
     {
       "owner": "ai-shifu",
