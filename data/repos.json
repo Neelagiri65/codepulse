@@ -325,7 +325,11 @@
       "char_count": 11783,
       "score": 0,
       "last_commit_at": "2026-05-04T06:52:42Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:36:11.740Z",
+      "semantic_content_hash": "e690661eb15019087398a63885561ece7028dd99eb236c29c3f75e6ef5e87626"
     },
     {
       "owner": "javascript-obfuscator",
@@ -347,7 +351,11 @@
       "char_count": 5399,
       "score": 0,
       "last_commit_at": "2026-04-29T07:18:37Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:36:22.667Z",
+      "semantic_content_hash": "ab7eacf2e59087d9ee020e57ffc04625adb401e32f9402632d96840b9cf88c5e"
     },
     {
       "owner": "johnlindquist",
@@ -356,7 +364,11 @@
       "char_count": 4830,
       "score": 0,
       "last_commit_at": "2025-06-08T03:41:21Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:36:35.680Z",
+      "semantic_content_hash": "3cd806c0ffad31da74a367182c14e14d499aab09a831342f5f1ea377d2c37b7e"
     },
     {
       "owner": "jonobr1",
@@ -365,7 +377,11 @@
       "char_count": 8060,
       "score": 0,
       "last_commit_at": "2026-01-05T18:34:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:36:45.307Z",
+      "semantic_content_hash": "d3b3a681a39d7c4574641784b10779817209be8b47336c1d4aef0bc8b3961fde"
     },
     {
       "owner": "jqlang",
@@ -374,7 +390,11 @@
       "char_count": 2494,
       "score": 0,
       "last_commit_at": "2026-02-22T22:38:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:36:49.639Z",
+      "semantic_content_hash": "4bde441398099d3338329ba21daf6c709ecb5f42aa6bc8b893e4943a29e13c0e"
     },
     {
       "owner": "kimlimjustin",
@@ -383,7 +403,17 @@
       "char_count": 5267,
       "score": 0,
       "last_commit_at": "2026-03-26T03:32:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Concise commit messages focused on the \"why\", not the \"what\".",
+          "reason": "Claude Code already writes why-not-what commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-21T09:36:56.663Z",
+      "semantic_content_hash": "a1e89b328347085a3b405f5cf56f0e9a18ef5da92c3751b46d0927ded782d3a2"
     },
     {
       "owner": "kossakovsky",
@@ -482,7 +512,11 @@
       "char_count": 133,
       "score": 0,
       "last_commit_at": "2026-02-06T22:21:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:37:05.227Z",
+      "semantic_content_hash": "4cbbcde81b7096ee54bfb21f086524d77212d4996640d8ae39c9ecc842d82801"
     },
     {
       "owner": "microsoft",
@@ -491,7 +525,11 @@
       "char_count": 5797,
       "score": 0,
       "last_commit_at": "2026-03-17T16:44:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:37:24.212Z",
+      "semantic_content_hash": "ed8ff06ec841980849d5fd4c9f65d12fb235b52cd432486c6fa8526aea937efa"
     },
     {
       "owner": "mihai-dinculescu",
@@ -500,7 +538,17 @@
       "char_count": 1845,
       "score": 0,
       "last_commit_at": "2026-03-16T20:30:43Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "When a first fix attempt fails, step back and investigate the root cause before trying another surface-level fix.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-21T09:37:28.879Z",
+      "semantic_content_hash": "8f11cd3c0350152089b6523c6dc03b883a72174a9eb1576806579e584cf44c67"
     },
     {
       "owner": "MinaProtocol",
@@ -509,7 +557,11 @@
       "char_count": 8863,
       "score": 0,
       "last_commit_at": "2026-04-04T06:27:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:37:40.430Z",
+      "semantic_content_hash": "df5f715923079731c122a3c3d5ff3b2a1c41652c096d574226897db9fccc0be8"
     },
     {
       "owner": "Netis",
@@ -518,7 +570,11 @@
       "char_count": 6047,
       "score": 0,
       "last_commit_at": "2026-02-28T03:45:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:37:51.821Z",
+      "semantic_content_hash": "64afe8cace47a3d1d4c8631b415303c8b7ab7d9f89316eb7d8e69da2d69d7016"
     },
     {
       "owner": "NikolayS",
@@ -527,7 +583,11 @@
       "char_count": 857,
       "score": 0,
       "last_commit_at": "2026-03-11T14:58:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:37:56.491Z",
+      "semantic_content_hash": "75f26dfc2fe7d2552ff6cc556475b4355ea1b6795558ba9236dcbc1a6c890eb9"
     },
     {
       "owner": "nlweb-ai",
@@ -635,7 +695,27 @@
       "char_count": 8378,
       "score": 0,
       "last_commit_at": "2026-04-22T13:28:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 5,
+      "semantic_matched_intents": [
+        {
+          "quote": "Keep edits minimal and local to the requested change.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not add speculative abstractions or broad refactors unless explicitly requested.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Keep diffs reviewable and focused.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-21T09:38:28.419Z",
+      "semantic_content_hash": "79ca65485ce552c711d76d5484e4d8bc091478cf320dc7277faedb7176badb65"
     },
     {
       "owner": "prey",
@@ -644,7 +724,11 @@
       "char_count": 5839,
       "score": 0,
       "last_commit_at": "2026-03-02T18:05:12Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-21T09:38:35.957Z",
+      "semantic_content_hash": "9a45f940e26f5a2457d0e3c670e4e043fe4ee425bae0946673fbf63fdf9e1e37"
     },
     {
       "owner": "prometheus",
