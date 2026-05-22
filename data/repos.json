@@ -11,7 +11,17 @@
       "matches": [
         "no-emojis",
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis, no prefix symbols (no ✨ 🛠 🐛).",
+          "reason": "Claude Code already does not use emojis by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-22T08:57:18.127Z",
+      "semantic_content_hash": "8469172a23afb36350a466975a545efe2d27b1f1987ff06b7a0e60fa20b4b556"
     },
     {
       "owner": "steveseguin",
@@ -22,7 +32,11 @@
       "last_commit_at": "2026-03-28T23:20:55Z",
       "matches": [
         "no-comments"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:57:21.524Z",
+      "semantic_content_hash": "6fe1e963f81e96c9a89d3b662fbf2f0c038c51d3438566b8bbccae6315945eca"
     },
     {
       "owner": "mekkablue",
@@ -33,7 +47,11 @@
       "last_commit_at": "2026-03-20T08:47:16Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:57:38.692Z",
+      "semantic_content_hash": "04cb5daab508d71bad0077e7df6302e18ffabb47f61b66435b3bdc8d61bd060b"
     },
     {
       "owner": "openstatusHQ",
@@ -44,7 +62,17 @@
       "last_commit_at": "2026-04-17T10:31:51Z",
       "matches": [
         "test-your-changes"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "No unnecessary abstractions — keep it simple.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-22T08:57:53.338Z",
+      "semantic_content_hash": "009a33f8af962e110664524a3e47ae954f98349c0f3d7b3bc0c917b466eba692"
     },
     {
       "owner": "AIDotNet",
@@ -53,7 +81,11 @@
       "char_count": 2320,
       "score": 0,
       "last_commit_at": "2026-01-22T15:12:48Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:57:59.552Z",
+      "semantic_content_hash": "a6b58524257b5fa7046957e74bc231d0f265ca5853fb423ef358c0f1025b2664"
     },
     {
       "owner": "artsy",
@@ -62,7 +94,11 @@
       "char_count": 1333,
       "score": 0,
       "last_commit_at": "2025-08-13T18:26:28Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:58:03.719Z",
+      "semantic_content_hash": "3b676f62425e01bd8be3c0c4adf61fec541529a0cbfab9d1d55ef57f4b40e70c"
     },
     {
       "owner": "ArweaveTeam",
@@ -134,7 +170,11 @@
       "char_count": 4290,
       "score": 0,
       "last_commit_at": "2025-10-23T17:20:04Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:58:18.328Z",
+      "semantic_content_hash": "d31790744bbe51aaa3536ec42319e1bc837c68939d0e291ef3f4cbf0fd527a9a"
     },
     {
       "owner": "cyverse-de",
@@ -143,7 +183,11 @@
       "char_count": 937,
       "score": 0,
       "last_commit_at": "2025-09-24T23:38:03Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:58:24.559Z",
+      "semantic_content_hash": "4b36ce192fe88e3e4f16935b9b9b1c614dca20a0861513b85752f0e37185eaad"
     },
     {
       "owner": "dalisoft",
@@ -152,7 +196,11 @@
       "char_count": 48,
       "score": 0,
       "last_commit_at": "2026-04-26T04:54:13Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:58:26.399Z",
+      "semantic_content_hash": "b6c5ac57bc2858b907eb18969fc5c2cacf75b4e6abb7f79b7836b5a590c816fc"
     },
     {
       "owner": "DataBiosphere",
@@ -161,7 +209,11 @@
       "char_count": 2549,
       "score": 0,
       "last_commit_at": "2026-02-06T16:41:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:58:33.150Z",
+      "semantic_content_hash": "13923973e58906dbfac35f75854b98b9dacd864aa4cf921171694a26bcf117da"
     },
     {
       "owner": "datahaven-xyz",
@@ -170,7 +222,11 @@
       "char_count": 5613,
       "score": 0,
       "last_commit_at": "2025-12-29T13:55:21Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:58:42.076Z",
+      "semantic_content_hash": "9a44ece02a2fe74dfe7ecbdd08c39a982d7374c43e565f868b4fbdd23b436be1"
     },
     {
       "owner": "deviceinsight",
@@ -179,7 +235,11 @@
       "char_count": 13346,
       "score": 0,
       "last_commit_at": "2026-03-16T18:49:13Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:58:52.631Z",
+      "semantic_content_hash": "85bdd73b8ae57606836e973248e207aad83ad8861fd6891f5f4070e9f31e27b2"
     },
     {
       "owner": "domaframework",
@@ -445,7 +505,17 @@
       "char_count": 3895,
       "score": 0,
       "last_commit_at": "2025-10-10T09:55:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "If you need a multi-paragraph comment, refactor until intent is obvious",
+          "reason": "Claude Code already avoids multi-paragraph docstrings and multi-line comment blocks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-22T08:59:21.742Z",
+      "semantic_content_hash": "e4c3f3e1deebb8586c4d22e2af06e72b0a7f8615456dd55eb2eb023464517b5d"
     },
     {
       "owner": "llm-jp",
@@ -454,7 +524,11 @@
       "char_count": 964,
       "score": 0,
       "last_commit_at": "2026-03-22T02:52:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:59:25.714Z",
+      "semantic_content_hash": "2d9cd6b8ed971eca3a70062348acf2854f7f0c60e660fb7e83f937c368e56a6b"
     },
     {
       "owner": "lowdefy",
@@ -463,7 +537,27 @@
       "char_count": 18439,
       "score": 0,
       "last_commit_at": "2026-03-08T20:38:05Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 10,
+      "semantic_matched_intents": [
+        {
+          "quote": "Fix at the Source, Not the Symptom",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "The urge to add a guard clause is a red flag that you're treating symptoms, not causes. The WHY needs to be understood before adding.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Only comment why, not what. Code should be self-documenting.",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-22T08:59:39.628Z",
+      "semantic_content_hash": "aaf51e4167fddd513bb3f71706115f3874c7490a7207271f6cd7d7c33754ce9e"
     },
     {
       "owner": "maildev",
@@ -472,7 +566,11 @@
       "char_count": 17428,
       "score": 0,
       "last_commit_at": "2026-01-15T12:32:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:59:55.062Z",
+      "semantic_content_hash": "3e3796419c562e51d8d6321830700b5a3f88e6d614ac8ab8be9da97550878956"
     },
     {
       "owner": "mattpocock",
@@ -481,7 +579,11 @@
       "char_count": 278,
       "score": 0,
       "last_commit_at": "2026-04-01T11:15:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T08:59:57.351Z",
+      "semantic_content_hash": "aebef3e2837c022d0685e85c0eece86ba09f029b0bd8734589b49eb6e01e93ba"
     },
     {
       "owner": "maxmind",
@@ -490,7 +592,11 @@
       "char_count": 7390,
       "score": 0,
       "last_commit_at": "2026-03-20T14:55:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T09:00:01.473Z",
+      "semantic_content_hash": "1340c821ef334db1f8d07aaeddc8c9d0f5f23d811d9475b4fdcdecb0ec1febb4"
     },
     {
       "owner": "maxmind",
@@ -508,7 +614,11 @@
       "char_count": 133,
       "score": 0,
       "last_commit_at": "2026-02-06T22:21:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-22T09:00:04.930Z",
+      "semantic_content_hash": "4cbbcde81b7096ee54bfb21f086524d77212d4996640d8ae39c9ecc842d82801"
     },
     {
       "owner": "microsoft",
