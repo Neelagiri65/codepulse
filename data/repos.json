@@ -10,7 +10,27 @@
       "last_commit_at": "2025-12-10T03:34:06Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never use comments within the code itself unless there is something _very_ complex going on.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-25T10:00:14.384Z",
+      "semantic_content_hash": "8471ae11ae6d932badd72e0733d22268da5fca29912819e54d0c678e3a77047b"
     },
     {
       "owner": "nouploads",
@@ -32,7 +52,17 @@
       "last_commit_at": "2026-05-07T15:31:13Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Follow existing style: imperative mood, short summary line.",
+          "reason": "Claude Code already uses imperative-mood summary commit messages of 1-2 sentences by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-25T10:00:28.304Z",
+      "semantic_content_hash": "3d4cb8e9166ef64759a02e5ef5cda1216e12f68ae93ff00f1f8e7a9b1e5c35e8"
     },
     {
       "owner": "hyperpolymath",
@@ -88,7 +118,11 @@
       "char_count": 5766,
       "score": 0,
       "last_commit_at": "2026-03-24T18:18:36Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-25T10:01:10.171Z",
+      "semantic_content_hash": "8a914f26575d5b8424a3cc9fd4cb120b40b444298e1e8f23ce86c3e3cea3fd1f"
     },
     {
       "owner": "AlbertoCentonze",
@@ -741,7 +775,17 @@
       "char_count": 807,
       "score": 0,
       "last_commit_at": "2026-01-30T11:40:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "且对于这两者，严格遵循**非必要不形成**的核心原则。",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious and does not write docs unless explicitly asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-25T10:01:55.591Z",
+      "semantic_content_hash": "dd937b2f93d0657bc0856a7f9f4bc6926eedcc888bcf6560a16988720b45adc7"
     },
     {
       "owner": "HelgeSverre",
@@ -750,7 +794,11 @@
       "char_count": 2827,
       "score": 0,
       "last_commit_at": "2026-01-21T05:06:44Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-25T10:02:07.665Z",
+      "semantic_content_hash": "53fb3a27ff534b2559a11d5ff443cc35e03476c8bb06b55377920622cc7a44f9"
     },
     {
       "owner": "HermannBjorgvin",
@@ -759,7 +807,17 @@
       "char_count": 13015,
       "score": 0,
       "last_commit_at": "2026-05-21T01:27:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Always read those memory files at session start.",
+          "reason": "Claude Code already uses memory files for persistent context by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-25T10:02:24.678Z",
+      "semantic_content_hash": "3c4094b5f279ef5828f0542ce3ccbf218277988a132a0c94f70eef2e42d1a10a"
     },
     {
       "owner": "huiyi9420",
@@ -768,7 +826,11 @@
       "char_count": 11904,
       "score": 0,
       "last_commit_at": "2026-04-05T10:59:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-25T10:02:39.315Z",
+      "semantic_content_hash": "36f32c70bd8be5c02fdb9df72924feb5f20c290aecddcf465240114cd231a56f"
     },
     {
       "owner": "humanapp",
@@ -777,7 +839,22 @@
       "char_count": 4051,
       "score": 0,
       "last_commit_at": "2026-05-05T04:22:44Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do not add comments that just restate what the code does.",
+          "reason": "Claude Code already does not explain WHAT the code does in comments by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Only include comments that explain non-obvious intent, invariants, or constraints.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-25T10:02:50.045Z",
+      "semantic_content_hash": "ac699eea45811cb947437e71898496dcb59fb3a56de7a427c3890e7092763184"
     },
     {
       "owner": "indiagrams",
@@ -804,7 +881,17 @@
       "char_count": 20770,
       "score": 0,
       "last_commit_at": "2025-11-11T10:14:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "NEVER use emojis in ANY documentation, plans, guides, or written output for this project UNLESS explicitly given permission.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-25T10:02:59.328Z",
+      "semantic_content_hash": "4c1862a2eba7a02294a8336648bc0267eba97afd1c925284c19858c8c7a3cb99"
     },
     {
       "owner": "jackfranklin",
@@ -813,7 +900,11 @@
       "char_count": 3703,
       "score": 0,
       "last_commit_at": "2026-04-17T07:19:28Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-25T10:03:02.558Z",
+      "semantic_content_hash": "2b2473b3bcbcd44e50ebc0f076179ffd1d347c427662a3636512ee70256a5c30"
     },
     {
       "owner": "jalanb",
@@ -822,7 +913,11 @@
       "char_count": 3984,
       "score": 0,
       "last_commit_at": "2025-08-11T03:12:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-25T10:03:08.863Z",
+      "semantic_content_hash": "e046c0f86bd59c91f67154d2d73633cec4773bd0e960dbd0716b585bf15e368f"
     },
     {
       "owner": "jasoncolburne",
@@ -831,7 +926,11 @@
       "char_count": 53,
       "score": 0,
       "last_commit_at": "2026-04-18T03:30:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-25T10:03:10.506Z",
+      "semantic_content_hash": "6a20f7806d4ba9c05add955b13a785bed17bb3bf2b4a6b20de47a3afabd17c10"
     },
     {
       "owner": "javascript-obfuscator",
