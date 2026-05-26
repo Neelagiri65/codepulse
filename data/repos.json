@@ -10,7 +10,22 @@
       "last_commit_at": "2026-01-22T23:53:58Z",
       "matches": [
         "use-plan-mode"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Commit regularly after completing logical units of work",
+          "reason": "Claude Code already marks tasks complete as soon as done and tests incrementally, which implies committing after logical units of work.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use plan mode for non-trivial features before implementing",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-26T09:49:03.051Z",
+      "semantic_content_hash": "55782687b355b9d97a3ba5dd0f57614d09631357cd74e3e089da81c451837ff8"
     },
     {
       "owner": "hyperpolymath",
@@ -21,7 +36,11 @@
       "last_commit_at": "2025-11-21T23:26:39Z",
       "matches": [
         "test-your-changes"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:49:17.003Z",
+      "semantic_content_hash": "bb02a6f91feb0c3572f161ba4f0defd31f20cf908e3596b03636fa9b4cc3f433"
     },
     {
       "owner": "0x0000dead",
@@ -30,7 +49,11 @@
       "char_count": 20370,
       "score": 0,
       "last_commit_at": "2026-04-15T21:31:21Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:49:37.920Z",
+      "semantic_content_hash": "d3a3546d199690628c11e32401547c775e7c7b551b025993060d54ab1f1fbc1a"
     },
     {
       "owner": "0xeb",
@@ -39,7 +62,11 @@
       "char_count": 4951,
       "score": 0,
       "last_commit_at": "2026-01-27T02:23:00Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:49:48.208Z",
+      "semantic_content_hash": "911daa01b060d068fc2469df32dda28ac879bf017d4262e3b758747d55cbfa4c"
     },
     {
       "owner": "abdielou",
@@ -48,7 +75,11 @@
       "char_count": 3112,
       "score": 0,
       "last_commit_at": "2026-01-26T21:21:52Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:49:52.082Z",
+      "semantic_content_hash": "998de894ec499745eef6d15969f42b31046d9d05a07fe825ed736bfd862cb953"
     },
     {
       "owner": "Afee2019",
@@ -57,7 +88,17 @@
       "char_count": 3212,
       "score": 0,
       "last_commit_at": "2026-02-16T06:34:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "禁止硬编码密钥",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-26T09:50:02.417Z",
+      "semantic_content_hash": "60211561588403dfb4114233a4417e76fbdc761d5e509f0b477c8b9f428b7628"
     },
     {
       "owner": "Ali-Haggag7",
@@ -66,7 +107,11 @@
       "char_count": 2561,
       "score": 0,
       "last_commit_at": "2026-05-08T15:18:29Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:50:09.417Z",
+      "semantic_content_hash": "65cc8786e01814c2c83247a4cfa52ae633eee0ffda3956b74d5227efcd509558"
     },
     {
       "owner": "alisonjenkins",
@@ -75,7 +120,11 @@
       "char_count": 4865,
       "score": 0,
       "last_commit_at": "2026-02-05T10:15:43Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:50:18.675Z",
+      "semantic_content_hash": "3da80316f127e47b09b2caa8d7dcfe8d561a4f43219540fcb569679e9bbca277"
     },
     {
       "owner": "allienna",
@@ -84,7 +133,11 @@
       "char_count": 6629,
       "score": 0,
       "last_commit_at": "2026-03-17T20:24:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:50:28.157Z",
+      "semantic_content_hash": "17ff289214ea17c67ebc8e0f54111320051ce022aa884c60e18bf609e53d91c5"
     },
     {
       "owner": "Anshler",
@@ -93,7 +146,11 @@
       "char_count": 4676,
       "score": 0,
       "last_commit_at": "2026-04-07T14:29:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:50:35.120Z",
+      "semantic_content_hash": "ac89af9845322b120b9fe00ceea05dde6288b06b541ee9bcaeae3a96a122891b"
     },
     {
       "owner": "apache",
@@ -102,7 +159,97 @@
       "char_count": 21512,
       "score": 0,
       "last_commit_at": "2026-05-24T15:55:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 23,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't explain what the code already says.",
+          "reason": "Claude Code already does not explain WHAT the code does by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Comment only when reading the code is not enough — invariants that aren't visible in this method, cross-cutting ordering, why a non-obvious branch exists, why a seemingly redundant call is required.",
+          "reason": "Claude Code already only writes a comment when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "If the code is clear, no comment.",
+          "reason": "Claude Code already does not explain WHAT the code does by default, implying no comment if code is clear.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Multi-paragraph rationale belongs in the design doc, not the source.",
+          "reason": "Claude Code already does not write multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never guess or speculate.",
+          "reason": "Claude Code already investigates unfamiliar state and identifies root causes by default, which implies not guessing or speculating.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Read the source code",
+          "reason": "Claude Code already investigates unfamiliar state by default, which implies reading source code.",
+          "confidence": "low"
+        },
+        {
+          "quote": "don't assume how a feature works based on naming or convention.",
+          "reason": "Claude Code already investigates unfamiliar state by default, which implies not making assumptions.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check the actual implementation.",
+          "reason": "Claude Code already investigates unfamiliar state by default, which implies checking the actual implementation.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Verify locally first",
+          "reason": "Claude Code already plans its approach and tests incrementally by default, which implies local verification.",
+          "confidence": "low"
+        },
+        {
+          "quote": "run the code, start the container, execute the test before pushing to CI.",
+          "reason": "Claude Code already plans its approach and tests incrementally by default, which implies local verification before pushing.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't use CI as a trial-and-error environment.",
+          "reason": "Claude Code already plans its approach and tests incrementally by default, which implies not using CI for trial-and-error.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't assume directory names.",
+          "reason": "Claude Code already investigates unfamiliar state by default, which implies not assuming directory names.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Say \"I don't know\" and investigate",
+          "reason": "Claude Code already investigates unfamiliar state by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "reading the code is always better than guessing.",
+          "reason": "Claude Code already investigates unfamiliar state by default, which implies reading code over guessing.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Use grep, find, and read tools to locate the answer.",
+          "reason": "Claude Code already investigates unfamiliar state by default, which implies using tools to locate answers.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Test with real data",
+          "reason": "Claude Code already tests incrementally by default, which implies testing with real data.",
+          "confidence": "low"
+        },
+        {
+          "quote": "when investigating runtime behavior (e.g., what model names an API returns, what directory structure BanyanDB creates), set up a local test and observe the actual output.",
+          "reason": "Claude Code already investigates unfamiliar state and tests incrementally by default, which implies setting up local tests to observe actual output.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-26T09:50:56.685Z",
+      "semantic_content_hash": "57b397ff50f20042cdb6023f51b3880f5b38e74766718d87fb18a37cf22082fc"
     },
     {
       "owner": "AppiumTestDistribution",
@@ -111,7 +258,11 @@
       "char_count": 4076,
       "score": 0,
       "last_commit_at": "2026-04-07T07:42:28Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:51:06.820Z",
+      "semantic_content_hash": "3e94cd21959fafc761b0b6ebce8c085ac2202b9e43eb6081dd97dbc6714647cb"
     },
     {
       "owner": "authorizerdev",
@@ -129,7 +280,11 @@
       "char_count": 2171,
       "score": 0,
       "last_commit_at": "2026-02-17T10:44:05Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:51:12.482Z",
+      "semantic_content_hash": "38177753df5c9435250e6420c9b4b1d53d972b1a94b74e0948cdee7c2d9fe694"
     },
     {
       "owner": "bbuchsbaum",
@@ -138,7 +293,11 @@
       "char_count": 2787,
       "score": 0,
       "last_commit_at": "2025-06-12T16:58:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:51:16.770Z",
+      "semantic_content_hash": "87cafb29bb705a606acbaec2c1ffb2b4a84aba455e79c4537b1bad188b07060f"
     },
     {
       "owner": "beany-vu",
@@ -147,7 +306,11 @@
       "char_count": 2409,
       "score": 0,
       "last_commit_at": "2025-06-10T07:19:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:51:23.269Z",
+      "semantic_content_hash": "b7c47cdcb80f6a8dd71fee24eea5b40097767f3717dd607ed0e823b4f922708d"
     },
     {
       "owner": "beyond5959",
@@ -156,7 +319,11 @@
       "char_count": 2524,
       "score": 0,
       "last_commit_at": "2026-03-05T07:04:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:51:34.184Z",
+      "semantic_content_hash": "da1de9f71e2c22dba26605fdfb02d05b16dc68b12eb0e458422ee36038e87b93"
     },
     {
       "owner": "bhi5hmaraj",
@@ -430,7 +597,17 @@
       "char_count": 8413,
       "score": 0,
       "last_commit_at": "2025-10-06T17:32:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use imperative mood: \"Add feature\" not \"Added feature\"",
+          "reason": "Claude Code already uses imperative-mood summaries for commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-26T09:52:06.269Z",
+      "semantic_content_hash": "de0844d2039a04ce00f2fc046e0517be0c63f070f24a2d88a6f052a2f2ef9549"
     },
     {
       "owner": "gilbarbara",
@@ -439,7 +616,11 @@
       "char_count": 6949,
       "score": 0,
       "last_commit_at": "2026-03-31T22:36:33Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:52:13.691Z",
+      "semantic_content_hash": "3bdbc14b7e2ab7490f5ac392290994e46d4892fa41c0da50f3a2c80433646583"
     },
     {
       "owner": "gixi404",
@@ -448,7 +629,11 @@
       "char_count": 6584,
       "score": 0,
       "last_commit_at": "2025-12-18T15:59:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-26T09:52:21.331Z",
+      "semantic_content_hash": "1d59d4f7e2de1501a16e0fb44cfa2bab90b04e663675706ab4be3c32009b0980"
     },
     {
       "owner": "gizmodata",
@@ -457,7 +642,17 @@
       "char_count": 3184,
       "score": 0,
       "last_commit_at": "2026-02-25T15:22:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Include root cause details for non-obvious bug fixes so future maintainers understand the issue",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-26T09:52:30.680Z",
+      "semantic_content_hash": "72768d1202228e4c1a7274f940821251cfb811bc3245eb4578ae2237540d1e74"
     },
     {
       "owner": "GoPlasmatic",
