@@ -10,7 +10,22 @@
       "last_commit_at": "2025-12-25T17:27:09Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Keep responses concise",
+          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't over-engineer unless explicitly requested",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:48:32.142Z",
+      "semantic_content_hash": "34492436605db0e6d9277c2245c9d150155854bd6cfe2b1a8cae787ce2f9f7a0"
     },
     {
       "owner": "mhattingpete",
@@ -21,7 +36,22 @@
       "last_commit_at": "2025-10-22T18:41:15Z",
       "matches": [
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "Potentially destructive operations",
+          "reason": "Claude Code already asks before destructive operations by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "NEVER create markdown files unless explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:48:49.649Z",
+      "semantic_content_hash": "05c2345f69fc3c168d0d4f9d0006f2e7ed2eee20c1276915419ac1a55811acd8"
     },
     {
       "owner": "NativePHP",
@@ -32,7 +62,27 @@
       "last_commit_at": "2025-12-10T03:34:06Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never use comments within the code itself unless there is something _very_ complex going on.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:49:16.834Z",
+      "semantic_content_hash": "8471ae11ae6d932badd72e0733d22268da5fca29912819e54d0c678e3a77047b"
     },
     {
       "owner": "russbeye",
@@ -43,7 +93,27 @@
       "last_commit_at": "2025-09-19T04:29:28Z",
       "matches": [
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Run tools in parallel when possible.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER create files unless explicitly asked; ALWAYS edit existing ones.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not create docs/READMEs unless explicitly requested.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:49:29.597Z",
+      "semantic_content_hash": "f2ac0256e8a889f46d2b87cd31b1a636b895a49162e63e4779d766809c9f03d9"
     },
     {
       "owner": "Siddhesh2377",
@@ -54,7 +124,22 @@
       "last_commit_at": "2026-05-18T03:55:38Z",
       "matches": [
         "no-docstrings"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "No comments in source except one-liner // for non-obvious WHY.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No decorative banners, no block comments, no docstrings on internal/private.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:50:22.456Z",
+      "semantic_content_hash": "48834f210825b3764b0d89a34b0ef0d30dabaeb53a736640bff264bba9537d6e"
     },
     {
       "owner": "hyperpolymath",
@@ -65,7 +150,11 @@
       "last_commit_at": "2025-11-21T23:26:39Z",
       "matches": [
         "test-your-changes"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-29T09:50:36.393Z",
+      "semantic_content_hash": "bb02a6f91feb0c3572f161ba4f0defd31f20cf908e3596b03636fa9b4cc3f433"
     },
     {
       "owner": "kelvinOfoli",
@@ -76,7 +165,22 @@
       "last_commit_at": "2026-01-09T22:21:41Z",
       "matches": [
         "read-before-edit"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "Avoid over-engineering - Only implement what's requested",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Add unnecessary abstractions",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:50:46.335Z",
+      "semantic_content_hash": "67727432a97c71568000a1575610a8d7e3d1187e04bc9152db97958fec68b6ac"
     },
     {
       "owner": "MikahNiehaus",
@@ -87,7 +191,67 @@
       "last_commit_at": "2026-05-28T20:37:19Z",
       "matches": [
         "no-hedging"
-      ]
+      ],
+      "semantic_score": 15,
+      "semantic_matched_intents": [
+        {
+          "quote": "Banned openers and filler phrases: \"Certainly!\" / \"Great question!\" / \"Absolutely!\" / \"Of course!\" / \"I'd be happy to\"",
+          "reason": "Claude Code already avoids preamble greetings by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Banned openers and filler phrases: \"In conclusion\" / \"To summarize\" → just say the thing",
+          "reason": "Claude Code already avoids trailing end-of-turn summaries by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Banned openers and filler phrases: \"Furthermore,\" / \"Moreover,\" / \"Additionally,\" / \"Consequently,\" → use \"Also\", \"And\", or a new sentence",
+          "reason": "Claude Code already provides short, direct answers by default, which implies avoiding excessive filler phrases.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Banned openers and filler phrases: \"It's not just X, it's Y\" → sounds like insight, contains none; cut it",
+          "reason": "Claude Code already avoids narrating internal deliberation by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Banned openers and filler phrases: \"As an AI\" → never",
+          "reason": "Claude Code already avoids narrating internal deliberation by default, which includes not referring to itself as an AI.",
+          "confidence": "low"
+        },
+        {
+          "quote": "No throat-clearing — start with the substance, not \"Let's explore…\" or \"This section will cover…\"",
+          "reason": "Claude Code already provides short, direct answers and avoids preamble greetings by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Say WHY, not WHAT — the code shows what; the comment explains why",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Skip obvious comments; short beats long",
+          "reason": "Claude Code already only writes a comment when the WHY is non-obvious and avoids multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No: `// This function facilitates the seamless authentication flow`",
+          "reason": "Claude Code already does not explain WHAT the code does by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Yes: `// Throws if the token is expired`",
+          "reason": "Claude Code already only writes a comment when the WHY is non-obvious by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Update `workspace/[task-id]/context.md` **after every significant finding** — not at fixed intervals",
+          "reason": "Claude Code already marks tasks complete as soon as done and does not batch progress updates by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:51:08.698Z",
+      "semantic_content_hash": "f77902f420fa00e2e55e40e16970f2f27a36d3135fa1125dad23e00e4a43224a"
     },
     {
       "owner": "PoC-Consortium",
@@ -98,7 +262,32 @@
       "last_commit_at": "2026-04-04T07:13:13Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "split complex problems into subtasks, explore solutions in parallel",
+          "reason": "Claude Code already decomposes non-trivial tasks and runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Avoid excessive examples, emoji-heavy explanations, or tutorial-style comments.",
+          "reason": "Claude Code already does not use emojis by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Essential explanations only. Remove verbose inline comments and step-by-step walkthroughs.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious and avoids verbose multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Avoid multi-paragraph explanations unless absolutely necessary.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:51:23.744Z",
+      "semantic_content_hash": "e89e3a85c5222b9e02312405fca4a875269c2407063c9e5358cd5acec78f48bc"
     },
     {
       "owner": "ungden",
@@ -109,7 +298,27 @@
       "last_commit_at": "2026-02-25T06:00:13Z",
       "matches": [
         "read-before-edit"
-      ]
+      ],
+      "semantic_score": 8,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never rewrite from scratch — always read existing code first, identify gaps, fix precisely",
+          "reason": "Claude Code already prefers editing existing files over creating new ones, investigates unfamiliar state before deleting or overwriting, identifies root causes, and does not add features beyond the task.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Always read files before editing",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting, which implies reading files.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do NOT commit `.env.local`",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:51:36.260Z",
+      "semantic_content_hash": "05a54c622df44db4a6626ff602c8245b764cd65fa0e4994d90b6110a8e2bd882"
     },
     {
       "owner": "2234839",
@@ -118,7 +327,11 @@
       "char_count": 1496,
       "score": 0,
       "last_commit_at": "2026-05-13T10:44:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-29T09:51:42.678Z",
+      "semantic_content_hash": "799bebeb63e82ff027c60131617d341b7546c47b122a449b53e6cbbbe2a53bbb"
     },
     {
       "owner": "ably",
@@ -149,7 +362,17 @@
       "char_count": 9914,
       "score": 0,
       "last_commit_at": "2026-05-02T04:49:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "4. **Subtask Checkboxes**: Mark completed items",
+          "reason": "Claude Code already marks tasks complete as soon as done by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:51:55.731Z",
+      "semantic_content_hash": "4cad1972908c75de90e0eb6224bc3df767a99b8e77425a28ae93f6bbe74f3696"
     },
     {
       "owner": "AgiFlow",
@@ -158,7 +381,11 @@
       "char_count": 735,
       "score": 0,
       "last_commit_at": "2025-10-20T06:43:58Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-29T09:51:58.409Z",
+      "semantic_content_hash": "f94f2cf339cb79db3f469fc35b21beca6d50c2603851b77b8c10eb953ca7f1e4"
     },
     {
       "owner": "aigentive",
@@ -167,7 +394,47 @@
       "char_count": 20012,
       "score": 0,
       "last_commit_at": "2026-05-06T17:59:11Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 12,
+      "semantic_matched_intents": [
+        {
+          "quote": "Delegate bounded exploration to a read-only specialist or managed teammate and have it summarize findings.",
+          "reason": "Claude Code already decomposes non-trivial tasks and provides short, direct answers/updates by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Spawn teammates/subagents for ALL work.",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate) by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Spawn 3 subagents in parallel.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Have subagents summarize findings.",
+          "reason": "Claude Code already provides short, direct answers and short updates at key moments by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Don't read the code yourself — get a summary back.",
+          "reason": "Claude Code already provides short, direct answers and short updates at key moments by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Multiple independent streams → separate teammates per stream.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Bug investigation → ≥2 parallel agents (logs + code).",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:52:31.542Z",
+      "semantic_content_hash": "844a94fc0d5fd8ff64a584f336d5607a010934f31f157d47d6684db3152ca98a"
     },
     {
       "owner": "ajentik",
@@ -176,7 +443,17 @@
       "char_count": 2180,
       "score": 0,
       "last_commit_at": "2025-07-04T05:00:29Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "When writing code, do not add unnecessary comments.",
+          "reason": "Claude Code only writes comments when the WHY is non-obvious by default, implying it does not add unnecessary comments.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:52:39.551Z",
+      "semantic_content_hash": "30756dd1e3a8dd48cfab0f2df9b78928f365b1ccba03b33972f174ab4264bf82"
     },
     {
       "owner": "alecjacobson",
@@ -185,7 +462,11 @@
       "char_count": 2955,
       "score": 0,
       "last_commit_at": "2026-05-15T20:07:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-29T09:52:48.776Z",
+      "semantic_content_hash": "c5d97ff26a161495cd4d60dc8a196d728c4c0ddf8ea0240a4d7de561ba85a4c4"
     },
     {
       "owner": "Ancient-China-Books",
@@ -194,7 +475,11 @@
       "char_count": 6479,
       "score": 0,
       "last_commit_at": "2025-08-03T15:01:28Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-29T09:53:05.731Z",
+      "semantic_content_hash": "95aa874779436079818367ec2a152ceeb6863b183440c5c34bcc5110f08400cb"
     },
     {
       "owner": "anvarnarz",
@@ -203,7 +488,11 @@
       "char_count": 6609,
       "score": 0,
       "last_commit_at": "2026-03-22T13:25:29Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-29T09:53:12.816Z",
+      "semantic_content_hash": "f5ce7ca4bb99cdafa2503eeaed8b8c3403a327574ad6ebda60fa5ae4e0f36674"
     },
     {
       "owner": "apache",
@@ -212,7 +501,17 @@
       "char_count": 10423,
       "score": 0,
       "last_commit_at": "2026-05-17T00:20:45Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Use `size() > 0` instead and add a comment explaining why.",
+          "reason": "Claude Code already writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant). The 'why' in this context (Gson version compatibility) is a hidden constraint.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-05-29T09:53:23.499Z",
+      "semantic_content_hash": "82f4df85805c79ec0f1acc27e0f6c617612e79bafe770270a53ad7db44e27298"
     },
     {
       "owner": "apache",
@@ -320,7 +619,11 @@
       "char_count": 4873,
       "score": 0,
       "last_commit_at": "2026-05-05T23:43:52Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-05-29T09:53:34.109Z",
+      "semantic_content_hash": "b7f77a77a83a24e3aa2d73a9629f27577c6434f664d435d1666e48cab0286b48"
     },
     {
       "owner": "artefom",
