@@ -65,7 +65,17 @@
       "last_commit_at": "2026-03-02T06:41:33Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis, no \"cute\" messages.",
+          "reason": "Claude Code already does not use emojis unless asked and avoids 'cute' messages as part of its direct communication style.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-02T10:18:50.570Z",
+      "semantic_content_hash": "a05bdc7e419b5e9d2c3e047e1e701e9f894ef3ffb547da70d83d6a437d04cd17"
     },
     {
       "owner": "haenara-shin",
@@ -76,7 +86,11 @@
       "last_commit_at": "2026-04-11T13:39:31Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:18:52.554Z",
+      "semantic_content_hash": "ad4cdc658481af14d2e2149ed5e466428f8d5e0c51f42864393af26f36ef3810"
     },
     {
       "owner": "matthewp",
@@ -98,7 +112,42 @@
       "last_commit_at": "2026-04-04T07:13:13Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 9,
+      "semantic_matched_intents": [
+        {
+          "quote": "create and coordinate tasks/agents when useful",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "split complex problems into subtasks",
+          "reason": "Claude Code already decomposes non-trivial tasks by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Avoid excessive examples, emoji-heavy explanations, or tutorial-style comments.",
+          "reason": "Claude Code already does not use emojis unless asked, does not explain WHAT the code does, and avoids multi-paragraph docstrings by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Essential explanations only.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Remove verbose inline comments and step-by-step walkthroughs.",
+          "reason": "Claude Code already does not explain WHAT the code does and avoids multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Avoid multi-paragraph explanations unless absolutely necessary.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-02T10:19:16.082Z",
+      "semantic_content_hash": "e89e3a85c5222b9e02312405fca4a875269c2407063c9e5358cd5acec78f48bc"
     },
     {
       "owner": "sultaniman",
@@ -109,7 +158,42 @@
       "last_commit_at": "2026-05-29T11:31:35Z",
       "matches": [
         "no-validation-for-impossible-cases"
-      ]
+      ],
+      "semantic_score": 11,
+      "semantic_matched_intents": [
+        {
+          "quote": "Complex logic: inline comment explaining the non-obvious constraint only",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Don't add features beyond what was asked.",
+          "reason": "Claude Code already does not add features beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't add abstractions for single-use code.",
+          "reason": "Claude Code already does not add abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't add error handling for impossible scenarios.",
+          "reason": "Claude Code already does not add error handling for scenarios that can't happen by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't refactor things that aren't broken.",
+          "reason": "Claude Code already does not add refactors beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't skip or work around failing tests - fix them before proceeding.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks when debugging/fixing.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-02T10:19:34.730Z",
+      "semantic_content_hash": "236fbf4690c42a857f9d9d0597dadc6c2f70dbc4f6be17739daf94af83f58551"
     },
     {
       "owner": "Tuvima",
@@ -120,7 +204,22 @@
       "last_commit_at": "2026-05-31T04:06:36Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "Does not add features, refactors, or abstractions beyond what the task requires.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Short summary",
+          "reason": "Claude Code already writes 1-2 sentence, imperative-mood summary commit messages by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-02T10:19:57.244Z",
+      "semantic_content_hash": "815bdf3842c7760b5521f3f9a53189340051c4b66523f0c2a54fb83754115798"
     },
     {
       "owner": "9oormthonUniv-SCH",
@@ -129,7 +228,11 @@
       "char_count": 3380,
       "score": 0,
       "last_commit_at": "2026-01-22T13:46:17Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:20:02.932Z",
+      "semantic_content_hash": "669e5007ae0eab9ed8aef21982aabb3a16f2e4d829c3c1f022082d2891df7d06"
     },
     {
       "owner": "actifit",
@@ -138,7 +241,11 @@
       "char_count": 3501,
       "score": 0,
       "last_commit_at": "2026-04-30T14:13:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:20:17.740Z",
+      "semantic_content_hash": "f0ea4bf78425c589ff7db3c0ad2c00de66871b4211e3dd9ca3895bca1e7a1c84"
     },
     {
       "owner": "addyosmani",
@@ -160,7 +267,11 @@
       "char_count": 5409,
       "score": 0,
       "last_commit_at": "2026-02-22T02:02:37Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:20:25.906Z",
+      "semantic_content_hash": "fd3c93f541abce9663c927ae5878894499c8a5c0bfd5c32361e293701f365604"
     },
     {
       "owner": "allienna",
@@ -169,7 +280,11 @@
       "char_count": 6629,
       "score": 0,
       "last_commit_at": "2026-03-17T20:24:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:20:35.228Z",
+      "semantic_content_hash": "17ff289214ea17c67ebc8e0f54111320051ce022aa884c60e18bf609e53d91c5"
     },
     {
       "owner": "alycialee",
@@ -178,7 +293,11 @@
       "char_count": 4763,
       "score": 0,
       "last_commit_at": "2026-03-18T20:00:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:20:42.822Z",
+      "semantic_content_hash": "56615988d3a043753e4da65824bbe6fe65819f13fc244ea4fc6af7f77c3185c3"
     },
     {
       "owner": "andrewlwn77",
@@ -187,7 +306,11 @@
       "char_count": 3778,
       "score": 0,
       "last_commit_at": "2025-07-13T23:29:05Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:20:54.310Z",
+      "semantic_content_hash": "a920c57046eb9a938e3bbc7bb8093987e541e4d6a5e2fad1466e61571762744e"
     },
     {
       "owner": "Anshler",
@@ -196,7 +319,11 @@
       "char_count": 4676,
       "score": 0,
       "last_commit_at": "2026-04-07T14:29:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:20:58.792Z",
+      "semantic_content_hash": "ac89af9845322b120b9fe00ceea05dde6288b06b541ee9bcaeae3a96a122891b"
     },
     {
       "owner": "anvarnarz",
@@ -332,7 +459,27 @@
       "char_count": 12537,
       "score": 0,
       "last_commit_at": "2025-08-17T23:03:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never rush to \"fix\" a failing test by changing test data - investigate the root cause first.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "When tests fail, ask \"What should the code do?\" not \"How can I make the test pass?\"",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "When debugging failures, ask \"What should this code do?\" based on business logic and test expectations",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-02T10:21:13.288Z",
+      "semantic_content_hash": "1d27222e620df9408d25e631ad044213f7963ff6ac80e51dc035fa2f2d731aaa"
     },
     {
       "owner": "archibate",
@@ -341,7 +488,32 @@
       "char_count": 2876,
       "score": 0,
       "last_commit_at": "2026-04-07T08:22:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "maintain a TodoWrite checklist tracking progress.",
+          "reason": "Claude Code already tracks progress on non-trivial tasks by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Default to writing no comments.",
+          "reason": "Claude Code already defaults to writing comments only when the WHY is non-obvious.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Only add one when the WHY is non-obvious: a hidden constraint, a subtle invariant, a workaround for a specific bug, behavior that would surprise a reader",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious (hidden constraint, workaround, subtle invariant) by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't explain WHAT the code does — well-named identifiers already do that",
+          "reason": "Claude Code already does not explain WHAT the code does (well-named identifiers carry that) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-02T10:21:29.139Z",
+      "semantic_content_hash": "86ef50d9dc949da37e6b7494b9bb165a562cd114c429ce4ea82f4a645a4772ca"
     },
     {
       "owner": "artefom",
@@ -350,7 +522,11 @@
       "char_count": 2358,
       "score": 0,
       "last_commit_at": "2026-02-04T09:32:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:21:35.230Z",
+      "semantic_content_hash": "978da6e41652668b0001740598313f4ac361851b484137179c5f92757ed38db8"
     },
     {
       "owner": "ashwch",
@@ -476,7 +652,11 @@
       "char_count": 3174,
       "score": 0,
       "last_commit_at": "2025-09-14T13:45:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-02T10:21:50.141Z",
+      "semantic_content_hash": "201c1d733795b70f23b55c353f1313dd4e0f6ff7df3f0f18affe8a6645ac3860"
     },
     {
       "owner": "CalyPdf",
