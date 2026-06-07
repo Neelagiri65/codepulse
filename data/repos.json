@@ -11,7 +11,47 @@
       "matches": [
         "keep-it-short",
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 14,
+      "semantic_matched_intents": [
+        {
+          "quote": "Write present-tense, imperative summaries (e.g., \"Add login page\", not \"Added login page\").",
+          "reason": "Claude Code already writes imperative-mood commit messages by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Focus on the *why* over the *what*.",
+          "reason": "Claude Code already focuses commit messages on WHY not WHAT by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Commit only intentional changes — avoid accidentally staging `.env`, credentials, or large binaries.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not add features, abstractions, or comments beyond what the task requires.",
+          "reason": "Claude Code already does not add features or abstractions beyond what the task requires, and only writes comments when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not create documentation files unless explicitly requested (this file is an exception, explicitly requested by the user).",
+          "reason": "Claude Code already does not write docs or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Keep responses concise; match scope of changes to the task.",
+          "reason": "Claude Code already provides short, direct answers whose length matches the task by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "For any destructive or irreversible git operations (force push, hard reset), confirm with the user first.",
+          "reason": "Claude Code already asks before destructive operations (including force push and hard reset) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:52:19.104Z",
+      "semantic_content_hash": "8b38043bd60fafa8fe42f53691391edf61b294f8bb5be714e26124b732918067"
     },
     {
       "owner": "ArEnSc",
@@ -22,7 +62,27 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never commit secrets or API keys",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:52:26.187Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "hasseily",
@@ -33,7 +93,37 @@
       "last_commit_at": "2026-05-02T07:38:15Z",
       "matches": [
         "no-docstrings"
-      ]
+      ],
+      "semantic_score": 11,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't add features, abstractions, or layers that aren't required by the task in front of us.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't add error handling, validation, or fallbacks for cases that can't happen.",
+          "reason": "Claude Code already does not add error handling or validation for scenarios that can't happen by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Default to no comments. Well-named identifiers explain *what*; only write a comment when the *why* is non-obvious (a hidden constraint, a subtle invariant, a workaround for a specific bug, behaviour that would surprise a reader).",
+          "reason": "Claude Code already does not explain WHAT the code does and only writes comments when the WHY is non-obvious by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "No multi-paragraph docstrings, no banner comments.",
+          "reason": "Claude Code already does not write multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Conventional, imperative subject lines.",
+          "reason": "Claude Code already uses imperative-mood summaries for commit messages by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:52:36.208Z",
+      "semantic_content_hash": "d49bb9eddf7f9c04ee71d466519bcc5c3d7ad1d424a9960ee78c1dc3a55c27c9"
     },
     {
       "owner": "ityonemo",
@@ -44,7 +134,17 @@
       "last_commit_at": "2026-03-15T22:00:50Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "system_message: \"Be concise\"",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:52:46.663Z",
+      "semantic_content_hash": "2da942fcf46f6b7fbcf6ebc3a985c106aae377e8d30a66896ede7ab0d4773151"
     },
     {
       "owner": "MGeurts",
@@ -55,7 +155,22 @@
       "last_commit_at": "2026-06-01T14:35:45Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:52:57.588Z",
+      "semantic_content_hash": "5dabcbc4b284f17344e278aeaf204171198c91581dd96f1fe9ab291b3745b2b6"
     },
     {
       "owner": "TrueSelph",
@@ -66,7 +181,22 @@
       "last_commit_at": "2026-05-20T17:05:37Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Resolve root cause; do not paper over.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not commit .env or any secrets.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:53:09.130Z",
+      "semantic_content_hash": "129384a4c94f08662e5c140d0b6ca25ce73615588c2e287d518b7f5a94cbd88d"
     },
     {
       "owner": "uhstray-io",
@@ -77,7 +207,11 @@
       "last_commit_at": "2026-06-02T03:35:30Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:53:21.573Z",
+      "semantic_content_hash": "256adf295863559e8cb8e688b3e4d40857f5b9716b108e1d3b180258eaf4ed00"
     },
     {
       "owner": "codesstar",
@@ -88,7 +222,57 @@
       "last_commit_at": "2026-05-30T22:54:08Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 17,
+      "semantic_matched_intents": [
+        {
+          "quote": "Say nothing extra, just answer the question.",
+          "reason": "Claude Code already provides short, direct answers and avoids extra communication by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "never use internal terms like \"inbox\" or \"sort\"",
+          "reason": "Claude Code already avoids narrating internal deliberation and exposing internal terms by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Answer first, memory second.",
+          "reason": "Claude Code already prioritizes direct answers and avoids narrating internal deliberation or interrupting the user's flow by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Keep confirmations lightweight:",
+          "reason": "Claude Code already provides short, direct answers and avoids unnecessary verbosity by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Exposing file paths or internal terms unless the user asks.",
+          "reason": "Claude Code already avoids narrating internal deliberation and exposing internal terms by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do NOT use `[Loci]`, file paths, or internal terms in notifications. Keep it conversational.",
+          "reason": "Claude Code already avoids narrating internal deliberation and exposing internal terms by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Make it human, include a traceable keyword (which project / which person); never expose file paths.",
+          "reason": "Claude Code already avoids narrating internal deliberation and exposing internal terms by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never expose internal terms to the user.",
+          "reason": "Claude Code already avoids narrating internal deliberation and exposing internal terms by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Speak to the user in plain language; don't expose file paths or internal terms.",
+          "reason": "Claude Code already avoids narrating internal deliberation and exposing internal terms by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:54:04.052Z",
+      "semantic_content_hash": "95b51f5801d55646b1f732abaf933ea57b4d381609b00bdc90e882032131d1c8"
     },
     {
       "owner": "ironcapitaleu",
@@ -99,7 +283,22 @@
       "last_commit_at": "2026-05-25T11:52:09Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Imperative mood (\"add\", not \"added\")",
+          "reason": "Claude Code already uses imperative-mood summaries for commit messages by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Explain why, not what",
+          "reason": "Claude Code already focuses commit messages on WHY not WHAT by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:54:12.450Z",
+      "semantic_content_hash": "86101b64bdcb6d59b3fb4b66f2cd2b47bbec27521f510933e4752c2f81018a72"
     },
     {
       "owner": "Notalib",
@@ -110,7 +309,22 @@
       "last_commit_at": "2026-05-23T14:49:18Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Prefer honest limitations over brittle workarounds: When a platform constraint makes a feature impossible or incomplete, document the limitation clearly rather than reimplementing platform behaviour. Reimplementing system UI (copy semantics, share intents, localised strings, DRM-aware actions) to work around a constraint produces code that is hard to maintain and silently diverges from platform conventions. A clear doc comment is more valuable than a fragile shim.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks, and does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Ask before committing to a solution with obvious downsides: if a planned approach has significant trade-offs, platform gaps, or multiple reasonable alternatives, surface them to the user with a brief summary of options before implementing. Don't silently pick the path of least resistance — a short \"here are the options\" saves a revert later.",
+          "reason": "Claude Code already plans its approach before implementation on non-trivial work and provides short updates at key moments by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:54:29.314Z",
+      "semantic_content_hash": "dae7f52379d4f9b08e553005fbbb4496898a0b028d61993b57a0f5db6f690c5f"
     },
     {
       "owner": "0merle0",
@@ -119,7 +333,11 @@
       "char_count": 9461,
       "score": 0,
       "last_commit_at": "2026-04-11T02:10:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:54:43.687Z",
+      "semantic_content_hash": "19e739249b64d6ac7b180e8594e92d462338c3a36de7cca81e60b983ffc2170b"
     },
     {
       "owner": "1368129224",
@@ -128,7 +346,11 @@
       "char_count": 2335,
       "score": 0,
       "last_commit_at": "2026-05-08T07:18:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:54:49.759Z",
+      "semantic_content_hash": "2e2a412ee6c137bea17d62cdf3d476d58d9fad944a89890a8ccf877b277679cf"
     },
     {
       "owner": "4kk11",
@@ -137,7 +359,17 @@
       "char_count": 3453,
       "score": 0,
       "last_commit_at": "2026-05-09T13:45:44Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "挨拶・前置き・段階報告は不要。結論ファースト",
+          "reason": "Claude Code already avoids preamble greetings, restating user words, trailing summaries, and provides short, direct answers by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:54:58.316Z",
+      "semantic_content_hash": "aeef49cf82bee77f862712a51037269269ac74d6aba6c837a9a219ac57f253ee"
     },
     {
       "owner": "adrian-d-hidalgo",
@@ -146,7 +378,11 @@
       "char_count": 4801,
       "score": 0,
       "last_commit_at": "2026-06-01T18:46:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:55:07.155Z",
+      "semantic_content_hash": "a2aa1fe28f8c99797339ab41eb48c27609767ebe5928dc8c061021e3d84edabd"
     },
     {
       "owner": "AIB001",
@@ -155,7 +391,27 @@
       "char_count": 8382,
       "score": 0,
       "last_commit_at": "2026-04-07T04:11:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't be too long!",
+          "reason": "Claude Code already writes 1-2 sentence commit messages by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "TODO完成了就清掉",
+          "reason": "Claude Code already marks tasks complete as soon as done by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "尽量复用已有的测试脚本。",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:55:30.338Z",
+      "semantic_content_hash": "e1fd318a86a9ba2de8f2a8861f50277069d6b5b62827257be796a56c0cf03512"
     },
     {
       "owner": "akeeba",
@@ -164,7 +420,11 @@
       "char_count": 4881,
       "score": 0,
       "last_commit_at": "2026-02-12T19:00:24Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:55:37.980Z",
+      "semantic_content_hash": "66bcc46060a46750976b9ba2a15ac22bb0a797cf55c62de6163d474c83dcf185"
     },
     {
       "owner": "alejandrofonsecacuza",
@@ -173,7 +433,11 @@
       "char_count": 4231,
       "score": 0,
       "last_commit_at": "2026-04-30T17:22:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:55:43.858Z",
+      "semantic_content_hash": "43ef446efa5c1008d8b92a1eda54d3587fe31350abf7190b81e08859d5986694"
     },
     {
       "owner": "alexander-turner",
@@ -182,7 +446,62 @@
       "char_count": 15163,
       "score": 0,
       "last_commit_at": "2026-06-04T16:42:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 26,
+      "semantic_matched_intents": [
+        {
+          "quote": "Pull the logs, read the actual error, trace it to a root cause. If the failure is in your code, fix it before moving on.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Comments describe current code, not its history or alternatives. Don’t narrate prior fixes, old bug saga, “previously…”, “the short-lived NBSP-always fork,” “Regression: the old code did X,” or what an earlier iteration tried—that belongs in commit messages or PR descriptions, which is where future readers should look for history. Equally, don’t narrate the rejected alternative: phrases like “doing X immediately _would_ cause Y,” “if we instead did Z…”, “this avoids the problem where…” describe a counterfactual, not the code in front of the reader. State the invariant or constraint directly (“must stay interactive during the grace period”) and stop there. Comments that age into stale archaeology—or that explain code that no longer exists—are worse than no comments. When fixing a regression, write the comment as “WHY this code is the way it is” without mentioning the old version or the alternative you didn’t take. The git log is the changelog; the PR description is the rationale.",
+          "reason": "Claude Code already writes why-not-what comments and commit messages by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "no unnecessary refactoring or whitespace changes.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Ask clarifying questions if uncertain about scope.",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Never sit on a CI failure. If the Stop hook reports a failure—or any check on the open PR is red—investigate and fix it before reporting the task done.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks and marks tasks complete as soon as done.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "If a failure is genuinely outside the PR’s scope and not fixable here, say so explicitly with evidence rather than going silent.",
+          "reason": "Claude Code already provides short, direct answers and does not narrate internal deliberation.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Any DeepSource alert that arrives while you hold a PR subscription is itself an actionable event—always fix it, never just acknowledge it. A <github-webhook-activity> event mentioning DeepSource, a DeepSource: <analyzer> check-run flipping to failed/neutral, or a DeepSource bot review comment all mean the same thing: run deepsource issues --pr <N> --output json, fix every finding it returns, push, and update your status checklist—before replying. This holds even when the alert lands on a PR whose original task was something else; an open DeepSource finding blocks the PR regardless of why you opened it. Do not defer to \"a later pass,\" do not assume it will self-resolve, and do not unsubscribe to make the alert stop.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks and marks tasks complete as soon as done.",
+          "confidence": "high"
+        },
+        {
+          "quote": "DeepSource findings are not optional. If deepsource issues --pr <N> --output json returns a non-empty list, you MUST fix every issue before the task is done—even MINOR severity, even in files that came in from a parent branch via merge. Listing or summarizing the findings is not a substitute for fixing them. This is the most common failure mode: surfacing the list and then stopping. Don’t.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks and marks tasks complete as soon as done.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Run the CLI three times per PR, every time: 1. Right after pushing the first commit — deepsource issues --pr <N> --output json. Fix everything it returns, then push the fix commit. 2. When a DeepSource webhook arrives (PR-status check posts a comment, or you see DeepSource: <analyzer> change state)—re-run the CLI and fix any new findings. 3. Before declaring the task complete—once the most recent CI run finishes, re-run the CLI to confirm the count is zero.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks and marks tasks complete as soon as done.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Fix root causes, not by appending # skipcq: <CODE> / // skipcq: <CODE>—only suppress when the warning is genuinely a false positive and write a comment explaining why on the same line.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-07T08:56:18.381Z",
+      "semantic_content_hash": "e02823d775c37fd8c1a18976e0d3d457bd656d3bac096e8801614ae1796b18df"
     },
     {
       "owner": "alexchen4ai",
@@ -191,7 +510,11 @@
       "char_count": 418,
       "score": 0,
       "last_commit_at": "2026-04-26T01:39:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:56:21.408Z",
+      "semantic_content_hash": "4ca02f7f5f39bc0d45c5016dcb5630cb7ebb588742c18e758c0cf9404046a9d4"
     },
     {
       "owner": "alexey-pelykh",
@@ -200,7 +523,11 @@
       "char_count": 5413,
       "score": 0,
       "last_commit_at": "2026-03-22T13:08:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:56:27.474Z",
+      "semantic_content_hash": "26c14cb5c8471bcd85ebfc9caeabf35dd94ee32f2ee17c88679a650e62162f9b"
     },
     {
       "owner": "alifianmahardhika",
@@ -209,7 +536,11 @@
       "char_count": 11182,
       "score": 0,
       "last_commit_at": "2026-05-18T03:31:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-07T08:56:33.622Z",
+      "semantic_content_hash": "60732bebc91865382755ab1b700200dfe24bd63ad80456866cf952479d9598b7"
     },
     {
       "owner": "ambient-code",
