@@ -61,7 +61,22 @@
       "last_commit_at": "2025-12-20T14:16:51Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers and avoids explaining obvious details by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-10T09:53:52.150Z",
+      "semantic_content_hash": "1e14f213e09640ff0986ba9e4196d13b002884aabe69750910ee16603a677377"
     },
     {
       "owner": "russbeye",
@@ -72,7 +87,27 @@
       "last_commit_at": "2025-09-19T04:29:28Z",
       "matches": [
         "dont-create-docs"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Run tools in parallel when possible.",
+          "reason": "Claude Code already runs independent tool calls in parallel by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER create files unless explicitly asked; ALWAYS edit existing ones.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not create docs/READMEs unless explicitly requested.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-10T09:54:04.853Z",
+      "semantic_content_hash": "f2ac0256e8a889f46d2b87cd31b1a636b895a49162e63e4779d766809c9f03d9"
     },
     {
       "owner": "TheBSD",
@@ -694,7 +729,11 @@
       "char_count": 8977,
       "score": 0,
       "last_commit_at": "2026-05-07T13:25:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-10T09:54:41.157Z",
+      "semantic_content_hash": "5ce9888ccb28d4c50b2dce80790c0de123d201c845d7014463467fbafdacedc6"
     },
     {
       "owner": "gsarig",
@@ -703,7 +742,11 @@
       "char_count": 874,
       "score": 0,
       "last_commit_at": "2026-05-23T12:07:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-10T09:54:46.640Z",
+      "semantic_content_hash": "25f9318b2ed39464b70fe4f948553843ed0a187b9a0c28506034c9f6ddc2d94c"
     },
     {
       "owner": "HaraldBregu",
@@ -712,7 +755,11 @@
       "char_count": 13,
       "score": 0,
       "last_commit_at": "2026-06-04T18:24:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-10T09:54:48.063Z",
+      "semantic_content_hash": "b1a65a34afa77430bba47b1e516812ada7ff38d198063fc35421ca591751e93e"
     },
     {
       "owner": "Harry-kp",
@@ -721,7 +768,11 @@
       "char_count": 6384,
       "score": 0,
       "last_commit_at": "2026-06-01T21:59:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-10T09:54:57.681Z",
+      "semantic_content_hash": "44e78923644460a9933b7d3b4eac90cf0569e8157b0392889f990d8a75176589"
     },
     {
       "owner": "Hartha-aloufi",
@@ -730,7 +781,11 @@
       "char_count": 5552,
       "score": 0,
       "last_commit_at": "2025-07-05T13:36:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-10T09:55:05.550Z",
+      "semantic_content_hash": "54f83991153012ef4a18605a6dd50be97885ab1098a9d5b18273dc5b5ee31e12"
     },
     {
       "owner": "haru",
@@ -739,7 +794,11 @@
       "char_count": 1706,
       "score": 0,
       "last_commit_at": "2026-05-28T12:50:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-10T09:55:11.072Z",
+      "semantic_content_hash": "a0941c94082eae7f9be3b3370d2a8442a6a9c80730a7bc18f6b07969521d4e7c"
     },
     {
       "owner": "Hazzng",
@@ -748,7 +807,17 @@
       "char_count": 19202,
       "score": 0,
       "last_commit_at": "2026-06-08T14:10:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Commit messages: imperative mood, 1-2 sentences, reference user story (e.g., US-004: implement Postgres dialect connection and sandbox context)",
+          "reason": "Claude Code already writes commit messages in imperative mood and 1-2 sentences by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-10T09:55:25.645Z",
+      "semantic_content_hash": "2b04cf6534df576cb30bb8c870ffc60f46dbba3187d616905d9f947ac12d2ca8"
     },
     {
       "owner": "hralet1",
@@ -1009,7 +1078,17 @@
       "char_count": 1307,
       "score": 0,
       "last_commit_at": "2026-05-31T09:40:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "不要自动生成测试脚本、总结或说明文档（但可更新PRD文档）",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-10T09:55:52.466Z",
+      "semantic_content_hash": "b7098fac1268374548b6b809f9321defecc32828e3a93b0c0ab0fb50ae1f7d0d"
     },
     {
       "owner": "krusemediallc",
@@ -1540,7 +1619,11 @@
       "char_count": 3795,
       "score": 0,
       "last_commit_at": "2026-06-08T14:54:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-10T09:56:42.450Z",
+      "semantic_content_hash": "711c18d5a8dc6ba36e182cf28e23524f1a4b0f4ec0c073b55d79997681290738"
     },
     {
       "owner": "the-cafe",
