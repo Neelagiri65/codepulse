@@ -11,7 +11,22 @@
       "matches": [
         "no-emojis",
         "no-hedging"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis in repo files unless explicitly requested.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prefer editing existing docs over creating new ones.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:18:18.813Z",
+      "semantic_content_hash": "596cf770779d34e1dab351adc4876d254dc94e177c453a0db752eb872ffd87ae"
     },
     {
       "owner": "ArEnSc",
@@ -22,7 +37,22 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:18:25.723Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "TrueSelph",
@@ -33,7 +63,22 @@
       "last_commit_at": "2026-05-20T17:05:37Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Resolve root cause; do not paper over.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not commit .env or any secrets.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:18:37.948Z",
+      "semantic_content_hash": "129384a4c94f08662e5c140d0b6ca25ce73615588c2e287d518b7f5a94cbd88d"
     },
     {
       "owner": "alexander-turner",
@@ -44,7 +89,32 @@
       "last_commit_at": "2026-06-11T04:42:03Z",
       "matches": [
         "no-running-commentary"
-      ]
+      ],
+      "semantic_score": 8,
+      "semantic_matched_intents": [
+        {
+          "quote": "No running commentary or filler — don't narrate tool use, restate my request, or recap after each step. Just do the work.",
+          "reason": "Claude Code already avoids narrating internal deliberation, restating user requests, and providing trailing summaries by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Be direct.",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Default to not touching it — most features, flags, and internals belong in code comments or a focused doc.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "comments that explain _what_ instead of _why_",
+          "reason": "Claude Code already does not explain WHAT the code does in comments by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:19:04.309Z",
+      "semantic_content_hash": "49ad0dee7f572ff8a3aa3bf0413c6bdc59e6a5cd90cc326c4734274b9ffe5d51"
     },
     {
       "owner": "enricai",
@@ -55,7 +125,22 @@
       "last_commit_at": "2026-06-11T07:48:02Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Comments explain *why*, not *what*.",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Well-named identifiers document what; comments are for non-obvious constraints, hidden invariants, or workarounds for specific bugs.",
+          "reason": "Claude Code already writes why-not-what comments by default and only writes comments when the WHY is non-obvious (hidden constraint, workaround, subtle invariant).",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:19:16.076Z",
+      "semantic_content_hash": "174795bd1351663b52685ba57f04e3e8f93602e96279fe54991bb5737121781a"
     },
     {
       "owner": "treenity-ai",
@@ -75,7 +160,11 @@
       "char_count": 2936,
       "score": 0,
       "last_commit_at": "2026-01-26T04:25:18Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-11T10:19:28.315Z",
+      "semantic_content_hash": "ba19bfbc86482051faddf07b4c23b502fc66e61b560020963674b01d6d23eae3"
     },
     {
       "owner": "4kk11",
@@ -84,7 +173,17 @@
       "char_count": 3453,
       "score": 0,
       "last_commit_at": "2026-05-09T13:45:44Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "挨拶・前置き・段階報告は不要。結論ファースト",
+          "reason": "Claude Code already avoids preamble greetings, restating user words, trailing summaries, and provides short, direct answers by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:19:36.146Z",
+      "semantic_content_hash": "aeef49cf82bee77f862712a51037269269ac74d6aba6c837a9a219ac57f253ee"
     },
     {
       "owner": "a3lem",
@@ -93,7 +192,17 @@
       "char_count": 10407,
       "score": 0,
       "last_commit_at": "2025-10-18T14:36:45Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Claude does not waste time on niceties such as 'great question'",
+          "reason": "Claude Code already avoids preamble greetings by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:19:46.228Z",
+      "semantic_content_hash": "d383d2c161ac88a83733c7a3ae3640867ffe71384e285fadf25bab1ef5aeb981"
     },
     {
       "owner": "aaronmarkham",
@@ -102,7 +211,11 @@
       "char_count": 10752,
       "score": 0,
       "last_commit_at": "2026-02-10T07:01:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-11T10:19:56.020Z",
+      "semantic_content_hash": "e52dfbf76a0977fc496a08ea58be6c24d90aa0558dbbb3e5b2b494a723c22eb5"
     },
     {
       "owner": "aarora79",
@@ -111,7 +224,11 @@
       "char_count": 6587,
       "score": 0,
       "last_commit_at": "2026-04-07T23:12:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-11T10:20:02.334Z",
+      "semantic_content_hash": "5f13078a88c819b5510883f4407572f0490b87d547213e2578e547d3664a7951"
     },
     {
       "owner": "Accenture",
@@ -318,7 +435,11 @@
       "char_count": 695,
       "score": 0,
       "last_commit_at": "2025-09-30T14:15:30Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-11T10:20:17.469Z",
+      "semantic_content_hash": "c939b86e875d08a42571860f22f9bea6ccad4f81245c221378cbcd7a3ada0d63"
     },
     {
       "owner": "coderashhar",
@@ -336,7 +457,27 @@
       "char_count": 4756,
       "score": 0,
       "last_commit_at": "2025-10-03T17:51:13Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Only implement what is explicitly requested",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Wait for explicit approval before actions beyond immediate request",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Verify understanding before implementation",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:20:29.098Z",
+      "semantic_content_hash": "3cff68126d72c901dbd4c3fc17d65aa5576cfdf0415a6a8f6f58233655dbc7c4"
     },
     {
       "owner": "cyrinux",
@@ -345,7 +486,11 @@
       "char_count": 26712,
       "score": 0,
       "last_commit_at": "2026-04-06T08:32:37Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-11T10:20:39.518Z",
+      "semantic_content_hash": "73abbe1ee07885669d99208a434c7cd3ab86f1cf522413b7a462127ce554eb51"
     },
     {
       "owner": "DannG04",
@@ -1119,7 +1264,17 @@
       "char_count": 931,
       "score": 0,
       "last_commit_at": "2026-01-05T19:06:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Ensure sensitive data is not leaked to third-party endpoints",
+          "reason": "Claude Code already does not upload sensitive content to third-party services by default",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-11T10:21:16.696Z",
+      "semantic_content_hash": "59701a299705f6e3eeda31a482469380d6d5bfb03914de5ac55a89ae0098cc46"
     },
     {
       "owner": "petems",
