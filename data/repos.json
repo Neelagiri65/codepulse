@@ -43,7 +43,17 @@
       "last_commit_at": "2026-02-14T14:44:06Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Commit messages: imperative mood, short summary line",
+          "reason": "Claude Code already uses imperative-mood summary commit messages by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-15T11:58:31.134Z",
+      "semantic_content_hash": "c7ff9718b58850a624e6612f85474ff7affb3bbd5e4042a6a184fc4f1b403ae8"
     },
     {
       "owner": "withLinda",
@@ -229,7 +239,11 @@
       "char_count": 7957,
       "score": 0,
       "last_commit_at": "2026-05-25T07:27:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-15T11:58:56.692Z",
+      "semantic_content_hash": "6afc70dde0b7654f4b8b32a4d85b8e7f4039c6f9452661b6fa654fd449246147"
     },
     {
       "owner": "baptisterajaut",
@@ -238,7 +252,11 @@
       "char_count": 9396,
       "score": 0,
       "last_commit_at": "2026-03-27T11:30:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-15T11:59:05.707Z",
+      "semantic_content_hash": "afdca5d8f3fa6fc759ed532a8b0bfc0e5adf9b424379394365423129e530e64e"
     },
     {
       "owner": "BentoBoxWorld",
@@ -256,7 +274,11 @@
       "char_count": 4058,
       "score": 0,
       "last_commit_at": "2026-06-13T23:14:12Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-15T11:59:18.587Z",
+      "semantic_content_hash": "ad0228393754dec1e4162833fe731b26e0c03c6aa427512b03b9937bd252c2c1"
     },
     {
       "owner": "boyter",
@@ -265,7 +287,11 @@
       "char_count": 4043,
       "score": 0,
       "last_commit_at": "2026-02-20T03:28:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-15T11:59:27.610Z",
+      "semantic_content_hash": "a0d56afc0a0968160eddddbb352bc12b9a80072cd50d27855aaa06d697e2dae3"
     },
     {
       "owner": "brendanlong",
@@ -364,7 +390,11 @@
       "char_count": 2749,
       "score": 0,
       "last_commit_at": "2026-05-27T07:44:45Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-15T11:59:52.563Z",
+      "semantic_content_hash": "6a5dff24e2d88cb7e45562efe204ef79bf6228dcf67565def59fa7c550681051"
     },
     {
       "owner": "corbamico",
@@ -382,7 +412,11 @@
       "char_count": 10917,
       "score": 0,
       "last_commit_at": "2026-06-08T01:19:48Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-15T12:00:04.644Z",
+      "semantic_content_hash": "48ab01d7dd7006933fbb8d7d055c9adc9b2d078eba78fe6128da1274090f67d9"
     },
     {
       "owner": "cross-platform-actions",
@@ -1084,7 +1118,11 @@
       "char_count": 4002,
       "score": 0,
       "last_commit_at": "2026-05-23T06:00:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-15T12:00:55.181Z",
+      "semantic_content_hash": "180f26bec39825706e478b87a325aec13d61187b5fec88e2abafafe341b2a0a6"
     },
     {
       "owner": "NazarKalytiuk",
