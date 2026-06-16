@@ -10,7 +10,22 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-16T11:05:30.240Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "mogaika",
@@ -21,7 +36,22 @@
       "last_commit_at": "2026-03-17T17:41:07Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "Comments: No unnecessary comments in code.",
+          "reason": "Claude Code already writes comments only when the WHY is non-obvious and does not explain WHAT the code does by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "File Edits: Prefer editing existing files over creating new ones unless necessary.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-16T11:05:42.167Z",
+      "semantic_content_hash": "66b84ca25b0faf958382c8187dc72e9bbfc33e40fc1a11e059dd371cde692efe"
     },
     {
       "owner": "neuromechanist",
@@ -32,7 +62,22 @@
       "last_commit_at": "2026-05-30T09:10:38Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "design a detailed implementation plan before non-trivial work.",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No emojis",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-16T11:05:47.238Z",
+      "semantic_content_hash": "abca7264fe438e0451866c1408d9dd8f00aa9e9487e7a85c38f613d07a20cba0"
     },
     {
       "owner": "TrueSelph",
@@ -43,7 +88,22 @@
       "last_commit_at": "2026-05-20T17:05:37Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Resolve root cause; do not paper over.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not commit .env or any secrets.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-16T11:05:59.878Z",
+      "semantic_content_hash": "129384a4c94f08662e5c140d0b6ca25ce73615588c2e287d518b7f5a94cbd88d"
     },
     {
       "owner": "seanchatmangpt",
@@ -54,7 +114,11 @@
       "last_commit_at": "2026-06-12T01:54:45Z",
       "matches": [
         "trust-but-verify-subagent"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:06:22.496Z",
+      "semantic_content_hash": "da30ea53bcddc89c8518c78adf5ce9bb9494ba48437429c82fb242f520be2bba"
     },
     {
       "owner": "1368129224",
@@ -63,7 +127,11 @@
       "char_count": 2335,
       "score": 0,
       "last_commit_at": "2026-05-08T07:18:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:06:29.410Z",
+      "semantic_content_hash": "2e2a412ee6c137bea17d62cdf3d476d58d9fad944a89890a8ccf877b277679cf"
     },
     {
       "owner": "2389-research",
@@ -72,7 +140,11 @@
       "char_count": 2936,
       "score": 0,
       "last_commit_at": "2026-01-26T04:25:18Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:06:36.521Z",
+      "semantic_content_hash": "ba19bfbc86482051faddf07b4c23b502fc66e61b560020963674b01d6d23eae3"
     },
     {
       "owner": "AirSodaz",
@@ -81,7 +153,11 @@
       "char_count": 8479,
       "score": 0,
       "last_commit_at": "2026-06-04T06:48:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:06:47.492Z",
+      "semantic_content_hash": "86f189e4e99444f11c50054e6afcbd6cf663ae423afb968ddb7fb71484f0bcfd"
     },
     {
       "owner": "akshayturtle",
@@ -90,7 +166,11 @@
       "char_count": 5265,
       "score": 0,
       "last_commit_at": "2026-03-21T23:13:52Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:06:58.073Z",
+      "semantic_content_hash": "5e4ed6c3bb75852abf1c8fe63a7fb28f0cebe4a677cd60629d85ff82bc25c376"
     },
     {
       "owner": "alejandrofonsecacuza",
@@ -99,7 +179,11 @@
       "char_count": 4231,
       "score": 0,
       "last_commit_at": "2026-04-30T17:22:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:07:04.359Z",
+      "semantic_content_hash": "43ef446efa5c1008d8b92a1eda54d3587fe31350abf7190b81e08859d5986694"
     },
     {
       "owner": "alexjungaalto",
@@ -108,7 +192,22 @@
       "char_count": 3945,
       "score": 0,
       "last_commit_at": "2026-06-14T16:20:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do not add internal notes, credentials, or draft-quality content.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Do not use emojis in README.md or the topic catalog.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-16T11:07:15.572Z",
+      "semantic_content_hash": "562f5706ed1b2616478d945082d0756af1e195d73b46fcee0e9b633e28b31bee"
     },
     {
       "owner": "aliyun",
@@ -247,7 +346,11 @@
       "char_count": 4182,
       "score": 0,
       "last_commit_at": "2026-03-18T03:00:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:07:34.031Z",
+      "semantic_content_hash": "d78ca5788f99e198829f3782a581a77595ff483ebcf9651f40306baf8e3ea0cb"
     },
     {
       "owner": "brightdigit",
@@ -256,7 +359,11 @@
       "char_count": 2859,
       "score": 0,
       "last_commit_at": "2026-02-16T15:29:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:07:40.852Z",
+      "semantic_content_hash": "678bc126bd61a86fc584454bf3cb8b6153c03cf8732f26d825a8b9a873a1c7b7"
     },
     {
       "owner": "bwasti",
@@ -265,7 +372,22 @@
       "char_count": 22891,
       "score": 0,
       "last_commit_at": "2025-11-07T01:03:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Investigate and fix the root cause",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Identify root cause using logs/stats",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-16T11:07:52.706Z",
+      "semantic_content_hash": "aa3b765057c68069a8bceeaabae14eed67cb9f7994efc5400fb086590d71e404"
     },
     {
       "owner": "bylins",
@@ -274,7 +396,22 @@
       "char_count": 20443,
       "score": 0,
       "last_commit_at": "2026-05-20T10:24:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "Always warn the user when changing build directories or running `meson setup`/`meson configure`/`ninja` in a different directory.",
+          "reason": "Claude Code already states action briefly before first tool call and provides short updates at key moments.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Always explicitly notify the user before: - Running `meson setup`/`meson configure` in a different build directory - Running `ninja` in a different build directory - Changing the working directory for any build operation",
+          "reason": "Claude Code already states action briefly before first tool call and provides short updates at key moments.",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-16T11:08:41.290Z",
+      "semantic_content_hash": "ce754ff3a60cfb3b0d872f7fa28df6690a30d34e128e8b9aeafa078ecd52c711"
     },
     {
       "owner": "cass-clearly",
@@ -283,7 +420,11 @@
       "char_count": 17,
       "score": 0,
       "last_commit_at": "2026-03-09T04:28:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:08:43.996Z",
+      "semantic_content_hash": "f448d73ccaac3a8d93879456ef6df1a6a581df973e1cff64f00371f5629dcb76"
     },
     {
       "owner": "cenconq25",
@@ -292,7 +433,11 @@
       "char_count": 3551,
       "score": 0,
       "last_commit_at": "2026-05-03T13:23:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:08:50.660Z",
+      "semantic_content_hash": "625a5059b03f5801a26afccbcb2866f09f01179361f5ef57401c61dbb01e2215"
     },
     {
       "owner": "chetstriker",
@@ -301,7 +446,11 @@
       "char_count": 8359,
       "score": 0,
       "last_commit_at": "2026-04-11T21:05:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:08:58.989Z",
+      "semantic_content_hash": "5388ed015be7423fb7baa64c02ef2f75b98ca49074695e97eda607d238efc1f7"
     },
     {
       "owner": "chrono-meta",
@@ -1363,7 +1512,11 @@
       "char_count": 5701,
       "score": 0,
       "last_commit_at": "2026-04-24T09:00:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-16T11:10:40.921Z",
+      "semantic_content_hash": "ab302ff26187400500f2356cd968b378c0949fe0ca315d913fb3686a29f77884"
     },
     {
       "owner": "studyzy",
