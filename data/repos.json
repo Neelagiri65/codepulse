@@ -10,7 +10,22 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:50:56.397Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "mogaika",
@@ -21,7 +36,22 @@
       "last_commit_at": "2026-03-17T17:41:07Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "No unnecessary comments in code.",
+          "reason": "Claude Code already avoids explaining WHAT the code does and only writes comments when the WHY is non-obvious by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prefer editing existing files over creating new ones unless necessary.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:51:06.678Z",
+      "semantic_content_hash": "66b84ca25b0faf958382c8187dc72e9bbfc33e40fc1a11e059dd371cde692efe"
     },
     {
       "owner": "hasseily",
@@ -32,7 +62,37 @@
       "last_commit_at": "2026-05-02T07:38:15Z",
       "matches": [
         "no-docstrings"
-      ]
+      ],
+      "semantic_score": 11,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't add features, abstractions, or layers that aren't required by the task in front of us.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't add error handling, validation, or fallbacks for cases that can't happen.",
+          "reason": "Claude Code already does not add error handling or validation for scenarios that can't happen by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Default to no comments. Well-named identifiers explain *what*; only write a comment when the *why* is non-obvious (a hidden constraint, a subtle invariant, a workaround for a specific bug, behaviour that would surprise a reader).",
+          "reason": "Claude Code already does not explain WHAT the code does and only writes comments when the WHY is non-obvious by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "No multi-paragraph docstrings, no banner comments.",
+          "reason": "Claude Code already does not write multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Conventional, imperative subject lines.",
+          "reason": "Claude Code already uses imperative-mood summary in commit messages by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:51:14.530Z",
+      "semantic_content_hash": "d49bb9eddf7f9c04ee71d466519bcc5c3d7ad1d424a9960ee78c1dc3a55c27c9"
     },
     {
       "owner": "neuromechanist",
@@ -43,7 +103,22 @@
       "last_commit_at": "2026-05-30T09:10:38Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "enter plan mode to design a detailed implementation plan before non-trivial work.",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No emojis and no AI attribution in commits, PRs, or code.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:51:20.025Z",
+      "semantic_content_hash": "abca7264fe438e0451866c1408d9dd8f00aa9e9487e7a85c38f613d07a20cba0"
     },
     {
       "owner": "pezzos",
@@ -54,7 +129,152 @@
       "last_commit_at": "2025-06-30T13:35:00Z",
       "matches": [
         "parallel-tool-calls"
-      ]
+      ],
+      "semantic_score": 55,
+      "semantic_matched_intents": [
+        {
+          "quote": "Root Cause Analysis - Analyze patterns, cross-reference with existing documentation",
+          "reason": "Claude Code already identifies root causes by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "mark completed immediately after each phase",
+          "reason": "Claude Code already marks tasks complete as soon as done; does not batch.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Use parallel tool calls for independent data collection (logs + status + config analysis)",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "REQUIRED for: Multi-step tasks (3+ steps), architectural changes, debugging complex issues, feature implementations, integration work, investigation workflows, MCP server debugging workflows",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Break MCP debugging into systematic phases (Protocol Test → Communication Analysis → Parameter Validation → Fix Implementation → Integration Testing)",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "medium"
+        },
+        {
+          "quote": "When multiple independent operations can be batched (file reads, parallel searches, multiple bash commands), prioritize concurrent tool usage over TodoWrite planning for efficiency",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Always mark todos as completed immediately after finishing each task",
+          "reason": "Claude Code already marks tasks complete as soon as done; does not batch.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use concurrent calls for: Independent file reads, parallel searches, multiple bash commands that don't depend on each other",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Examples of good concurrency: Reading multiple files simultaneously, running `git status` and `git diff` in parallel, searching different patterns",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use concurrent Bash calls for parallel log analysis, health checks, and status gathering",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Batch multiple Read operations when examining related configuration files",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prioritize concurrent calls during information gathering, sequential during implementation",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use Glob/Grep directly for: Specific file patterns, known directory searches, targeted content searches",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use Read directly for: Known file paths, specific files mentioned by user",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use Docker MCP tools for: Container status checks, log retrieval, deployment management, systematic debugging",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use Docker MCP tools in parallel with other debugging tools for comprehensive system analysis",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Preferred for investigations: Docker MCP tools provide cleaner output and better integration with concurrent tool usage patterns",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use `mcp__docker-mcp__get-logs` alongside `docker exec` commands for comprehensive log analysis",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use Docker MCP tools for clean output, traditional commands for interactive debugging",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use Docker MCP tools to capture MCP server stdio output during initialization failures",
+          "reason": "Claude Code already prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Root Cause Analysis: Differentiate between symptoms and underlying causes",
+          "reason": "Claude Code already identifies root causes by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Concurrent Tool Usage: Use multiple tools simultaneously for faster diagnosis",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use multiple Bash tool calls in parallel for independent checks",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Batch file reads when examining multiple configuration files",
+          "reason": "Claude Code already runs independent tool calls in parallel.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Use TodoWrite to plan fixes across multiple layers simultaneously",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Test each layer individually, then test integrated functionality",
+          "reason": "Claude Code already tests incrementally.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "ALWAYS prefer editing an existing file to creating a new one.",
+          "reason": "Claude Code already prefers editing existing files over creating new ones.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:51:59.403Z",
+      "semantic_content_hash": "5d8447044a6710956d80577ca88dd991637ec6538450a9b575b6726883684c70"
     },
     {
       "owner": "davidhariri",
@@ -65,7 +285,22 @@
       "last_commit_at": "2026-02-18T01:14:52Z",
       "matches": [
         "short-end-summary"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "When you're unsure, ask — don't guess.",
+          "reason": "Claude Code already asks when unsure by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "If there are 2+ reasonable interpretations of a request, use AskUserQuestion to disambiguate before starting work. The cost of one clarifying question is far less than building the wrong thing.",
+          "reason": "Claude Code already asks to disambiguate requests when unsure by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:52:13.101Z",
+      "semantic_content_hash": "98ad39a5aa1aa5e6415e0ccdeeb54fccb94fb9e56d29a853ee1b0e03c21067ef"
     },
     {
       "owner": "1368129224",
@@ -74,7 +309,11 @@
       "char_count": 2335,
       "score": 0,
       "last_commit_at": "2026-05-08T07:18:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:52:17.252Z",
+      "semantic_content_hash": "2e2a412ee6c137bea17d62cdf3d476d58d9fad944a89890a8ccf877b277679cf"
     },
     {
       "owner": "1amageek",
@@ -83,7 +322,11 @@
       "char_count": 25436,
       "score": 0,
       "last_commit_at": "2026-04-30T11:03:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:52:32.787Z",
+      "semantic_content_hash": "68246b958f5a36cb53524f0e935c5300574805d063258abb7936c6badb8b39f4"
     },
     {
       "owner": "aarora79",
@@ -92,7 +335,11 @@
       "char_count": 6587,
       "score": 0,
       "last_commit_at": "2026-04-07T23:12:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:52:39.109Z",
+      "semantic_content_hash": "5f13078a88c819b5510883f4407572f0490b87d547213e2578e547d3664a7951"
     },
     {
       "owner": "abandini",
@@ -101,7 +348,11 @@
       "char_count": 954,
       "score": 0,
       "last_commit_at": "2025-04-05T15:51:55Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:52:44.454Z",
+      "semantic_content_hash": "85b9e38820f2a50f920f3c7168da56680c4df02a64b473bb21ca9809de74c63a"
     },
     {
       "owner": "acaracappa",
@@ -110,7 +361,11 @@
       "char_count": 4515,
       "score": 0,
       "last_commit_at": "2026-03-02T00:31:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:52:48.519Z",
+      "semantic_content_hash": "85c25c8b777783ded618a5cc14d716aeb867ab9f178e2ec6fae6f34cf286b59d"
     },
     {
       "owner": "agenthill",
@@ -128,7 +383,11 @@
       "char_count": 4706,
       "score": 0,
       "last_commit_at": "2026-04-15T10:55:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:52:56.937Z",
+      "semantic_content_hash": "e646af9d58ff802536d6a3112fbb20b6aa6566cea61b9d0f20b5daa386a75b09"
     },
     {
       "owner": "AirSodaz",
@@ -137,7 +396,11 @@
       "char_count": 8479,
       "score": 0,
       "last_commit_at": "2026-06-04T06:48:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:53:05.581Z",
+      "semantic_content_hash": "86f189e4e99444f11c50054e6afcbd6cf663ae423afb968ddb7fb71484f0bcfd"
     },
     {
       "owner": "alexey-pelykh",
@@ -146,7 +409,11 @@
       "char_count": 5413,
       "score": 0,
       "last_commit_at": "2026-03-22T13:08:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:53:11.730Z",
+      "semantic_content_hash": "26c14cb5c8471bcd85ebfc9caeabf35dd94ee32f2ee17c88679a650e62162f9b"
     },
     {
       "owner": "am009",
@@ -155,7 +422,11 @@
       "char_count": 1423,
       "score": 0,
       "last_commit_at": "2026-02-15T09:53:56Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:53:15.454Z",
+      "semantic_content_hash": "0ce458772ffba10bbffa7be492fd9f288721a19ee2f5d6835705157a98d21ceb"
     },
     {
       "owner": "andoma",
@@ -164,7 +435,11 @@
       "char_count": 4050,
       "score": 0,
       "last_commit_at": "2026-03-23T06:33:00Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:53:22.930Z",
+      "semantic_content_hash": "dca6ca89718b18890308b46e8df9d406b8dd856615263028c47ffb04f19c08cd"
     },
     {
       "owner": "andrewevans0102",
@@ -173,7 +448,11 @@
       "char_count": 9577,
       "score": 0,
       "last_commit_at": "2026-05-18T01:10:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:53:32.209Z",
+      "semantic_content_hash": "f4a510ea16356add7fd5762248ca1da7b8088fcaab5f641da4e236e54c88e7e6"
     },
     {
       "owner": "antoniolg",
@@ -555,7 +834,22 @@
       "char_count": 7582,
       "score": 0,
       "last_commit_at": "2026-06-12T10:58:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "No documentation files unless explicitly asked.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "The repo uses descriptive commits oriented around *why*, not *what*.",
+          "reason": "Claude Code already focuses commit messages on WHY not WHAT by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:54:02.532Z",
+      "semantic_content_hash": "d6501587e0baca77b13efdab7f9386b3e7114d8947773d386ac343c437830556"
     },
     {
       "owner": "goosewobbler",
@@ -564,7 +858,11 @@
       "char_count": 165,
       "score": 0,
       "last_commit_at": "2026-06-09T15:31:55Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-20T08:54:04.849Z",
+      "semantic_content_hash": "3dbc156d7b4580886d67d9cb4a7e9c0bfd89628a34195f071f09d9d894662a99"
     },
     {
       "owner": "haoran-ni",
@@ -573,7 +871,17 @@
       "char_count": 2036,
       "score": 0,
       "last_commit_at": "2026-01-19T06:09:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "When making changes, ensure the development server can still run without errors (`npm run dev`).",
+          "reason": "Claude Code already ensures it never commits broken code by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:54:08.179Z",
+      "semantic_content_hash": "588d10ac28aec08841a313dbeb13e7cdaab65f35ea73e70dd536a00441ddaf74"
     },
     {
       "owner": "heeki",
@@ -582,7 +890,22 @@
       "char_count": 2482,
       "score": 0,
       "last_commit_at": "2026-03-03T23:28:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Before committing code, verify that no credentials, tokens, or secrets are stored in files tracked by git.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Review diffs before pushing to ensure no API keys, passwords, or tokens are included.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-20T08:54:19.914Z",
+      "semantic_content_hash": "592d4f86629e6b82ae00743273da4b21d0fd831c93f31824babc656a8389196d"
     },
     {
       "owner": "helpermedia",
