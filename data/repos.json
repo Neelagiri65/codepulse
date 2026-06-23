@@ -54,7 +54,11 @@
       "last_commit_at": "2026-06-13T09:18:23Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-23T09:33:16.013Z",
+      "semantic_content_hash": "3038809f4d9c9a3aafb4c9af84ddc461fdc4e083f99159474f4b9f9d4e5c9e9b"
     },
     {
       "owner": "uhstray-io",
@@ -217,7 +221,11 @@
       "char_count": 9327,
       "score": 0,
       "last_commit_at": "2026-03-07T23:20:14Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-23T09:33:41.557Z",
+      "semantic_content_hash": "c98bc0aaf903aade11c808ba31e3cdf24ab58e29f7009a17bd08d3ec2a52abbf"
     },
     {
       "owner": "BlocUnited-LLC",
@@ -496,7 +504,11 @@
       "char_count": 1979,
       "score": 0,
       "last_commit_at": "2026-01-09T03:18:12Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-23T09:34:09.356Z",
+      "semantic_content_hash": "c8c11b5cb4d6c6dfc88e2bd1dd003f3a7c2ff89469df4c02a07894c88a9f43c4"
     },
     {
       "owner": "EventoFramework",
@@ -505,7 +517,17 @@
       "char_count": 2091,
       "score": 0,
       "last_commit_at": "2026-05-30T13:52:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Commits follow Conventional Commits with rich bodies (the why, not the what).",
+          "reason": "Claude Code already writes why-not-what commit messages by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-23T09:34:20.077Z",
+      "semantic_content_hash": "d65271374591fd3e9c6de787f7607ec18ea53ed2b2077ed915edd42b0884c255"
     },
     {
       "owner": "fcakyon",
@@ -1027,7 +1049,11 @@
       "char_count": 3554,
       "score": 0,
       "last_commit_at": "2026-05-11T06:29:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-23T09:35:08.979Z",
+      "semantic_content_hash": "9b4d5508f5a4829c8d696cf9473d121007224af4b2b068f3211915b14c40a9af"
     },
     {
       "owner": "ncukondo",
@@ -1657,7 +1683,22 @@
       "char_count": 1607,
       "score": 0,
       "last_commit_at": "2026-06-07T08:12:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "作業開始前にかならず作業の計画を立ててsteeringドキュメントに残してください。",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "計画の内容は細かい作業ごとのTODOリストに落としてください",
+          "reason": "Claude Code already decomposes non-trivial tasks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-23T09:36:13.868Z",
+      "semantic_content_hash": "6e3b524bb01ed96985f049f0b510c5c0da86640ce61672f7b3d09072adc4e310"
     },
     {
       "owner": "yunus-0x",
