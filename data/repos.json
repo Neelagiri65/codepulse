@@ -32,7 +32,22 @@
       "last_commit_at": "2026-05-30T09:10:38Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "design a detailed implementation plan before non-trivial work.",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No emojis",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-24T09:23:11.262Z",
+      "semantic_content_hash": "abca7264fe438e0451866c1408d9dd8f00aa9e9487e7a85c38f613d07a20cba0"
     },
     {
       "owner": "Nix07",
@@ -43,7 +58,17 @@
       "last_commit_at": "2026-01-08T10:32:00Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis in commit messages",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-06-24T09:23:19.050Z",
+      "semantic_content_hash": "2f540678873fce1b11c6f639f3a50760bc6a199f7498ceccd33ebdf6bb3f0ea8"
     },
     {
       "owner": "0merle0",
@@ -52,7 +77,11 @@
       "char_count": 9461,
       "score": 0,
       "last_commit_at": "2026-04-11T02:10:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-06-24T09:23:33.115Z",
+      "semantic_content_hash": "19e739249b64d6ac7b180e8594e92d462338c3a36de7cca81e60b983ffc2170b"
     },
     {
       "owner": "1amageek",
