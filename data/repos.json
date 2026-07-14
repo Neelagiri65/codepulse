@@ -10,7 +10,22 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-14T07:57:34.795Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "greystoke1337",
@@ -21,7 +36,22 @@
       "last_commit_at": "2026-04-13T11:40:06Z",
       "matches": [
         "no-docstrings"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "No comments on self-evident code; add comments only when logic is non-obvious.",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No docstrings / JSDoc unless already present in that section.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-14T07:57:42.034Z",
+      "semantic_content_hash": "71ec377cdfe428e03fd88a09f54109757775f13be8eb7750fe2311fa9516e3b4"
     },
     {
       "owner": "neuromechanist",
@@ -32,7 +62,22 @@
       "last_commit_at": "2026-05-30T09:10:38Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 3,
+      "semantic_matched_intents": [
+        {
+          "quote": "design a detailed implementation plan before non-trivial work.",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No emojis",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-14T07:57:46.799Z",
+      "semantic_content_hash": "abca7264fe438e0451866c1408d9dd8f00aa9e9487e7a85c38f613d07a20cba0"
     },
     {
       "owner": "Nix07",
@@ -43,7 +88,17 @@
       "last_commit_at": "2026-01-08T10:32:00Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "No emojis in commit messages",
+          "reason": "Claude Code already does not use emojis by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-14T07:57:54.633Z",
+      "semantic_content_hash": "2f540678873fce1b11c6f639f3a50760bc6a199f7498ceccd33ebdf6bb3f0ea8"
     },
     {
       "owner": "pbakaus",
@@ -54,7 +109,11 @@
       "last_commit_at": "2026-07-09T14:30:49Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:58:09.971Z",
+      "semantic_content_hash": "484b27e9db816647deddc92a7abb450a886c6fd882572d1a81437fcaeffe75fd"
     },
     {
       "owner": "Mefgner",
@@ -65,7 +124,17 @@
       "last_commit_at": "2026-06-02T16:46:10Z",
       "matches": [
         "no-why-whatsoever-comments"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "No comments that explain what code does. Comments only for non-obvious constraints or workarounds.",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-14T07:58:15.097Z",
+      "semantic_content_hash": "999d8cfb97a54a3808d1b9845891b791e67bb5f68cab6da202d7ff4506f5d12e"
     },
     {
       "owner": "mrgeoffrich",
@@ -373,7 +442,11 @@
       "char_count": 5048,
       "score": 0,
       "last_commit_at": "2026-05-17T08:32:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:58:35.992Z",
+      "semantic_content_hash": "aa4a471b8a25430e594408eeb2accc0499608e5b555aa38fa0e95b3ddb78a7e3"
     },
     {
       "owner": "ebertti",
@@ -382,7 +455,11 @@
       "char_count": 4336,
       "score": 0,
       "last_commit_at": "2026-06-01T20:02:33Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:58:45.425Z",
+      "semantic_content_hash": "7983080c6cf5d5f2bdaf388210e345e4cd006356be71dc9f62f84c0406f5465e"
     },
     {
       "owner": "elastic",
@@ -391,7 +468,11 @@
       "char_count": 17,
       "score": 0,
       "last_commit_at": "2026-03-13T14:56:14Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:58:47.681Z",
+      "semantic_content_hash": "f448d73ccaac3a8d93879456ef6df1a6a581df973e1cff64f00371f5629dcb76"
     },
     {
       "owner": "eslutz",
@@ -400,7 +481,17 @@
       "char_count": 18471,
       "score": 0,
       "last_commit_at": "2026-06-13T21:06:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "Doc-comment types and non-obvious methods with `///`; explain *why*, not *what*.",
+          "reason": "Claude Code already writes why-not-what comments and only for non-obvious logic by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-14T07:59:00.747Z",
+      "semantic_content_hash": "b795d1e23809f845e838a279c1807228c82d5d64a5f0490ff71949dd91f5431c"
     },
     {
       "owner": "fideus-labs",
@@ -409,7 +500,11 @@
       "char_count": 100,
       "score": 0,
       "last_commit_at": "2026-03-20T21:28:46Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:59:02.593Z",
+      "semantic_content_hash": "9f9731f4bff10e8ee38a52f84753fbb7d293c153b37450bfb5a56d1952ffe67a"
     },
     {
       "owner": "fideus-labs",
@@ -418,7 +513,11 @@
       "char_count": 100,
       "score": 0,
       "last_commit_at": "2026-03-24T18:51:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:59:04.246Z",
+      "semantic_content_hash": "9f9731f4bff10e8ee38a52f84753fbb7d293c153b37450bfb5a56d1952ffe67a"
     },
     {
       "owner": "fluentassertions",
@@ -976,7 +1075,11 @@
       "char_count": 2209,
       "score": 0,
       "last_commit_at": "2026-06-04T18:21:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:59:32.679Z",
+      "semantic_content_hash": "b3cd1d2da6f48f40570d8ce9d5ac698b5a59be2a04cd95b752e89a9c4e8404a4"
     },
     {
       "owner": "modrinth",
@@ -985,7 +1088,22 @@
       "char_count": 5574,
       "score": 0,
       "last_commit_at": "2026-06-24T15:48:35Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Code should aim to be self documenting!",
+          "reason": "Claude Code already does not explain WHAT the code does (well-named identifiers carry that) by default, implying code should be self-documenting.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "When provided problems, do not say \"I didn't introduce these problems\" (shifting the blame/effort) - just fix them.",
+          "reason": "Claude Code already provides short, direct answers and does not narrate internal deliberation or use unnecessary conversational elements by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-14T07:59:45.957Z",
+      "semantic_content_hash": "939d011cf736e71927a4752ae07177faa009a2309c7450763fc7a98bf45e7c3c"
     },
     {
       "owner": "moleculer-java",
@@ -994,7 +1112,11 @@
       "char_count": 5625,
       "score": 0,
       "last_commit_at": "2026-06-23T19:49:04Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T07:59:52.135Z",
+      "semantic_content_hash": "f626f350f6e2e6d9673ad64891ef8f702a07added79509b7aa997fdc6f5261bf"
     },
     {
       "owner": "mrkrstphr",
@@ -1003,7 +1125,11 @@
       "char_count": 3808,
       "score": 0,
       "last_commit_at": "2026-04-19T20:06:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T08:00:00.270Z",
+      "semantic_content_hash": "872b4deb784b4646862a6b0c8a12a83e5a080f696093935bd714b7dda1ba5537"
     },
     {
       "owner": "multigres",
@@ -1012,7 +1138,11 @@
       "char_count": 4151,
       "score": 0,
       "last_commit_at": "2026-05-18T17:01:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T08:00:10.094Z",
+      "semantic_content_hash": "77bad5489a47226652da482a4d0075b63ffcba35f101ded195ae7053c8afe88d"
     },
     {
       "owner": "mutable-state-inc",
@@ -1021,7 +1151,11 @@
       "char_count": 3571,
       "score": 0,
       "last_commit_at": "2026-03-23T20:25:12Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-14T08:00:15.092Z",
+      "semantic_content_hash": "471a0254d4b2f7e5bcb654cb872b5b48c0e3204149dada4469b161efe24a2e93"
     },
     {
       "owner": "nabekou29",
