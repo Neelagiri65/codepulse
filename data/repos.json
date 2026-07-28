@@ -853,7 +853,11 @@
       "char_count": 2991,
       "score": 0,
       "last_commit_at": "2026-05-20T09:17:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-28T08:29:09.752Z",
+      "semantic_content_hash": "c5089d45c546f7dd48173c48eca7d3738e8c375b780e3441ace841901b63e19a"
     },
     {
       "owner": "jvkersch",
@@ -862,7 +866,11 @@
       "char_count": 3523,
       "score": 0,
       "last_commit_at": "2025-11-09T06:12:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-28T08:29:13.566Z",
+      "semantic_content_hash": "9286c4e00cb2c121e4f230cf10e4d83c79e3e92223aefef9e067705fef435b2e"
     },
     {
       "owner": "KaiserGranatapfel",
@@ -871,7 +879,11 @@
       "char_count": 3284,
       "score": 0,
       "last_commit_at": "2026-02-10T05:16:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-28T08:29:26.573Z",
+      "semantic_content_hash": "b7a36b453f46e1f8ba4e7aaf2ee116ca4fc95716932da72833091c2f7e1b2f4b"
     },
     {
       "owner": "kantord",
@@ -889,7 +901,11 @@
       "char_count": 7630,
       "score": 0,
       "last_commit_at": "2026-03-11T16:50:40Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-07-28T08:29:44.316Z",
+      "semantic_content_hash": "98a0978e1125e3c663cf206d48b032e5945c4798432773e077b866e86c031ae4"
     },
     {
       "owner": "kobaru-io",
@@ -898,7 +914,17 @@
       "char_count": 9686,
       "score": 0,
       "last_commit_at": "2026-02-06T21:44:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 1,
+      "semantic_matched_intents": [
+        {
+          "quote": "No secrets committed (only .env.example)",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-07-28T08:29:56.032Z",
+      "semantic_content_hash": "567cf2a70232b43cb65154ab0ec9b3a13e2968661c9c021ec6ff93d57d4b3410"
     },
     {
       "owner": "kousen",
