@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-07-30T17:22:39.165Z",
+  "refreshed_at": "2026-07-30T19:19:07.084Z",
   "repos": [
     {
       "owner": "ArEnSc",
@@ -193,72 +193,6 @@
       "semantic_content_hash": "a532a9d2b0dd34f920f4140872700e425e5adfa749692c9b1e4117b28cab0935"
     },
     {
-      "owner": "Sautner-Studio-LLC",
-      "name": "krill-oss",
-      "stars": 12,
-      "char_count": 51839,
-      "score": 1,
-      "last_commit_at": "2026-06-08T23:32:51Z",
-      "matches": [
-        "short-end-summary"
-      ],
-      "semantic_score": 23,
-      "semantic_matched_intents": [
-        {
-          "quote": "If you can't reproduce after a real attempt, comment on the issue asking Ghost (or Ben) for the missing detail and stop. Do not fix what you cannot reproduce.",
-          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Comment with a one-line plan: \"Picking this up — <one-sentence approach>.\" If you can't yet form an approach (e.g. you still need to read the code), say \"Picking this up — investigating reproducer.\"",
-          "reason": "Claude Code already states action briefly before the first tool call and plans its approach before implementation on non-trivial work.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "During work — comment at each meaningful inflection point so Ben can monitor progress without scrolling your shell logs.",
-          "reason": "Claude Code already provides short updates at key moments.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "You don't need to narrate every command — comments are for decisions, conclusions, and pivots, not running commentary.",
-          "reason": "Claude Code already does not narrate internal deliberation and provides short, direct answers.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Reproduce locally first.",
-          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting and plans its approach before implementation on non-trivial work.",
-          "confidence": "low"
-        },
-        {
-          "quote": "If you can't reproduce after a real attempt, comment on the issue asking Ghost for the missing detail, then stop. Do not fix what you cannot reproduce.",
-          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Test-first. Write the failing test that captures the regression, then make it pass. Confirm red → green.",
-          "reason": "Claude Code already tests incrementally.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Body explains *why* in 2–3 sentences.",
-          "reason": "Claude Code already focuses commit messages on WHY not WHAT.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Never start fix work silently. The first action on a picked-up issue is the acknowledging comment + `status:in-progress` label (see \"Acknowledge and report progress\").",
-          "reason": "Claude Code already states action briefly before the first tool call and provides short updates at key moments.",
-          "confidence": "high"
-        },
-        {
-          "quote": "Never disappear into a long fix without surfacing decisions in the issue thread. Comment at the inflection points listed in \"Acknowledge and report progress\" — Ben can't read your shell history.",
-          "reason": "Claude Code already provides short updates at key moments and does not narrate internal deliberation.",
-          "confidence": "high"
-        }
-      ],
-      "semantic_refreshed_at": "2026-07-29T08:36:35.039Z",
-      "semantic_content_hash": "335eec8be68fbb1a72ff65369bc34ba91cf2fd742d9245cda8420e91574ff7d8"
-    },
-    {
       "owner": "URML-MARS",
       "name": "URML",
       "stars": 21,
@@ -382,6 +316,15 @@
       "semantic_content_hash": "43ef446efa5c1008d8b92a1eda54d3587fe31350abf7190b81e08859d5986694"
     },
     {
+      "owner": "alesha-pro",
+      "name": "spondex",
+      "stars": 8,
+      "char_count": 2735,
+      "score": 0,
+      "last_commit_at": "2026-02-28T17:11:07Z",
+      "matches": []
+    },
+    {
       "owner": "alfred1994",
       "name": "alpha-pilot",
       "stars": 37,
@@ -441,19 +384,6 @@
       "semantic_matched_intents": [],
       "semantic_refreshed_at": "2026-07-29T08:39:08.796Z",
       "semantic_content_hash": "bdeef6711ae3221b4512162cd67122f9af8d354e753927247579db2caf18f7d0"
-    },
-    {
-      "owner": "anchildress1",
-      "name": "save-the-sun",
-      "stars": 2,
-      "char_count": 75,
-      "score": 0,
-      "last_commit_at": "2026-06-06T05:28:50Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-07-29T08:39:10.562Z",
-      "semantic_content_hash": "41db7a795e773f1f3064706b8bdd384b2487e4574209d08d394f7c82d8992367"
     },
     {
       "owner": "AndriyKalashnykov",
@@ -614,7 +544,7 @@
     {
       "owner": "cachix",
       "name": "devenv",
-      "stars": 7192,
+      "stars": 7193,
       "char_count": 8633,
       "score": 0,
       "last_commit_at": "2026-07-25T17:39:20Z",
@@ -670,15 +600,6 @@
       "semantic_content_hash": "625a5059b03f5801a26afccbcb2866f09f01179361f5ef57401c61dbb01e2215"
     },
     {
-      "owner": "cgroening",
-      "name": "rs-sparcli",
-      "stars": 2,
-      "char_count": 7308,
-      "score": 0,
-      "last_commit_at": "2026-07-19T12:27:19Z",
-      "matches": []
-    },
-    {
       "owner": "chetstriker",
       "name": "LLMtary",
       "stars": 26,
@@ -690,6 +611,15 @@
       "semantic_matched_intents": [],
       "semantic_refreshed_at": "2026-07-30T08:22:47.589Z",
       "semantic_content_hash": "5388ed015be7423fb7baa64c02ef2f75b98ca49074695e97eda607d238efc1f7"
+    },
+    {
+      "owner": "CivicTechTO",
+      "name": "toronto-bids",
+      "stars": 6,
+      "char_count": 69696,
+      "score": 0,
+      "last_commit_at": "2026-07-28T19:40:01Z",
+      "matches": []
     },
     {
       "owner": "ckotzbauer",
@@ -942,19 +872,6 @@
       "score": 0,
       "last_commit_at": "2026-01-04T16:34:41Z",
       "matches": []
-    },
-    {
-      "owner": "firetiger-oss",
-      "name": "connect-sse",
-      "stars": 2,
-      "char_count": 1861,
-      "score": 0,
-      "last_commit_at": "2026-05-03T19:17:19Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-07-30T08:24:03.475Z",
-      "semantic_content_hash": "7ef05d47d6f808595fd39f184afa1b14200edc36a92429fbae8b756b248187ad"
     },
     {
       "owner": "fivetaku",
@@ -1244,15 +1161,6 @@
       "matches": []
     },
     {
-      "owner": "juanje",
-      "name": "complex-system-kb",
-      "stars": 2,
-      "char_count": 1058,
-      "score": 0,
-      "last_commit_at": "2026-06-06T19:40:03Z",
-      "matches": []
-    },
-    {
       "owner": "juanvieiraprado99",
       "name": "ng-mapcn",
       "stars": 4,
@@ -1423,15 +1331,6 @@
       "matches": []
     },
     {
-      "owner": "Lucasmind",
-      "name": "nodeava-workshop-public",
-      "stars": 2,
-      "char_count": 9507,
-      "score": 0,
-      "last_commit_at": "2026-05-22T12:57:31Z",
-      "matches": []
-    },
-    {
       "owner": "manifesto-ai",
       "name": "core-legacy",
       "stars": 18,
@@ -1474,6 +1373,15 @@
       "char_count": 5574,
       "score": 0,
       "last_commit_at": "2026-06-24T15:48:35Z",
+      "matches": []
+    },
+    {
+      "owner": "moeki0",
+      "name": "TextZen",
+      "stars": 10,
+      "char_count": 11746,
+      "score": 0,
+      "last_commit_at": "2025-04-01T10:36:12Z",
       "matches": []
     },
     {
@@ -1765,6 +1673,15 @@
       "matches": []
     },
     {
+      "owner": "QubiTO-team",
+      "name": "qubito-website",
+      "stars": 3,
+      "char_count": 278,
+      "score": 0,
+      "last_commit_at": "2025-09-27T12:32:25Z",
+      "matches": []
+    },
+    {
       "owner": "queelius",
       "name": "infinigram",
       "stars": 4,
@@ -1803,7 +1720,7 @@
     {
       "owner": "redpanda-data",
       "name": "connect",
-      "stars": 8719,
+      "stars": 8720,
       "char_count": 5978,
       "score": 0,
       "last_commit_at": "2026-04-08T14:32:25Z",
@@ -1900,6 +1817,15 @@
       "matches": []
     },
     {
+      "owner": "salaboy",
+      "name": "pizza-vibe",
+      "stars": 8,
+      "char_count": 9021,
+      "score": 0,
+      "last_commit_at": "2026-05-20T08:30:07Z",
+      "matches": []
+    },
+    {
       "owner": "samuelloranger",
       "name": "labby",
       "stars": 73,
@@ -1924,6 +1850,15 @@
       "char_count": 1436,
       "score": 0,
       "last_commit_at": "2025-09-22T03:05:15Z",
+      "matches": []
+    },
+    {
+      "owner": "securego",
+      "name": "gosec",
+      "stars": 8904,
+      "char_count": 1571,
+      "score": 0,
+      "last_commit_at": "2026-03-15T10:57:48Z",
       "matches": []
     },
     {
@@ -1969,15 +1904,6 @@
       "char_count": 3166,
       "score": 0,
       "last_commit_at": "2026-05-13T07:43:07Z",
-      "matches": []
-    },
-    {
-      "owner": "slaclab",
-      "name": "sc_linac_physics",
-      "stars": 2,
-      "char_count": 5564,
-      "score": 0,
-      "last_commit_at": "2026-05-18T14:56:13Z",
       "matches": []
     },
     {
@@ -2068,6 +1994,15 @@
       "char_count": 11631,
       "score": 0,
       "last_commit_at": "2025-11-10T13:59:00Z",
+      "matches": []
+    },
+    {
+      "owner": "tecolicom",
+      "name": "App-ansicolumn",
+      "stars": 4,
+      "char_count": 3520,
+      "score": 0,
+      "last_commit_at": "2026-02-27T03:33:07Z",
       "matches": []
     },
     {
