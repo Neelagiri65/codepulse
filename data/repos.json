@@ -10,7 +10,22 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-02T08:17:46.947Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "Aurealibe",
@@ -93,7 +108,22 @@
       "last_commit_at": "2026-06-01T14:35:45Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-02T08:17:58.632Z",
+      "semantic_content_hash": "5dabcbc4b284f17344e278aeaf204171198c91581dd96f1fe9ab291b3745b2b6"
     },
     {
       "owner": "microsoft",
@@ -260,7 +290,11 @@
       "char_count": 117306,
       "score": 0,
       "last_commit_at": "2026-07-28T14:50:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:19:13.885Z",
+      "semantic_content_hash": "14615c5371ad8c30ae7770b1d2bfd4977d494603b82a8f2c82abf9cc86e8ca24"
     },
     {
       "owner": "airwaylab-app",
@@ -288,7 +322,11 @@
       "char_count": 4231,
       "score": 0,
       "last_commit_at": "2026-04-30T17:22:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:19:19.657Z",
+      "semantic_content_hash": "43ef446efa5c1008d8b92a1eda54d3587fe31350abf7190b81e08859d5986694"
     },
     {
       "owner": "alesha-pro",
@@ -297,7 +335,11 @@
       "char_count": 2735,
       "score": 0,
       "last_commit_at": "2026-02-28T17:11:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:19:28.666Z",
+      "semantic_content_hash": "efcb947c002893fd78a9992020da3de1469b5bfafc1e8ae39dd97ba60a37ddb4"
     },
     {
       "owner": "alfred1994",
@@ -380,7 +422,11 @@
       "char_count": 7525,
       "score": 0,
       "last_commit_at": "2026-06-14T15:33:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:19:36.675Z",
+      "semantic_content_hash": "41c927dde89a8636a00248ec988d840bed3470ba9eb465fd48bed69476fa1e8b"
     },
     {
       "owner": "antoniolg",
@@ -441,7 +487,11 @@
       "char_count": 8542,
       "score": 0,
       "last_commit_at": "2025-10-20T23:11:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:19:56.696Z",
+      "semantic_content_hash": "414444d8616f75011b49d4106e38eee24ddecf6f7d94d6a938322d2723d6be81"
     },
     {
       "owner": "BNETDocs",
@@ -463,7 +513,11 @@
       "char_count": 11629,
       "score": 0,
       "last_commit_at": "2026-04-24T14:53:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:20:15.269Z",
+      "semantic_content_hash": "df163848214e1f7ee1c6081d8bc175be24025e2d0ae2cc4b1e657285dd2ba48e"
     },
     {
       "owner": "broadinstitute",
@@ -530,7 +584,11 @@
       "char_count": 2397,
       "score": 0,
       "last_commit_at": "2026-07-27T20:11:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:20:22.772Z",
+      "semantic_content_hash": "5c94908679943b7bf7b56cc3923b77cbf17cbd3b8a4a3a52077ea0516995a50b"
     },
     {
       "owner": "cenconq25",
@@ -565,7 +623,11 @@
       "char_count": 69696,
       "score": 0,
       "last_commit_at": "2026-07-28T19:40:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:21:37.443Z",
+      "semantic_content_hash": "85a574e0ce656fa952356f7c98a4e9d8449ae9c354b47bd17ba7792888056e02"
     },
     {
       "owner": "ckotzbauer",
@@ -644,7 +706,17 @@
       "char_count": 34476,
       "score": 0,
       "last_commit_at": "2026-02-11T16:29:04Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Include context in logs — IDs, operation names, relevant data",
+          "reason": "Claude Code already logs errors with context by default",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-02T08:21:52.507Z",
+      "semantic_content_hash": "85718cf02832c9dec5352d88dc347457a93447dc083c6839b55163ba1f519c2c"
     },
     {
       "owner": "davraamides",
@@ -713,7 +785,11 @@
       "char_count": 3132,
       "score": 0,
       "last_commit_at": "2026-07-21T12:03:51Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:22:06.720Z",
+      "semantic_content_hash": "28b9aafee736bea23e424ff92010660b3a095329d7870dbad737ffcb0cae84b5"
     },
     {
       "owner": "digitalpetri",
@@ -761,7 +837,132 @@
       "char_count": 29268,
       "score": 0,
       "last_commit_at": "2026-06-30T19:22:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 33,
+      "semantic_matched_intents": [
+        {
+          "quote": "NEVER implement workarounds. Fix the root cause or state clearly that you cannot.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Every tangent/discovery becomes a new backlog task — do not chase it inline.",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "medium"
+        },
+        {
+          "quote": "✅ Task Management: Create, edit, assign, prioritize, and track tasks with full metadata",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "low"
+        },
+        {
+          "quote": "✅ DO: Use backlog task create to create new tasks",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "low"
+        },
+        {
+          "quote": "backlog task edit 7 --check-ac 1 # Mark AC #1 as complete",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check AC #1 | backlog task edit 42 --check-ac 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check DoD #1 | backlog task edit 42 --check-dod 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "backlog task edit 42 --check-ac 1 --check-ac 2 --check-ac 3 # Check multiple ACs",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "backlog task edit 42 --check-dod 1 --check-dod 2",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Once you are familiar with that part you should think about a plan on HOW to tackle the task and all its acceptance criteria. This is your Implementation Plan. ... When you are ready, write it down in the task so that you can refer to it later.",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Follow the acceptance criteria one by one and MARK THEM AS COMPLETE as soon as you finish them.",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Implementation Plan (after moving to In Progress and assigning to yourself)",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Only implement what's in the Acceptance Criteria. If you need to do more, either: 1. Update the AC first: backlog task edit 42 --ac \"New requirement\" 2. Or create a new follow up task: backlog task create \"Additional feature\"",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "high"
+        },
+        {
+          "quote": "4. Add implementation plan backlog task edit 42 --plan \"1. Analyze\\n2. Refactor\\n3. Test\"",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "low"
+        },
+        {
+          "quote": "7. Mark acceptance criteria as complete (supports multiple in one command) backlog task edit 42 --check-ac 1 --check-ac 2 --check-ac 3 # Check all at once",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "1. All acceptance criteria checked: Use backlog task edit <id> --check-ac <index> for each",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "2. All Definition of Done items checked: Use backlog task edit <id> --check-dod <index> for each",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "4. Status set to Done: Use backlog task edit <id> -s Done",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "5. Tests pass: Run test suite and linting",
+          "reason": "Claude Code already tests incrementally.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check AC | backlog task edit 42 --check-ac 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Change status | backlog task edit 42 -s Done",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check AC #1 | backlog task edit 42 --check-ac 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check multiple ACs | backlog task edit 42 --check-ac 1 --check-ac 3",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Add plan | backlog task edit 42 --plan \"1. Step one\\n2. Step two\"",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-02T08:22:47.551Z",
+      "semantic_content_hash": "9359bf5cde22cc0eeaab44bf4b82c36d787ff169bffc3b5f118151146e6628d3"
     },
     {
       "owner": "en-dash-consulting",
@@ -841,7 +1042,11 @@
       "char_count": 6363,
       "score": 0,
       "last_commit_at": "2026-05-08T09:23:49Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:22:57.427Z",
+      "semantic_content_hash": "b56fd6e681b58602290dc035604b56f8c36b6077f0692efc0c115ad7ce71f8cf"
     },
     {
       "owner": "FigmaAI",
@@ -1162,7 +1367,11 @@
       "char_count": 5895,
       "score": 0,
       "last_commit_at": "2026-05-13T16:41:57Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:23:11.045Z",
+      "semantic_content_hash": "1f7038436cc00040fd9ea35c8936f2823819c6d3107ee4c27e172a67afd059cc"
     },
     {
       "owner": "hypervel",
@@ -1197,7 +1406,11 @@
       "char_count": 98,
       "score": 0,
       "last_commit_at": "2026-04-28T22:21:52Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:23:12.928Z",
+      "semantic_content_hash": "01a457b267aaa276a84338d3d934b62756575f9422ee5e1975030341b6cc3461"
     },
     {
       "owner": "imatza-rh",
@@ -1219,7 +1432,11 @@
       "char_count": 7824,
       "score": 0,
       "last_commit_at": "2026-02-28T14:09:58Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:23:19.561Z",
+      "semantic_content_hash": "0a35b3a55692ae86585d3b101fe09e40c3db22f911584711dde9b1aee95d5bcb"
     },
     {
       "owner": "iocanel",
@@ -1241,7 +1458,11 @@
       "char_count": 3365,
       "score": 0,
       "last_commit_at": "2026-02-04T20:43:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:23:24.813Z",
+      "semantic_content_hash": "0a1facafb01827925b401da4bf8ea6e635d70bef561e8ef0fee14c1ba2bc7bbb"
     },
     {
       "owner": "J-D-3",
@@ -1250,7 +1471,11 @@
       "char_count": 18420,
       "score": 0,
       "last_commit_at": "2026-06-08T17:59:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-02T08:23:35.393Z",
+      "semantic_content_hash": "614c4ef2f77c8d68310f2435949463d2d8690a72ec1b49417ba896f80ac24d24"
     },
     {
       "owner": "janderswag",
@@ -1259,7 +1484,17 @@
       "char_count": 5454,
       "score": 0,
       "last_commit_at": "2026-06-20T21:04:45Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Secrets are never committed.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-02T08:23:44.806Z",
+      "semantic_content_hash": "2c13c7f38f232ecbcbc39ebb14d6faa41320ebea5a1be5b330365f07fdef65dc"
     },
     {
       "owner": "jbetancur",
