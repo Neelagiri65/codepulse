@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-08-04T07:40:16.874Z",
+  "refreshed_at": "2026-08-04T10:35:24.724Z",
   "repos": [
     {
       "owner": "ArEnSc",
@@ -548,7 +548,7 @@
     {
       "owner": "brookstalley",
       "name": "cordyceps",
-      "stars": 88,
+      "stars": 89,
       "char_count": 10105,
       "score": 0,
       "last_commit_at": "2026-06-25T03:04:57Z",
@@ -561,7 +561,7 @@
     {
       "owner": "cachix",
       "name": "devenv",
-      "stars": 7203,
+      "stars": 7205,
       "char_count": 8633,
       "score": 0,
       "last_commit_at": "2026-07-25T17:39:20Z",
@@ -797,19 +797,6 @@
       "semantic_matched_intents": [],
       "semantic_refreshed_at": "2026-08-03T09:42:09.823Z",
       "semantic_content_hash": "28b9aafee736bea23e424ff92010660b3a095329d7870dbad737ffcb0cae84b5"
-    },
-    {
-      "owner": "Dialog-IF",
-      "name": "aamachine",
-      "stars": 2,
-      "char_count": 7391,
-      "score": 0,
-      "last_commit_at": "2026-05-13T17:00:32Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-08-04T08:32:09.704Z",
-      "semantic_content_hash": "bb7f3bfe2d882b18bcbccf1a363d6de8b83c99eedb9907be49b4ff559f4420a1"
     },
     {
       "owner": "digitalpetri",
@@ -1155,7 +1142,7 @@
     {
       "owner": "glideapps",
       "name": "quicktype",
-      "stars": 13816,
+      "stars": 13817,
       "char_count": 5830,
       "score": 0,
       "last_commit_at": "2026-07-21T20:38:54Z",
@@ -1239,7 +1226,7 @@
     {
       "owner": "haddocking",
       "name": "haddock3",
-      "stars": 258,
+      "stars": 259,
       "char_count": 8903,
       "score": 0,
       "last_commit_at": "2026-07-29T16:03:59Z",
@@ -1557,155 +1544,6 @@
       "semantic_matched_intents": [],
       "semantic_refreshed_at": "2026-08-04T08:33:47.023Z",
       "semantic_content_hash": "1ede7df86259d383450db18ce7ef3a1257df31bb89dae3d20b15f90c2f1b39b3"
-    },
-    {
-      "owner": "joemooney",
-      "name": "aida",
-      "stars": 2,
-      "char_count": 56298,
-      "score": 0,
-      "last_commit_at": "2026-07-23T03:57:57Z",
-      "matches": [],
-      "semantic_score": 52,
-      "semantic_matched_intents": [
-        {
-          "quote": "Short, direct answers; length matches the task.",
-          "reason": "Claude Code already provides short, direct answers with length matching the task by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No preamble greetings (\"Great question!\"), no restating the user's words.",
-          "reason": "Claude Code already avoids preamble greetings and restating user's words by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "States action briefly before first tool call; short updates at key moments only.",
-          "reason": "Claude Code already states action briefly before the first tool call and provides short updates at key moments only by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No trailing end-of-turn summary.",
-          "reason": "Claude Code already avoids trailing end-of-turn summaries by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No internal deliberation.",
-          "reason": "Claude Code already does not narrate internal deliberation by default.",
-          "confidence": "low"
-        },
-        {
-          "quote": "No emojis unless asked.",
-          "reason": "Claude Code already does not use emojis unless asked by default.",
-          "confidence": "low"
-        },
-        {
-          "quote": "Prefers dedicated tools (Read/Edit/Write/Glob/Grep) over Bash when applicable.",
-          "reason": "Claude Code already prefers dedicated tools over Bash when applicable by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Runs independent tool calls in parallel.",
-          "reason": "Claude Code already runs independent tool calls in parallel by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Uses absolute paths for reads; does not poll background tasks.",
-          "reason": "Claude Code already uses absolute paths for reads and does not poll background tasks by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Asks before destructive operations (rm -rf, force push, reset --hard, deleting files or branches).",
-          "reason": "Claude Code already asks before destructive operations by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Does not modify files outside the project directory without explicit instruction.",
-          "reason": "Claude Code already does not modify files outside the project directory without explicit instruction by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Does not upload sensitive content to third-party services.",
-          "reason": "Claude Code already does not upload sensitive content to third-party services by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Commit messages focus on WHY not WHAT, 1–2 sentences, imperative-mood summary.",
-          "reason": "Claude Code already focuses commit messages on WHY not WHAT, with 1-2 sentences and imperative-mood summary by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Creates new commits rather than amending.",
-          "reason": "Claude Code already creates new commits rather than amending by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Never commits secrets or broken code.",
-          "reason": "Claude Code already never commits secrets or broken code by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Identifies root causes rather than bypassing safety checks.",
-          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Investigates unfamiliar state before deleting or overwriting.",
-          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Decomposes non-trivial tasks and tracks progress (TaskCreate).",
-          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Marks tasks complete as soon as done; does not batch.",
-          "reason": "Claude Code already marks tasks complete as soon as done and does not batch by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Plans approach before implementation on non-trivial work; tests incrementally.",
-          "reason": "Claude Code already plans approach before implementation on non-trivial work and tests incrementally by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Does not add error handling or validation for scenarios that can't happen.",
-          "reason": "Claude Code already does not add error handling or validation for scenarios that can't happen by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Does not add features, refactors, or abstractions beyond what the task requires.",
-          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Prefers editing existing files over creating new ones.",
-          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Does not write docs, README, or summary files unless explicitly asked.",
-          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Does not explain WHAT the code does (well-named identifiers carry that).",
-          "reason": "Claude Code already does not explain WHAT the code does by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Only writes a comment when the WHY is non-obvious (hidden constraint, workaround, subtle invariant).",
-          "reason": "Claude Code already only writes a comment when the WHY is non-obvious by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No multi-paragraph docstrings or multi-line comment blocks.",
-          "reason": "Claude Code already avoids multi-paragraph docstrings or multi-line comment blocks by default.",
-          "confidence": "medium"
-        }
-      ],
-      "semantic_refreshed_at": "2026-08-04T08:34:21.266Z",
-      "semantic_content_hash": "0195b27e9dd34046ac08e9d1860cff94a0b133e40a70280edba93b44b309a240"
     },
     {
       "owner": "JohnnyQ-commits",
@@ -2163,6 +2001,15 @@
       "matches": []
     },
     {
+      "owner": "pattobrien",
+      "name": "dotfiles",
+      "stars": 3,
+      "char_count": 416,
+      "score": 0,
+      "last_commit_at": "2026-03-29T22:47:43Z",
+      "matches": []
+    },
+    {
       "owner": "PaulBratslavsky",
       "name": "astro-strapi-example-project",
       "stars": 102,
@@ -2207,6 +2054,15 @@
       "matches": []
     },
     {
+      "owner": "postalsys",
+      "name": "emailengine",
+      "stars": 2204,
+      "char_count": 12491,
+      "score": 0,
+      "last_commit_at": "2026-08-04T09:25:12Z",
+      "matches": []
+    },
+    {
       "owner": "ppigazzini",
       "name": "r47zen",
       "stars": 3,
@@ -2231,15 +2087,6 @@
       "char_count": 3575,
       "score": 0,
       "last_commit_at": "2026-05-18T13:22:27Z",
-      "matches": []
-    },
-    {
-      "owner": "PyAutoLabs",
-      "name": "PyAutoNerves",
-      "stars": 2,
-      "char_count": 256,
-      "score": 0,
-      "last_commit_at": "2026-07-19T12:30:33Z",
       "matches": []
     },
     {
@@ -2294,7 +2141,7 @@
     {
       "owner": "rderaison",
       "name": "bromure",
-      "stars": 273,
+      "stars": 274,
       "char_count": 3181,
       "score": 0,
       "last_commit_at": "2026-04-28T05:59:46Z",
@@ -2445,7 +2292,7 @@
     {
       "owner": "securego",
       "name": "gosec",
-      "stars": 8908,
+      "stars": 8909,
       "char_count": 1571,
       "score": 0,
       "last_commit_at": "2026-03-15T10:57:48Z",
@@ -2605,6 +2452,15 @@
       "matches": []
     },
     {
+      "owner": "tecolicom",
+      "name": "App-ansicolumn",
+      "stars": 4,
+      "char_count": 3520,
+      "score": 0,
+      "last_commit_at": "2026-02-27T03:33:07Z",
+      "matches": []
+    },
+    {
       "owner": "temporal-community",
       "name": "dependency-scout",
       "stars": 5,
@@ -2706,7 +2562,7 @@
     {
       "owner": "vllm-project",
       "name": "agentic-api",
-      "stars": 60,
+      "stars": 61,
       "char_count": 61,
       "score": 0,
       "last_commit_at": "2026-03-24T13:31:31Z",
