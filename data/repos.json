@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-08-06T07:47:38.308Z",
+  "refreshed_at": "2026-08-06T10:36:24.142Z",
   "repos": [
     {
       "owner": "ArEnSc",
@@ -698,6 +698,15 @@
       ],
       "semantic_refreshed_at": "2026-07-30T08:23:14.585Z",
       "semantic_content_hash": "84a6f42340f7359b083b93ea1388d68887e459ac45536eb774d4e358124df25c"
+    },
+    {
+      "owner": "cybersecify",
+      "name": "OpenEASD",
+      "stars": 21,
+      "char_count": 32445,
+      "score": 0,
+      "last_commit_at": "2026-08-06T09:41:49Z",
+      "matches": []
     },
     {
       "owner": "darkraise",
@@ -1410,6 +1419,15 @@
       "semantic_content_hash": "af5e0151e313c18218ded88b81d388eb4c1901dd119819ddbc1e1a93b6b19f99"
     },
     {
+      "owner": "Huxpro",
+      "name": "vue-lynx",
+      "stars": 523,
+      "char_count": 99,
+      "score": 0,
+      "last_commit_at": "2026-03-11T06:27:44Z",
+      "matches": []
+    },
+    {
       "owner": "hyldmo",
       "name": "spotify-organizer",
       "stars": 3,
@@ -1518,25 +1536,6 @@
       "semantic_matched_intents": [],
       "semantic_refreshed_at": "2026-08-02T08:23:24.813Z",
       "semantic_content_hash": "0a1facafb01827925b401da4bf8ea6e635d70bef561e8ef0fee14c1ba2bc7bbb"
-    },
-    {
-      "owner": "ivanreeve",
-      "name": "upspace",
-      "stars": 8,
-      "char_count": 3216,
-      "score": 0,
-      "last_commit_at": "2026-05-26T13:35:56Z",
-      "matches": [],
-      "semantic_score": 1,
-      "semantic_matched_intents": [
-        {
-          "quote": "Ensure no secrets in code or tests",
-          "reason": "Claude Code already never commits secrets by default",
-          "confidence": "low"
-        }
-      ],
-      "semantic_refreshed_at": "2026-08-06T08:31:59.379Z",
-      "semantic_content_hash": "60fe75820a1243b328a145ee54f637b27fe61e7a00b9149128e0d069091c52cc"
     },
     {
       "owner": "J-D-3",
@@ -1916,7 +1915,7 @@
     {
       "owner": "mlennie",
       "name": "hermes-mcp",
-      "stars": 56,
+      "stars": 57,
       "char_count": 10602,
       "score": 0,
       "last_commit_at": "2026-05-17T17:06:02Z",
@@ -1949,19 +1948,6 @@
       ],
       "semantic_refreshed_at": "2026-08-05T08:33:21.212Z",
       "semantic_content_hash": "939d011cf736e71927a4752ae07177faa009a2309c7450763fc7a98bf45e7c3c"
-    },
-    {
-      "owner": "moeki0",
-      "name": "TextZen",
-      "stars": 10,
-      "char_count": 11746,
-      "score": 0,
-      "last_commit_at": "2025-04-01T10:36:12Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-08-06T08:32:41.294Z",
-      "semantic_content_hash": "3b43c0fc09a0f49ad0f949bde78e19d2e9cb2bcd6c749a5a789848deea7ef5da"
     },
     {
       "owner": "mshogin",
@@ -2295,19 +2281,6 @@
       "semantic_content_hash": "0506760c3d92ffe70782abe7dc6a1e1a29ae5d8c4f011469036bd50fb74f4e73"
     },
     {
-      "owner": "ppigazzini",
-      "name": "r47zen",
-      "stars": 3,
-      "char_count": 43,
-      "score": 0,
-      "last_commit_at": "2026-07-17T14:35:22Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-08-06T08:34:13.728Z",
-      "semantic_content_hash": "bf72a02085b9576a4065513d55aa3b0e2258c8a1eb80f40c641350db77b039d0"
-    },
-    {
       "owner": "Prismer-AI",
       "name": "Prismer",
       "stars": 783,
@@ -2327,6 +2300,24 @@
       "char_count": 3575,
       "score": 0,
       "last_commit_at": "2026-05-18T13:22:27Z",
+      "matches": []
+    },
+    {
+      "owner": "quadbio",
+      "name": "cell-annotator",
+      "stars": 25,
+      "char_count": 145,
+      "score": 0,
+      "last_commit_at": "2026-04-23T22:48:43Z",
+      "matches": []
+    },
+    {
+      "owner": "QubiTO-team",
+      "name": "qubito-website",
+      "stars": 3,
+      "char_count": 278,
+      "score": 0,
+      "last_commit_at": "2025-09-27T12:32:25Z",
       "matches": []
     },
     {
@@ -2514,7 +2505,7 @@
     {
       "owner": "securego",
       "name": "gosec",
-      "stars": 8909,
+      "stars": 8910,
       "char_count": 1571,
       "score": 0,
       "last_commit_at": "2026-03-15T10:57:48Z",
@@ -2653,15 +2644,6 @@
       "char_count": 11631,
       "score": 0,
       "last_commit_at": "2025-11-10T13:59:00Z",
-      "matches": []
-    },
-    {
-      "owner": "tecolicom",
-      "name": "App-ansicolumn",
-      "stars": 4,
-      "char_count": 3520,
-      "score": 0,
-      "last_commit_at": "2026-02-27T03:33:07Z",
       "matches": []
     },
     {
