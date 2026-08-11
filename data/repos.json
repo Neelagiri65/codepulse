@@ -241,7 +241,11 @@
       "char_count": 2335,
       "score": 0,
       "last_commit_at": "2026-05-08T07:18:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:00:50.884Z",
+      "semantic_content_hash": "2e2a412ee6c137bea17d62cdf3d476d58d9fad944a89890a8ccf877b277679cf"
     },
     {
       "owner": "1amageek",
@@ -276,7 +280,11 @@
       "char_count": 117306,
       "score": 0,
       "last_commit_at": "2026-07-28T14:50:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:02:13.331Z",
+      "semantic_content_hash": "14615c5371ad8c30ae7770b1d2bfd4977d494603b82a8f2c82abf9cc86e8ca24"
     },
     {
       "owner": "airwaylab-app",
@@ -304,7 +312,11 @@
       "char_count": 4231,
       "score": 0,
       "last_commit_at": "2026-04-30T17:22:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:02:21.269Z",
+      "semantic_content_hash": "43ef446efa5c1008d8b92a1eda54d3587fe31350abf7190b81e08859d5986694"
     },
     {
       "owner": "alesha-pro",
@@ -313,7 +325,11 @@
       "char_count": 2735,
       "score": 0,
       "last_commit_at": "2026-02-28T17:11:07Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:02:31.114Z",
+      "semantic_content_hash": "efcb947c002893fd78a9992020da3de1469b5bfafc1e8ae39dd97ba60a37ddb4"
     },
     {
       "owner": "alfred1994",
@@ -383,7 +399,11 @@
       "char_count": 21574,
       "score": 0,
       "last_commit_at": "2026-06-21T11:35:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:02:42.400Z",
+      "semantic_content_hash": "bdeef6711ae3221b4512162cd67122f9af8d354e753927247579db2caf18f7d0"
     },
     {
       "owner": "AndriyKalashnykov",
@@ -405,7 +425,11 @@
       "char_count": 7525,
       "score": 0,
       "last_commit_at": "2026-06-14T15:33:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:02:50.858Z",
+      "semantic_content_hash": "41c927dde89a8636a00248ec988d840bed3470ba9eb465fd48bed69476fa1e8b"
     },
     {
       "owner": "antoniolg",
@@ -432,7 +456,11 @@
       "char_count": 244,
       "score": 0,
       "last_commit_at": "2025-07-07T03:19:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:03:05.246Z",
+      "semantic_content_hash": "b2436d92771f75549f7214170e3a5eb69793acd973e64f9fb1123443d2cec899"
     },
     {
       "owner": "bajajvinamr",
@@ -441,7 +469,11 @@
       "char_count": 32987,
       "score": 0,
       "last_commit_at": "2026-05-18T19:37:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-11T07:03:29.615Z",
+      "semantic_content_hash": "052f0df88bf5dd0a8a7a62cc0000a3faa917684cd988f1535dbede88446dd56e"
     },
     {
       "owner": "BenjaminBenetti",
@@ -585,7 +617,17 @@
       "char_count": 4457,
       "score": 0,
       "last_commit_at": "2026-03-12T13:54:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Introduce the skill before asking anything",
+          "reason": "Claude Code already states action briefly before first tool call by default",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-11T07:03:52.880Z",
+      "semantic_content_hash": "84a6f42340f7359b083b93ea1388d68887e459ac45536eb774d4e358124df25c"
     },
     {
       "owner": "cybersecify",
