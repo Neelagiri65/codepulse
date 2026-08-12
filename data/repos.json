@@ -10,7 +10,27 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never commit secrets or API keys",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-12T07:18:50.622Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "Aurealibe",
@@ -389,7 +409,11 @@
       "char_count": 2324,
       "score": 0,
       "last_commit_at": "2025-08-28T05:41:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:19:14.937Z",
+      "semantic_content_hash": "5b96dc8e4e4eb92d578ae0ada344c40f7fe31cc919b57625c2338d3b920b7ec6"
     },
     {
       "owner": "ardriveapp",
@@ -1145,7 +1169,17 @@
       "char_count": 9686,
       "score": 0,
       "last_commit_at": "2026-02-06T21:44:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "No secrets committed (only .env.example)",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-12T07:19:52.448Z",
+      "semantic_content_hash": "567cf2a70232b43cb65154ab0ec9b3a13e2968661c9c021ec6ff93d57d4b3410"
     },
     {
       "owner": "kousen",
@@ -1154,7 +1188,11 @@
       "char_count": 9703,
       "score": 0,
       "last_commit_at": "2025-06-25T17:09:38Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:20:01.713Z",
+      "semantic_content_hash": "d5b48809f72fc256a32b338632b240669ffaedb86db4cdc2f773b34dee482625"
     },
     {
       "owner": "kt3k",
@@ -1163,7 +1201,11 @@
       "char_count": 41,
       "score": 0,
       "last_commit_at": "2026-03-30T00:12:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:20:03.974Z",
+      "semantic_content_hash": "67813eff94aea75e73dfaf292a5c7df4820f403c1cfedae19cf9f13eedeadfaa"
     },
     {
       "owner": "kvsankar",
@@ -1172,7 +1214,17 @@
       "char_count": 5891,
       "score": 0,
       "last_commit_at": "2026-05-03T14:06:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do not commit credentials or deployment config; `deploy-config.json` is intentionally git-ignored.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-12T07:20:19.308Z",
+      "semantic_content_hash": "739f4b0603771d9558350e240f6c3517d98ad2a64a0301d3e59fac5a95bb4b3c"
     },
     {
       "owner": "lattifai",
@@ -1181,7 +1233,11 @@
       "char_count": 9716,
       "score": 0,
       "last_commit_at": "2026-04-20T15:30:00Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:20:29.247Z",
+      "semantic_content_hash": "a53f314549f600760e1d3415460be3e4c510d62b16617dd1e5f4bc884b4f7b19"
     },
     {
       "owner": "LDZ061224",
@@ -1478,7 +1534,17 @@
       "char_count": 931,
       "score": 0,
       "last_commit_at": "2026-01-05T19:06:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Ensure sensitive data is not leaked to third-party endpoints",
+          "reason": "Claude Code already does not upload sensitive content to third-party services by default",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-12T07:20:48.244Z",
+      "semantic_content_hash": "59701a299705f6e3eeda31a482469380d6d5bfb03914de5ac55a89ae0098cc46"
     },
     {
       "owner": "PeonPing",
@@ -1487,7 +1553,11 @@
       "char_count": 2564,
       "score": 0,
       "last_commit_at": "2026-07-02T03:39:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:20:50.258Z",
+      "semantic_content_hash": "4f01ff3891c799e7bad62cd91c8c2cfa80edd3bb0ad2cec1ec78c8f0a3702493"
     },
     {
       "owner": "postalsys",
@@ -1496,7 +1566,17 @@
       "char_count": 12491,
       "score": 0,
       "last_commit_at": "2026-08-04T09:25:12Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never use emojis in code or documentation, only printable ASCII characters",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-12T07:20:59.332Z",
+      "semantic_content_hash": "0506760c3d92ffe70782abe7dc6a1e1a29ae5d8c4f011469036bd50fb74f4e73"
     },
     {
       "owner": "ppigazzini",
@@ -1505,7 +1585,11 @@
       "char_count": 43,
       "score": 0,
       "last_commit_at": "2026-07-17T14:35:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:21:01.133Z",
+      "semantic_content_hash": "bf72a02085b9576a4065513d55aa3b0e2258c8a1eb80f40c641350db77b039d0"
     },
     {
       "owner": "Prismer-AI",
@@ -1514,7 +1598,11 @@
       "char_count": 6808,
       "score": 0,
       "last_commit_at": "2026-03-03T09:51:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:21:10.089Z",
+      "semantic_content_hash": "ed906a8dbc443b0f51d3d0bf8b57566be4aef0f1bf7d8acd763dde08d7a46629"
     },
     {
       "owner": "Procrat",
@@ -1523,7 +1611,11 @@
       "char_count": 3575,
       "score": 0,
       "last_commit_at": "2026-05-18T13:22:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-12T07:21:20.077Z",
+      "semantic_content_hash": "cef3d5ddbf9c8b4c49f8bd18f5e5dd3eafb89d7a8b24fbc893c7d8c31bebf858"
     },
     {
       "owner": "quadbio",
