@@ -10,7 +10,27 @@
       "last_commit_at": "2025-08-25T20:52:09Z",
       "matches": [
         "prefer-editing"
-      ]
+      ],
+      "semantic_score": 6,
+      "semantic_matched_intents": [
+        {
+          "quote": "ALWAYS prefer editing existing files over creating new ones",
+          "reason": "Claude Code already prefers editing existing files over creating new ones by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "NEVER proactively create documentation files (*.md) unless explicitly requested",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never commit secrets or API keys",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:33:12.100Z",
+      "semantic_content_hash": "d56fbd3a771cbb3f8a3e009645b7ed0f518d54b02aaa76746d663bbb72b80bcf"
     },
     {
       "owner": "Aurealibe",
@@ -21,7 +41,27 @@
       "last_commit_at": "2026-07-10T01:45:59Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 5,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never use emojis (no emoji characters).",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No emojis or bracket prefixes (`[CRAWLER]`) in log messages.",
+          "reason": "Claude Code already does not use emojis unless asked by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Secrets: NEVER commit `.env`",
+          "reason": "Claude Code already never commits secrets or broken code by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:33:33.748Z",
+      "semantic_content_hash": "b1e234bd1695496f08cbc664172c96f7f535635a0408ffe9b866f1d34d294893"
     },
     {
       "owner": "hasseily",
@@ -32,7 +72,37 @@
       "last_commit_at": "2026-05-02T07:38:15Z",
       "matches": [
         "no-docstrings"
-      ]
+      ],
+      "semantic_score": 11,
+      "semantic_matched_intents": [
+        {
+          "quote": "Don't add features, abstractions, or layers that aren't required by the task in front of us.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't add error handling, validation, or fallbacks for cases that can't happen.",
+          "reason": "Claude Code already does not add error handling or validation for scenarios that can't happen by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Default to no comments. Well-named identifiers explain *what*; only write a comment when the *why* is non-obvious (a hidden constraint, a subtle invariant, a workaround for a specific bug, behaviour that would surprise a reader).",
+          "reason": "Claude Code already does not explain WHAT the code does and only writes comments when the WHY is non-obvious by default.",
+          "confidence": "high"
+        },
+        {
+          "quote": "No multi-paragraph docstrings, no banner comments.",
+          "reason": "Claude Code already does not write multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Conventional, imperative subject lines.",
+          "reason": "Claude Code already uses imperative-mood summary in commit messages by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:33:41.795Z",
+      "semantic_content_hash": "d49bb9eddf7f9c04ee71d466519bcc5c3d7ad1d424a9960ee78c1dc3a55c27c9"
     },
     {
       "owner": "microsoft",
@@ -43,7 +113,37 @@
       "last_commit_at": "2026-06-15T17:22:26Z",
       "matches": [
         "no-emojis"
-      ]
+      ],
+      "semantic_score": 10,
+      "semantic_matched_intents": [
+        {
+          "quote": "Comments are crisp: state *why* in one line, not *what* the code already shows.",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not write essays.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "A code comment (`//` or `///` `<summary>`) is **one or two lines**.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings or multi-line comment blocks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "If you need a paragraph of rationale, it belongs in the commit message or PR description, not in source.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings or multi-line comment blocks in comments and focuses commit messages on WHY by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Never narrate the change (\"previously we did X, now Y because...\") — that is commit-message content.",
+          "reason": "Claude Code already focuses commit messages on WHY by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:33:51.742Z",
+      "semantic_content_hash": "62280ea236e955a903811a5e6b6452385674f2bb90f15403503fcc04837a29f0"
     },
     {
       "owner": "mr-creative-hmh",
@@ -54,7 +154,32 @@
       "last_commit_at": "2026-07-30T18:56:21Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 7,
+      "semantic_matched_intents": [
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers with length matching the task.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prefer Boost tools over manual alternatives like shell commands or file reads.",
+          "reason": "Claude Code already prefers dedicated tools over Bash when applicable.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Only add inline comments for exceptionally complex logic.",
+          "reason": "Claude Code already only writes a comment when the WHY is non-obvious.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:34:09.631Z",
+      "semantic_content_hash": "9d6db96c45d6a3a9299c92769997c43989eb6dc36eb6f8243d90df8697721d39"
     },
     {
       "owner": "pixelcave",
@@ -65,7 +190,32 @@
       "last_commit_at": "2026-08-11T07:49:11Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 7,
+      "semantic_matched_intents": [
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers and avoids explaining obvious details by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prefer Boost tools over manual alternatives like shell commands or file reads.",
+          "reason": "Claude Code already prefers dedicated tools over Bash when applicable by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Only add inline comments for exceptionally complex logic.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:34:27.473Z",
+      "semantic_content_hash": "ac39b691e495bf1cf5432e101e10f501d7ab09c4b613b754e7ed6c93abf32532"
     },
     {
       "owner": "TrueSelph",
@@ -76,7 +226,22 @@
       "last_commit_at": "2026-05-20T17:05:37Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Resolve root cause; do not paper over.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not commit .env or any secrets.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:34:39.083Z",
+      "semantic_content_hash": "129384a4c94f08662e5c140d0b6ca25ce73615588c2e287d518b7f5a94cbd88d"
     },
     {
       "owner": "villagekit",
@@ -87,7 +252,17 @@
       "last_commit_at": "2026-08-05T23:47:59Z",
       "matches": [
         "no-docstrings"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Comments: only when the *why* is non-obvious — a hidden constraint, a workaround, a counter-intuitive choice. Names carry the *what*. No multi-paragraph docstrings.",
+          "reason": "Claude Code already writes why-not-what comments and avoids multi-paragraph docstrings by default.",
+          "confidence": "high"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:34:51.895Z",
+      "semantic_content_hash": "fbe83afaba8a947fa257a07a5fb0673112f9f590344ee8d7a8dc09ebd166133e"
     },
     {
       "owner": "pktgen",
@@ -124,7 +299,82 @@
       "last_commit_at": "2026-08-13T16:06:17Z",
       "matches": [
         "scope-match-request"
-      ]
+      ],
+      "semantic_score": 16,
+      "semantic_matched_intents": [
+        {
+          "quote": "Minimum code that solves the problem. Nothing speculative.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "No features beyond what was asked.",
+          "reason": "Claude Code already does not add features beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "No abstractions for single-use code.",
+          "reason": "Claude Code already does not add abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "No \"flexibility\" or \"configurability\" that wasn't requested.",
+          "reason": "Claude Code already does not add features beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "No error handling for impossible scenarios.",
+          "reason": "Claude Code already does not add error handling or validation for scenarios that can't happen.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Touch only what you must. Clean up only your own mess.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires, and prefers editing existing files.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Don't \"improve\" adjacent code, comments, or formatting.",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Don't refactor things that aren't broken.",
+          "reason": "Claude Code already does not add refactors beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "For multi-step tasks, state a brief plan:",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work and decomposes non-trivial tasks.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Don't add new custom public APIs unless absolutely necessary",
+          "reason": "Claude Code already does not add features beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "No speculative features or abstractions",
+          "reason": "Claude Code already does not add features or abstractions beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Surgical changes only - don't \"improve\" adjacent code",
+          "reason": "Claude Code already does not add features or refactors beyond what the task requires.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Clear, descriptive commit messages",
+          "reason": "Claude Code already focuses commit messages on WHY not WHAT and uses an imperative-mood summary.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Be surgical - Minimal changes, no scope creep",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:35:15.189Z",
+      "semantic_content_hash": "ba4a90af8e1936e582573b395f1d3012dfe999684da1ec804e90fb69a7c877e9"
     },
     {
       "owner": "URML-MARS",
@@ -135,7 +385,27 @@
       "last_commit_at": "2026-05-31T07:05:22Z",
       "matches": [
         "no-hedging"
-      ]
+      ],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Commit messages: imperative subject under 72 chars, blank line, body explaining *why* not *what*.",
+          "reason": "Claude Code already writes why-not-what commit messages by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Preserve all commits so the per-PR decision trail and RFC history stay on `main`.",
+          "reason": "Claude Code already creates new commits rather than amending by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Concision in chat, thoroughness in written artifacts (specs, docs, RFCs).",
+          "reason": "Claude Code already provides short, direct answers by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:35:28.549Z",
+      "semantic_content_hash": "aa447d8e0cfe621a1662ed55945bf84174f669cc1389691493486264d8a68ae1"
     },
     {
       "owner": "1368129224",
@@ -144,7 +414,11 @@
       "char_count": 2335,
       "score": 0,
       "last_commit_at": "2026-05-08T07:18:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:35:32.542Z",
+      "semantic_content_hash": "2e2a412ee6c137bea17d62cdf3d476d58d9fad944a89890a8ccf877b277679cf"
     },
     {
       "owner": "1amageek",
@@ -166,7 +440,11 @@
       "char_count": 6048,
       "score": 0,
       "last_commit_at": "2026-05-29T11:51:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:35:42.261Z",
+      "semantic_content_hash": "a8d41f8377fd5f311ce12e6f25ac9d4e2a73673b597f3cadc11b3cfa1a2576a1"
     },
     {
       "owner": "airwaylab-app",
@@ -175,7 +453,17 @@
       "char_count": 26245,
       "score": 0,
       "last_commit_at": "2026-06-08T19:42:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Validate before reporting. Check the current codebase state before claiming something is missing. Glob + Grep first.",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:35:59.386Z",
+      "semantic_content_hash": "9602d21ebca8e4af5d9765af0a413730fcdb2215c3d95565d41cd94631a2b9bd"
     },
     {
       "owner": "alejandrofonsecacuza",
@@ -184,7 +472,11 @@
       "char_count": 4231,
       "score": 0,
       "last_commit_at": "2026-04-30T17:22:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:36:07.095Z",
+      "semantic_content_hash": "43ef446efa5c1008d8b92a1eda54d3587fe31350abf7190b81e08859d5986694"
     },
     {
       "owner": "Alfred768",
@@ -193,7 +485,11 @@
       "char_count": 1746,
       "score": 0,
       "last_commit_at": "2026-03-20T22:48:36Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:36:13.244Z",
+      "semantic_content_hash": "2041836afaa729bfd06fd42921ea3d5bd3d2de1d99d842f63ed5cf8e613f51b8"
     },
     {
       "owner": "AliAmmar15",
@@ -202,7 +498,11 @@
       "char_count": 4608,
       "score": 0,
       "last_commit_at": "2026-08-12T13:48:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:36:15.406Z",
+      "semantic_content_hash": "bed3b822e8c0a68104f12459c558c891d7419dd20ee65e93a199e93d9223a034"
     },
     {
       "owner": "alperhankendi",
@@ -211,7 +511,22 @@
       "char_count": 25903,
       "score": 0,
       "last_commit_at": "2026-06-28T17:39:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "DO NOT grep source files for symbol discovery",
+          "reason": "Claude Code already prefers dedicated tools over Bash (like grep) by default.",
+          "confidence": "low"
+        },
+        {
+          "quote": "NEVER grep source files to find symbols when `search_symbols` exists",
+          "reason": "Claude Code already prefers dedicated tools over Bash (like grep) by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-16T06:36:29.258Z",
+      "semantic_content_hash": "ab9d3149610f0e3d33770da04953d69ec040fb8c03ef9672e9682721bb10f248"
     },
     {
       "owner": "amvlab",
@@ -220,7 +535,11 @@
       "char_count": 21574,
       "score": 0,
       "last_commit_at": "2026-06-21T11:35:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:36:38.005Z",
+      "semantic_content_hash": "bdeef6711ae3221b4512162cd67122f9af8d354e753927247579db2caf18f7d0"
     },
     {
       "owner": "anchildress1",
@@ -229,7 +548,11 @@
       "char_count": 75,
       "score": 0,
       "last_commit_at": "2026-06-06T05:28:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:36:39.933Z",
+      "semantic_content_hash": "41db7a795e773f1f3064706b8bdd384b2487e4574209d08d394f7c82d8992367"
     },
     {
       "owner": "AntonioBlago",
@@ -238,7 +561,11 @@
       "char_count": 7525,
       "score": 0,
       "last_commit_at": "2026-06-14T15:33:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:36:47.427Z",
+      "semantic_content_hash": "41c927dde89a8636a00248ec988d840bed3470ba9eb465fd48bed69476fa1e8b"
     },
     {
       "owner": "antoniolg",
@@ -606,7 +933,11 @@
       "char_count": 20385,
       "score": 0,
       "last_commit_at": "2026-07-23T14:42:23Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:37:20.945Z",
+      "semantic_content_hash": "f78d5d835a21224cecd20cb5f632f2be3dbb2ddd757d0a3c11248bbad07ed1f1"
     },
     {
       "owner": "geneontology",
@@ -642,7 +973,11 @@
       "char_count": 5830,
       "score": 0,
       "last_commit_at": "2026-07-21T20:38:54Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-16T06:37:33.347Z",
+      "semantic_content_hash": "64dc5f6ecc50b3d766e89b7657a000868723a5661bd033efd0af796d7622b997"
     },
     {
       "owner": "glossarist",
