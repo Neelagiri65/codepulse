@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-08-19T05:27:44.918Z",
+  "refreshed_at": "2026-08-19T07:38:16.487Z",
   "repos": [
     {
       "owner": "ArEnSc",
@@ -146,42 +146,6 @@
       "semantic_content_hash": "62280ea236e955a903811a5e6b6452385674f2bb90f15403503fcc04837a29f0"
     },
     {
-      "owner": "mr-creative-hmh",
-      "name": "laravel-vue-creative-starter-dashboard-kit",
-      "stars": 2,
-      "char_count": 11076,
-      "score": 2,
-      "last_commit_at": "2026-07-30T18:56:21Z",
-      "matches": [
-        "be-concise"
-      ],
-      "semantic_score": 7,
-      "semantic_matched_intents": [
-        {
-          "quote": "You must only create documentation files if explicitly requested by the user.",
-          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
-          "reason": "Claude Code already provides short, direct answers with length matching the task.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Prefer Boost tools over manual alternatives like shell commands or file reads.",
-          "reason": "Claude Code already prefers dedicated tools over Bash when applicable.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Only add inline comments for exceptionally complex logic.",
-          "reason": "Claude Code already only writes a comment when the WHY is non-obvious.",
-          "confidence": "low"
-        }
-      ],
-      "semantic_refreshed_at": "2026-08-19T06:38:11.866Z",
-      "semantic_content_hash": "9d6db96c45d6a3a9299c92769997c43989eb6dc36eb6f8243d90df8697721d39"
-    },
-    {
       "owner": "pixelcave",
       "name": "tailkit-starter-kit-laravel",
       "stars": 18,
@@ -258,6 +222,17 @@
       ],
       "semantic_refreshed_at": "2026-08-19T06:38:51.536Z",
       "semantic_content_hash": "fbe83afaba8a947fa257a07a5fb0673112f9f590344ee8d7a8dc09ebd166133e"
+    },
+    {
+      "owner": "FastLED",
+      "name": "fbuild",
+      "stars": 12,
+      "char_count": 13469,
+      "score": 1,
+      "last_commit_at": "2026-07-23T23:39:00Z",
+      "matches": [
+        "scope-match-request"
+      ]
     },
     {
       "owner": "pktgen",
