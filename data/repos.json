@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-08-20T11:25:19.212Z",
+  "refreshed_at": "2026-08-20T12:37:26.083Z",
   "repos": [
     {
       "owner": "ArEnSc",
@@ -223,27 +223,6 @@
       "matches": [
         "no-preamble-greeting"
       ]
-    },
-    {
-      "owner": "FastLED",
-      "name": "fbuild",
-      "stars": 12,
-      "char_count": 13469,
-      "score": 1,
-      "last_commit_at": "2026-07-23T23:39:00Z",
-      "matches": [
-        "scope-match-request"
-      ],
-      "semantic_score": 1,
-      "semantic_matched_intents": [
-        {
-          "quote": "Root causes only.",
-          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
-          "confidence": "low"
-        }
-      ],
-      "semantic_refreshed_at": "2026-08-20T06:40:07.312Z",
-      "semantic_content_hash": "9e0b6be61f87b4066bb02a913ae0fde7401dfe2a62b273d56fe5305ec7d709f8"
     },
     {
       "owner": "pktgen",
@@ -903,6 +882,15 @@
       "char_count": 7128,
       "score": 0,
       "last_commit_at": "2026-01-04T16:34:41Z",
+      "matches": []
+    },
+    {
+      "owner": "firetiger-oss",
+      "name": "connect-sse",
+      "stars": 2,
+      "char_count": 1861,
+      "score": 0,
+      "last_commit_at": "2026-05-03T19:17:19Z",
       "matches": []
     },
     {
