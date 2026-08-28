@@ -596,7 +596,11 @@
       "char_count": 7525,
       "score": 0,
       "last_commit_at": "2026-06-14T15:33:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:09:51.186Z",
+      "semantic_content_hash": "41c927dde89a8636a00248ec988d840bed3470ba9eb465fd48bed69476fa1e8b"
     },
     {
       "owner": "antoniolg",
@@ -676,7 +680,11 @@
       "char_count": 5147,
       "score": 0,
       "last_commit_at": "2026-02-13T07:36:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:09:58.680Z",
+      "semantic_content_hash": "8fca60f1c2e4763f6d5edd247cad53546df7b9949b8bb3302dea37cc71aaa0b3"
     },
     {
       "owner": "BNETDocs",
@@ -707,7 +715,11 @@
       "char_count": 8049,
       "score": 0,
       "last_commit_at": "2026-01-14T04:35:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:10:24.163Z",
+      "semantic_content_hash": "7d4429b5fa9464bb5807e22cca4660ed8ba9d31b02332051dfdf71de216e10bc"
     },
     {
       "owner": "camptocamp",
@@ -716,7 +728,11 @@
       "char_count": 4560,
       "score": 0,
       "last_commit_at": "2026-06-11T15:48:40Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:10:36.964Z",
+      "semantic_content_hash": "4e8f162e1197f37c64d4f01fee216ac9f1cd2c367a1d87e1ad0c051296e35b70"
     },
     {
       "owner": "cdot65",
@@ -725,7 +741,11 @@
       "char_count": 8744,
       "score": 0,
       "last_commit_at": "2026-07-08T09:17:13Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:10:46.667Z",
+      "semantic_content_hash": "b1d7bee4d048818d73438955820e5d167c3cd9ece50c6e31ab18ccb5a9197ac3"
     },
     {
       "owner": "celeryhq",
@@ -734,7 +754,11 @@
       "char_count": 6559,
       "score": 0,
       "last_commit_at": "2026-06-12T13:55:33Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:11:08.080Z",
+      "semantic_content_hash": "76e9b352ab465b45690a18ec9f5f6bec7eb845468b9a1ed45733ae87a71ce90a"
     },
     {
       "owner": "cenconq25",
@@ -743,7 +767,11 @@
       "char_count": 3551,
       "score": 0,
       "last_commit_at": "2026-05-03T13:23:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:11:14.909Z",
+      "semantic_content_hash": "625a5059b03f5801a26afccbcb2866f09f01179361f5ef57401c61dbb01e2215"
     },
     {
       "owner": "chaldea",
@@ -761,7 +789,11 @@
       "char_count": 8359,
       "score": 0,
       "last_commit_at": "2026-04-11T21:05:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:11:24.931Z",
+      "semantic_content_hash": "5388ed015be7423fb7baa64c02ef2f75b98ca49074695e97eda607d238efc1f7"
     },
     {
       "owner": "ckotzbauer",
@@ -770,7 +802,11 @@
       "char_count": 13624,
       "score": 0,
       "last_commit_at": "2026-03-10T17:15:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:11:35.399Z",
+      "semantic_content_hash": "c44d4b2e8a9a35d6ed0db89a271cf6b23b761c19690302dcbce4fd22d3c91219"
     },
     {
       "owner": "ClawVoice",
@@ -905,7 +941,17 @@
       "char_count": 1632,
       "score": 0,
       "last_commit_at": "2026-08-07T19:29:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Keep your documentation concise and avoid duplicate information.",
+          "reason": "Claude Code already writes concise comments and avoids explaining what is obvious from the code by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-28T18:11:48.467Z",
+      "semantic_content_hash": "20e2f0456ae26ab46fc680d4946f0e9cb11cc903340b0cf8102c087fb7a0509e"
     },
     {
       "owner": "eisbaw",
@@ -914,7 +960,132 @@
       "char_count": 29268,
       "score": 0,
       "last_commit_at": "2026-06-30T19:22:22Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 33,
+      "semantic_matched_intents": [
+        {
+          "quote": "NEVER implement workarounds. Fix the root cause or state clearly that you cannot.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Every tangent/discovery becomes a new backlog task — do not chase it inline.",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "medium"
+        },
+        {
+          "quote": "✅ Task Management: Create, edit, assign, prioritize, and track tasks with full metadata",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "low"
+        },
+        {
+          "quote": "✅ DO: Use backlog task create to create new tasks",
+          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress (TaskCreate).",
+          "confidence": "low"
+        },
+        {
+          "quote": "backlog task edit 7 --check-ac 1 # Mark AC #1 as complete",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check AC #1 | backlog task edit 42 --check-ac 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check DoD #1 | backlog task edit 42 --check-dod 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "backlog task edit 42 --check-ac 1 --check-ac 2 --check-ac 3 # Check multiple ACs",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "backlog task edit 42 --check-dod 1 --check-dod 2",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Once you are familiar with that part you should think about a plan on HOW to tackle the task and all its acceptance criteria. This is your Implementation Plan. ... When you are ready, write it down in the task so that you can refer to it later.",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "high"
+        },
+        {
+          "quote": "Follow the acceptance criteria one by one and MARK THEM AS COMPLETE as soon as you finish them.",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Implementation Plan (after moving to In Progress and assigning to yourself)",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Only implement what's in the Acceptance Criteria. If you need to do more, either: 1. Update the AC first: backlog task edit 42 --ac \"New requirement\" 2. Or create a new follow up task: backlog task create \"Additional feature\"",
+          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires.",
+          "confidence": "high"
+        },
+        {
+          "quote": "4. Add implementation plan backlog task edit 42 --plan \"1. Analyze\\n2. Refactor\\n3. Test\"",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "low"
+        },
+        {
+          "quote": "7. Mark acceptance criteria as complete (supports multiple in one command) backlog task edit 42 --check-ac 1 --check-ac 2 --check-ac 3 # Check all at once",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "1. All acceptance criteria checked: Use backlog task edit <id> --check-ac <index> for each",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "2. All Definition of Done items checked: Use backlog task edit <id> --check-dod <index> for each",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "4. Status set to Done: Use backlog task edit <id> -s Done",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "5. Tests pass: Run test suite and linting",
+          "reason": "Claude Code already tests incrementally.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check AC | backlog task edit 42 --check-ac 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Change status | backlog task edit 42 -s Done",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check AC #1 | backlog task edit 42 --check-ac 1",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Check multiple ACs | backlog task edit 42 --check-ac 1 --check-ac 3",
+          "reason": "Claude Code already marks tasks complete as soon as done.",
+          "confidence": "low"
+        },
+        {
+          "quote": "Add plan | backlog task edit 42 --plan \"1. Step one\\n2. Step two\"",
+          "reason": "Claude Code already plans approach before implementation on non-trivial work.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-08-28T18:12:32.820Z",
+      "semantic_content_hash": "9359bf5cde22cc0eeaab44bf4b82c36d787ff169bffc3b5f118151146e6628d3"
     },
     {
       "owner": "en-dash-consulting",
@@ -932,7 +1103,11 @@
       "char_count": 9630,
       "score": 0,
       "last_commit_at": "2026-07-12T01:51:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:12:44.222Z",
+      "semantic_content_hash": "6143027377437ecafaa48b60a5b9e795f5800a0611d750d2d22d0cf690de8999"
     },
     {
       "owner": "ephes",
@@ -941,7 +1116,11 @@
       "char_count": 7063,
       "score": 0,
       "last_commit_at": "2025-09-01T19:39:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:12:52.895Z",
+      "semantic_content_hash": "8554cea5e7c1980b75130da68c3bd8ab138e47250440368d10ba2474f8215906"
     },
     {
       "owner": "erix",
@@ -950,7 +1129,11 @@
       "char_count": 2315,
       "score": 0,
       "last_commit_at": "2026-03-12T10:07:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:12:56.302Z",
+      "semantic_content_hash": "45bc2130fc7f8f88d0f23b848fdd9f944bbf0eda653bcfc6e5196e77a8dccb71"
     },
     {
       "owner": "eyalamirmusic",
@@ -959,7 +1142,11 @@
       "char_count": 4204,
       "score": 0,
       "last_commit_at": "2026-05-19T17:37:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:13:05.496Z",
+      "semantic_content_hash": "37d3951cacab5f4ee5ca0ed037473616d9f560b85f9f2f2d13bcf2750c917836"
     },
     {
       "owner": "fedir",
@@ -968,7 +1155,11 @@
       "char_count": 59,
       "score": 0,
       "last_commit_at": "2026-05-24T11:39:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:13:07.877Z",
+      "semantic_content_hash": "7b86371f4a0776d70ea911443c70472492dcaa181bf02343c6825f45ab9b412d"
     },
     {
       "owner": "fengfaan",
@@ -977,7 +1168,11 @@
       "char_count": 6363,
       "score": 0,
       "last_commit_at": "2026-05-08T09:23:49Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-08-28T18:13:13.994Z",
+      "semantic_content_hash": "b56fd6e681b58602290dc035604b56f8c36b6077f0692efc0c115ad7ce71f8cf"
     },
     {
       "owner": "FigmaAI",
