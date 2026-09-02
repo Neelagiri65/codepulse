@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-09-02T18:24:24.261Z",
+  "refreshed_at": "2026-09-02T21:34:44.530Z",
   "repos": [
     {
       "owner": "ArEnSc",
@@ -299,37 +299,6 @@
       ],
       "semantic_refreshed_at": "2026-09-01T11:04:53.307Z",
       "semantic_content_hash": "fbe83afaba8a947fa257a07a5fb0673112f9f590344ee8d7a8dc09ebd166133e"
-    },
-    {
-      "owner": "lumenpearson",
-      "name": "headquarters",
-      "stars": 5,
-      "char_count": 13268,
-      "score": 1,
-      "last_commit_at": "2026-08-29T08:05:18Z",
-      "matches": [
-        "no-hedging"
-      ],
-      "semantic_score": 5,
-      "semantic_matched_intents": [
-        {
-          "quote": "Independent tasks go out in one message so they run concurrently; dependent ones wait.",
-          "reason": "Claude Code already runs independent tool calls in parallel by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Conventional prefix, imperative subject (`type(scope): do the thing`) saying what the change makes the project do, not what the author did.",
-          "reason": "Claude Code already focuses commit messages on WHY not WHAT, using an imperative-mood summary by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No hedging, exclamation marks, emoji, jokes, or self-praise.",
-          "reason": "Claude Code already does not use emojis unless asked by default.",
-          "confidence": "low"
-        }
-      ],
-      "semantic_refreshed_at": "2026-09-01T11:05:06.486Z",
-      "semantic_content_hash": "746e62b89c3c41d967332867851bebdca8cf46114a00f5bb6c003081e0002b0c"
     },
     {
       "owner": "pktgen",
@@ -797,6 +766,15 @@
       "matches": []
     },
     {
+      "owner": "celeryhq",
+      "name": "simplified-mcp-server",
+      "stars": 3,
+      "char_count": 6559,
+      "score": 0,
+      "last_commit_at": "2026-06-12T13:55:33Z",
+      "matches": []
+    },
+    {
       "owner": "cenconq25",
       "name": "claude-code-app-studio",
       "stars": 40,
@@ -1123,7 +1101,7 @@
     {
       "owner": "glideapps",
       "name": "quicktype",
-      "stars": 13848,
+      "stars": 13849,
       "char_count": 5830,
       "score": 0,
       "last_commit_at": "2026-07-21T20:38:54Z",
@@ -1199,6 +1177,15 @@
       "char_count": 3398,
       "score": 0,
       "last_commit_at": "2026-03-15T12:46:55Z",
+      "matches": []
+    },
+    {
+      "owner": "HiepPP",
+      "name": "watchtower",
+      "stars": 3,
+      "char_count": 4369,
+      "score": 0,
+      "last_commit_at": "2026-06-25T11:01:25Z",
       "matches": []
     },
     {
@@ -2027,15 +2014,6 @@
       "char_count": 6246,
       "score": 0,
       "last_commit_at": "2026-06-21T00:41:14Z",
-      "matches": []
-    },
-    {
-      "owner": "terminus-labs-ai",
-      "name": "sr2",
-      "stars": 3,
-      "char_count": 20932,
-      "score": 0,
-      "last_commit_at": "2026-08-14T17:13:43Z",
       "matches": []
     },
     {
