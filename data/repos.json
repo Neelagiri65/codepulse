@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-09-13T07:55:57.182Z",
+  "refreshed_at": "2026-09-13T13:04:47.250Z",
   "repos": [
     {
       "owner": "ArEnSc",
@@ -310,77 +310,6 @@
       ],
       "semantic_refreshed_at": "2026-09-11T10:34:35.802Z",
       "semantic_content_hash": "a532a9d2b0dd34f920f4140872700e425e5adfa749692c9b1e4117b28cab0935"
-    },
-    {
-      "owner": "rsenn",
-      "name": "qjs-modules",
-      "stars": 58,
-      "char_count": 14523,
-      "score": 1,
-      "last_commit_at": "2026-08-13T16:06:17Z",
-      "matches": [
-        "scope-match-request"
-      ],
-      "semantic_score": 23,
-      "semantic_matched_intents": [
-        {
-          "quote": "No features beyond what was asked.",
-          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No abstractions for single-use code.",
-          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No \"flexibility\" or \"configurability\" that wasn't requested.",
-          "reason": "Claude Code already does not add features or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "No error handling for impossible scenarios.",
-          "reason": "Claude Code already does not add error handling or validation for scenarios that can't happen by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Don't \"improve\" adjacent code, comments, or formatting.",
-          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Don't refactor things that aren't broken.",
-          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "For multi-step tasks, state a brief plan:```1. [Step] → verify: [check]2. [Step] → verify: [check]3. [Step] → verify: [check]```",
-          "reason": "Claude Code already plans its approach before implementation on non-trivial work by default.",
-          "confidence": "high"
-        },
-        {
-          "quote": "No speculative features or abstractions",
-          "reason": "Claude Code already does not add features or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Surgical changes only - don't \"improve\" adjacent code",
-          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Clear, descriptive commit messages",
-          "reason": "Claude Code already focuses commit messages on WHY not WHAT, 1-2 sentences, imperative-mood summary by default.",
-          "confidence": "low"
-        },
-        {
-          "quote": "Be surgical - Minimal changes, no scope creep",
-          "reason": "Claude Code already does not add features, refactors, or abstractions beyond what the task requires by default.",
-          "confidence": "medium"
-        }
-      ],
-      "semantic_refreshed_at": "2026-09-13T11:03:09.664Z",
-      "semantic_content_hash": "4df042235fc1dad1d7aff5a92e5f22864655d2a21de55a54bd71d2eff4e0320c"
     },
     {
       "owner": "URML-MARS",
@@ -770,7 +699,7 @@
     {
       "owner": "CrossPaste",
       "name": "crosspaste-desktop",
-      "stars": 2555,
+      "stars": 2556,
       "char_count": 11062,
       "score": 0,
       "last_commit_at": "2026-08-18T12:30:19Z",
@@ -1093,7 +1022,7 @@
     {
       "owner": "gonsolo",
       "name": "Borg",
-      "stars": 27,
+      "stars": 28,
       "char_count": 13001,
       "score": 0,
       "last_commit_at": "2026-08-30T18:21:07Z",
@@ -1133,6 +1062,15 @@
       "char_count": 5345,
       "score": 0,
       "last_commit_at": "2025-11-07T12:24:03Z",
+      "matches": []
+    },
+    {
+      "owner": "HiepPP",
+      "name": "watchtower",
+      "stars": 3,
+      "char_count": 4369,
+      "score": 0,
+      "last_commit_at": "2026-06-25T11:01:25Z",
       "matches": []
     },
     {
@@ -1462,6 +1400,15 @@
       "char_count": 2041,
       "score": 0,
       "last_commit_at": "2026-06-20T17:00:19Z",
+      "matches": []
+    },
+    {
+      "owner": "Lshika-linux",
+      "name": "tuicc",
+      "stars": 13,
+      "char_count": 1064,
+      "score": 0,
+      "last_commit_at": "2026-08-15T11:15:19Z",
       "matches": []
     },
     {
@@ -1923,7 +1870,7 @@
     {
       "owner": "sandudorogan",
       "name": "tmux-pane-tree",
-      "stars": 58,
+      "stars": 59,
       "char_count": 7545,
       "score": 0,
       "last_commit_at": "2026-09-02T09:32:28Z",
@@ -2137,15 +2084,6 @@
       "matches": []
     },
     {
-      "owner": "usk6666",
-      "name": "yorishiro-proxy",
-      "stars": 16,
-      "char_count": 29927,
-      "score": 0,
-      "last_commit_at": "2026-07-19T09:43:08Z",
-      "matches": []
-    },
-    {
       "owner": "v1lling",
       "name": "desk.md",
       "stars": 8,
@@ -2193,7 +2131,7 @@
     {
       "owner": "vllm-project",
       "name": "agentic-api",
-      "stars": 264,
+      "stars": 267,
       "char_count": 61,
       "score": 0,
       "last_commit_at": "2026-03-24T13:31:31Z",
