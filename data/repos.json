@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-09-22T00:32:01.940Z",
+  "refreshed_at": "2026-09-22T05:46:59.106Z",
   "repos": [
     {
       "owner": "samuelcolvin",
@@ -432,40 +432,6 @@
       "semantic_content_hash": "9602d21ebca8e4af5d9765af0a413730fcdb2215c3d95565d41cd94631a2b9bd"
     },
     {
-      "owner": "alamops",
-      "name": "agetor",
-      "stars": 75,
-      "char_count": 195197,
-      "score": 0,
-      "last_commit_at": "2026-09-22T00:17:10Z",
-      "matches": [],
-      "semantic_score": 8,
-      "semantic_matched_intents": [
-        {
-          "quote": "Batch `update_knowledge` to your workdone entry until session end — update after each commit, each verified fix, each code-review pass.",
-          "reason": "Claude Code already marks tasks complete as soon as done and does not batch. This instruction tells it not to batch updates, which aligns with its default behavior for task completion.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Just landed a code-review fix commit → `update_knowledge` the workdone *now*, not at session end.",
-          "reason": "Claude Code already marks tasks complete as soon as done and does not batch. This instruction tells it to update knowledge immediately, which aligns with its default behavior.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "As the session progresses — after each meaningful sub-task, fix verified, decision made — call `update_knowledge` to extend the same entry.",
-          "reason": "Claude Code already marks tasks complete as soon as done and does not batch. This instruction tells it to update knowledge incrementally, which aligns with its default behavior.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Don't wait until session end — context compresses and details are lost.",
-          "reason": "Claude Code already marks tasks complete as soon as done and does not batch. This instruction tells it to capture knowledge incrementally, which aligns with its default behavior.",
-          "confidence": "medium"
-        }
-      ],
-      "semantic_refreshed_at": "2026-09-21T12:00:09.011Z",
-      "semantic_content_hash": "78bf5c57c5de1a48fc4c5ab29b2f9407bc27fa3bd1380e8feba2862b243aca3f"
-    },
-    {
       "owner": "alejandrofonsecacuza",
       "name": "Scope",
       "stars": 6,
@@ -844,6 +810,15 @@
       "matches": []
     },
     {
+      "owner": "Enovatr-Labs",
+      "name": "SpecRoute",
+      "stars": 3,
+      "char_count": 468,
+      "score": 0,
+      "last_commit_at": "2026-07-27T18:38:13Z",
+      "matches": []
+    },
+    {
       "owner": "ephes",
       "name": "fastdeploy",
       "stars": 4,
@@ -891,7 +866,7 @@
     {
       "owner": "firebase",
       "name": "FirebaseUI-Android",
-      "stars": 4806,
+      "stars": 4805,
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T12:54:34Z",
@@ -1258,15 +1233,6 @@
       "matches": []
     },
     {
-      "owner": "Krilliac",
-      "name": "SparkEngine",
-      "stars": 31,
-      "char_count": 23454,
-      "score": 0,
-      "last_commit_at": "2026-09-12T19:04:22Z",
-      "matches": []
-    },
-    {
       "owner": "kt3k",
       "name": "bulbo",
       "stars": 16,
@@ -1359,7 +1325,7 @@
     {
       "owner": "marcobambini",
       "name": "gravity",
-      "stars": 4568,
+      "stars": 4569,
       "char_count": 3722,
       "score": 0,
       "last_commit_at": "2026-08-05T15:22:11Z",
@@ -1377,7 +1343,7 @@
     {
       "owner": "msrbuilds",
       "name": "elementor-mcp",
-      "stars": 719,
+      "stars": 718,
       "char_count": 203,
       "score": 0,
       "last_commit_at": "2026-09-19T23:30:26Z",
@@ -1854,10 +1820,19 @@
     {
       "owner": "synthetic-sciences",
       "name": "openscience",
-      "stars": 3625,
+      "stars": 3626,
       "char_count": 9079,
       "score": 0,
       "last_commit_at": "2026-09-14T12:38:13Z",
+      "matches": []
+    },
+    {
+      "owner": "talkstream",
+      "name": "better-model",
+      "stars": 3,
+      "char_count": 6406,
+      "score": 0,
+      "last_commit_at": "2026-05-21T12:56:03Z",
       "matches": []
     },
     {
