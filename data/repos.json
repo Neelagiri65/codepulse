@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-09-25T12:33:34.977Z",
+  "refreshed_at": "2026-09-25T17:46:45.964Z",
   "repos": [
     {
       "owner": "samuelcolvin",
@@ -275,42 +275,6 @@
       ],
       "semantic_refreshed_at": "2026-09-25T11:05:48.690Z",
       "semantic_content_hash": "0ba7927ac4f26543548ec23fce83e0fed712ced853dd64a7136fb822466d4170"
-    },
-    {
-      "owner": "BeardedBear",
-      "name": "beardify",
-      "stars": 36,
-      "char_count": 12328,
-      "score": 1,
-      "last_commit_at": "2026-08-25T21:20:55Z",
-      "matches": [
-        "short-end-summary"
-      ],
-      "semantic_score": 6,
-      "semantic_matched_intents": [
-        {
-          "quote": "Do not commit secrets, credentials, or environment variables into the repository.",
-          "reason": "Claude Code already never commits secrets or broken code by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Keep changes small and focused; prefer creating a pull request rather than pushing large, sweeping changes directly.",
-          "reason": "Claude Code already decomposes non-trivial tasks and tracks progress by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Summary: imperative mood, concise (<=50 chars), no trailing period; full header line hard cap 72 chars",
-          "reason": "Claude Code already uses imperative-mood summary for commit messages by default.",
-          "confidence": "low"
-        },
-        {
-          "quote": "Body (optional): explain the \"what\" and \"why\" (not \"how\"); wrap lines at ~72 chars; leave one blank line between header and body",
-          "reason": "Claude Code already focuses commit messages on WHY not WHAT by default.",
-          "confidence": "low"
-        }
-      ],
-      "semantic_refreshed_at": "2026-09-25T11:06:09.527Z",
-      "semantic_content_hash": "f28168250fa1b74bff2cbe629fa61dbbeaf64b74dab42239f519ce46825ae8cd"
     },
     {
       "owner": "pktgen",
@@ -651,6 +615,15 @@
       "matches": []
     },
     {
+      "owner": "celeryhq",
+      "name": "simplified-mcp-server",
+      "stars": 3,
+      "char_count": 6559,
+      "score": 0,
+      "last_commit_at": "2026-06-12T13:55:33Z",
+      "matches": []
+    },
+    {
       "owner": "cenconq25",
       "name": "claude-code-app-studio",
       "stars": 41,
@@ -912,6 +885,15 @@
       "matches": []
     },
     {
+      "owner": "funiq-lab",
+      "name": "your-mind",
+      "stars": 11,
+      "char_count": 2806,
+      "score": 0,
+      "last_commit_at": "2025-12-26T06:57:39Z",
+      "matches": []
+    },
+    {
       "owner": "GabrielEValenzuela",
       "name": "CyberCba2077",
       "stars": 10,
@@ -1029,6 +1011,15 @@
       "matches": []
     },
     {
+      "owner": "HiepPP",
+      "name": "watchtower",
+      "stars": 3,
+      "char_count": 4369,
+      "score": 0,
+      "last_commit_at": "2026-06-25T11:01:25Z",
+      "matches": []
+    },
+    {
       "owner": "hoangtruong01",
       "name": "HorseTrack",
       "stars": 5,
@@ -1047,12 +1038,12 @@
       "matches": []
     },
     {
-      "owner": "hudcostreets",
-      "name": "ctbk.dev",
-      "stars": 17,
-      "char_count": 8257,
+      "owner": "hyldmo",
+      "name": "spotify-organizer",
+      "stars": 3,
+      "char_count": 5895,
       "score": 0,
-      "last_commit_at": "2026-08-30T15:50:32Z",
+      "last_commit_at": "2026-05-13T16:41:57Z",
       "matches": []
     },
     {
@@ -1366,15 +1357,6 @@
       "matches": []
     },
     {
-      "owner": "modery",
-      "name": "PowerDocu",
-      "stars": 648,
-      "char_count": 14757,
-      "score": 0,
-      "last_commit_at": "2026-04-05T07:21:34Z",
-      "matches": []
-    },
-    {
       "owner": "mqtt-viewer",
       "name": "mqtt-viewer",
       "stars": 125,
@@ -1422,7 +1404,7 @@
     {
       "owner": "NetraRuntime",
       "name": "sam3.c",
-      "stars": 21,
+      "stars": 22,
       "char_count": 11578,
       "score": 0,
       "last_commit_at": "2026-04-20T00:32:46Z",
@@ -1654,15 +1636,6 @@
       "matches": []
     },
     {
-      "owner": "rios0rios0",
-      "name": "dev-toolkit",
-      "stars": 5,
-      "char_count": 15246,
-      "score": 0,
-      "last_commit_at": "2026-09-07T23:57:52Z",
-      "matches": []
-    },
-    {
       "owner": "rockcutter",
       "name": "dotfiles",
       "stars": 3,
@@ -1791,7 +1764,7 @@
     {
       "owner": "six2dez",
       "name": "burp-ai-agent",
-      "stars": 1511,
+      "stars": 1512,
       "char_count": 3166,
       "score": 0,
       "last_commit_at": "2026-05-13T07:43:07Z",
@@ -2034,7 +2007,7 @@
     {
       "owner": "xxraincandyxx",
       "name": "Amadeus",
-      "stars": 109,
+      "stars": 110,
       "char_count": 3855,
       "score": 0,
       "last_commit_at": "2026-08-31T19:47:49Z",
