@@ -154,7 +154,17 @@
       "last_commit_at": "2026-09-28T16:33:40Z",
       "matches": [
         "keep-it-short"
-      ]
+      ],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "History favors short subjects (e.g., MVP WIP 1), so keep the first line imperative, ≤50 chars, and use additional lines for detail.",
+          "reason": "Claude Code already writes commit messages that are 1-2 sentences, imperative-mood summaries, focusing on WHY not WHAT. The instruction duplicates the imperative mood and the use of additional lines for detail.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-09-29T12:05:44.590Z",
+      "semantic_content_hash": "345a073b72f4caaa18b9935e2e39ce05a3dd3857de4721eb407f3377a0d72522"
     },
     {
       "owner": "pixelcave",
@@ -316,7 +326,11 @@
       "char_count": 8258,
       "score": 0,
       "last_commit_at": "2026-09-28T16:27:10Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:05:57.703Z",
+      "semantic_content_hash": "f26f8a6a1300b47a8c2da4ad826691381c2968d581f6ed7fd5c4e1a0b1e7d25d"
     },
     {
       "owner": "airwaylab-app",
@@ -383,7 +397,11 @@
       "char_count": 12449,
       "score": 0,
       "last_commit_at": "2026-02-09T05:04:35Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:06:06.786Z",
+      "semantic_content_hash": "b51d4cba542944e71c50e5335aa867c0d0bc33500ca1bc53583fe545d44b281d"
     },
     {
       "owner": "ardriveapp",
@@ -392,7 +410,11 @@
       "char_count": 13414,
       "score": 0,
       "last_commit_at": "2026-08-07T01:14:56Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:06:20.436Z",
+      "semantic_content_hash": "2624ec1fd5b1e4c6e4adfa1ddd8228451b715df5f78fb4dae6588bec517c6a2f"
     },
     {
       "owner": "axeII",
@@ -401,7 +423,11 @@
       "char_count": 937,
       "score": 0,
       "last_commit_at": "2026-08-30T17:48:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:06:26.444Z",
+      "semantic_content_hash": "bf20a8070cadbefc8f0da741e81eef004838b53fc01398edd90401d03fa992d8"
     },
     {
       "owner": "AYUSH-148",
@@ -410,7 +436,11 @@
       "char_count": 5013,
       "score": 0,
       "last_commit_at": "2026-09-28T19:32:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:06:30.531Z",
+      "semantic_content_hash": "ff196a7fb3a1c5d69c18db07f55bbcb6f30f4d3d0157ced05c75680765db19be"
     },
     {
       "owner": "badlogic",
@@ -419,7 +449,11 @@
       "char_count": 244,
       "score": 0,
       "last_commit_at": "2025-07-07T03:19:25Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:06:34.971Z",
+      "semantic_content_hash": "b2436d92771f75549f7214170e3a5eb69793acd973e64f9fb1123443d2cec899"
     },
     {
       "owner": "bandpassrecords",
@@ -428,7 +462,11 @@
       "char_count": 28785,
       "score": 0,
       "last_commit_at": "2026-09-27T17:55:06Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:07:06.462Z",
+      "semantic_content_hash": "cc4d65098f76b63c5254231167ad663e1b1171da5e420c929bc88031d804e9fd"
     },
     {
       "owner": "BNETDocs",
@@ -437,7 +475,11 @@
       "char_count": 4182,
       "score": 0,
       "last_commit_at": "2026-03-18T03:00:16Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:07:09.409Z",
+      "semantic_content_hash": "d78ca5788f99e198829f3782a581a77595ff483ebcf9651f40306baf8e3ea0cb"
     },
     {
       "owner": "brightbear2026",
@@ -446,7 +488,11 @@
       "char_count": 11629,
       "score": 0,
       "last_commit_at": "2026-04-24T14:53:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:07:28.456Z",
+      "semantic_content_hash": "df163848214e1f7ee1c6081d8bc175be24025e2d0ae2cc4b1e657285dd2ba48e"
     },
     {
       "owner": "broadinstitute",
@@ -455,7 +501,11 @@
       "char_count": 5554,
       "score": 0,
       "last_commit_at": "2026-02-20T14:42:43Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:07:37.969Z",
+      "semantic_content_hash": "aabfbab4cf3c5bbfde463cb3a4a859f5ca06ea41f757592d4aa8f4c0f1d2db23"
     },
     {
       "owner": "BrowserOperator",
@@ -464,7 +514,11 @@
       "char_count": 8049,
       "score": 0,
       "last_commit_at": "2026-01-14T04:35:53Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:07:54.184Z",
+      "semantic_content_hash": "7d4429b5fa9464bb5807e22cca4660ed8ba9d31b02332051dfdf71de216e10bc"
     },
     {
       "owner": "camptocamp",
@@ -482,7 +536,11 @@
       "char_count": 22467,
       "score": 0,
       "last_commit_at": "2026-05-16T06:13:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:08:26.205Z",
+      "semantic_content_hash": "ca1dc36ec6393431e8a9ab3221d08f5ef8b9282b2fd0882d7244427c1bbfed33"
     },
     {
       "owner": "cenconq25",
@@ -491,7 +549,11 @@
       "char_count": 3551,
       "score": 0,
       "last_commit_at": "2026-05-03T13:23:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:08:32.566Z",
+      "semantic_content_hash": "625a5059b03f5801a26afccbcb2866f09f01179361f5ef57401c61dbb01e2215"
     },
     {
       "owner": "cetera-labs",
@@ -518,7 +580,17 @@
       "char_count": 2529,
       "score": 0,
       "last_commit_at": "2026-08-20T01:17:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never paste logs, diffs, or file contents into chat — conclusion + file path only.",
+          "reason": "Claude Code already provides short, direct answers and avoids verbose summaries by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-09-29T12:09:02.713Z",
+      "semantic_content_hash": "64174bf45b4637a0be167a3b80a7dc73a2400aecff9003c3a73a389dbba0fcc3"
     },
     {
       "owner": "CodeCrow",
@@ -527,7 +599,11 @@
       "char_count": 5141,
       "score": 0,
       "last_commit_at": "2026-09-20T11:55:14Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:09:08.693Z",
+      "semantic_content_hash": "4393e66a7000e23ce1fc973e00ba98189266638efab1ee2a9c7ffb5cf33ac978"
     },
     {
       "owner": "coverallsapp",
@@ -536,7 +612,11 @@
       "char_count": 5122,
       "score": 0,
       "last_commit_at": "2026-08-14T23:57:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:09:13.811Z",
+      "semantic_content_hash": "69f9c678ee4e639b228d594a33a40800b6b81f5a65de8d658337d5c13fd9e755"
     },
     {
       "owner": "CruGlobal",
@@ -599,7 +679,11 @@
       "char_count": 14004,
       "score": 0,
       "last_commit_at": "2026-07-22T18:57:37Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-09-29T12:09:24.434Z",
+      "semantic_content_hash": "72ce27594c49cc0b64c238388c8d197d562a1faf8771413efa7f31200ecc7370"
     },
     {
       "owner": "egraphs-good",
