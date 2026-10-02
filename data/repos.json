@@ -135,7 +135,32 @@
       "last_commit_at": "2026-08-11T07:49:11Z",
       "matches": [
         "be-concise"
-      ]
+      ],
+      "semantic_score": 7,
+      "semantic_matched_intents": [
+        {
+          "quote": "You must only create documentation files if explicitly requested by the user.",
+          "reason": "Claude Code already does not write docs, README, or summary files unless explicitly asked by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Be concise in your explanations - focus on what's important rather than explaining obvious details.",
+          "reason": "Claude Code already provides short, direct answers and avoids explaining obvious details by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Prefer Boost tools over manual alternatives like shell commands or file reads.",
+          "reason": "Claude Code already prefers dedicated tools over Bash when applicable by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Only add inline comments for exceptionally complex logic.",
+          "reason": "Claude Code already only writes comments when the WHY is non-obvious by default.",
+          "confidence": "low"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-02T11:52:01.011Z",
+      "semantic_content_hash": "ac39b691e495bf1cf5432e101e10f501d7ab09c4b613b754e7ed6c93abf32532"
     },
     {
       "owner": "AlexeyInwerp",
@@ -360,7 +385,11 @@
       "char_count": 3551,
       "score": 0,
       "last_commit_at": "2026-05-03T13:23:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:53:37.734Z",
+      "semantic_content_hash": "625a5059b03f5801a26afccbcb2866f09f01179361f5ef57401c61dbb01e2215"
     },
     {
       "owner": "cetera-labs",
@@ -378,7 +407,11 @@
       "char_count": 13624,
       "score": 0,
       "last_commit_at": "2026-03-10T17:15:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:56:20.537Z",
+      "semantic_content_hash": "c44d4b2e8a9a35d6ed0db89a271cf6b23b761c19690302dcbce4fd22d3c91219"
     },
     {
       "owner": "coverallsapp",
@@ -400,7 +433,11 @@
       "char_count": 2571,
       "score": 0,
       "last_commit_at": "2026-01-24T13:27:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:56:26.835Z",
+      "semantic_content_hash": "a24157165e03589fd983336eb8f82a5b21b64c8083b0c7230ce911a36fe0066d"
     },
     {
       "owner": "digitalpetri",
@@ -409,7 +446,11 @@
       "char_count": 197,
       "score": 0,
       "last_commit_at": "2026-07-17T12:19:47Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:56:31.305Z",
+      "semantic_content_hash": "87381daa5b181bc7b68d7a7b0452176fa6cdff7d60067dabcb36f13c50ee9c16"
     },
     {
       "owner": "dilee",
@@ -418,7 +459,11 @@
       "char_count": 14004,
       "score": 0,
       "last_commit_at": "2026-07-22T18:57:37Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:56:38.267Z",
+      "semantic_content_hash": "72ce27594c49cc0b64c238388c8d197d562a1faf8771413efa7f31200ecc7370"
     },
     {
       "owner": "egraphs-good",
@@ -427,7 +472,17 @@
       "char_count": 1632,
       "score": 0,
       "last_commit_at": "2026-08-07T19:29:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Keep your documentation concise and avoid duplicate information.",
+          "reason": "Claude Code already avoids multi-paragraph docstrings/multi-line comment blocks and does not explain WHAT the code does by default, which implies conciseness and avoiding duplicate information.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-02T11:56:45.816Z",
+      "semantic_content_hash": "20e2f0456ae26ab46fc680d4946f0e9cb11cc903340b0cf8102c087fb7a0509e"
     },
     {
       "owner": "en-dash-consulting",
@@ -436,7 +491,17 @@
       "char_count": 2071,
       "score": 0,
       "last_commit_at": "2026-04-18T03:41:35Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "If a test fails, fix the root cause before committing — don't skip (`test.skip`) or ignore.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-02T11:56:51.390Z",
+      "semantic_content_hash": "98f7db949afe8ca5ef83b98486a34581eaa74b0c5cfac3b9c763026f84bbebf7"
     },
     {
       "owner": "Endle",
@@ -445,7 +510,11 @@
       "char_count": 9630,
       "score": 0,
       "last_commit_at": "2026-07-12T01:51:31Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:56:56.913Z",
+      "semantic_content_hash": "6143027377437ecafaa48b60a5b9e795f5800a0611d750d2d22d0cf690de8999"
     },
     {
       "owner": "FigmaAI",
@@ -454,7 +523,11 @@
       "char_count": 7128,
       "score": 0,
       "last_commit_at": "2026-01-04T16:34:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:57:09.122Z",
+      "semantic_content_hash": "5a6ece55a564f42fbb0cda17d4697fa03fb12a80a8318f04020d5099277afd4a"
     },
     {
       "owner": "firebase",
@@ -463,7 +536,11 @@
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T12:54:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:57:10.849Z",
+      "semantic_content_hash": "bee217fd389f53d01410a81f38b1faa71f1ea1e7ebd28078bb5d7de133b2dc27"
     },
     {
       "owner": "firebase",
@@ -472,7 +549,11 @@
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T11:27:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:57:12.649Z",
+      "semantic_content_hash": "bee217fd389f53d01410a81f38b1faa71f1ea1e7ebd28078bb5d7de133b2dc27"
     },
     {
       "owner": "geneontology",
@@ -481,7 +562,17 @@
       "char_count": 8557,
       "score": 0,
       "last_commit_at": "2026-08-05T23:53:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Keep comments sparse; explain *why* not *what*.",
+          "reason": "Claude Code already writes why-not-what comments by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-02T11:57:23.972Z",
+      "semantic_content_hash": "41435c3531f1547de33a620169aea3a1464bc5159f8bffc5a674990fb2e53c5b"
     },
     {
       "owner": "Gerstep",
@@ -779,7 +870,11 @@
       "char_count": 150,
       "score": 0,
       "last_commit_at": "2026-03-01T00:36:29Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:58:00.018Z",
+      "semantic_content_hash": "cb8571469aded214c5986b24d523a122d527dd9006fecf047f00ed97ea04eb4e"
     },
     {
       "owner": "oozoofrog",
@@ -788,7 +883,11 @@
       "char_count": 5915,
       "score": 0,
       "last_commit_at": "2026-03-31T10:26:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:58:13.326Z",
+      "semantic_content_hash": "ec076d48d24b3aaafcc841121cd07d85023e267d8102ffed676cfbdb5b029acb"
     },
     {
       "owner": "openshift",
@@ -806,7 +905,11 @@
       "char_count": 4260,
       "score": 0,
       "last_commit_at": "2026-06-04T18:22:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:59:37.195Z",
+      "semantic_content_hash": "97d60c6948d6125ba075904b1b7f36866bf88abcfb1a4fab79a6c5d57c85bc57"
     },
     {
       "owner": "PaulBratslavsky",
@@ -815,7 +918,11 @@
       "char_count": 3306,
       "score": 0,
       "last_commit_at": "2026-04-04T19:20:20Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-02T11:59:47.964Z",
+      "semantic_content_hash": "1b34fa5a26c8ad15dc31a04a9ba791914baccc314c579726529ec3df11cd0925"
     },
     {
       "owner": "PeonPing",
