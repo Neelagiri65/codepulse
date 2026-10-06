@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-10-06T15:41:59.439Z",
+  "refreshed_at": "2026-10-06T20:48:19.597Z",
   "repos": [
     {
       "owner": "samuelcolvin",
@@ -251,6 +251,17 @@
       "semantic_content_hash": "a532a9d2b0dd34f920f4140872700e425e5adfa749692c9b1e4117b28cab0935"
     },
     {
+      "owner": "ShowPilotFPP",
+      "name": "ShowPilot",
+      "stars": 13,
+      "char_count": 4844,
+      "score": 1,
+      "last_commit_at": "2026-10-06T20:12:52Z",
+      "matches": [
+        "short-end-summary"
+      ]
+    },
+    {
       "owner": "URML-MARS",
       "name": "URML",
       "stars": 29,
@@ -376,25 +387,6 @@
       "score": 0,
       "last_commit_at": "2026-03-20T22:48:36Z",
       "matches": []
-    },
-    {
-      "owner": "alfredoperez",
-      "name": "speckit-companion",
-      "stars": 96,
-      "char_count": 8760,
-      "score": 0,
-      "last_commit_at": "2026-10-05T10:41:58Z",
-      "matches": [],
-      "semantic_score": 1,
-      "semantic_matched_intents": [
-        {
-          "quote": "Comments: default none, one line max",
-          "reason": "Claude Code already writes comments only when the WHY is non-obvious and avoids multi-line comment blocks by default.",
-          "confidence": "low"
-        }
-      ],
-      "semantic_refreshed_at": "2026-10-05T13:32:10.615Z",
-      "semantic_content_hash": "ae422eb9e989be558be7a644e97d58449de0c87755e5c06ee60f963f795ae85b"
     },
     {
       "owner": "altasoft",
@@ -537,6 +529,15 @@
       "char_count": 5147,
       "score": 0,
       "last_commit_at": "2026-02-13T07:36:15Z",
+      "matches": []
+    },
+    {
+      "owner": "BentoBoxWorld",
+      "name": "Limits",
+      "stars": 8,
+      "char_count": 15800,
+      "score": 0,
+      "last_commit_at": "2026-09-25T20:43:40Z",
       "matches": []
     },
     {
@@ -806,15 +807,6 @@
       "matches": []
     },
     {
-      "owner": "doopeworld",
-      "name": "GRIMOIRE",
-      "stars": 11,
-      "char_count": 61213,
-      "score": 0,
-      "last_commit_at": "2026-10-06T08:37:26Z",
-      "matches": []
-    },
-    {
       "owner": "duckietown",
       "name": "dt-env-developer",
       "stars": 3,
@@ -826,7 +818,7 @@
     {
       "owner": "egraphs-good",
       "name": "egglog",
-      "stars": 854,
+      "stars": 853,
       "char_count": 1632,
       "score": 0,
       "last_commit_at": "2026-08-07T19:29:26Z",
@@ -898,7 +890,7 @@
     {
       "owner": "firebase",
       "name": "FirebaseUI-Android",
-      "stars": 4806,
+      "stars": 4804,
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T12:54:34Z",
@@ -1004,6 +996,15 @@
       "matches": []
     },
     {
+      "owner": "Grigoriym",
+      "name": "Wallosmobile",
+      "stars": 3,
+      "char_count": 63030,
+      "score": 0,
+      "last_commit_at": "2026-09-09T19:40:42Z",
+      "matches": []
+    },
+    {
       "owner": "h-mdm",
       "name": "hmdm-server",
       "stars": 554,
@@ -1097,7 +1098,7 @@
     {
       "owner": "Huxpro",
       "name": "vue-lynx",
-      "stars": 561,
+      "stars": 562,
       "char_count": 99,
       "score": 0,
       "last_commit_at": "2026-03-11T06:27:44Z",
@@ -1108,18 +1109,9 @@
       "semantic_content_hash": "4dc2a47ba1527b4537e0590726407aac5043a5073ce345dac27e846b5b16dc50"
     },
     {
-      "owner": "hyldmo",
-      "name": "spotify-organizer",
-      "stars": 3,
-      "char_count": 5895,
-      "score": 0,
-      "last_commit_at": "2026-05-13T16:41:57Z",
-      "matches": []
-    },
-    {
       "owner": "hypervel",
       "name": "components",
-      "stars": 33,
+      "stars": 32,
       "char_count": 97,
       "score": 0,
       "last_commit_at": "2026-06-20T10:22:28Z",
@@ -1364,15 +1356,6 @@
       "char_count": 41,
       "score": 0,
       "last_commit_at": "2026-03-30T00:12:27Z",
-      "matches": []
-    },
-    {
-      "owner": "lattifai",
-      "name": "captions",
-      "stars": 3,
-      "char_count": 9716,
-      "score": 0,
-      "last_commit_at": "2026-04-20T15:30:00Z",
       "matches": []
     },
     {
@@ -1790,6 +1773,15 @@
       "matches": []
     },
     {
+      "owner": "sebrandon1",
+      "name": "go-skylight",
+      "stars": 14,
+      "char_count": 13279,
+      "score": 0,
+      "last_commit_at": "2026-10-06T17:13:07Z",
+      "matches": []
+    },
+    {
       "owner": "securego",
       "name": "gosec",
       "stars": 8960,
@@ -1826,18 +1818,9 @@
       "matches": []
     },
     {
-      "owner": "short-pixel-optimizer",
-      "name": "shortpixel-image-optimiser",
-      "stars": 18,
-      "char_count": 4185,
-      "score": 0,
-      "last_commit_at": "2026-03-20T17:08:39Z",
-      "matches": []
-    },
-    {
       "owner": "six2dez",
       "name": "burp-ai-agent",
-      "stars": 1523,
+      "stars": 1524,
       "char_count": 3166,
       "score": 0,
       "last_commit_at": "2026-05-13T07:43:07Z",
@@ -1846,7 +1829,7 @@
     {
       "owner": "sixtysevenlf",
       "name": "dsh-blender-plugin",
-      "stars": 175,
+      "stars": 177,
       "char_count": 275,
       "score": 0,
       "last_commit_at": "2026-09-27T18:34:08Z",
@@ -1971,6 +1954,15 @@
       "char_count": 14734,
       "score": 0,
       "last_commit_at": "2026-08-18T09:22:48Z",
+      "matches": []
+    },
+    {
+      "owner": "txn2",
+      "name": "mcp-data-platform",
+      "stars": 9,
+      "char_count": 74180,
+      "score": 0,
+      "last_commit_at": "2026-10-06T16:49:54Z",
       "matches": []
     },
     {
