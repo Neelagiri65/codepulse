@@ -359,7 +359,17 @@
       "char_count": 26245,
       "score": 0,
       "last_commit_at": "2026-06-08T19:42:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Validate before reporting. Check the current codebase state before claiming something is missing. Glob + Grep first.",
+          "reason": "Claude Code already investigates unfamiliar state before deleting or overwriting by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-07T12:36:59.485Z",
+      "semantic_content_hash": "9602d21ebca8e4af5d9765af0a413730fcdb2215c3d95565d41cd94631a2b9bd"
     },
     {
       "owner": "alejandrofonsecacuza",
@@ -368,7 +378,11 @@
       "char_count": 4231,
       "score": 0,
       "last_commit_at": "2026-04-30T17:22:59Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:37:07.918Z",
+      "semantic_content_hash": "43ef446efa5c1008d8b92a1eda54d3587fe31350abf7190b81e08859d5986694"
     },
     {
       "owner": "alfred1994",
@@ -377,7 +391,22 @@
       "char_count": 2185,
       "score": 0,
       "last_commit_at": "2026-06-30T19:58:41Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 4,
+      "semantic_matched_intents": [
+        {
+          "quote": "Do not commit secrets, runtime databases, logs, private server details, or account snapshots.",
+          "reason": "Claude Code already never commits secrets by default.",
+          "confidence": "medium"
+        },
+        {
+          "quote": "Do not remove safety checks or redaction layers to make a test pass.",
+          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-07T12:37:17.176Z",
+      "semantic_content_hash": "3823997dbdecb81144420f24a106617012c1ae13af4f6bbb655fe82389f7d5cd"
     },
     {
       "owner": "Alfred768",
@@ -414,7 +443,11 @@
       "char_count": 21574,
       "score": 0,
       "last_commit_at": "2026-06-21T11:35:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:38:27.361Z",
+      "semantic_content_hash": "bdeef6711ae3221b4512162cd67122f9af8d354e753927247579db2caf18f7d0"
     },
     {
       "owner": "anchildress1",
@@ -423,7 +456,11 @@
       "char_count": 75,
       "score": 0,
       "last_commit_at": "2026-06-06T05:28:50Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:38:38.898Z",
+      "semantic_content_hash": "41db7a795e773f1f3064706b8bdd384b2487e4574209d08d394f7c82d8992367"
     },
     {
       "owner": "andrewevans0102",
@@ -441,7 +478,11 @@
       "char_count": 7525,
       "score": 0,
       "last_commit_at": "2026-06-14T15:33:32Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:40:07.009Z",
+      "semantic_content_hash": "41c927dde89a8636a00248ec988d840bed3470ba9eb465fd48bed69476fa1e8b"
     },
     {
       "owner": "antoniolg",
@@ -481,7 +522,11 @@
       "char_count": 65575,
       "score": 0,
       "last_commit_at": "2026-10-04T20:17:40Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:42:52.580Z",
+      "semantic_content_hash": "b935fd11ab912d3f8e87ce08311a4f5342e6fbb7fc683854ce97a6adbe1f0047"
     },
     {
       "owner": "axeII",
@@ -529,7 +574,11 @@
       "char_count": 5147,
       "score": 0,
       "last_commit_at": "2026-02-13T07:36:15Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:43:06.703Z",
+      "semantic_content_hash": "8fca60f1c2e4763f6d5edd247cad53546df7b9949b8bb3302dea37cc71aaa0b3"
     },
     {
       "owner": "BerryUIKI",
@@ -642,7 +691,11 @@
       "char_count": 3551,
       "score": 0,
       "last_commit_at": "2026-05-03T13:23:02Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:43:20.612Z",
+      "semantic_content_hash": "625a5059b03f5801a26afccbcb2866f09f01179361f5ef57401c61dbb01e2215"
     },
     {
       "owner": "cephalopod-ai",
@@ -651,7 +704,11 @@
       "char_count": 689,
       "score": 0,
       "last_commit_at": "2026-08-12T14:57:45Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:43:37.082Z",
+      "semantic_content_hash": "a98940751f6d541c023eebde0009aa94c6b9705f76add4bfee87b35f26dad888"
     },
     {
       "owner": "ckotzbauer",
@@ -660,7 +717,11 @@
       "char_count": 13624,
       "score": 0,
       "last_commit_at": "2026-03-10T17:15:27Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:43:48.005Z",
+      "semantic_content_hash": "c44d4b2e8a9a35d6ed0db89a271cf6b23b761c19690302dcbce4fd22d3c91219"
     },
     {
       "owner": "ClawVoice",
@@ -678,7 +739,11 @@
       "char_count": 695,
       "score": 0,
       "last_commit_at": "2025-09-30T14:15:30Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:45:58.054Z",
+      "semantic_content_hash": "c939b86e875d08a42571860f22f9bea6ccad4f81245c221378cbcd7a3ada0d63"
     },
     {
       "owner": "CodeCrow",
@@ -687,7 +752,11 @@
       "char_count": 5141,
       "score": 0,
       "last_commit_at": "2026-09-20T11:55:14Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:46:05.222Z",
+      "semantic_content_hash": "4393e66a7000e23ce1fc973e00ba98189266638efab1ee2a9c7ffb5cf33ac978"
     },
     {
       "owner": "companionintelligence",
@@ -696,7 +765,17 @@
       "char_count": 1991,
       "score": 0,
       "last_commit_at": "2026-06-11T09:06:21Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Never use git reset --hard, git clean -f, or any destructive git command without explicit confirmation from the user.",
+          "reason": "Claude Code already asks before destructive operations (including git reset --hard) by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-07T12:46:37.261Z",
+      "semantic_content_hash": "0d76cb34c6340246e39c295838918e66853cde334eaf2c35878b864008d40534"
     },
     {
       "owner": "coverallsapp",
@@ -705,7 +784,11 @@
       "char_count": 5122,
       "score": 0,
       "last_commit_at": "2026-08-14T23:57:01Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-07T12:46:42.269Z",
+      "semantic_content_hash": "69f9c678ee4e639b228d594a33a40800b6b81f5a65de8d658337d5c13fd9e755"
     },
     {
       "owner": "CruGlobal",
