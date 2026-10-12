@@ -47,7 +47,11 @@
       "char_count": 197,
       "score": 0,
       "last_commit_at": "",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-12T14:20:31.174Z",
+      "semantic_content_hash": "87381daa5b181bc7b68d7a7b0452176fa6cdff7d60067dabcb36f13c50ee9c16"
     },
     {
       "owner": "egraphs-good",
@@ -56,7 +60,17 @@
       "char_count": 1632,
       "score": 0,
       "last_commit_at": "2026-08-07T19:29:26Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 2,
+      "semantic_matched_intents": [
+        {
+          "quote": "Keep your documentation concise and avoid duplicate information.",
+          "reason": "Claude Code already writes concise comments and avoids explaining what is obvious from the code by default.",
+          "confidence": "medium"
+        }
+      ],
+      "semantic_refreshed_at": "2026-10-12T14:20:36.283Z",
+      "semantic_content_hash": "20e2f0456ae26ab46fc680d4946f0e9cb11cc903340b0cf8102c087fb7a0509e"
     },
     {
       "owner": "firebase",
@@ -65,7 +79,11 @@
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T12:54:34Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-12T14:20:37.893Z",
+      "semantic_content_hash": "bee217fd389f53d01410a81f38b1faa71f1ea1e7ebd28078bb5d7de133b2dc27"
     },
     {
       "owner": "firebase",
@@ -74,7 +92,11 @@
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T11:27:09Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-12T14:20:39.355Z",
+      "semantic_content_hash": "bee217fd389f53d01410a81f38b1faa71f1ea1e7ebd28078bb5d7de133b2dc27"
     },
     {
       "owner": "Gerstep",
@@ -83,7 +105,11 @@
       "char_count": 1030,
       "score": 0,
       "last_commit_at": "2026-02-16T20:06:19Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-12T14:20:42.777Z",
+      "semantic_content_hash": "10867d656d67cf59c464d84b870dedd802acbf10dc97a0bfa8dd649b35c99cce"
     },
     {
       "owner": "getredash",
@@ -92,7 +118,11 @@
       "char_count": 6601,
       "score": 0,
       "last_commit_at": "2026-08-25T21:17:13Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-12T14:20:53.757Z",
+      "semantic_content_hash": "968099874625b78b66859566ed8b5e56f409818e239c3c68babb1fb32ac8aa36"
     },
     {
       "owner": "h-mdm",
@@ -245,7 +275,11 @@
       "char_count": 275,
       "score": 0,
       "last_commit_at": "2026-09-27T18:34:08Z",
-      "matches": []
+      "matches": [],
+      "semantic_score": 0,
+      "semantic_matched_intents": [],
+      "semantic_refreshed_at": "2026-10-12T14:21:04.755Z",
+      "semantic_content_hash": "aedc6ad50a7a770a2b625d8b8e36b6ab117ffa26576d1768e608faec4a54b9e0"
     },
     {
       "owner": "SSSYoung",
