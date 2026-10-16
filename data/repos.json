@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-10-16T17:12:54.629Z",
+  "refreshed_at": "2026-10-16T20:25:42.474Z",
   "repos": [
     {
       "owner": "samuelcolvin",
@@ -188,6 +188,17 @@
       ],
       "semantic_refreshed_at": "2026-10-15T10:49:19.661Z",
       "semantic_content_hash": "62280ea236e955a903811a5e6b6452385674f2bb90f15403503fcc04837a29f0"
+    },
+    {
+      "owner": "no-phux",
+      "name": "phux",
+      "stars": 8,
+      "char_count": 5679,
+      "score": 2,
+      "last_commit_at": "2026-10-16T18:06:59Z",
+      "matches": [
+        "no-emojis"
+      ]
     },
     {
       "owner": "pixelcave",
@@ -408,28 +419,13 @@
       "semantic_content_hash": "9602d21ebca8e4af5d9765af0a413730fcdb2215c3d95565d41cd94631a2b9bd"
     },
     {
-      "owner": "alfred1994",
-      "name": "alpha-pilot",
-      "stars": 34,
-      "char_count": 2185,
+      "owner": "alejandrofonsecacuza",
+      "name": "Scope",
+      "stars": 6,
+      "char_count": 4231,
       "score": 0,
-      "last_commit_at": "2026-06-30T19:58:41Z",
-      "matches": [],
-      "semantic_score": 4,
-      "semantic_matched_intents": [
-        {
-          "quote": "Do not commit secrets, runtime databases, logs, private server details, or account snapshots.",
-          "reason": "Claude Code already never commits secrets by default.",
-          "confidence": "medium"
-        },
-        {
-          "quote": "Do not remove safety checks or redaction layers to make a test pass.",
-          "reason": "Claude Code already identifies root causes rather than bypassing safety checks by default.",
-          "confidence": "medium"
-        }
-      ],
-      "semantic_refreshed_at": "2026-10-16T10:41:08.486Z",
-      "semantic_content_hash": "3823997dbdecb81144420f24a106617012c1ae13af4f6bbb655fe82389f7d5cd"
+      "last_commit_at": "2026-04-30T17:22:59Z",
+      "matches": []
     },
     {
       "owner": "Alfred768",
@@ -443,6 +439,15 @@
       "semantic_matched_intents": [],
       "semantic_refreshed_at": "2026-10-16T10:41:15.509Z",
       "semantic_content_hash": "2041836afaa729bfd06fd42921ea3d5bd3d2de1d99d842f63ed5cf8e613f51b8"
+    },
+    {
+      "owner": "altasoft",
+      "name": "DomainPrimitives",
+      "stars": 64,
+      "char_count": 3731,
+      "score": 0,
+      "last_commit_at": "2026-08-19T10:52:04Z",
+      "matches": []
     },
     {
       "owner": "amvlab",
@@ -642,21 +647,21 @@
       "semantic_content_hash": "7d4429b5fa9464bb5807e22cca4660ed8ba9d31b02332051dfdf71de216e10bc"
     },
     {
+      "owner": "caesarakalaeii",
+      "name": "all-chat",
+      "stars": 16,
+      "char_count": 21502,
+      "score": 0,
+      "last_commit_at": "2026-10-16T18:55:21Z",
+      "matches": []
+    },
+    {
       "owner": "CaoYuhaoCarl",
       "name": "seedx",
       "stars": 18,
       "char_count": 22467,
       "score": 0,
       "last_commit_at": "2026-05-16T06:13:01Z",
-      "matches": []
-    },
-    {
-      "owner": "cdot65",
-      "name": "prisma-airs-cursor-hooks",
-      "stars": 3,
-      "char_count": 8744,
-      "score": 0,
-      "last_commit_at": "2026-07-08T09:17:13Z",
       "matches": []
     },
     {
@@ -671,32 +676,6 @@
       "semantic_matched_intents": [],
       "semantic_refreshed_at": "2026-10-15T10:51:27.517Z",
       "semantic_content_hash": "625a5059b03f5801a26afccbcb2866f09f01179361f5ef57401c61dbb01e2215"
-    },
-    {
-      "owner": "cephalopod-ai",
-      "name": "cuttlefish",
-      "stars": 3,
-      "char_count": 689,
-      "score": 0,
-      "last_commit_at": "2026-08-12T14:57:45Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-10-16T10:41:52.750Z",
-      "semantic_content_hash": "a98940751f6d541c023eebde0009aa94c6b9705f76add4bfee87b35f26dad888"
-    },
-    {
-      "owner": "cequence-io",
-      "name": "openai-scala-client",
-      "stars": 255,
-      "char_count": 130253,
-      "score": 0,
-      "last_commit_at": "2026-10-12T17:48:29Z",
-      "matches": [],
-      "semantic_score": 0,
-      "semantic_matched_intents": [],
-      "semantic_refreshed_at": "2026-10-16T10:42:23.675Z",
-      "semantic_content_hash": "ed4a0c59d4b8eccd87ae42c32d6f14fc4b5ae3cf055876e5ef2aa712dea63816"
     },
     {
       "owner": "chartist-js",
@@ -821,15 +800,6 @@
       "matches": []
     },
     {
-      "owner": "developerz-ai",
-      "name": "claude-and-conquer",
-      "stars": 3,
-      "char_count": 3132,
-      "score": 0,
-      "last_commit_at": "2026-07-21T12:03:51Z",
-      "matches": []
-    },
-    {
       "owner": "digitalpetri",
       "name": "opc-ua-demo-server",
       "stars": 116,
@@ -937,9 +907,18 @@
       "semantic_content_hash": "7b86371f4a0776d70ea911443c70472492dcaa181bf02343c6825f45ab9b412d"
     },
     {
+      "owner": "fengfaan",
+      "name": "interview",
+      "stars": 6,
+      "char_count": 6363,
+      "score": 0,
+      "last_commit_at": "2026-05-08T09:23:49Z",
+      "matches": []
+    },
+    {
       "owner": "firebase",
       "name": "FirebaseUI-Android",
-      "stars": 4803,
+      "stars": 4802,
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T12:54:34Z",
@@ -948,7 +927,7 @@
     {
       "owner": "firebase",
       "name": "FirebaseUI-iOS",
-      "stars": 1591,
+      "stars": 1590,
       "char_count": 66,
       "score": 0,
       "last_commit_at": "2026-08-26T11:27:09Z",
@@ -1045,15 +1024,6 @@
       "matches": []
     },
     {
-      "owner": "Grigoriym",
-      "name": "Wallosmobile",
-      "stars": 3,
-      "char_count": 63030,
-      "score": 0,
-      "last_commit_at": "2026-09-09T19:40:42Z",
-      "matches": []
-    },
-    {
       "owner": "h-mdm",
       "name": "hmdm-server",
       "stars": 557,
@@ -1135,6 +1105,15 @@
       "matches": []
     },
     {
+      "owner": "hypervel",
+      "name": "components",
+      "stars": 32,
+      "char_count": 97,
+      "score": 0,
+      "last_commit_at": "2026-06-20T10:22:28Z",
+      "matches": []
+    },
+    {
       "owner": "ichiroc",
       "name": "chatgpt2scratch",
       "stars": 18,
@@ -1150,6 +1129,15 @@
       "char_count": 98,
       "score": 0,
       "last_commit_at": "2026-04-28T22:21:52Z",
+      "matches": []
+    },
+    {
+      "owner": "imjasonh",
+      "name": "git-k8s",
+      "stars": 4,
+      "char_count": 7824,
+      "score": 0,
+      "last_commit_at": "2026-02-28T14:09:58Z",
       "matches": []
     },
     {
@@ -1240,15 +1228,6 @@
       "char_count": 12723,
       "score": 0,
       "last_commit_at": "2026-08-22T09:49:59Z",
-      "matches": []
-    },
-    {
-      "owner": "Joint-Photon-Sciences-Institute",
-      "name": "xraylarch-mcp",
-      "stars": 3,
-      "char_count": 15778,
-      "score": 0,
-      "last_commit_at": "2026-02-27T12:31:00Z",
       "matches": []
     },
     {
@@ -1348,15 +1327,6 @@
       "char_count": 13828,
       "score": 0,
       "last_commit_at": "2026-10-13T17:48:30Z",
-      "matches": []
-    },
-    {
-      "owner": "LDZ061224",
-      "name": "2026_Crazy_Circuit_Example",
-      "stars": 3,
-      "char_count": 6096,
-      "score": 0,
-      "last_commit_at": "2026-07-02T06:22:15Z",
       "matches": []
     },
     {
@@ -1585,15 +1555,6 @@
       "matches": []
     },
     {
-      "owner": "P0ND4",
-      "name": "cnnp",
-      "stars": 3,
-      "char_count": 2656,
-      "score": 0,
-      "last_commit_at": "2026-05-29T18:32:15Z",
-      "matches": []
-    },
-    {
       "owner": "PandaTechAM",
       "name": "be-lib-masstransit-outbox",
       "stars": 7,
@@ -1819,6 +1780,15 @@
       "matches": []
     },
     {
+      "owner": "seethroughlab",
+      "name": "familiar",
+      "stars": 39,
+      "char_count": 45287,
+      "score": 0,
+      "last_commit_at": "2026-10-05T12:10:11Z",
+      "matches": []
+    },
+    {
       "owner": "semos-labs",
       "name": "attyx",
       "stars": 244,
@@ -1839,7 +1809,7 @@
     {
       "owner": "sixtysevenlf",
       "name": "dsh-blender-plugin",
-      "stars": 341,
+      "stars": 345,
       "char_count": 275,
       "score": 0,
       "last_commit_at": "2026-09-27T18:34:08Z",
@@ -2050,6 +2020,15 @@
       "char_count": 61,
       "score": 0,
       "last_commit_at": "2026-03-24T13:31:31Z",
+      "matches": []
+    },
+    {
+      "owner": "WorkTeam01",
+      "name": "Sistema_de_Ventas_PHP",
+      "stars": 6,
+      "char_count": 4194,
+      "score": 0,
+      "last_commit_at": "2026-10-13T15:26:37Z",
       "matches": []
     },
     {
